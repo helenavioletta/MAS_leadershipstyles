@@ -1,0 +1,19 @@
+# Core
+anthropic
+python-dotenv
+
+# Data & Visualization
+pandas
+matplotlib
+seaborn
+numpy
+scikit-learn
+
+# Jupyter
+ipykernel
+
+# Logging & Config
+pyyaml
+
+# Sentiment Analysis (for post-experiment log analysis)
+textblob
