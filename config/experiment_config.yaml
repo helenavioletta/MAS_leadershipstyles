@@ -1,0 +1,51 @@
+# ============================================================
+# Experiment Configuration — MAS Leadership Experiment
+# ============================================================
+# This file is the single source of truth for all experiment parameters.
+# The experiment runner reads this file and passes values to all modules.
+# ============================================================
+
+# --- MODELS ---
+# CHECK PRICING: https://docs.anthropic.com/en/docs/about-claude/models
+# Replace TBD with exact model IDs before running any experiments.
+# The code will FAIL if these are still set to TBD.
+
+models:
+  boss: "TBD"       # e.g. "claude-sonnet-4-20250514" — smart model for nuanced leadership behavior
+  worker: "TBD"     # e.g. "claude-3-5-haiku-20241022" — cheap model, workers make the most API calls
+
+# --- SAMPLING ---
+temperature: 0.7       # Fixed across all runs. 0.7 = natural variation while maintaining coherence.
+max_tokens_per_response: 1024  # Max tokens for a single LLM response
+
+# --- EXPERIMENT DESIGN ---
+repetitions: 3         # How many times each condition is repeated (3-5 recommended)
+max_revision_rounds: 2 # Max revision rounds in Phase 6 before forcing delivery
+
+# --- LEADERSHIP STYLES ---
+# 7 conditions: 6 Goleman styles + 1 baseline
+styles:
+  - coercive
+  - authoritative
+  - affiliative
+  - democratic
+  - pacesetting
+  - coaching
+  - baseline
+
+# --- TASKS ---
+# Only "short" and "long" are used in experiments.
+# "test" is for smoke testing the pipeline (not included in batch runs).
+experiment_tasks:
+  - short    # "Quick Insights Report"
+  - long     # "Full EDA"
+
+# --- TOKEN BUDGETS (safety nets, TBD after smoke testing) ---
+# These prevent runaway API costs. Set exact values after running smoke tests.
+token_budgets:
+  per_agent_per_run: null    # total tokens one agent can use in a run
+  per_phase: null            # total tokens allowed in a single phase
+  per_run: null              # hard ceiling for entire experiment run
+
+# --- DATASET ---
+dataset_path: "data/global_weather.csv"
