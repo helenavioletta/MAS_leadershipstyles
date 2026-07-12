@@ -42,7 +42,7 @@ class APIClient:
             agent="Coder",
             system_prompt="You are a data scientist...",
             messages=[{"role": "user", "content": "Load the CSV and print shape."}],
-            model="claude-haiku-4-xx",
+            model=WORKER_MODEL,
             max_tokens=1024,
         )
         print(response["content"])       # the LLM's text response
@@ -110,11 +110,6 @@ class APIClient:
         Returns:
             Dict with keys: content, input_tokens, output_tokens, model, stop_reason
         """
-        if "TBD" in model:
-            raise ValueError(
-                f"Model is still TBD: '{model}'. "
-                "Check Anthropic pricing page and set the exact model ID in experiment_config.yaml."
-            )
 
         response = self._call_with_retry(
             system_prompt=system_prompt,

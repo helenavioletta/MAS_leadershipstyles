@@ -35,8 +35,8 @@ class ExperimentLogger:
             run_id=1,
             boss_system_prompt="You are a team lead...",
             task_wording="Produce 3 visualizations...",
-            boss_model="claude-sonnet-4-20250514",
-            worker_model="claude-haiku-4-20250514",
+            boss_model=BOSS_MODEL,
+            worker_model=WORKER_MODEL,
             temperature=0.7,
         )
 
@@ -61,8 +61,8 @@ class ExperimentLogger:
         run_id: int,
         boss_system_prompt: str,
         task_wording: str,
-        boss_model: str = "TBD",
-        worker_model: str = "TBD",
+        boss_model: str,
+        worker_model: str,
         temperature: float = 0.7,
         max_revision_rounds: int = 2,
         results_base_dir: Optional[Union[str, Path]] = None,

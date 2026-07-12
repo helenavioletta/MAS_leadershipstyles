@@ -7,12 +7,10 @@
 
 # --- MODELS ---
 # CHECK PRICING: https://docs.anthropic.com/en/docs/about-claude/models
-# Replace TBD with exact model IDs before running any experiments.
-# The code will FAIL if these are still set to TBD.
 
 models:
-  boss: "TBD"       # e.g. "claude-sonnet-4-20250514" — smart model for nuanced leadership behavior
-  worker: "TBD"     # e.g. "claude-3-5-haiku-20241022" — cheap model, workers make the most API calls
+  boss: "claude-sonnet-5"                # smart model for nuanced leadership behavior
+  worker: "claude-haiku-4-5-20251001"    # cheap model, workers make the most API calls
 
 # --- SAMPLING ---
 temperature: 0.7       # Fixed across all runs. 0.7 = natural variation while maintaining coherence.
