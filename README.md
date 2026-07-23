@@ -40,7 +40,7 @@ MAS/
 │   ├── writer.md                    # Writer system prompt
 │   ├── reviewer.md                  # Reviewer system prompt
 │   ├── control_agent.md             # Post-run evaluation prompt
-│   └── hr_agent.md                  # Post-run worker survey prompt
+│   └── satisfaction_survey.md        # Post-run satisfaction survey questions
 │
 ├── src/
 │   ├── orchestrator.py              # 7-phase workflow, turn management
@@ -54,9 +54,9 @@ MAS/
 │   │   ├── writer.py                # Writer: narrative + saves report draft (Haiku)
 │   │   └── reviewer.py              # Reviewer: quality gate on outputs + text (Haiku)
 │   ├── evaluation/
-│   │   ├── control_agent.py         # Scores deliverables (accuracy, cohesion, adherence)
-│   │   ├── hr_agent.py              # Post-run worker satisfaction survey
-│   │   └── sentiment.py             # Sentiment analysis on message logs
+│   │   ├── control_agent.py         # LLM-as-judge: quality scores + trap detection
+│   │   ├── satisfaction_survey.py    # Post-run satisfaction survey workflow
+│   │   └── sentiment.py             # VADER sentiment: per-message scores + aggregates
 │   └── utils/
 │       ├── api_client.py            # Anthropic SDK wrapper, retries, token logging
 │       └── logger.py                # Run folder setup, metadata.json
@@ -108,9 +108,59 @@ results/{style}_{task}_run{N}/
 ├── api_calls.jsonl             # Every LLM call with tokens
 ├── code_executions.jsonl       # Every code execution with stdout/stderr
 ├── shared_state_final.json     # Final snapshot of shared state
+├── evaluation.json             # Control Agent scores + trap detection verdicts
+├── survey_results.json         # Satisfaction survey scores per worker
+├── sentiment.json              # Per-message sentiment scores + aggregates
 ├── metadata.json               # Run parameters and summary stats
 └── outputs/                    # Charts, data files produced by Coder
 ```
+
+## Running Experiments
+
+### Smoke test (validate pipeline without spending tokens on evaluation)
+
+```bash
+python experiments/run_experiments.py --smoke --style baseline
+python experiments/run_experiments.py --smoke --style coercive
+```
+
+Force evaluation on a smoke test:
+```bash
+python experiments/run_experiments.py --smoke --style baseline --eval
+```
+
+### Single experiment run
+
+```bash
+python experiments/run_experiments.py --style coercive --task short --run 1
+python experiments/run_experiments.py --style democratic --task long --run 2
+```
+
+Skip evaluation (useful for debugging):
+```bash
+python experiments/run_experiments.py --style coercive --task short --run 1 --skip-eval
+```
+
+### Full batch (7 styles × 2 tasks × 3 reps = 42 runs)
+
+```bash
+python experiments/run_all.py
+```
+
+- Skips already-completed runs (resume support)
+- Retries failed runs once before continuing
+- Prints summary table at the end
+
+### CLI flags reference
+
+| Flag | Effect |
+|------|--------|
+| `--style X` | Required. One of: baseline, coercive, authoritative, affiliative, democratic, pacesetting, coaching |
+| `--task X` | Required for experiments: `short` or `long`. Auto-set by `--smoke` |
+| `--run N` | Repetition number (default: 1) |
+| `--smoke` | Uses test_task.md, skips evaluation by default |
+| `--skip-eval` | Skip post-experiment evaluation on any run |
+| `--eval` | Force evaluation even on smoke test |
 
 ## Models
 

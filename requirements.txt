@@ -18,4 +18,4 @@ ipykernel
 pyyaml
 
 # Sentiment Analysis (for post-experiment log analysis)
-textblob
+vaderSentiment
