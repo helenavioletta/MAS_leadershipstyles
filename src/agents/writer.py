@@ -38,7 +38,6 @@ class WriterAgent(BaseAgent):
         message_bus: MessageBus,
         shared_state: SharedState,
         max_tokens: int = 4096,
-        temperature: float = 0.7,
     ):
         """
         Initialize the Writer agent.
@@ -49,7 +48,6 @@ class WriterAgent(BaseAgent):
             message_bus: Shared MessageBus.
             shared_state: Shared state object.
             max_tokens: Max tokens per LLM response.
-            temperature: Sampling temperature.
         """
         system_prompt = load_prompt("writer.md")
 
@@ -61,7 +59,6 @@ class WriterAgent(BaseAgent):
             message_bus=message_bus,
             shared_state=shared_state,
             max_tokens=max_tokens,
-            temperature=temperature,
         )
 
     def respond(self, phase: int, instruction: Optional[str] = None) -> str:

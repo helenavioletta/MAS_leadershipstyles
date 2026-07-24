@@ -110,7 +110,6 @@ def run_single(
     # Models and parameters from config
     boss_model = config["models"]["boss"]
     worker_model = config["models"]["worker"]
-    temperature = config["temperature"]
     max_tokens_per_response = config["max_tokens_per_response"]
     max_revision_rounds = config["max_revision_rounds"]
 
@@ -128,7 +127,6 @@ def run_single(
         task_wording=task_text,
         boss_model=boss_model,
         worker_model=worker_model,
-        temperature=temperature,
         max_revision_rounds=max_revision_rounds,
     )
     run_dir = exp_logger.run_dir
@@ -157,7 +155,6 @@ def run_single(
         message_bus=message_bus,
         shared_state=shared_state,
         max_tokens=max_tokens_per_response,
-        temperature=temperature,
     )
 
     coder = CoderAgent(
@@ -167,7 +164,6 @@ def run_single(
         shared_state=shared_state,
         sandbox=sandbox,
         max_tokens=max_tokens_per_response,
-        temperature=temperature,
     )
 
     writer = WriterAgent(
@@ -176,7 +172,6 @@ def run_single(
         message_bus=message_bus,
         shared_state=shared_state,
         max_tokens=max_tokens_per_response,
-        temperature=temperature,
     )
 
     reviewer = ReviewerAgent(
@@ -185,7 +180,6 @@ def run_single(
         message_bus=message_bus,
         shared_state=shared_state,
         max_tokens=max_tokens_per_response,
-        temperature=temperature,
     )
 
     # ── Run the orchestrator ──
@@ -217,7 +211,6 @@ def run_single(
                 output_dir=run_dir,
                 api_client=api_client,
                 model=boss_model,
-                temperature=0.3,
             )
 
         # 2. Satisfaction Survey
@@ -233,7 +226,6 @@ def run_single(
             api_client=api_client,
             output_dir=run_dir,
             model=worker_model,
-            temperature=temperature,
         )
 
         # 3. Sentiment Analysis (no LLM calls — just VADER)

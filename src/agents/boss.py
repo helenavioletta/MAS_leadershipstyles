@@ -41,7 +41,6 @@ class BossAgent(BaseAgent):
         message_bus: MessageBus,
         shared_state: SharedState,
         max_tokens: int = 1024,
-        temperature: float = 0.7,
     ):
         """
         Initialize the Boss agent.
@@ -54,7 +53,6 @@ class BossAgent(BaseAgent):
             message_bus: Shared MessageBus.
             shared_state: Shared state object.
             max_tokens: Max tokens per response.
-            temperature: Sampling temperature.
         """
         base_role = load_prompt("boss/1_base_role.md")
         style_prompt = load_prompt(f"boss/{style}.md")
@@ -70,5 +68,4 @@ class BossAgent(BaseAgent):
             message_bus=message_bus,
             shared_state=shared_state,
             max_tokens=max_tokens,
-            temperature=temperature,
         )

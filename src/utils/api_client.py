@@ -91,7 +91,6 @@ class APIClient:
         messages: list[dict[str, str]],
         model: str,
         max_tokens: int = 1024,
-        temperature: float = 0.7,
     ) -> dict[str, Any]:
         """
         Make a single API call to the Anthropic Messages API.
@@ -105,7 +104,6 @@ class APIClient:
             messages: The conversation messages list [{"role": "user"/"assistant", "content": "..."}].
             model: Anthropic model identifier.
             max_tokens: Maximum tokens for the response.
-            temperature: Sampling temperature.
 
         Returns:
             Dict with keys: content, input_tokens, output_tokens, model, stop_reason
@@ -116,11 +114,13 @@ class APIClient:
             messages=messages,
             model=model,
             max_tokens=max_tokens,
-            temperature=temperature,
         )
 
-        # Extract response data
-        content = response.content[0].text
+        # Extract response data (skip ThinkingBlocks from extended-thinking models)
+        content = next(
+            block.text for block in response.content
+            if getattr(block, "type", None) == "text"
+        )
         input_tokens = response.usage.input_tokens
         output_tokens = response.usage.output_tokens
         stop_reason = response.stop_reason
@@ -139,7 +139,6 @@ class APIClient:
             input_tokens=input_tokens,
             output_tokens=output_tokens,
             model=model,
-            temperature=temperature,
             max_tokens=max_tokens,
             stop_reason=stop_reason,
         )
@@ -163,7 +162,6 @@ class APIClient:
         messages: list[dict[str, str]],
         model: str,
         max_tokens: int,
-        temperature: float,
     ) -> Any:
         """Call the Anthropic API with exponential backoff on retryable errors."""
         last_error = None
@@ -173,7 +171,6 @@ class APIClient:
                 response = self._client.messages.create(
                     model=model,
                     max_tokens=max_tokens,
-                    temperature=temperature,
                     system=system_prompt,
                     messages=messages,
                 )
@@ -205,7 +202,6 @@ class APIClient:
         input_tokens: int,
         output_tokens: int,
         model: str,
-        temperature: float,
         max_tokens: int,
         stop_reason: str,
     ) -> None:
@@ -218,7 +214,6 @@ class APIClient:
             "seq": self._seq_counter,
             "agent": agent,
             "model": model,
-            "temperature": temperature,
             "max_tokens": max_tokens,
             "system_prompt": system_prompt,
             "messages_sent": messages,

@@ -183,7 +183,6 @@ def evaluate_run(
     output_dir: Union[str, Path],
     api_client: APIClient,
     model: str,
-    temperature: float = 0.3,
     max_tokens: int = 2048,
 ) -> dict[str, Any]:
     """
@@ -198,7 +197,6 @@ def evaluate_run(
                     (e.g., results/coercive_short_run01/).
         api_client: Shared API client for LLM calls.
         model: Model identifier for the judge (recommend Sonnet for accuracy).
-        temperature: Low temperature for consistent evaluation (default 0.3).
         max_tokens: Max tokens for evaluation response.
 
     Returns:
@@ -247,7 +245,6 @@ def evaluate_run(
         messages=[{"role": "user", "content": context}],
         model=model,
         max_tokens=max_tokens,
-        temperature=temperature,
     )
 
     raw_response = response["content"]

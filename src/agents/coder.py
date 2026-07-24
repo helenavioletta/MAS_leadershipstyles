@@ -54,7 +54,6 @@ class CoderAgent(BaseAgent):
         shared_state: SharedState,
         sandbox: Sandbox,
         max_tokens: int = 4096,
-        temperature: float = 0.7,
         max_retries: int = 3,
     ):
         """
@@ -67,7 +66,6 @@ class CoderAgent(BaseAgent):
             shared_state: Shared state object.
             sandbox: Sandbox instance for code execution.
             max_tokens: Max tokens per LLM response.
-            temperature: Sampling temperature.
             max_retries: Max attempts to fix code errors before giving up.
         """
         system_prompt = load_prompt("coder.md")
@@ -80,7 +78,6 @@ class CoderAgent(BaseAgent):
             message_bus=message_bus,
             shared_state=shared_state,
             max_tokens=max_tokens,
-            temperature=temperature,
         )
 
         self.sandbox = sandbox
@@ -135,7 +132,6 @@ class CoderAgent(BaseAgent):
                 messages=messages,
                 model=self.model,
                 max_tokens=self.max_tokens,
-                temperature=self.temperature,
             )
 
             content = response["content"]
@@ -255,7 +251,6 @@ class CoderAgent(BaseAgent):
             messages=messages,
             model=self.model,
             max_tokens=self.max_tokens,
-            temperature=self.temperature,
         )
 
         content = response["content"]

@@ -37,7 +37,6 @@ class ExperimentLogger:
             task_wording="Produce 3 visualizations...",
             boss_model=BOSS_MODEL,
             worker_model=WORKER_MODEL,
-            temperature=0.7,
         )
 
         # Pass logger.run_dir to MessageBus and APIClient
@@ -63,7 +62,6 @@ class ExperimentLogger:
         task_wording: str,
         boss_model: str,
         worker_model: str,
-        temperature: float = 0.7,
         max_revision_rounds: int = 2,
         results_base_dir: Optional[Union[str, Path]] = None,
     ):
@@ -78,7 +76,6 @@ class ExperimentLogger:
             task_wording: The exact task text sent to agents.
             boss_model: Model used for Boss.
             worker_model: Model used for workers.
-            temperature: Sampling temperature used for all calls.
             max_revision_rounds: Max revision rounds allowed.
             results_base_dir: Override for the base results directory.
         """
@@ -89,7 +86,6 @@ class ExperimentLogger:
         self.task_wording = task_wording
         self.boss_model = boss_model
         self.worker_model = worker_model
-        self.temperature = temperature
         self.max_revision_rounds = max_revision_rounds
 
         self._start_time = datetime.now(timezone.utc)

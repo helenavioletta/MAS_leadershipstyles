@@ -69,7 +69,6 @@ class BaseAgent:
         message_bus: MessageBus,
         shared_state: SharedState,
         max_tokens: int = 1024,
-        temperature: float = 0.7,
     ):
         """
         Initialize the base agent.
@@ -82,7 +81,6 @@ class BaseAgent:
             message_bus: Shared MessageBus for reading/posting messages.
             shared_state: Shared state object for context injection.
             max_tokens: Max tokens per LLM response (per single call).
-            temperature: Sampling temperature for LLM calls.
         """
         self.name = name
         self.system_prompt = system_prompt
@@ -91,7 +89,6 @@ class BaseAgent:
         self.message_bus = message_bus
         self.shared_state = shared_state
         self.max_tokens = max_tokens
-        self.temperature = temperature
 
         # Per-agent token tracking
         self._input_tokens: int = 0
@@ -126,7 +123,6 @@ class BaseAgent:
             messages=messages,
             model=self.model,
             max_tokens=self.max_tokens,
-            temperature=self.temperature,
         )
 
         content = response["content"]

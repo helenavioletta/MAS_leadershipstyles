@@ -41,7 +41,6 @@ class ReviewerAgent(BaseAgent):
         message_bus: MessageBus,
         shared_state: SharedState,
         max_tokens: int = 1024,
-        temperature: float = 0.7,
     ):
         """
         Initialize the Reviewer agent.
@@ -52,7 +51,6 @@ class ReviewerAgent(BaseAgent):
             message_bus: Shared MessageBus.
             shared_state: Shared state object.
             max_tokens: Max tokens per LLM response.
-            temperature: Sampling temperature.
         """
         system_prompt = load_prompt("reviewer.md")
 
@@ -64,5 +62,4 @@ class ReviewerAgent(BaseAgent):
             message_bus=message_bus,
             shared_state=shared_state,
             max_tokens=max_tokens,
-            temperature=temperature,
         )

@@ -62,7 +62,6 @@ def administer_survey(
     api_client: APIClient,
     output_dir: Union[str, Path],
     model: str,
-    temperature: float = 0.7,
     max_tokens: int = 256,
 ) -> dict[str, Any]:
     """
@@ -81,7 +80,6 @@ def administer_survey(
         api_client: Shared API client for making LLM calls.
         output_dir: Path to save survey_results.json.
         model: Anthropic model identifier for worker responses.
-        temperature: Sampling temperature for worker LLM calls.
         max_tokens: Max tokens for survey response (should be small — just JSON).
 
     Returns:
@@ -108,7 +106,6 @@ def administer_survey(
             message_bus=message_bus,
             api_client=api_client,
             model=model,
-            temperature=temperature,
             max_tokens=max_tokens,
         )
 
@@ -143,7 +140,6 @@ def _survey_single_worker(
     message_bus: MessageBus,
     api_client: APIClient,
     model: str,
-    temperature: float,
     max_tokens: int,
 ) -> dict[str, Any]:
     """
@@ -190,7 +186,6 @@ def _survey_single_worker(
         messages=messages,
         model=model,
         max_tokens=max_tokens,
-        temperature=temperature,
     )
 
     raw_response = response["content"]
