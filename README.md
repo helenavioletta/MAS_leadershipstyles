@@ -20,7 +20,7 @@ ANTHROPIC_API_KEY=your_key_here
 ```
 MAS/
 ├── config/
-│   ├── experiment_config.yaml      # Models, temperature, styles, token budgets
+│   ├── experiment_config.yaml      # Models, styles, token budgets
 │   └── tasks/
 │       ├── test_task.md             # Smoke test (1 chart, 1 sentence)
 │       ├── short_task.md            # Short task (4 charts + 200-word summary)
@@ -59,7 +59,8 @@ MAS/
 │   │   └── sentiment.py             # VADER sentiment: per-message scores + aggregates
 │   └── utils/
 │       ├── api_client.py            # Anthropic SDK wrapper, retries, token logging
-│       └── logger.py                # Run folder setup, metadata.json
+│       ├── logger.py                # Run folder setup, metadata.json
+│       └── transcript_generator.py   # Converts messages.jsonl into transcript.md for human readability
 │
 ├── experiments/
 │   ├── run_experiments.py           # Run a single experiment
@@ -126,7 +127,7 @@ python experiments/run_experiments.py --smoke --style coercive
 
 Force evaluation on a smoke test:
 ```bash
-python experiments/run_experiments.py --smoke --style baseline --eval
+python experiments/run_experiments.py --smoke --style coercive --eval
 ```
 
 ### Single experiment run

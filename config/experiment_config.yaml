@@ -13,7 +13,6 @@ models:
   worker: "claude-haiku-4-5-20251001"    # cheap model, workers make the most API calls
 
 # --- SAMPLING ---
-temperature: 0.7       # Fixed across all runs. 0.7 = natural variation while maintaining coherence.
 max_tokens_per_response: 1024  # Max tokens for a single LLM response
 
 # --- EXPERIMENT DESIGN ---

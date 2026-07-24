@@ -113,6 +113,24 @@ def run_single(
     max_tokens_per_response = config["max_tokens_per_response"]
     max_revision_rounds = config["max_revision_rounds"]
 
+    # Check if run already completed successfully
+    folder_name = f"{style}_{task_type}_run{run_id:02d}"
+    run_dir_check = PROJECT_ROOT / "results" / folder_name
+    if (run_dir_check / "metadata.json").exists():
+        logging.info(f"Skipping run {folder_name}: already complete (metadata.json exists).")
+        return {
+            "success": True,
+            "skipped": True,
+            "run_dir": str(run_dir_check),
+            "style": style,
+            "task_type": task_type,
+            "run_id": run_id,
+            "duration_seconds": 0,
+            "total_tokens": 0,
+            "revision_rounds": 0,
+            "token_usage_by_agent": {},
+        }
+
     # Build the Boss system prompt (for metadata logging)
     base_role = load_prompt("boss/1_base_role.md")
     style_prompt = load_prompt(f"boss/{style_prompt_name}.md")
@@ -197,8 +215,9 @@ def run_single(
     summary = orchestrator.run()
     logging.info(f"Orchestrator finished in {summary['duration_seconds']:.1f}s")
 
-    # ── Save shared state snapshot ──
+    # ── Save shared state snapshot & Markdown transcript ──
     shared_state.save_snapshot()
+    message_bus.save_transcript()
 
     # ── Post-experiment evaluation ──
     if not skip_eval:

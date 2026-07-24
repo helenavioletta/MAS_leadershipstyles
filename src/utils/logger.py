@@ -96,6 +96,13 @@ class ExperimentLogger:
         self.run_dir = base / folder_name
         self.run_dir.mkdir(parents=True, exist_ok=True)
 
+        # If metadata.json does not exist, clean up any stale log files from an incomplete/failed run
+        if not (self.run_dir / "metadata.json").exists():
+            for filename in ["messages.jsonl", "api_calls.jsonl", "code_executions.jsonl"]:
+                stale_file = self.run_dir / filename
+                if stale_file.exists():
+                    stale_file.unlink()
+
         # Create outputs subfolder for charts and reports
         self.outputs_dir = self.run_dir / "outputs"
         self.outputs_dir.mkdir(exist_ok=True)
@@ -136,7 +143,6 @@ class ExperimentLogger:
             "task_wording": self.task_wording,
             "boss_model": self.boss_model,
             "worker_model": self.worker_model,
-            "temperature": self.temperature,
             "max_revision_rounds": self.max_revision_rounds,
             "run_id": self.run_id,
             "total_tokens": total_tokens,

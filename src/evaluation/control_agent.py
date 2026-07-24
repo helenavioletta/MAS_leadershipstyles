@@ -8,7 +8,7 @@ participates in the experiment — it runs after completion.
 Two evaluation axes:
 A. Trap Detection — Did the team catch known data quality issues?
    (outliers, sentinel values, duplicate country names, trivial features)
-B. Quality Scoring — How good is the deliverable? (1–5 on four dimensions)
+B. Quality Scoring — How good is the deliverable? (1-5 on four dimensions)
 
 The LLM judge receives:
 - Task specification (what was asked)

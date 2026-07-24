@@ -10,6 +10,7 @@ The Coder is the only agent that uses this module.
 
 import json
 import os
+import sys
 import subprocess
 import tempfile
 from datetime import datetime, timezone
@@ -111,7 +112,7 @@ class Sandbox:
 
         try:
             proc = subprocess.run(
-                ["python3", tmp_path],
+                [sys.executable, tmp_path],
                 capture_output=True,
                 text=True,
                 timeout=self.timeout,
@@ -170,10 +171,14 @@ class Sandbox:
         return result
 
     def _list_files(self, directory: Path) -> list[str]:
-        """List all files in a directory (non-recursive, relative names)."""
+        """List all files in a directory (recursive, relative names)."""
         if not directory.exists():
             return []
-        return [f.name for f in directory.iterdir() if f.is_file()]
+        return [
+            str(p.relative_to(directory))
+            for p in directory.rglob("*")
+            if p.is_file()
+        ]
 
     def _build_env(self) -> dict[str, str]:
         """Build environment variables for the subprocess."""

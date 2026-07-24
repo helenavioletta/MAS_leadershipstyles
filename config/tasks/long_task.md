@@ -9,3 +9,4 @@
 >    - Actual vs. predicted scatter plot for the linear model
 >    - One additional visualization of your choice that supports a key finding
 > 4. Write a **600-word analytical report** comparing the models: explain why they differ in performance, which features matter most, and recommend which model to deploy
+> Note: In code and chart labels, use ASCII 'deg C' or 'Celsius' (do not use the degree symbol ° to avoid encoding errors).

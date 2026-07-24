@@ -196,6 +196,50 @@ class MessageBus:
                 counts[m.phase] = counts.get(m.phase, 0) + 1
         return counts
 
+    def save_transcript(self, output_path: Optional[Union[str, Path]] = None) -> Path:
+        """
+        Save a human-readable Markdown transcript (transcript.md) of the conversation.
+
+        Args:
+            output_path: Target file path. Defaults to output_dir / "transcript.md".
+
+        Returns:
+            Path to the saved transcript.md file.
+        """
+        path = Path(output_path) if output_path else self.output_dir / "transcript.md"
+
+        agent_icons = {
+            "Boss": "👑",
+            "Coder": "💻",
+            "Writer": "✍️",
+            "Reviewer": "🧐",
+            "system": "⚙️",
+        }
+
+        lines = [
+            f"# Conversation Transcript — {self.output_dir.name}\n",
+            f"**Total Messages**: {len(self._messages)} | **Log File**: `messages.jsonl`\n",
+            "---\n",
+        ]
+
+        current_phase = None
+
+        for msg in self._messages:
+            if msg.phase != current_phase:
+                current_phase = msg.phase
+                lines.append(f"\n## Phase {current_phase}\n")
+
+            icon = agent_icons.get(msg.sender, "💬")
+            recipient_str = f" → {msg.recipient}" if msg.recipient != "channel" else ""
+
+            lines.append(f"### {icon} {msg.sender}{recipient_str}")
+            lines.append(f"*Phase {msg.phase} | Sequence #{msg.seq} | {msg.timestamp}*\n")
+            lines.append(f"{msg.content}\n")
+            lines.append("---\n")
+
+        path.write_text("\n".join(lines), encoding="utf-8")
+        return path
+
     def _persist(self, message: Message) -> None:
         """Append a message to messages.jsonl."""
         with open(self.log_path, "a", encoding="utf-8") as f:
