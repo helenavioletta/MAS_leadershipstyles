@@ -183,7 +183,7 @@ def evaluate_run(
     output_dir: Union[str, Path],
     api_client: APIClient,
     model: str,
-    max_tokens: int = 2048,
+    max_tokens: int = 4096,
 ) -> dict[str, Any]:
     """
     Evaluate a completed experiment run using LLM-as-judge.
@@ -518,6 +518,7 @@ def _try_json_extract(text: str) -> Optional[dict]:
     Attempt 1: Direct JSON parse
     Attempt 2: Extract from markdown code block
     Attempt 3: Find outermost { ... } braces and parse
+    Attempt 4: Repair truncated JSON (from max_tokens cutoff)
     """
     # Attempt 1: Direct parse
     try:
@@ -558,10 +559,94 @@ def _try_json_extract(text: str) -> Optional[dict]:
                     pass
                 start = None
 
+    # Attempt 4: Repair truncated JSON (max_tokens cutoff)
+    # Find the first '{' and try to close all open structures
+    repaired = _try_repair_truncated_json(text)
+    if repaired is not None:
+        log.warning(
+            "Control Agent: recovered evaluation from truncated JSON "
+            "(response was likely cut off by max_tokens limit)"
+        )
+        return repaired
+
     log.warning(
         f"Control Agent: could not extract JSON from response: "
         f"{text[:200]}"
     )
+    return None
+
+
+def _try_repair_truncated_json(text: str) -> Optional[dict]:
+    """
+    Attempt to repair JSON that was truncated by a max_tokens cutoff.
+
+    Strategy:
+    - Find the first '{' in the text
+    - Close any open string (add '"')
+    - Close all open braces/brackets by appending '}' or ']'
+    - Try to parse the result
+
+    This is intentionally conservative — we only repair truncation at the
+    end of the text, not arbitrary corruption in the middle.
+    """
+    # Find start of JSON
+    first_brace = text.find("{")
+    if first_brace == -1:
+        return None
+
+    fragment = text[first_brace:]
+
+    # Track state: are we inside a string?
+    in_string = False
+    escape_next = False
+    open_stack = []  # stack of '{' and '['
+
+    for char in fragment:
+        if escape_next:
+            escape_next = False
+            continue
+
+        if char == "\\" and in_string:
+            escape_next = True
+            continue
+
+        if char == '"' and not escape_next:
+            in_string = not in_string
+            continue
+
+        if in_string:
+            continue
+
+        if char == "{":
+            open_stack.append("}")
+        elif char == "[":
+            open_stack.append("]")
+        elif char in ("}", "]"):
+            if open_stack and open_stack[-1] == char:
+                open_stack.pop()
+
+    if not open_stack:
+        # Nothing to repair — braces are balanced (shouldn't reach here)
+        return None
+
+    # Build repair suffix
+    repair = ""
+    if in_string:
+        repair += '"'  # close the open string
+
+    # Close all open structures
+    for closer in reversed(open_stack):
+        repair += closer
+
+    repaired_text = fragment + repair
+
+    try:
+        data = json.loads(repaired_text)
+        if isinstance(data, dict):
+            return data
+    except (json.JSONDecodeError, ValueError):
+        pass
+
     return None
 
 

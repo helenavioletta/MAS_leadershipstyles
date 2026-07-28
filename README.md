@@ -133,8 +133,8 @@ python experiments/run_experiments.py --smoke --style coercive --eval
 ### Single experiment run
 
 ```bash
-python experiments/run_experiments.py --style coercive --task short --run 1
-python experiments/run_experiments.py --style democratic --task long --run 2
+python experiments/run_experiments.py --style democratic --task short --run 1
+python experiments/run_experiments.py --style coercive --task long --run 2
 ```
 
 Skip evaluation (useful for debugging):

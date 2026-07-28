@@ -8,11 +8,11 @@ __pycache__/
 # macOS
 .DS_Store
 
-# Results (large, auto-generated per run)
-results/
+# Results (now tracked for thesis hand-in)
+# results/
 
-# Data (downloaded separately)
-data/global_weather.csv
+# Data (now tracked for thesis hand-in)
+# data/global_weather.csv
 
 # Jupyter
 .ipynb_checkpoints/
