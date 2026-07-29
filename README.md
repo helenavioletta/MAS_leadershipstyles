@@ -96,8 +96,8 @@ Each experiment run executes a 7-phase sequential workflow:
 
 - **7 leadership styles** (6 Goleman + 1 baseline)
 - **2 task types** (short, long)
-- **3 repetitions** per condition
-- **Total: 7 × 2 × 3 = 42 runs**
+- **5 repetitions** per condition
+- **Total: 7 × 2 × 5 = 70 runs**
 
 ## Run Outputs
 
@@ -142,7 +142,7 @@ Skip evaluation (useful for debugging):
 python experiments/run_experiments.py --style coercive --task short --run 1 --skip-eval
 ```
 
-### Full batch (7 styles × 2 tasks × 3 reps = 42 runs)
+### Full batch (7 styles × 2 tasks × 5 reps = 70 runs)
 
 ```bash
 python experiments/run_all.py

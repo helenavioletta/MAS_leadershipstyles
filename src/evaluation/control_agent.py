@@ -2,7 +2,7 @@
 Control Agent: Post-experiment evaluation workflow (LLM-as-judge).
 
 Evaluates the team's final deliverable by sending it to an LLM with
-a fixed rubric and task-specific ground truth. NOT an agent that
+a fixed rubric and task-specific reference values. NOT an agent that
 participates in the experiment — it runs after completion.
 
 Two evaluation axes:
@@ -14,12 +14,18 @@ The LLM judge receives:
 - Task specification (what was asked)
 - All code executed + stdout (from code_executions.jsonl)
 - Report/summary text (from shared_state_final.json)
-- Ground truth reference values (from notebooks/01_*)
+- Reference values from our notebook (NOT ground truth — one valid approach)
 - List of traps to check (task-specific)
+
+IMPORTANT: The reference notebook is NOT definitive ground truth. It shows
+one valid way to solve the task. The MAS may solve it differently and still
+be correct. The control agent should primarily evaluate whether the output
+makes sense on its own merits, using the reference for context (e.g., to
+detect red flags like suspiciously high R² from trivial features).
 
 Output: evaluation.json in the run's output directory.
 
-Ground truth baselines established in:
+Reference baselines established in:
 - notebooks/01_explore_dataset.ipynb (data quality issues, outliers, duplicates)
 - notebooks/01_long_task_ground_truth.ipynb (correct vs. cheating R² values)
 
@@ -46,7 +52,9 @@ MAX_CODE_CHARS = 15_000
 MAX_STDOUT_CHARS = 5_000
 
 # ─────────────────────────────────────────────
-# Ground Truth & Traps (per task type)
+# Reference Values & Traps (per task type)
+# NOTE: These are reference values from our notebook, NOT absolute ground truth.
+# The MAS can produce different (but valid) results and still score well.
 # ─────────────────────────────────────────────
 
 SHORT_TASK_TRAPS = {
@@ -82,16 +90,22 @@ SHORT_TASK_TRAPS = {
 }
 
 SHORT_TASK_GROUND_TRUTH = (
-    "## Ground Truth Reference — Short Task\n\n"
+    "## Reference Notebook Values — Short Task\n\n"
+    "**NOTE: This is NOT absolute ground truth.** These values come from one valid "
+    "reference solution. The team may have used different (but correct) approaches "
+    "and produced different results. Evaluate whether their output is internally "
+    "consistent and methodologically sound, not whether it exactly matches these numbers.\n\n"
     "Task: Produce 4 bar charts (top 10 hottest cities by avg and by max, "
     "top 10 hottest countries by avg and by max) + 200-word summary.\n\n"
-    "Key facts:\n"
+    "Key facts from reference notebook:\n"
     "- The dataset has 150,465 rows and 268 unique locations across 211 country names.\n"
     "- The 79.3°C reading for Suva (Fiji) is a data error — it should NOT appear in any ranking.\n"
     "- There are ~17 sets of duplicate country names in different languages (e.g., India/Inde).\n"
     "- If duplicates are not merged, country-level aggregations will be incorrect.\n"
-    "- Some cities have very few observations; rankings by single max value can be misleading.\n"
-    "- Expected deliverables: exactly 4 bar charts + 1 summary (~200 words).\n"
+    "- Some cities have very few observations; rankings by single max value can be misleading.\n\n"
+    "Expected deliverables: exactly 4 bar charts + 1 summary (~200 words).\n\n"
+    "The team may handle data issues differently (e.g., filter outliers vs. cap them, "
+    "merge duplicates vs. pick one variant) — any reasonable approach is acceptable.\n"
 )
 
 LONG_TASK_TRAPS = {
@@ -143,26 +157,34 @@ LONG_TASK_TRAPS = {
 }
 
 LONG_TASK_GROUND_TRUTH = (
-    "## Ground Truth Reference — Long Task\n\n"
+    "## Reference Notebook Values — Long Task\n\n"
+    "**NOTE: This is NOT absolute ground truth.** These values come from one valid "
+    "reference solution. The team may have used different models, different feature "
+    "engineering, or different hyperparameters and still produced excellent work. "
+    "Evaluate whether their approach is methodologically sound and internally "
+    "consistent, not whether it exactly matches these numbers.\n\n"
     "Task: Build two predictive models for temperature_celsius (one tree-based, "
     "one linear), produce 4 visualizations, and write a 600-word analytical report.\n\n"
-    "Correct approach reference values (from ground truth notebook):\n"
-    "- Random Forest R² ≈ 0.93, MAE ≈ 1.66°C\n"
-    "- Ridge Regression R² ≈ 0.52, MAE ≈ 5.15°C\n"
+    "Reference values from our notebook (one valid approach):\n"
+    "- Random Forest R² ≈ 0.93, MAE ≈ 1.66°C (reasonable range: R² 0.85–0.95)\n"
+    "- Ridge Regression R² ≈ 0.52, MAE ≈ 5.15°C (reasonable range: R² 0.40–0.65)\n"
     "- Sensible feature count: ~17 features (excluding trivial correlations and "
     "duplicate units)\n"
-    "- Top features by importance: latitude, uv_index, pressure_mb, humidity, "
-    "longitude\n\n"
-    "RED FLAGS:\n"
-    "- R² > 0.99 for either model → trivially correlated features were included "
-    "(temperature_fahrenheit, feels_like_*)\n"
+    "- Top features by importance in reference: latitude, uv_index, pressure_mb, "
+    "humidity, longitude (team may find different top features depending on their "
+    "feature engineering — this is fine)\n\n"
+    "RED FLAGS (these indicate likely methodological errors regardless of approach):\n"
+    "- R² > 0.99 for either model → trivially correlated features were almost "
+    "certainly included (temperature_fahrenheit, feels_like_*)\n"
     "- Both models with near-identical high R² → same issue\n"
-    "- R² ≈ 0.93 for Ridge/Linear → suspicious, linear model should be ~0.52 "
-    "with proper features\n\n"
-    "Expected deliverables: exactly 4 visualizations + 1 report (~600 words).\n"
+    "- R² ≈ 0.93 for Ridge/Linear → suspicious, a linear model should not match "
+    "a tree-based model this closely with proper features\n\n"
+    "Expected deliverables: exactly 4 visualizations + 1 report (~600 words).\n\n"
+    "The team may use different tree models (XGBoost, GradientBoosting, etc.) or "
+    "different linear models (Lasso, ElasticNet, etc.) — any reasonable choice is valid.\n"
 )
 
-# Map task_type to traps and ground truth
+# Map task_type to traps and reference values
 TASK_CONFIG = {
     "short": {
         "traps": SHORT_TASK_TRAPS,
@@ -189,7 +211,7 @@ def evaluate_run(
     Evaluate a completed experiment run using LLM-as-judge.
 
     Loads the run's outputs (shared state, code executions), sends them
-    to an LLM with the evaluation rubric and task-specific ground truth,
+    to an LLM with the evaluation rubric and task-specific reference values,
     and parses the structured evaluation response.
 
     Args:
@@ -222,7 +244,7 @@ def evaluate_run(
         )
         config = {
             "traps": {},
-            "ground_truth": "No ground truth available for this task type.\n",
+            "ground_truth": "No reference values available for this task type.\n",
         }
 
     # Build the evaluation context
@@ -312,10 +334,10 @@ def _build_evaluation_context(
     traps: dict[str, dict],
 ) -> str:
     """
-    Build the user message containing all deliverables + ground truth.
+    Build the user message containing all deliverables + reference values.
 
     Assembles the full context that the LLM judge will evaluate:
-    task spec, code, stdout, report, files, ground truth, and traps.
+    task spec, code, stdout, report, files, reference values, and traps.
     """
     sections = []
 
@@ -389,7 +411,7 @@ def _build_evaluation_context(
                 files_section += f"  Data: {summary}\n"
         sections.append(files_section)
 
-    # 5. Ground truth reference
+    # 5. Reference values (NOT ground truth — one valid approach)
     sections.append(ground_truth)
 
     # 6. Traps to check

@@ -1,7 +1,7 @@
 """
 Batch runner: Execute all experiment conditions as subprocesses.
 
-Runs 7 styles × 2 tasks × 3 repetitions = 42 experiments.
+Runs 7 styles × 2 tasks × 5 repetitions = 70 experiments.
 Smoke test (test task) is NEVER included — use run_experiments.py --smoke for that.
 
 Usage:

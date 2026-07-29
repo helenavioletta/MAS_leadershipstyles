@@ -30,7 +30,7 @@
 > > and produce 1 histogram of `temperature_celsius`. 
 > > Write 1 sentence describing the distribution shape.
 
-**Boss Model:** `claude-sonnet-5` | **Worker Model:** `claude-haiku-4-5-20251001` | **Temperature:** 0.7 | **Max Revision Rounds:** 2
+**Boss Model:** `claude-sonnet-5` | **Worker Model:** `claude-haiku-4-5-20251001` | **Max Revision Rounds:** 2
 
 <details><summary><strong>Boss System Prompt</strong> (click to expand)</summary>
 

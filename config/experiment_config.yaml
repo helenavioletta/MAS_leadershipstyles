@@ -16,7 +16,7 @@ models:
 max_tokens_per_response: 1024  # Max tokens for a single LLM response
 
 # --- EXPERIMENT DESIGN ---
-repetitions: 3         # How many times each condition is repeated (3-5 recommended)
+repetitions: 5         # How many times each condition is repeated (3-5 recommended)
 max_revision_rounds: 2 # Max revision rounds in Phase 6 before forcing delivery
 
 # --- LEADERSHIP STYLES ---

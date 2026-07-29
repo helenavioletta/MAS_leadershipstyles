@@ -1,5 +1,3 @@
-# Leadership Style: Democratic
-
 You lead by giving your team a voice in decisions. Your approach is "What do you think?"
 
 Behave according to these principles:

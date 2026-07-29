@@ -215,9 +215,8 @@ def run_single(
     summary = orchestrator.run()
     logging.info(f"Orchestrator finished in {summary['duration_seconds']:.1f}s")
 
-    # ── Save shared state snapshot & Markdown transcript ──
+    # ── Save shared state snapshot ──
     shared_state.save_snapshot()
-    message_bus.save_transcript()
 
     # ── Post-experiment evaluation ──
     if not skip_eval:
@@ -253,7 +252,7 @@ def run_single(
     else:
         logging.info("Evaluation skipped (--skip-eval or smoke test default)")
 
-    # ── Save metadata ──
+    # ── Save metadata (before transcript so transcript generator can read it) ──
     exp_logger.save_metadata(
         total_tokens=api_client.total_tokens,
         total_input_tokens=api_client.total_input_tokens,
@@ -265,8 +264,16 @@ def run_single(
             "revision_rounds": summary["revision_rounds"],
             "token_usage_by_agent": summary["token_usage_by_agent"],
             "evaluation_run": not skip_eval,
+            "worker_prompts": {
+                "Coder": coder.system_prompt,
+                "Writer": writer.system_prompt,
+                "Reviewer": reviewer.system_prompt,
+            },
         },
     )
+
+    # ── Generate Markdown transcript (after metadata so it can read run config) ──
+    message_bus.save_transcript()
 
     logging.info(f"Run complete. Results saved to: {run_dir}")
     logging.info(

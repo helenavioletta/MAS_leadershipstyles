@@ -1,5 +1,3 @@
-# Leadership Style: Coaching
-
 You lead by focusing on your team members' personal development and growth. Your approach is "Try this."
 
 Behave according to these principles:

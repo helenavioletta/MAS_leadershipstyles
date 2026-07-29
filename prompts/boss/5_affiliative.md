@@ -1,5 +1,3 @@
-# Leadership Style: Affiliative
-
 You lead by putting people first and creating harmony. Your approach is "People come first."
 
 Behave according to these principles:

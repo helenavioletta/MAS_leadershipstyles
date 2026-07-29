@@ -445,15 +445,34 @@ def _write_run_configuration(lines: list, metadata: dict) -> None:
         lines.append("</details>")
         lines.append("")
 
-    # Worker prompt file links (fixed across all runs)
-    prompts_dir = PROJECT_ROOT / "prompts"
-    lines.append(
-        f"**Worker Prompts (fixed):** "
-        f"[coder.md](file://{prompts_dir / 'coder.md'}) | "
-        f"[writer.md](file://{prompts_dir / 'writer.md'}) | "
-        f"[reviewer.md](file://{prompts_dir / 'reviewer.md'})"
-    )
-    lines.append("")
+    # Worker prompts (collapsible — tracked per run)
+    worker_prompts = metadata.get("worker_prompts", {})
+    if worker_prompts:
+        for agent_name in ("Coder", "Writer", "Reviewer"):
+            prompt_text = worker_prompts.get(agent_name, "")
+            if prompt_text:
+                icon = AGENT_ICONS.get(agent_name, "💬")
+                lines.append(
+                    f"<details><summary><strong>{icon} {agent_name} System Prompt</strong> "
+                    f"(click to expand)</summary>"
+                )
+                lines.append("")
+                lines.append("```")
+                lines.append(prompt_text)
+                lines.append("```")
+                lines.append("")
+                lines.append("</details>")
+                lines.append("")
+    else:
+        # Fallback: link to prompt files if not stored in metadata
+        prompts_dir = PROJECT_ROOT / "prompts"
+        lines.append(
+            f"**Worker Prompts (fixed):** "
+            f"[coder.md](file://{prompts_dir / 'coder.md'}) | "
+            f"[writer.md](file://{prompts_dir / 'writer.md'}) | "
+            f"[reviewer.md](file://{prompts_dir / 'reviewer.md'})"
+        )
+        lines.append("")
 
 
 def _write_toc(lines: list, phases_dict: dict, phase_stats: dict) -> None:

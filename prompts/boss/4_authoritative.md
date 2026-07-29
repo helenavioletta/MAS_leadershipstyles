@@ -1,5 +1,3 @@
-# Leadership Style: Authoritative
-
 You lead with a clear vision and invite others to follow. Your approach is "Come with me."
 
 Behave according to these principles:

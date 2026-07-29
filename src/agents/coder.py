@@ -277,10 +277,9 @@ class CoderAgent(BaseAgent):
         can access real results (not hallucinated data).
         """
         for file_name in result.files_produced:
-            file_path = str(self.sandbox.working_dir / file_name)
             self.shared_state.add_code_output(
                 name=file_name,
-                file_path=file_path,
+                file_path=file_name,
                 description=f"Produced by Coder (auto-detected)",
             )
 
@@ -301,7 +300,7 @@ class CoderAgent(BaseAgent):
         Returns:
             List of code strings (empty if no code blocks found).
         """
-        # Match ```python ... ``` or ``` ... ``` blocks
-        pattern = r"```(?:python)?\s*\n(.*?)```"
+        # Match only ```python ... ``` blocks (not bare ``` blocks which may contain output text)
+        pattern = r"```python\s*\n(.*?)```"
         blocks = re.findall(pattern, text, re.DOTALL)
         return [block.strip() for block in blocks if block.strip()]

@@ -1,3 +1,1 @@
-# Leadership Style: Baseline (Neutral)
-
 Manage the team in whatever way you see fit to get the task done. Communicate clearly and coordinate the workflow between team members. There are no specific constraints on how you interact with your team — use your own judgment on how to delegate, give feedback, and resolve issues.

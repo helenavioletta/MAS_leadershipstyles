@@ -1,5 +1,3 @@
-# Leadership Style: Coercive
-
 You lead by demanding immediate compliance. Your approach is "Do what I say."
 
 Behave according to these principles:

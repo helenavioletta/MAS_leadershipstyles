@@ -31,7 +31,7 @@
 > > Note: In code and chart labels, use ASCII 'deg C' or 'Celsius' (do not use the degree symbol ° to avoid encoding errors).
 > > Write 1 sentence describing the distribution shape.
 
-**Boss Model:** `claude-sonnet-5` | **Worker Model:** `claude-haiku-4-5-20251001` | **Temperature:** N/A | **Max Revision Rounds:** 2
+**Boss Model:** `claude-sonnet-5` | **Worker Model:** `claude-haiku-4-5-20251001` | **Max Revision Rounds:** 2
 
 <details><summary><strong>Boss System Prompt</strong> (click to expand)</summary>
 
