@@ -7,7 +7,9 @@ The orchestrator does NOT make any LLM calls itself — it only coordinates agen
 Phases:
     1. BRIEFING   — Boss assigns the task to the team
     2. PLANNING   — Team discusses approach, Reviewer reviews the plan
-    3. CODING     — Coder writes & executes code, Boss may check in
+    3. CODING     — Coder writes & executes code, Boss gates advancement
+                    (Boss can extend coding phase up to max_coding_extensions
+                    times via REVISE_CODING, giving Coder 3 fresh retries each)
     4. WRITING    — Writer drafts narrative, Boss may check in
     5. REVIEW     — Reviewer checks code outputs + report
     6. REVISION   — Boss decides: REVISE_CODE, REVISE_REPORT, REVISE_BOTH, or SHIP
@@ -66,6 +68,7 @@ class Orchestrator:
         message_bus: MessageBus,
         shared_state: SharedState,
         max_revision_rounds: int = 2,
+        max_coding_extensions: int = 2,
     ):
         """
         Initialize the orchestrator.
@@ -78,6 +81,8 @@ class Orchestrator:
             message_bus: Shared message bus.
             shared_state: Shared state object.
             max_revision_rounds: Max times Phase 6 can loop before forcing delivery.
+            max_coding_extensions: Max times the Boss can send the Coder back
+                in Phase 3 before forcing advancement to Phase 4.
         """
         self.boss = boss
         self.coder = coder
@@ -86,9 +91,11 @@ class Orchestrator:
         self.message_bus = message_bus
         self.shared_state = shared_state
         self.max_revision_rounds = max_revision_rounds
+        self.max_coding_extensions = max_coding_extensions
 
         self._start_time: Optional[float] = None
         self._revision_count: int = 0
+        self._coding_extensions: int = 0
 
     # ─────────────────────────────────────────────
     # Main Entry Point
@@ -183,10 +190,19 @@ class Orchestrator:
         )
 
     def _phase_3_coding(self) -> None:
-        """Phase 3: Coder writes and executes code. Boss may check in."""
+        """
+        Phase 3: Coder writes and executes code. Boss gates advancement.
+
+        Flow:
+        1. Coder codes (up to 3 internal retries) and presents results.
+        2. Boss decides: PASS_CODING (advance to Writing) or REVISE_CODING
+           (send Coder back for another round of 3 retries).
+        3. Boss can extend the coding phase up to max_coding_extensions times
+           (default 2), giving the Coder up to 9 total attempts worst case.
+        """
         self._enter_phase(3, "Coder")
 
-        # Coder does the work (internal code loop + presentation)
+        # Initial coding round
         self.coder.respond(
             phase=3,
             instruction=(
@@ -195,16 +211,55 @@ class Orchestrator:
             ),
         )
 
-        # Boss check-in (opportunity to intervene based on leadership style)
-        self.shared_state.set_phase(3, active_agent="Boss")
-        self.boss.respond(
-            phase=3,
-            instruction=(
-                "The Coder has presented their results. "
-                "You may provide feedback, encouragement, corrections, or simply move on. "
-                "Respond to the team."
-            ),
-        )
+        # Boss gate loop: decide whether to advance or extend coding
+        for extension in range(self.max_coding_extensions + 1):
+            self.shared_state.set_phase(3, active_agent="Boss")
+
+            if extension == self.max_coding_extensions:
+                # Final check-in — no more extensions possible, just respond
+                self.boss.respond(
+                    phase=3,
+                    instruction=(
+                        "The Coder has presented their results. "
+                        "The coding phase is ending now. "
+                        "You may provide feedback, encouragement, corrections, "
+                        "or simply move on. Respond to the team."
+                    ),
+                )
+                break
+
+            # Boss decides: advance or extend
+            boss_response = self.boss.respond(
+                phase=3,
+                instruction=(
+                    "The Coder has presented their results. Review what was delivered.\n\n"
+                    "You MUST include exactly one of these keywords in your response:\n"
+                    "- PASS_CODING — the coding output is acceptable, move to the writing phase\n"
+                    "- REVISE_CODING — the coding output is not acceptable, "
+                    "send the Coder back to fix and try again\n\n"
+                    "You may also include feedback, instructions, or corrections "
+                    "for the Coder alongside your decision."
+                ),
+            )
+
+            decision = self._parse_coding_decision(boss_response)
+            log.info(f"Orchestrator: Boss coding decision = {decision} "
+                     f"(extension {extension + 1}/{self.max_coding_extensions})")
+
+            if decision == "PASS_CODING":
+                break
+
+            # REVISE_CODING — give the Coder another round
+            self._coding_extensions += 1
+            self.shared_state.set_phase(3, active_agent="Coder")
+            self.coder.respond(
+                phase=3,
+                instruction=(
+                    "The Boss has reviewed your output and wants you to revise. "
+                    "Read the Boss's feedback, fix the issues, and try again. "
+                    "Write the Python code, execute it, and present the updated results."
+                ),
+            )
 
     def _phase_4_writing(self) -> None:
         """Phase 4: Writer drafts narrative. Boss may check in."""
@@ -346,6 +401,32 @@ class Orchestrator:
         log.info(f"Orchestrator: entering Phase {phase} ({phase_name})")
 
     @staticmethod
+    def _parse_coding_decision(boss_response: str) -> str:
+        """
+        Parse the Boss's coding-phase decision from their response.
+
+        Looks for keywords: PASS_CODING, REVISE_CODING.
+        Falls back to PASS_CODING if no keyword is found (don't stall).
+
+        Args:
+            boss_response: The Boss's free-text response.
+
+        Returns:
+            One of: "PASS_CODING", "REVISE_CODING"
+        """
+        text_upper = boss_response.upper()
+
+        if "REVISE_CODING" in text_upper:
+            return "REVISE_CODING"
+        if "PASS_CODING" in text_upper:
+            return "PASS_CODING"
+
+        # Fallback: advance to avoid infinite loops
+        log.warning("Orchestrator: Boss coding response missing keyword, "
+                    "falling back to PASS_CODING")
+        return "PASS_CODING"
+
+    @staticmethod
     def _parse_revision_decision(boss_response: str) -> str:
         """
         Parse the Boss's revision decision from their response.
@@ -415,5 +496,6 @@ class Orchestrator:
             "total_api_calls": total_calls,
             "total_messages": self.message_bus.message_count,
             "revision_rounds": self._revision_count,
+            "coding_extensions": self._coding_extensions,
             "token_usage_by_agent": token_usage,
         }

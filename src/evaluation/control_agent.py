@@ -205,7 +205,7 @@ def evaluate_run(
     output_dir: Union[str, Path],
     api_client: APIClient,
     model: str,
-    max_tokens: int = 4096,
+    max_tokens: int = 8192,
 ) -> dict[str, Any]:
     """
     Evaluate a completed experiment run using LLM-as-judge.

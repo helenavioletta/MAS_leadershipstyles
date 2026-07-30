@@ -111,7 +111,9 @@ def run_single(
     boss_model = config["models"]["boss"]
     worker_model = config["models"]["worker"]
     max_tokens_per_response = config["max_tokens_per_response"]
+    coder_max_tokens = config.get("coder_max_tokens_per_response", max_tokens_per_response)
     max_revision_rounds = config["max_revision_rounds"]
+    max_coding_extensions = config.get("max_coding_extensions", 2)
 
     # Check if run already completed successfully
     folder_name = f"{style}_{task_type}_run{run_id:02d}"
@@ -181,7 +183,7 @@ def run_single(
         message_bus=message_bus,
         shared_state=shared_state,
         sandbox=sandbox,
-        max_tokens=max_tokens_per_response,
+        max_tokens=coder_max_tokens,
     )
 
     writer = WriterAgent(
@@ -209,6 +211,7 @@ def run_single(
         message_bus=message_bus,
         shared_state=shared_state,
         max_revision_rounds=max_revision_rounds,
+        max_coding_extensions=max_coding_extensions,
     )
 
     logging.info(f"Starting run: style={style}, task={task_type}, run={run_id}")

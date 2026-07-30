@@ -109,18 +109,56 @@ class APIClient:
             Dict with keys: content, input_tokens, output_tokens, model, stop_reason
         """
 
-        response = self._call_with_retry(
-            system_prompt=system_prompt,
-            messages=messages,
-            model=model,
-            max_tokens=max_tokens,
-        )
+        # Retry loop: occasionally Claude Sonnet 5 (adaptive thinking) returns
+        # only thinking blocks with no text output. On retries, append a neutral
+        # nudge message to coax text output without influencing response content.
+        NUDGE_MESSAGES = {
+            1: "[system]: Please provide your response to the team.",
+            2: "[system]: Respond now.",
+        }
+        max_empty_retries = 3
+        nudge_used = None
+        retry_messages = messages  # first attempt uses original messages
 
-        # Extract response data (skip ThinkingBlocks from extended-thinking models)
-        content = next(
-            block.text for block in response.content
-            if getattr(block, "type", None) == "text"
-        )
+        for empty_attempt in range(max_empty_retries):
+            response = self._call_with_retry(
+                system_prompt=system_prompt,
+                messages=retry_messages,
+                model=model,
+                max_tokens=max_tokens,
+            )
+
+            # Extract text blocks (skip ThinkingBlocks from adaptive-thinking models)
+            text_blocks = [
+                block.text for block in response.content
+                if getattr(block, "type", None) == "text"
+            ]
+            if text_blocks:
+                content = text_blocks[0]
+                break
+
+            # No text block found — log and prepare nudge for next attempt
+            block_types = [getattr(b, "type", "?") for b in response.content]
+            log.warning(
+                f"API response for {agent} contained no text blocks "
+                f"(attempt {empty_attempt + 1}/{max_empty_retries}, "
+                f"blocks: {block_types}). Retrying with nudge..."
+            )
+
+            # Prepare nudged messages for next retry (copy to avoid mutating original)
+            nudge_level = empty_attempt + 1
+            if nudge_level in NUDGE_MESSAGES:
+                nudge_used = nudge_level
+                retry_messages = messages + [
+                    {"role": "user", "content": NUDGE_MESSAGES[nudge_level]}
+                ]
+        else:
+            raise RuntimeError(
+                f"API response for {agent} contained no text blocks after "
+                f"{max_empty_retries} attempts (with nudges). "
+                f"Block types in last response: {block_types}"
+            )
+
         input_tokens = response.usage.input_tokens
         output_tokens = response.usage.output_tokens
         stop_reason = response.stop_reason
@@ -130,17 +168,18 @@ class APIClient:
         self.total_output_tokens += output_tokens
         self.total_api_calls += 1
 
-        # Log the full call
+        # Log the full call (include nudge info if used)
         self._log_call(
             agent=agent,
             system_prompt=system_prompt,
-            messages=messages,
+            messages=retry_messages,  # log the actual messages sent (with nudge if any)
             response_content=content,
             input_tokens=input_tokens,
             output_tokens=output_tokens,
             model=model,
             max_tokens=max_tokens,
             stop_reason=stop_reason,
+            nudge_used=nudge_used,
         )
 
         return {
@@ -149,6 +188,7 @@ class APIClient:
             "output_tokens": output_tokens,
             "model": model,
             "stop_reason": stop_reason,
+            "nudge_used": nudge_used,
         }
 
     @property
@@ -204,6 +244,7 @@ class APIClient:
         model: str,
         max_tokens: int,
         stop_reason: str,
+        nudge_used: Optional[int] = None,
     ) -> None:
         """Append the full API call to api_calls.jsonl."""
         if self._log_path is None:
@@ -223,6 +264,8 @@ class APIClient:
             "stop_reason": stop_reason,
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }
+        if nudge_used is not None:
+            entry["nudge_used"] = nudge_used
 
         with open(self._log_path, "a", encoding="utf-8") as f:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")

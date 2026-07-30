@@ -13,11 +13,13 @@ models:
   worker: "claude-haiku-4-5-20251001"    # cheap model, workers make the most API calls
 
 # --- SAMPLING ---
-max_tokens_per_response: 1024  # Max tokens for a single LLM response
+max_tokens_per_response: 1024       # Max tokens for Boss, Writer, Reviewer
+coder_max_tokens_per_response: 8192 # Coder needs more tokens for multi-chart code scripts
 
 # --- EXPERIMENT DESIGN ---
 repetitions: 5         # How many times each condition is repeated (3-5 recommended)
-max_revision_rounds: 2 # Max revision rounds in Phase 6 before forcing delivery
+max_revision_rounds: 2    # Max revision rounds in Phase 6 before forcing delivery
+max_coding_extensions: 2  # Max times Boss can send Coder back in Phase 3 (gives 3 retries each)
 
 # --- LEADERSHIP STYLES ---
 # 7 conditions: 6 Goleman styles + 1 baseline

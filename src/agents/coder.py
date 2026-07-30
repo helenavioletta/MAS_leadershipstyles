@@ -139,6 +139,16 @@ class CoderAgent(BaseAgent):
             self._output_tokens += response["output_tokens"]
             self._call_count += 1
 
+            # Flag nudge if used
+            if response.get("nudge_used") is not None:
+                self.message_bus.system_notify(
+                    content=(
+                        f"[NUDGE] {self.name} required a nudge to produce text output "
+                        f"(adaptive thinking returned no text). Nudge level {response['nudge_used']}"
+                    ),
+                    phase=phase,
+                )
+
             # Extract code blocks
             code_blocks = self._extract_code_blocks(content)
 
@@ -175,9 +185,13 @@ class CoderAgent(BaseAgent):
             # Execution failed — feed error back to LLM for retry
             log.warning(f"Coder: attempt {attempt}/{self.max_retries} failed: {last_result.error_message}")
 
+            # Sanitize stderr: replace temp file paths to prevent leaking
+            # the results folder name (which contains the leadership style)
+            sanitized_stderr = self._sanitize_traceback(last_result.stderr)
+
             error_feedback = (
                 f"[system]: Your code failed with this error:\n"
-                f"```\n{last_result.stderr}\n```\n"
+                f"```\n{sanitized_stderr}\n```\n"
                 f"Please fix the code and try again."
             )
 
@@ -195,6 +209,23 @@ class CoderAgent(BaseAgent):
             "last_error": last_result.error_message if last_result and not success else None,
             "no_code": False,
         }
+
+    @staticmethod
+    def _sanitize_traceback(stderr: str) -> str:
+        """
+        Strip absolute file paths from Python tracebacks to prevent leaking
+        the results folder name (which contains the leadership style).
+
+        Replaces patterns like:
+            File "/Users/.../results/coercive_short_run01/outputs/tmpXXXX.py", line 5
+        with:
+            File "script.py", line 5
+        """
+        return re.sub(
+            r'File ".*?/outputs/[^"]*\.py"',
+            'File "script.py"',
+            stderr,
+        )
 
     def _present_results(self, phase: int, code_result: dict) -> str:
         """
@@ -257,6 +288,16 @@ class CoderAgent(BaseAgent):
         self._input_tokens += response["input_tokens"]
         self._output_tokens += response["output_tokens"]
         self._call_count += 1
+
+        # Flag nudge if used
+        if response.get("nudge_used") is not None:
+            self.message_bus.system_notify(
+                content=(
+                    f"[NUDGE] {self.name} required a nudge to produce text output "
+                    f"(adaptive thinking returned no text). Nudge level {response['nudge_used']}"
+                ),
+                phase=phase,
+            )
 
         # Post the presentation to the bus
         self.message_bus.send(

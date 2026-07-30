@@ -8,8 +8,9 @@ __pycache__/
 # macOS
 .DS_Store
 
-# Results (now tracked for thesis hand-in)
+# Results (real results tracked for thesis hand-in)
 # results/
+results/validation_runs/
 
 # Data (now tracked for thesis hand-in)
 # data/global_weather.csv

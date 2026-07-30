@@ -128,11 +128,27 @@ class BaseAgent:
         content = response["content"]
         input_tokens = response["input_tokens"]
         output_tokens = response["output_tokens"]
+        nudge_used = response.get("nudge_used")
 
         # Track tokens
         self._input_tokens += input_tokens
         self._output_tokens += output_tokens
         self._call_count += 1
+
+        # If a nudge was needed, flag it in the message bus before the response
+        if nudge_used is not None:
+            nudge_labels = {
+                1: "Nudge level 1: 'Please provide your response to the team.'",
+                2: "Nudge level 2: 'Respond now.'",
+            }
+            self.message_bus.system_notify(
+                content=(
+                    f"[NUDGE] {self.name} required a nudge to produce text output "
+                    f"(adaptive thinking returned no text). "
+                    f"{nudge_labels.get(nudge_used, f'Nudge level {nudge_used}')}"
+                ),
+                phase=phase,
+            )
 
         # Post to message bus
         self.message_bus.send(
