@@ -111,7 +111,9 @@ def run_single(
     boss_model = config["models"]["boss"]
     worker_model = config["models"]["worker"]
     max_tokens_per_response = config["max_tokens_per_response"]
+    boss_max_tokens = config.get("boss_max_tokens_per_response", max_tokens_per_response)
     coder_max_tokens = config.get("coder_max_tokens_per_response", max_tokens_per_response)
+    boss_effort = config.get("boss_effort", None)
     max_revision_rounds = config["max_revision_rounds"]
     max_coding_extensions = config.get("max_coding_extensions", 2)
 
@@ -174,7 +176,8 @@ def run_single(
         api_client=api_client,
         message_bus=message_bus,
         shared_state=shared_state,
-        max_tokens=max_tokens_per_response,
+        max_tokens=boss_max_tokens,
+        effort=boss_effort,
     )
 
     coder = CoderAgent(

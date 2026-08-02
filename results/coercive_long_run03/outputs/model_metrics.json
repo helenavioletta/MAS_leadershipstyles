@@ -1,0 +1,62 @@
+{
+  "dataset_info": {
+    "total_samples": 150465,
+    "features_count": 18,
+    "feature_names": [
+      "latitude",
+      "longitude",
+      "wind_mph",
+      "wind_kph",
+      "wind_degree",
+      "pressure_mb",
+      "pressure_in",
+      "precip_mm",
+      "precip_in",
+      "cloud",
+      "visibility_km",
+      "visibility_miles",
+      "gust_mph",
+      "gust_kph",
+      "air_quality_Ozone",
+      "air_quality_PM2.5",
+      "air_quality_PM10",
+      "moon_illumination"
+    ]
+  },
+  "null_handling": {
+    "target_nulls_dropped": 0,
+    "duplicates_dropped": 0,
+    "note": "Predictor nulls <5% dropped, >=5% imputed with median/mode"
+  },
+  "train_test_split": {
+    "random_state": 42,
+    "test_size": 0.2,
+    "train_samples": 120372,
+    "test_samples": 30093
+  },
+  "random_forest": {
+    "model_type": "RandomForestRegressor",
+    "hyperparameters": {
+      "n_estimators": 100,
+      "max_depth": 15,
+      "random_state": 42
+    },
+    "metrics": {
+      "r2_score": 0.830163588159096,
+      "rmse": 3.9628370083306206,
+      "mae": 2.691530443960175
+    }
+  },
+  "ridge_regression": {
+    "model_type": "Ridge",
+    "hyperparameters": {
+      "alpha": 1.0,
+      "random_state": 42
+    },
+    "metrics": {
+      "r2_score": 0.2594231818496707,
+      "rmse": 8.275149793606463,
+      "mae": 5.800668025881912
+    }
+  }
+}

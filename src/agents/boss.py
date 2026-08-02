@@ -9,6 +9,8 @@ The Boss's leadership style prompt is NEVER visible to workers in the message bu
 It only appears in api_calls.jsonl and metadata.json (researcher-facing audit trail).
 """
 
+from typing import Optional
+
 from src.agents.base_agent import BaseAgent, load_prompt
 from src.message_bus import MessageBus
 from src.shared_state import SharedState
@@ -41,6 +43,7 @@ class BossAgent(BaseAgent):
         message_bus: MessageBus,
         shared_state: SharedState,
         max_tokens: int = 1024,
+        effort: Optional[str] = None,
     ):
         """
         Initialize the Boss agent.
@@ -53,6 +56,7 @@ class BossAgent(BaseAgent):
             message_bus: Shared MessageBus.
             shared_state: Shared state object.
             max_tokens: Max tokens per response.
+            effort: Optional effort level for adaptive thinking ("low", "medium", "high").
         """
         base_role = load_prompt("boss/1_base_role.md")
         style_prompt = load_prompt(f"boss/{style}.md")
@@ -68,4 +72,5 @@ class BossAgent(BaseAgent):
             message_bus=message_bus,
             shared_state=shared_state,
             max_tokens=max_tokens,
+            effort=effort,
         )

@@ -13,8 +13,10 @@ models:
   worker: "claude-haiku-4-5-20251001"    # cheap model, workers make the most API calls
 
 # --- SAMPLING ---
-max_tokens_per_response: 1024       # Max tokens for Boss, Writer, Reviewer
+max_tokens_per_response: 1024       # Max tokens for Writer, Reviewer
+boss_max_tokens_per_response: 8192  # Boss needs headroom: adaptive thinking shares max_tokens budget
 coder_max_tokens_per_response: 8192 # Coder needs more tokens for multi-chart code scripts
+boss_effort: "medium"               # Reduce thinking depth for Boss (prevents thinking-only responses)
 
 # --- EXPERIMENT DESIGN ---
 repetitions: 5         # How many times each condition is repeated (3-5 recommended)

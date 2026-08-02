@@ -91,6 +91,7 @@ class APIClient:
         messages: list[dict[str, str]],
         model: str,
         max_tokens: int = 1024,
+        effort: Optional[str] = None,
     ) -> dict[str, Any]:
         """
         Make a single API call to the Anthropic Messages API.
@@ -104,6 +105,8 @@ class APIClient:
             messages: The conversation messages list [{"role": "user"/"assistant", "content": "..."}].
             model: Anthropic model identifier.
             max_tokens: Maximum tokens for the response.
+            effort: Optional effort level for adaptive thinking ("low", "medium", "high").
+                    Controls how much of the token budget is used for thinking.
 
         Returns:
             Dict with keys: content, input_tokens, output_tokens, model, stop_reason
@@ -126,6 +129,7 @@ class APIClient:
                 messages=retry_messages,
                 model=model,
                 max_tokens=max_tokens,
+                effort=effort,
             )
 
             # Extract text blocks (skip ThinkingBlocks from adaptive-thinking models)
@@ -202,18 +206,22 @@ class APIClient:
         messages: list[dict[str, str]],
         model: str,
         max_tokens: int,
+        effort: Optional[str] = None,
     ) -> Any:
         """Call the Anthropic API with exponential backoff on retryable errors."""
         last_error = None
 
         for attempt in range(self._max_retries + 1):
             try:
-                response = self._client.messages.create(
-                    model=model,
-                    max_tokens=max_tokens,
-                    system=system_prompt,
-                    messages=messages,
-                )
+                kwargs: dict[str, Any] = {
+                    "model": model,
+                    "max_tokens": max_tokens,
+                    "system": system_prompt,
+                    "messages": messages,
+                }
+                if effort is not None:
+                    kwargs["output_config"] = {"effort": effort}
+                response = self._client.messages.create(**kwargs)
                 return response
 
             except anthropic.RateLimitError as e:
