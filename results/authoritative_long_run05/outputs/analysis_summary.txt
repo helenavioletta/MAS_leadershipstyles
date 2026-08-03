@@ -1,0 +1,171 @@
+
+================================================================================
+DATA PREPARATION SUMMARY
+================================================================================
+
+Original dataset: 150465 rows x 41 columns
+Final dataset: 150465 rows x 26 features + 1 target
+
+EXCLUSIONS (15 columns removed):
+  Leakage (derivations of target):
+    - temperature_fahrenheit
+    - feels_like_celsius
+    - feels_like_fahrenheit
+    - temperature_celsius (TARGET ITSELF)
+  
+  High-cardinality categorical (overfitting risk):
+    - country (211 unique)
+    - location_name (268 unique)
+  
+  Time-granular (too specific, low signal):
+    - last_updated
+    - sunrise, sunset, moonrise, moonset
+  
+  Low-signal categorical:
+    - timezone
+    - condition_text
+    - wind_direction
+    - moon_phase
+
+FEATURES SELECTED (26 total):
+   1. air_quality_Carbon_Monoxide
+   2. air_quality_Nitrogen_dioxide
+   3. air_quality_Ozone
+   4. air_quality_PM10
+   5. air_quality_PM2.5
+   6. air_quality_Sulphur_dioxide
+   7. air_quality_gb-defra-index
+   8. air_quality_us-epa-index
+   9. cloud
+  10. gust_kph
+  11. gust_mph
+  12. humidity
+  13. last_updated_epoch
+  14. latitude
+  15. longitude
+  16. moon_illumination
+  17. precip_in
+  18. precip_mm
+  19. pressure_in
+  20. pressure_mb
+  21. uv_index
+  22. visibility_km
+  23. visibility_miles
+  24. wind_degree
+  25. wind_kph
+  26. wind_mph
+
+MISSING VALUES: 0 (no imputation needed)
+DUPLICATES: 0
+TRAIN/TEST SPLIT: 80/20 (seed=42, reproducible)
+
+================================================================================
+MODEL SPECIFICATIONS & PERFORMANCE (TEST SET)
+================================================================================
+
+MODEL 1: RANDOM FOREST REGRESSOR (tree-based)
+  Hyperparameters:
+    n_estimators: 100
+    max_depth: 15
+    min_samples_split: 5
+    min_samples_leaf: 2
+    random_state: 42
+  
+  Test Set Performance:
+    RMSE: 2.0967 deg C
+    MAE:  1.4795 deg C
+    R²:   0.9525
+
+MODEL 2: RIDGE REGRESSION (linear model)
+  Hyperparameters:
+    alpha: 1.0
+    random_state: 42
+  
+  Test Set Performance:
+    RMSE: 7.6385 deg C
+    MAE:  5.4373 deg C
+    R²:   0.3690
+
+================================================================================
+PERFORMANCE COMPARISON
+================================================================================
+
+Metric                  Random Forest    Ridge Regression    Winner
+RMSE (deg C)            2.0967           7.6385              Random Forest
+MAE (deg C)             1.4795            5.4373              RF
+R²                      0.9525            0.3690            RF
+
+================================================================================
+FEATURE IMPORTANCE & COEFFICIENTS (TOP 5)
+================================================================================
+
+RANDOM FOREST - Top 5 Features:
+           Feature  Importance
+          latitude    0.366915
+          uv_index    0.288755
+       pressure_in    0.127627
+last_updated_epoch    0.074162
+         longitude    0.053622
+
+RIDGE REGRESSION - Top 5 Features (by absolute coefficient):
+    Feature  Coefficient
+pressure_in   -12.383619
+pressure_mb     9.770563
+   wind_kph    -6.525404
+   wind_mph     6.185791
+   latitude    -3.309604
+
+FEATURE AGREEMENT:
+  Overlap (top 5): 2 features
+  Shared features: ['latitude', 'pressure_in']
+
+================================================================================
+RESIDUAL ANALYSIS
+================================================================================
+
+RANDOM FOREST:
+  Mean residual: -0.0288 deg C
+  Std Dev: 2.0966 deg C
+  Range: [-16.9522, 53.4070] deg C
+
+RIDGE REGRESSION:
+  Mean residual: -0.1650 deg C
+  Std Dev: 7.6368 deg C
+  Range: [-224.1959, 564.6742] deg C
+
+================================================================================
+4 VISUALIZATIONS SAVED
+================================================================================
+
+1. feature_importance_comparison.png
+   Side-by-side comparison: Random Forest feature importance (top 10) vs. Ridge
+   regression coefficients (top 10 by magnitude, colored by sign).
+
+2. random_forest_actual_vs_predicted.png
+   Scatter plot of actual vs. predicted temperatures for Random Forest model.
+   Red diagonal line = perfect prediction. Points near line = high accuracy.
+
+3. ridge_regression_actual_vs_predicted.png
+   Scatter plot of actual vs. predicted temperatures for Ridge Regression model.
+   Same layout as #2 for direct visual comparison.
+
+4. residuals_by_latitude.png
+   Two-panel chart showing prediction residuals across geographic latitude.
+   Top panel: Random Forest. Bottom panel: Ridge Regression.
+   Red line at y=0 represents perfect residual. Spread indicates geographic bias
+   or patterns in prediction error.
+
+================================================================================
+READY FOR WRITER & REVIEWER
+================================================================================
+
+All 4 visualizations generated from clean feature set (no leakage).
+All metrics computed on test set only (no train leakage).
+Feature list explicitly printed and guarded.
+Target variable verified NOT in feature matrix.
+
+Writer: You have all metrics, feature rankings, and chart files to draft the
+        600-word analytical report. Cite figures explicitly.
+
+Reviewer: Full pipeline documented. All guards passed. Feature lineage is auditable.
+          Ready for end-to-end verification.

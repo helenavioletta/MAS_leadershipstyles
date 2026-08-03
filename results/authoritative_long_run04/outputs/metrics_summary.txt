@@ -1,0 +1,201 @@
+
+================================================================================
+WEATHER TEMPERATURE PREDICTION: MODEL COMPARISON RESULTS
+================================================================================
+
+DATASET INFORMATION:
+  Total rows (after cleaning): 140902
+  Total features: 111
+  Training set: 112721 rows
+  Test set: 28181 rows
+
+================================================================================
+MODEL PERFORMANCE METRICS (TEST SET)
+================================================================================
+
+RANDOM FOREST REGRESSOR:
+  RMSE: 2.4530 deg C
+  MAE:  1.6254 deg C
+  R²:   0.9338
+
+RIDGE REGRESSION:
+  RMSE: 6.3075 deg C
+  MAE:  4.9344 deg C
+  R²:   0.5626
+
+PERFORMANCE WINNER:
+  Random Forest (lower RMSE: 2.4530 deg C)
+
+================================================================================
+TOP 15 RANDOM FOREST FEATURE IMPORTANCES
+================================================================================
+ 1. latitude                                      0.368090
+ 2. uv_index                                      0.267702
+ 3. pressure_in                                   0.136132
+ 4. longitude                                     0.051192
+ 5. humidity                                      0.039569
+ 6. air_quality_Carbon_Monoxide                   0.019930
+ 7. air_quality_Ozone                             0.012124
+ 8. air_quality_Sulphur_dioxide                   0.011839
+ 9. air_quality_Nitrogen_dioxide                  0.009911
+10. wind_degree                                   0.009633
+11. air_quality_PM10                              0.008584
+12. air_quality_PM2.5                             0.007455
+13. cloud                                         0.005826
+14. moon_illumination                             0.005444
+15. pressure_mb                                   0.004565
+
+================================================================================
+TOP 15 RIDGE REGRESSION COEFFICIENTS (BY ABSOLUTE VALUE)
+================================================================================
+ 1. pressure_in                                   -27.327003
+ 2. condition_text_Blowing snow                   -16.352538
+ 3. condition_text_Patchy snow possible           -14.136669
+ 4. condition_text_Light snow                     -11.804404
+ 5. condition_text_Blizzard                       -11.427832
+ 6. precip_in                                     -10.651402
+ 7. condition_text_Moderate snow                  -10.476874
+ 8. condition_text_Light snow showers             -10.035961
+ 9. condition_text_Patchy light rain with thunder   9.914731
+10. condition_text_Severe sandstorm                 9.869472
+11. condition_text_Patchy moderate snow            -9.673194
+12. condition_text_Freezing fog                    -9.330889
+13. condition_text_Moderate or heavy rain with thunder   9.070489
+14. condition_text_Blowing dust                     8.968909
+15. condition_text_Dust storm                       8.913938
+
+================================================================================
+FEATURE LIST (111 total)
+================================================================================
+ 1. air_quality_Carbon_Monoxide
+ 2. air_quality_Nitrogen_dioxide
+ 3. air_quality_Ozone
+ 4. air_quality_PM10
+ 5. air_quality_PM2.5
+ 6. air_quality_Sulphur_dioxide
+ 7. air_quality_gb-defra-index
+ 8. air_quality_us-epa-index
+ 9. cloud
+10. condition_text_Blizzard
+11. condition_text_Blowing dust
+12. condition_text_Blowing snow
+13. condition_text_Clear
+14. condition_text_Cloudy
+15. condition_text_Dust haze
+16. condition_text_Dust storm
+17. condition_text_Fog
+18. condition_text_Freezing drizzle
+19. condition_text_Freezing fog
+20. condition_text_Haze
+21. condition_text_Heavy freezing drizzle
+22. condition_text_Heavy rain
+23. condition_text_Heavy rain at times
+24. condition_text_Heavy snow
+25. condition_text_Light drizzle
+26. condition_text_Light freezing rain
+27. condition_text_Light rain
+28. condition_text_Light rain shower
+29. condition_text_Light sleet
+30. condition_text_Light sleet showers
+31. condition_text_Light snow
+32. condition_text_Light snow showers
+33. condition_text_Mist
+34. condition_text_Moderate or heavy freezing rain
+35. condition_text_Moderate or heavy rain in area with thunder
+36. condition_text_Moderate or heavy rain shower
+37. condition_text_Moderate or heavy rain with thunder
+38. condition_text_Moderate or heavy sleet
+39. condition_text_Moderate or heavy snow in area with thunder
+40. condition_text_Moderate or heavy snow showers
+41. condition_text_Moderate rain
+42. condition_text_Moderate rain at times
+43. condition_text_Moderate snow
+44. condition_text_Overcast
+45. condition_text_Partly Cloudy
+46. condition_text_Partly cloudy
+47. condition_text_Patchy heavy snow
+48. condition_text_Patchy light drizzle
+49. condition_text_Patchy light rain
+50. condition_text_Patchy light rain in area with thunder
+51. condition_text_Patchy light rain with thunder
+52. condition_text_Patchy light snow
+53. condition_text_Patchy light snow in area with thunder
+54. condition_text_Patchy moderate snow
+55. condition_text_Patchy rain nearby
+56. condition_text_Patchy rain possible
+57. condition_text_Patchy snow nearby
+58. condition_text_Patchy snow possible
+59. condition_text_Sandstorm
+60. condition_text_Severe sandstorm
+61. condition_text_Smog
+62. condition_text_Smoky haze
+63. condition_text_Sunny
+64. condition_text_Thundery outbreaks in nearby
+65. condition_text_Thundery outbreaks possible
+66. condition_text_Torrential rain shower
+67. continent_Africa
+68. continent_Americas
+69. continent_Asia
+70. continent_Europe
+71. continent_Oceania
+72. gust_kph
+73. gust_mph
+74. humidity
+75. latitude
+76. longitude
+77. moon_illumination
+78. moon_phase_First Quarter
+79. moon_phase_Full Moon
+80. moon_phase_Last Quarter
+81. moon_phase_New Moon
+82. moon_phase_Waning Crescent
+83. moon_phase_Waning Gibbous
+84. moon_phase_Waxing Crescent
+85. moon_phase_Waxing Gibbous
+86. precip_in
+87. precip_mm
+88. pressure_in
+89. pressure_mb
+90. uv_index
+91. visibility_km
+92. visibility_miles
+93. wind_degree
+94. wind_direction_E
+95. wind_direction_ENE
+96. wind_direction_ESE
+97. wind_direction_N
+98. wind_direction_NE
+99. wind_direction_NNE
+100. wind_direction_NNW
+101. wind_direction_NW
+102. wind_direction_S
+103. wind_direction_SE
+104. wind_direction_SSE
+105. wind_direction_SSW
+106. wind_direction_SW
+107. wind_direction_W
+108. wind_direction_WNW
+109. wind_direction_WSW
+110. wind_kph
+111. wind_mph
+
+================================================================================
+VISUALIZATIONS GENERATED
+================================================================================
+1. feature_importance_comparison.png - Random Forest importance vs Ridge coefficients
+2. tree_actual_vs_predicted.png - Random Forest actual vs predicted scatter
+3. linear_actual_vs_predicted.png - Ridge actual vs predicted scatter
+4. residual_plots.png - Side-by-side residual analysis for both models
+
+================================================================================
+DATA QUALITY LOG
+================================================================================
+Columns dropped (leakage): temperature_fahrenheit, feels_like_celsius, feels_like_fahrenheit
+Columns dropped (no temporal features): last_updated_epoch, last_updated, sunrise, sunset, moonrise, moonset
+Columns dropped (high cardinality): timezone
+Columns dropped (high cardinality, regrouped): country (mapped to continent), location_name
+Rows with unmapped country values: removed
+Outliers: none removed (all temperatures within physically plausible bounds: -50 to +60 deg C)
+Missing values: none detected in any column
+Duplicates: none detected
+One-hot encoding: applied to continent, condition_text, wind_direction, moon_phase

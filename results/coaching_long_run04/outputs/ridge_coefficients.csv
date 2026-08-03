@@ -1,0 +1,59 @@
+feature,coefficient
+condition_text_Moderate or heavy rain with thunder,3.8467483397100874
+condition_text_Clear,-3.3111476984513453
+latitude,-3.2236200319499546
+uv_index,2.745654170114862
+gust_kph,2.723700325864285
+pressure_mb,-2.5941944287867726
+condition_text_Other,-2.505188029285514
+gust_mph,-1.9603815326944414
+condition_text_Light rain shower,1.9275194756059935
+humidity,-1.707821846458703
+wind_direction_E,1.7070791486780124
+condition_text_Sunny,-1.586382718649941
+condition_text_Partly cloudy,1.316092047129994
+condition_text_Patchy rain nearby,1.1348719303057277
+condition_text_Fog,1.0960002044721917
+cloud,-0.930524044826259
+condition_text_Overcast,-0.744990114637348
+wind_direction_ENE,0.742532810737236
+wind_direction_NE,-0.7246046794489026
+air_quality_PM2.5,-0.6970478257368001
+air_quality_us-epa-index,0.6727820487481615
+wind_direction_NNE,-0.6405547662125654
+air_quality_Ozone,0.637034554736178
+wind_kph,-0.5991087686175325
+visibility_km,0.5759171912764635
+condition_text_Light rain,-0.5709333304735706
+air_quality_gb-defra-index,0.5689448219620464
+air_quality_Sulphur_dioxide,-0.5204000008697215
+wind_direction_ESE,0.48960412254530616
+precip_mm,0.4418044747421973
+condition_text_Cloudy,-0.42843842557230194
+wind_direction_WNW,-0.4085182171848468
+wind_direction_NW,-0.402056628552404
+wind_direction_SW,0.37542819704224684
+wind_direction_WSW,0.335445170501624
+wind_direction_SE,-0.3301297806974839
+wind_direction_NNW,-0.3225265699879325
+condition_text_Partly Cloudy,-0.3219720569375301
+wind_direction_N,-0.320113853671692
+air_quality_PM10,0.2991720518742896
+moon_phase_New Moon,-0.2301262462034385
+air_quality_Nitrogen_dioxide,-0.20721986808654055
+wind_direction_S,-0.19737821670918076
+wind_direction_SSE,-0.19441127258432378
+moon_phase_Waxing Gibbous,0.18973307465613035
+moon_phase_Full Moon,0.18082621360681275
+condition_text_Mist,0.14782037053202618
+moon_phase_First Quarter,-0.1446091418024968
+wind_direction_SSW,-0.11428315261454133
+moon_phase_Last Quarter,0.09085804006873285
+wind_degree,0.08826110643419516
+moon_phase_Waning Crescent,-0.08599020858177533
+air_quality_Carbon_Monoxide,0.08366857717708447
+moon_phase_Waning Gibbous,-0.07706340955343605
+moon_phase_Waxing Crescent,0.0763716849597465
+longitude,-0.033805346915554264
+wind_direction_W,0.004487665030367308
+moon_illumination,-0.000397007014227687

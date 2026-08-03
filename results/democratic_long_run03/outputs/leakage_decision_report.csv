@@ -1,0 +1,42 @@
+column_name,dtype,action,reason
+temperature_celsius,float64,TARGET,Target variable for prediction
+temperature_fahrenheit,float64,DROP,Leakage: derived from or same info as temperature_celsius
+feels_like_celsius,float64,DROP,Leakage: derived from or same info as temperature_celsius
+feels_like_fahrenheit,float64,DROP,Leakage: derived from or same info as temperature_celsius
+country,str,DROP,High-cardinality location field; use lat/lon instead
+location_name,str,DROP,High-cardinality location field; use lat/lon instead
+timezone,str,DROP,Metadata (timestamp/timezone); not predictive for snapshot-based weather
+last_updated,str,DROP,Metadata (timestamp/timezone); not predictive for snapshot-based weather
+sunrise,str,DROP,Metadata (timestamp/timezone); not predictive for snapshot-based weather
+sunset,str,DROP,Metadata (timestamp/timezone); not predictive for snapshot-based weather
+last_updated_epoch,int64,DROP,Raw Unix timestamp; not interpretable; would introduce time-ordering artifact
+moonrise,str,DROP,Weak/no predictive signal for temperature; too sparse or too few categories
+moonset,str,DROP,Weak/no predictive signal for temperature; too sparse or too few categories
+moon_phase,str,DROP,Weak/no predictive signal for temperature; too sparse or too few categories
+wind_direction,str,DROP,Compass string; wind_degree already provides numeric equivalent
+condition_text,str,DROP,High-cardinality categorical (57 unique); dropped for model simplicity; noted as future improvement
+latitude,float64,KEEP,Numeric predictor; legitimate weather/location signal
+longitude,float64,KEEP,Numeric predictor; legitimate weather/location signal
+wind_mph,float64,KEEP,Numeric predictor; legitimate weather/location signal
+wind_kph,float64,KEEP,Numeric predictor; legitimate weather/location signal
+wind_degree,int64,KEEP,Numeric predictor; legitimate weather/location signal
+pressure_mb,float64,KEEP,Numeric predictor; legitimate weather/location signal
+pressure_in,float64,KEEP,Numeric predictor; legitimate weather/location signal
+precip_mm,float64,KEEP,Numeric predictor; legitimate weather/location signal
+precip_in,float64,KEEP,Numeric predictor; legitimate weather/location signal
+humidity,int64,KEEP,Numeric predictor; legitimate weather/location signal
+cloud,int64,KEEP,Numeric predictor; legitimate weather/location signal
+visibility_km,float64,KEEP,Numeric predictor; legitimate weather/location signal
+visibility_miles,float64,KEEP,Numeric predictor; legitimate weather/location signal
+uv_index,float64,KEEP,Numeric predictor; legitimate weather/location signal
+gust_mph,float64,KEEP,Numeric predictor; legitimate weather/location signal
+gust_kph,float64,KEEP,Numeric predictor; legitimate weather/location signal
+air_quality_Carbon_Monoxide,float64,KEEP,Numeric predictor; legitimate weather/location signal
+air_quality_Ozone,float64,KEEP,Numeric predictor; legitimate weather/location signal
+air_quality_Nitrogen_dioxide,float64,KEEP,Numeric predictor; legitimate weather/location signal
+air_quality_Sulphur_dioxide,float64,KEEP,Numeric predictor; legitimate weather/location signal
+air_quality_PM2.5,float64,KEEP,Numeric predictor; legitimate weather/location signal
+air_quality_PM10,float64,KEEP,Numeric predictor; legitimate weather/location signal
+air_quality_us-epa-index,float64,KEEP,Numeric predictor; legitimate weather/location signal
+air_quality_gb-defra-index,float64,KEEP,Numeric predictor; legitimate weather/location signal
+moon_illumination,int64,KEEP,Numeric predictor; legitimate weather/location signal

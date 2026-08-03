@@ -1,0 +1,9 @@
+Metric,Value
+Initial rows,150465
+Final rows,150465
+Rows removed,0
+Number of features,26
+Target variable,temperature_celsius
+Split strategy,Random
+Train rows,120372
+Test rows,30093

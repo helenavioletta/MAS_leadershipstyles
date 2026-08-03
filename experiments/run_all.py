@@ -92,7 +92,7 @@ def execute_run(style: str, task: str, run_id: int) -> dict:
             capture_output=True,
             text=True,
             cwd=str(PROJECT_ROOT),
-            timeout=1800,  # 30 minute timeout per run
+            timeout=2700,  # 45 minute timeout per run
         )
         duration = time.time() - start
 
@@ -125,7 +125,7 @@ def execute_run(style: str, task: str, run_id: int) -> dict:
             "task": task,
             "run_id": run_id,
             "duration": round(duration, 1),
-            "error": "Timeout (30 minutes exceeded)",
+            "error": "Timeout (45 minutes exceeded)",
         }
 
     except Exception as e:

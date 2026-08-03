@@ -1,0 +1,269 @@
+Rank,City,Country,Avg_Temp
+1,Ar Riyadh,Saudi Arabien,45.0
+2,Kuwait,Kuwait,44.4
+3,Morocco City,Marrocos,40.3
+4,Krasnyy Turkmenistan,Turkménistan,37.8
+5,Yanngwa,Myanmar,33.21
+6,Doha,Qatar,32.43346303501946
+7,Abu Dhabi,United Arab Emirates,32.27360931435964
+8,Phnom Penh,Cambodia,32.05805194805195
+9,Bangkok,Thailand,31.964637305699483
+10,Muscat,Oman,31.817723156532985
+11,Rangoon,Myanmar,31.61661237785016
+12,Khartoum,Sudan,31.474837872892344
+13,Djibouti,Djibouti,31.373896103896104
+14,City Of San Marino,San Marino,31.3
+15,Dhaka,Bangladesh,31.254663212435233
+16,Kuwait City,Kuwait,30.94396887159533
+17,Riyadh,Saudi Arabia,30.731088082901557
+18,Kuala Lumpur,Malaysia,30.630958549222797
+19,Nan,Thailand,30.53027166882277
+20,Yangon,Myanmar,30.52193396226415
+21,Manila,Philippines,30.48430609597925
+22,New Delhi,India,30.333937823834194
+23,Norman Gardens,Jamaica,30.33055555555556
+24,Jakarta,Indonesia,30.327425614489
+25,Kiyabo,Philippines,30.3
+26,Colombo,Sri Lanka,30.236481241914618
+27,Singapore,Singapore,29.975937904269085
+28,Surabaya,Indonesia,29.950000000000003
+29,Ho Chi Minh City,Vietnam,29.95
+30,Phnum Penh,Cambodia,29.85
+31,Achelap,Palau,29.816666666666666
+32,Yaounde,Cameroon,29.79375
+33,Manama,Bahrain,29.720181112548513
+34,-Kingdom,火鸡,29.7
+35,Bandar Seri Begawan,Brunei Darussalam,29.58456549935149
+36,Aakip,Palau,29.51
+37,N'djamena,Chad,29.293669250645994
+38,Namawbin,Myanmar,29.0625
+39,Niamey,Niger,28.997412677878398
+40,S. Manian,Vietnam,28.935714285714283
+41,Koror,Palau,28.934615384615384
+42,Bali,Indonesia,28.9
+43,Victoria,Seychelles Islands,28.855844155844157
+44,Funafuti,Tuvalu,28.841267787839584
+45,Baghdad,Iraq,28.833850129198968
+46,Pathein,Myanmar,28.80625
+47,Felidhoo,Maldives,28.79705882352941
+48,Mogadishu,Somalia,28.776523994811935
+49,Islamabad,Pakistan,28.615434500648508
+50,Abazu,Myanmar,28.6125
+51,Ivory,Madagascar,28.604803493449783
+52,Vientiane,Lao People's Democratic Republic,28.55
+53,Male,Maldives,28.55
+54,Juba,Sudan,28.39974025974026
+55,Majuro,Marshall Islands,28.271280724450197
+56,Palikir,Micronesia,28.257272727272724
+57,Porto-Novo,Benin,28.156865284974092
+58,Airai,Palau,28.063072776280322
+59,Tarawa,Kiribati,28.047081712062255
+60,Bournemouth Gardens,Jamaica,27.972727272727273
+61,Dhidhdhoo,Maldives,27.910490463215258
+62,Ouagadougou,Burkina Faso,27.875420439844763
+63,Newport East,Jamaica,27.78
+64,Moldova,Polônia,27.7
+65,Hanoi,Vietnam,27.65945595854922
+66,Bangui,Central African Republic,27.609715025906738
+67,Honiara,Solomon Islands,27.472574385510995
+68,Mexico (Grupo Mexico),Mexique,27.4
+69,Kingstown,Saint Vincent and the Grenadines,27.236186770428013
+70,Accra,Ghana,27.20090439276486
+71,Lome,Togo,27.1
+72,Saint George's,Grenada,27.070664928292047
+73,Castries,Saint Lucia,27.025129533678758
+74,Meyungs,Palau,27.0
+75,Bridgetown,Barbados,26.996627756160834
+76,Abuja,Nigeria,26.96157826649418
+77,Port Moresby,Papua New Guinea,26.915782664941787
+78,Port Royal,Jamaica,26.871666666666666
+79,Malabo,Equatorial Guinea,26.862144702842375
+80,Port Louis,Mauritius,26.697797927461142
+81,Moroni,Comoros,26.668693402328593
+82,Palau,USA United States of America,26.65
+83,Libreville,Gabon,26.63445595854922
+84,Basseterre,Saint Kitts and Nevis,26.59935149156939
+85,Carreria,Paraguay,26.564
+86,Bamako,Mali,26.557383419689117
+87,Roseau,Dominica,26.520286085825745
+88,Laos,Indonesia,26.51738002594034
+89,Adkip,Palau,26.505000000000003
+90,Mombasa,Kenya,26.5
+91,Dili,Timor-Leste,26.459167750325097
+92,Brazzaville,Congo,26.364025974025974
+93,Tripoli,Libya,26.35
+94,Ban Lom,Vietnam,26.342822384428224
+95,Saint John's,Antigua and Barbuda,26.31326397919376
+96,Kingston,Jamaica,26.274832214765098
+97,Kinshasa,Democratic Republic of Congo,26.250129870129868
+98,Conakry,Guinea,26.079792746113988
+99,Apia,Samoa,26.078226857887874
+100,Luanda,Angola,25.876455368693403
+101,Freetown,Sierra Leone,25.86844155844156
+102,Monrovia,Liberia,25.824870466321244
+103,Bujumbura,Burundi,25.55426356589147
+104,Panama City,Panama,25.52285714285714
+105,Douala,Cameroon,25.470833333333335
+106,Ngaoundere,Cameroon,25.3938679245283
+107,Bissau,Guinea-Bissau,25.279015544041453
+108,Cairo,Egypt,25.278858625162126
+109,Maputo,Mozambique,25.217335058214747
+110,Port Vila,Vanuatu,25.201423027166882
+111,Grenada,USA United States of America,25.2
+112,Port Of Spain,Trinidad and Tobago,25.162987012987013
+113,Kampala,Uganda,25.032729624838293
+114,Dodoma,Tanzania,24.887305699481864
+115,Suva,Fiji Islands,24.84418604651163
+116,Banjul,Gambia,24.73068920676203
+117,Nassau,Bahamas,24.70469361147327
+118,Georgetown,Guyana,24.60143042912874
+119,Managua,Nicaragua,24.51303780964798
+120,Paramaribo,Suriname,24.347922077922078
+121,Beijing Shi,China,24.3
+122,Ivory Ivory Ban,Malásia,24.3
+123,Dakar,Senegal,24.274547803617573
+124,Nicosia,Cyprus,24.196507115135837
+125,Bras,Brazil,24.08331160365059
+126,Nuku`Aloia,Tonga,23.970221066319894
+127,Santo Domingo,Dominican Republic,23.939350649350647
+128,Praia,Cape Verde,23.85472186287193
+129,San Juan,Costa Rica,23.75
+130,Lusaka,Zambia,23.62341526520052
+131,Lilongwe,Malawi,23.607244501940492
+132,San Salvador,El Salvador,23.52023498694517
+133,Antananarivo,Madagascar,23.396248382923673
+134,Kigali,Rwanda,23.379818887451485
+135,Nouakchott,Mauritania,23.332901554404145
+136,Aguaray,Paraguay,23.299999999999997
+137,Kathmandu,Nepal,23.18419689119171
+138,Jerusalem,Israel,23.104145077720208
+139,Costa Rica,كولومبيا,23.1
+140,Nuku'alofa,Tonga,23.049999999999997
+141,Beirut,Lebanon,23.03842173350582
+142,Ninga,Cameroon,23.03
+143,Yamoussoukro,Cote d'Ivoire,22.924115755627007
+144,Saint Petersburg,Russia,22.9
+145,Ashgabat,Turkmenistan,22.819948186528496
+146,Havana,Cuba,22.751495448634593
+147,Bafoussam,Cameroon,22.677777777777777
+148,Dushanbe,Tajikistan,22.67094682230869
+149,National,Bolivia,22.453715775749675
+150,Caracas,Venezuela,22.43190661478599
+151,Harare,Zimbabwe,22.425551232166015
+152,Tashkent,Uzbekistan,22.36201550387597
+153,Pasto,Paraguay,22.348000000000003
+154,Belmopan,Belize,22.153255208333334
+155,Sanaa,Yemen,22.133935483870967
+156,Gaborone,Botswana,22.05899094437257
+157,Tehran,Iran,21.989248704663215
+158,Athens,Greece,21.80286085825748
+159,Valletta,Malta,21.764987080103356
+160,Pristina,Kosovo,21.75
+161,New York,United States of America,21.633333333333336
+162,Tunis,Tunisia,21.59597924773022
+163,Mbabane,Swaziland,21.530090791180285
+164,Damascus,Syria,21.45181347150259
+165,Amman,Jordan,21.423385012919898
+166,Port-Au-Prince,Haiti,21.32181818181818
+167,Nairobi,Kenya,21.28098318240621
+168,Asmara,Eritrea,21.176485788113695
+169,Windhoek,Namibia,21.049029754204398
+170,Garrapata,Paraguay,20.52340425531915
+171,Algiers,Algeria,20.2011673151751
+172,Pretoria,South Africa,20.07542043984476
+173,Tokyo,Japan,19.93720930232558
+174,Aurora,Paraguay,19.720330969267142
+175,Addis Ababa,Ethiopia,19.51961038961039
+176,Tegucigalpa,Honduras,19.406901041666668
+177,San Ignacio,Costa Rica,19.37266514806378
+178,Aba,Cameroon,19.34375
+179,Tirana,Albania,19.313730569948188
+180,Kabul,Afghanistan,19.268346253229975
+181,Addis Abeba,Ethiopia,19.0
+182,San Jose,Costa Rica,18.95105633802817
+183,Sartorio,Paraguay,18.908
+184,Baku,Azerbaijan,18.88821243523316
+185,Podgorica,Montenegro,18.70453955901427
+186,Beijing,China,18.544415584415585
+187,Rome,Italy,18.485510996119014
+188,Maseru,Lesotho,18.47496757457847
+189,Vatican City,Vatican City,18.47002583979328
+190,Rabat,Morocco,18.423346303501944
+191,Lima,Peru,18.112760416666667
+192,Monaco,Monaco,17.922366710013
+193,Yaren,Turkey,17.812970168612193
+194,Bishkek,Kyrghyzstan,17.427461139896373
+195,Guatemala City,Guatemala,17.31266318537859
+196,Tbilisi,Georgia,17.208181818181817
+197,Seoul,South Korea,16.965459249676584
+198,Chi Chi Khvar,Iran,16.92153635116598
+199,Yerevan,Armenia,16.872315653298834
+200,Lisbon,Portugal,16.866839378238343
+201,San Marino,San Marino,16.82665799739922
+202,Skopje,Macedonia,16.632724902216427
+203,Sao Paulo,Brazil,16.45
+204,San Andres,Costa Rica,16.384615384615383
+205,'S Gravenjansdyk,Belgium,16.341666666666665
+206,Bogot,Bulgaria,16.22818181818182
+207,New Guatemala,Гватемала,15.9
+208,Madrid,Spain,15.763389391979302
+209,Bucharest,Romania,15.607133592736705
+210,Ankara,Turkey,15.584176394293126
+211,'S Gravenstaffel,Belgium,15.5625
+212,Canberra,Australia,15.38678756476684
+213,Belgrade,Serbia,15.37464424320828
+214,Asuncion,Paraguay,15.0
+215,Mexico City,Mexico,14.744603381014304
+216,Pyongyang,North Korea,14.645784695201037
+217,Buenos Aires,Argentina,14.62970168612192
+218,Montevideo,Uruguay,14.275518134715027
+219,'S Gravenjansdijk,Belgium,14.261020881670534
+220,Zagreb,Croatia,14.176883116883118
+221,Budapest,Hungary,14.176326002587322
+222,Wellington,New Zealand,13.988082901554403
+223,Bogota,Colombia,13.9
+224,Sofia,Bulgaria,13.747150259067357
+225,Thimphu,Bhutan,13.62166018158236
+226,Bratislava,Slovakia,13.448771021992238
+227,Paris,France,13.335751295336788
+228,Ljubljana,Slovenia,13.06261319534282
+229,Vienna,Austria,12.948963730569949
+230,Sarajevo,Bosnia and Herzegovina,12.891073738680465
+231,Amsterdam,Netherlands,12.421086675291074
+232,Kyiv,Ukraine,12.266279069767442
+233,London,United Kingdom,12.243968871595332
+234,Brussels,Belgium,12.225810635538263
+235,Berlin,Germany,11.961060802069857
+236,Melbourne,Australia,11.899999999999999
+237,Sucre,Bolivia,11.775880052151239
+238,Lom,Bulgaria,11.759052924791087
+239,Warsaw,Poland,11.725710594315247
+240,Prague,Czech Republic,11.136186770428015
+241,Bern,Switzerland,11.071188630490957
+242,Santiago,Chile,10.962987012987012
+243,Luxembourg,Luxembourg,10.917272727272726
+244,Copenhagen,Denmark,10.89443005181347
+245,Dublin,Ireland,10.890779220779221
+246,Quito,Ecuador,10.440104166666666
+247,Washington Park,United States of America,10.41875
+248,Vaduz,Liechtenstein,10.099222797927462
+249,Riga,Latvia,9.914766839378238
+250,Stockholm,Sweden,9.895725388601036
+251,Minsk,Belarus,9.87681347150259
+252,Moscow,Russia,9.808667529107375
+253,'S-Gravenbrakel,Belgium,9.76681818181818
+254,Vilnius,Lithuania,9.62098445595855
+255,Astana,Kazakhstan,9.290932642487046
+256,Tallinn,Estonia,9.206217616580311
+257,Helsinki,Finland,8.912936610608021
+258,Grindavik,Iceland,8.894444444444444
+259,Andorra La Vella,Andorra,8.817335058214748
+260,Washington Harbor,United States of America,8.790361445783132
+261,Oslo,Norway,8.07976653696498
+262,Abaer,Iceland,7.684615384615385
+263,Vestmannaeyjar,Iceland,6.422641509433962
+264,Ottawa,Canada,5.426588845654993
+265,Ulaanbaatar,Mongolia,4.539248704663213
+266,Reykjavik,Iceland,3.7389473684210524
+267,S-Chanf,Switzerland,0.534
+268,Chi-Chi-Erh,Russia,-12.490243902439024

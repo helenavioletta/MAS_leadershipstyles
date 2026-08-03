@@ -1,0 +1,42 @@
+column_name,action,reason
+country,DROP,High-cardinality location (211 unique); use lat/lon instead
+location_name,DROP,High-cardinality location (268 unique); use lat/lon instead
+latitude,KEEP,Numeric predictor
+longitude,KEEP,Numeric predictor
+timezone,DROP,Metadata (201 unique); not useful for cross-sectional prediction
+last_updated_epoch,DROP,Raw Unix timestamp; not meaningful without derivation (month/day-of-year)
+last_updated,DROP,Timestamp string metadata; not useful
+temperature_celsius,TARGET,Target variable for prediction
+temperature_fahrenheit,DROP,"Leakage: same info as temperature_celsius, different unit"
+condition_text,DROP,Categorical (57 unique); dropped for model simplicity (future: could one-hot encode)
+wind_mph,KEEP,Numeric predictor
+wind_kph,KEEP,Numeric predictor
+wind_degree,KEEP,Numeric predictor
+wind_direction,DROP,Categorical (16 unique compass directions); wind_degree already present
+pressure_mb,KEEP,Numeric predictor
+pressure_in,KEEP,Numeric predictor
+precip_mm,KEEP,Numeric predictor
+precip_in,KEEP,Numeric predictor
+humidity,KEEP,Numeric predictor
+cloud,KEEP,Numeric predictor
+feels_like_celsius,DROP,Leakage: derived from temperature + humidity + wind
+feels_like_fahrenheit,DROP,Leakage: derived from temperature + humidity + wind
+visibility_km,KEEP,Numeric predictor
+visibility_miles,KEEP,Numeric predictor
+uv_index,KEEP,Numeric predictor
+gust_mph,KEEP,Numeric predictor
+gust_kph,KEEP,Numeric predictor
+air_quality_Carbon_Monoxide,KEEP,Numeric predictor
+air_quality_Ozone,KEEP,Numeric predictor
+air_quality_Nitrogen_dioxide,KEEP,Numeric predictor
+air_quality_Sulphur_dioxide,KEEP,Numeric predictor
+air_quality_PM2.5,KEEP,Numeric predictor
+air_quality_PM10,KEEP,Numeric predictor
+air_quality_us-epa-index,KEEP,Numeric predictor
+air_quality_gb-defra-index,KEEP,Numeric predictor
+sunrise,DROP,Time-of-day metadata; not predictive in snapshot
+sunset,DROP,Time-of-day metadata; not predictive in snapshot
+moonrise,DROP,Time string metadata (1445 unique); not predictive
+moonset,DROP,Time string metadata (1445 unique); not predictive
+moon_phase,DROP,Low signal (8 unique); weak predictive value for temperature
+moon_illumination,KEEP,Numeric predictor

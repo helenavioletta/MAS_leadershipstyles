@@ -1,0 +1,212 @@
+Rank,Country,Max_Temp
+1,Fiji Islands,79.3
+2,Kuwait,49.2
+3,Iraq,49.1
+4,Djibouti,47.1
+5,United Arab Emirates,46.4
+6,Saudi Arabia,46.3
+7,Qatar,46.3
+8,Oman,46.3
+9,Bahrain,45.3
+10,Saudi Arabien,45.0
+11,Pakistan,45.0
+12,Chad,45.0
+13,India,44.8
+14,Sudan,44.2
+15,Tajikistan,43.2
+16,Niger,43.0
+17,Turkmenistan,42.5
+18,Egypt,42.4
+19,Uzbekistan,42.3
+20,Syria,42.3
+21,Bangladesh,42.2
+22,Mali,42.0
+23,Burkina Faso,41.5
+24,Madagascar,41.4
+25,Macedonia,41.4
+26,Jordan,41.1
+27,Cyprus,41.1
+28,Bulgaria,40.9
+29,Serbia,40.7
+30,Tunisia,40.6
+31,Turkey,40.3
+32,Marrocos,40.3
+33,Romania,40.2
+34,Montenegro,40.2
+35,Kyrghyzstan,40.1
+36,Vietnam,40.0
+37,Cambodia,39.9
+38,Iran,39.9
+39,Nigeria,39.4
+40,Thailand,39.3
+41,Armenia,39.3
+42,Greece,39.3
+43,Albania,39.2
+44,Australia,39.1
+45,Israel,39.0
+46,Croatia,38.8
+47,Spain,38.7
+48,Botswana,38.4
+49,Myanmar,38.4
+50,China,38.3
+51,Algeria,38.2
+52,Guinea-Bissau,38.0
+53,Central African Republic,37.9
+54,Turkménistan,37.8
+55,Democratic Republic of Congo,37.8
+56,Italy,37.7
+57,Vatican City,37.7
+58,Congo,37.5
+59,Zambia,37.4
+60,Georgia,37.4
+61,Mozambique,37.3
+62,Swaziland,37.2
+63,Ukraine,37.2
+64,Bosnia and Herzegovina,37.2
+65,Azerbaijan,37.2
+66,Hungary,37.1
+67,Philippines,37.1
+68,Japan,37.1
+69,France,36.8
+70,Gambia,36.4
+71,Malaysia,36.4
+72,South Korea,36.4
+73,Malta,36.3
+74,Mauritania,36.3
+75,Afghanistan,36.3
+76,Brunei Darussalam,36.0
+77,Lesotho,35.6
+78,Austria,35.5
+79,Malawi,35.4
+80,North Korea,35.3
+81,Dominica,35.3
+82,Slovakia,35.2
+83,Poland,35.2
+84,Singapore,35.2
+85,Morocco,35.2
+86,Namibia,35.1
+87,Kazakhstan,35.0
+88,Zimbabwe,34.8
+89,Indonesia,34.4
+90,Benin,34.4
+91,Mongolia,34.3
+92,Sri Lanka,34.3
+93,Solomon Islands,34.3
+94,South Africa,34.2
+95,Portugal,34.1
+96,Slovenia,34.1
+97,Турция,34.0
+98,Equatorial Guinea,33.4
+99,Seychelles Islands,33.4
+100,Brazil,33.3
+101,Germany,33.3
+102,Monaco,33.3
+103,Somalia,33.3
+104,Cameroon,33.3
+105,Burundi,33.3
+106,Tanzania,33.3
+107,Ghana,33.2
+108,Mauritius,33.2
+109,Lebanon,33.1
+110,San Marino,33.1
+111,Guinea,33.0
+112,Liberia,33.0
+113,Jamaica,33.0
+114,Barbados,33.0
+115,Bolivia,32.9
+116,Uganda,32.8
+117,United Kingdom,32.8
+118,Paraguay,32.6
+119,Switzerland,32.6
+120,Belarus,32.4
+121,Comoros,32.4
+122,Czech Republic,32.4
+123,Nepal,32.4
+124,Senegal,32.3
+125,Haiti,32.3
+126,Micronesia,32.3
+127,Saint Kitts and Nevis,32.3
+128,Estonia,32.3
+129,Palau,32.3
+130,Marshall Islands,32.2
+131,Angola,32.2
+132,Russia,32.2
+133,Belgium,32.2
+134,Lao People's Democratic Republic,32.1
+135,Latvia,32.1
+136,Vanuatu,32.1
+137,Grenada,32.0
+138,Saint Vincent and the Grenadines,32.0
+139,Bahamas,32.0
+140,Suriname,32.0
+141,Dominican Republic,32.0
+142,Belize,32.0
+143,Trinidad and Tobago,32.0
+144,Rwanda,31.6
+145,Guyana,31.4
+146,Antigua and Barbuda,31.4
+147,Papua New Guinea,31.4
+148,Tuvalu,31.4
+149,Gabon,31.3
+150,Nicaragua,31.3
+151,Cape Verde,31.3
+152,Sierra Leone,31.2
+153,Tonga,31.2
+154,Saint Lucia,31.2
+155,Lithuania,31.2
+156,Inde,31.2
+157,Cuba,31.0
+158,Venezuela,31.0
+159,Luxembourg,30.5
+160,El Salvador,30.0
+161,Panama,30.0
+162,Maldives,29.8
+163,火鸡,29.7
+164,Kiribati,29.7
+165,Netherlands,29.7
+166,Yemen,29.4
+167,Ethiopia,29.4
+168,Liechtenstein,29.4
+169,Samoa,29.4
+170,Kosovo,29.3
+171,Canada,29.2
+172,Finland,29.1
+173,Timor-Leste,29.1
+174,Andorra,28.9
+175,Kenya,28.4
+176,USA United States of America,28.2
+177,Sweden,28.2
+178,Eritrea,28.0
+179,Togo,27.9
+180,Saint-Vincent-et-les-Grenadines,27.8
+181,Polônia,27.7
+182,Mexique,27.4
+183,Argentina,27.3
+184,Uruguay,27.2
+185,Denmark,27.2
+186,Costa Rica,27.0
+187,Honduras,27.0
+188,Libya,27.0
+189,Cote d'Ivoire,26.3
+190,Norway,26.2
+191,Südkorea,26.1
+192,Jemen,26.1
+193,United States of America,26.1
+194,Komoren,25.2
+195,Guatemala,25.0
+196,Malásia,24.3
+197,Peru,24.3
+198,Польша,24.2
+199,Bhutan,23.8
+200,Estonie,23.3
+201,Ireland,23.2
+202,Chile,23.2
+203,كولومبيا,23.1
+204,New Zealand,23.0
+205,Mexico,23.0
+206,Letonia,20.6
+207,Ecuador,18.9
+208,Bélgica,17.4
+209,Iceland,17.2
+210,Гватемала,15.9
+211,Colombia,14.3

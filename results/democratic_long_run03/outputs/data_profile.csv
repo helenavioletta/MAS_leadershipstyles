@@ -1,0 +1,42 @@
+column_name,dtype,missing_count,missing_pct,nunique,action,reason
+country,str,0,0.0,211,DROP,High cardinality location field; use lat/lon instead
+location_name,str,0,0.0,268,DROP,High cardinality location field; use lat/lon instead
+latitude,float64,0,0.0,422,KEEP,Numeric predictor
+longitude,float64,0,0.0,428,KEEP,Numeric predictor
+timezone,str,0,0.0,201,DROP,Timestamp/timezone metadata; not useful for cross-sectional prediction
+last_updated_epoch,int64,0,0.0,1384,KEEP,Numeric predictor
+last_updated,str,0,0.0,24970,DROP,Timestamp/timezone metadata; not useful for cross-sectional prediction
+temperature_celsius,float64,0,0.0,708,TARGET,Target variable
+temperature_fahrenheit,float64,0,0.0,1179,DROP,Leakage: derived from or same info as temperature
+condition_text,str,0,0.0,57,REVIEW,Unclear; dtype=str
+wind_mph,float64,0,0.0,188,KEEP,Numeric predictor
+wind_kph,float64,0,0.0,188,KEEP,Numeric predictor
+wind_degree,int64,0,0.0,360,KEEP,Numeric predictor
+wind_direction,str,0,0.0,16,REVIEW,Unclear; dtype=str
+pressure_mb,float64,0,0.0,93,KEEP,Numeric predictor
+pressure_in,float64,0,0.0,217,KEEP,Numeric predictor
+precip_mm,float64,0,0.0,657,KEEP,Numeric predictor
+precip_in,float64,0,0.0,77,KEEP,Numeric predictor
+humidity,int64,0,0.0,99,KEEP,Numeric predictor
+cloud,int64,0,0.0,101,KEEP,Numeric predictor
+feels_like_celsius,float64,0,0.0,821,DROP,Leakage: derived from or same info as temperature
+feels_like_fahrenheit,float64,0,0.0,1431,DROP,Leakage: derived from or same info as temperature
+visibility_km,float64,0,0.0,95,KEEP,Numeric predictor
+visibility_miles,float64,0,0.0,13,KEEP,Numeric predictor
+uv_index,float64,0,0.0,163,KEEP,Numeric predictor
+gust_mph,float64,0,0.0,520,KEEP,Numeric predictor
+gust_kph,float64,0,0.0,788,KEEP,Numeric predictor
+air_quality_Carbon_Monoxide,float64,0,0.0,7268,KEEP,Numeric predictor
+air_quality_Ozone,float64,0,0.0,650,KEEP,Numeric predictor
+air_quality_Nitrogen_dioxide,float64,0,0.0,3285,KEEP,Numeric predictor
+air_quality_Sulphur_dioxide,float64,0,0.0,3158,KEEP,Numeric predictor
+air_quality_PM2.5,float64,0,0.0,5423,KEEP,Numeric predictor
+air_quality_PM10,float64,0,0.0,7941,KEEP,Numeric predictor
+air_quality_us-epa-index,int64,0,0.0,6,KEEP,Numeric predictor
+air_quality_gb-defra-index,int64,0,0.0,10,KEEP,Numeric predictor
+sunrise,str,0,0.0,514,DROP,Timestamp/timezone metadata; not useful for cross-sectional prediction
+sunset,str,0,0.0,561,DROP,Timestamp/timezone metadata; not useful for cross-sectional prediction
+moonrise,str,0,0.0,1445,REVIEW,Unclear; dtype=str
+moonset,str,0,0.0,1445,REVIEW,Unclear; dtype=str
+moon_phase,str,0,0.0,8,REVIEW,Unclear; dtype=str
+moon_illumination,int64,0,0.0,101,KEEP,Numeric predictor

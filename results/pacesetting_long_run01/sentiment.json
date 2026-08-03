@@ -1,0 +1,315 @@
+{
+  "messages": [
+    {
+      "seq": 2,
+      "sender": "Boss",
+      "phase": 1,
+      "compound": 0.8271,
+      "positive": 0.077,
+      "negative": 0.046,
+      "neutral": 0.877
+    },
+    {
+      "seq": 4,
+      "sender": "Boss",
+      "phase": 2,
+      "compound": 0.6749,
+      "positive": 0.063,
+      "negative": 0.044,
+      "neutral": 0.893
+    },
+    {
+      "seq": 5,
+      "sender": "Coder",
+      "phase": 2,
+      "compound": 0.9555,
+      "positive": 0.085,
+      "negative": 0.037,
+      "neutral": 0.878
+    },
+    {
+      "seq": 6,
+      "sender": "Writer",
+      "phase": 2,
+      "compound": 0.9734,
+      "positive": 0.085,
+      "negative": 0.006,
+      "neutral": 0.91
+    },
+    {
+      "seq": 7,
+      "sender": "Reviewer",
+      "phase": 2,
+      "compound": 0.7519,
+      "positive": 0.055,
+      "negative": 0.044,
+      "neutral": 0.901
+    },
+    {
+      "seq": 8,
+      "sender": "Boss",
+      "phase": 2,
+      "compound": 0.9255,
+      "positive": 0.103,
+      "negative": 0.051,
+      "neutral": 0.846
+    },
+    {
+      "seq": 10,
+      "sender": "Coder",
+      "phase": 3,
+      "compound": 0.9407,
+      "positive": 0.05,
+      "negative": 0.027,
+      "neutral": 0.923
+    },
+    {
+      "seq": 11,
+      "sender": "Boss",
+      "phase": 3,
+      "compound": 0.6415,
+      "positive": 0.052,
+      "negative": 0.0,
+      "neutral": 0.948
+    },
+    {
+      "seq": 13,
+      "sender": "Writer",
+      "phase": 4,
+      "compound": 0.9497,
+      "positive": 0.069,
+      "negative": 0.039,
+      "neutral": 0.893
+    },
+    {
+      "seq": 14,
+      "sender": "Boss",
+      "phase": 4,
+      "compound": -0.7351,
+      "positive": 0.016,
+      "negative": 0.046,
+      "neutral": 0.938
+    },
+    {
+      "seq": 16,
+      "sender": "Reviewer",
+      "phase": 5,
+      "compound": 0.8979,
+      "positive": 0.05,
+      "negative": 0.025,
+      "neutral": 0.926
+    },
+    {
+      "seq": 18,
+      "sender": "Boss",
+      "phase": 6,
+      "compound": -0.7351,
+      "positive": 0.028,
+      "negative": 0.058,
+      "neutral": 0.914
+    },
+    {
+      "seq": 19,
+      "sender": "Writer",
+      "phase": 6,
+      "compound": 0.9562,
+      "positive": 0.071,
+      "negative": 0.04,
+      "neutral": 0.889
+    },
+    {
+      "seq": 20,
+      "sender": "Reviewer",
+      "phase": 6,
+      "compound": -0.9827,
+      "positive": 0.023,
+      "negative": 0.07,
+      "neutral": 0.908
+    },
+    {
+      "seq": 22,
+      "sender": "Boss",
+      "phase": 6,
+      "compound": -0.8605,
+      "positive": 0.058,
+      "negative": 0.089,
+      "neutral": 0.853
+    },
+    {
+      "seq": 23,
+      "sender": "Writer",
+      "phase": 6,
+      "compound": 0.9562,
+      "positive": 0.071,
+      "negative": 0.04,
+      "neutral": 0.889
+    },
+    {
+      "seq": 24,
+      "sender": "Reviewer",
+      "phase": 6,
+      "compound": 0.983,
+      "positive": 0.069,
+      "negative": 0.01,
+      "neutral": 0.921
+    }
+  ],
+  "aggregates": {
+    "run": {
+      "mean_compound": 0.4777,
+      "median_compound": 0.8979,
+      "min_compound": -0.9827,
+      "max_compound": 0.983,
+      "std_compound": 0.7328,
+      "positive_ratio": 0.7647,
+      "negative_ratio": 0.2353,
+      "neutral_ratio": 0.0
+    },
+    "per_agent": {
+      "Reviewer": {
+        "mean_compound": 0.4125,
+        "message_count": 4,
+        "positive_ratio": 0.75,
+        "negative_ratio": 0.25
+      },
+      "Coder": {
+        "mean_compound": 0.9481,
+        "message_count": 2,
+        "positive_ratio": 1.0,
+        "negative_ratio": 0.0
+      },
+      "Boss": {
+        "mean_compound": 0.1055,
+        "message_count": 7,
+        "positive_ratio": 0.5714,
+        "negative_ratio": 0.4286
+      },
+      "Writer": {
+        "mean_compound": 0.9589,
+        "message_count": 4,
+        "positive_ratio": 1.0,
+        "negative_ratio": 0.0
+      }
+    },
+    "per_phase": {
+      "1": {
+        "mean_compound": 0.8271,
+        "message_count": 1
+      },
+      "2": {
+        "mean_compound": 0.8562,
+        "message_count": 5
+      },
+      "3": {
+        "mean_compound": 0.7911,
+        "message_count": 2
+      },
+      "4": {
+        "mean_compound": 0.1073,
+        "message_count": 2
+      },
+      "5": {
+        "mean_compound": 0.8979,
+        "message_count": 1
+      },
+      "6": {
+        "mean_compound": 0.0529,
+        "message_count": 6
+      }
+    },
+    "boss_vs_workers": {
+      "boss_mean": 0.1055,
+      "worker_mean": 0.7382,
+      "gap": -0.6327
+    },
+    "trajectory": [
+      {
+        "seq": 2,
+        "sender": "Boss",
+        "compound": 0.8271
+      },
+      {
+        "seq": 4,
+        "sender": "Boss",
+        "compound": 0.6749
+      },
+      {
+        "seq": 5,
+        "sender": "Coder",
+        "compound": 0.9555
+      },
+      {
+        "seq": 6,
+        "sender": "Writer",
+        "compound": 0.9734
+      },
+      {
+        "seq": 7,
+        "sender": "Reviewer",
+        "compound": 0.7519
+      },
+      {
+        "seq": 8,
+        "sender": "Boss",
+        "compound": 0.9255
+      },
+      {
+        "seq": 10,
+        "sender": "Coder",
+        "compound": 0.9407
+      },
+      {
+        "seq": 11,
+        "sender": "Boss",
+        "compound": 0.6415
+      },
+      {
+        "seq": 13,
+        "sender": "Writer",
+        "compound": 0.9497
+      },
+      {
+        "seq": 14,
+        "sender": "Boss",
+        "compound": -0.7351
+      },
+      {
+        "seq": 16,
+        "sender": "Reviewer",
+        "compound": 0.8979
+      },
+      {
+        "seq": 18,
+        "sender": "Boss",
+        "compound": -0.7351
+      },
+      {
+        "seq": 19,
+        "sender": "Writer",
+        "compound": 0.9562
+      },
+      {
+        "seq": 20,
+        "sender": "Reviewer",
+        "compound": -0.9827
+      },
+      {
+        "seq": 22,
+        "sender": "Boss",
+        "compound": -0.8605
+      },
+      {
+        "seq": 23,
+        "sender": "Writer",
+        "compound": 0.9562
+      },
+      {
+        "seq": 24,
+        "sender": "Reviewer",
+        "compound": 0.983
+      }
+    ]
+  },
+  "message_count": 17,
+  "valid": true
+}

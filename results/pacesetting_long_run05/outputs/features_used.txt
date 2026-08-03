@@ -1,0 +1,33 @@
+FINAL FEATURES USED IN MODELS
+================================================================================
+
+Total features: 101
+Numeric features: 20
+Categorical features (encoded): 81
+
+NUMERIC FEATURES:
+  - latitude
+  - longitude
+  - wind_kph
+  - wind_degree
+  - pressure_mb
+  - precip_mm
+  - humidity
+  - cloud
+  - visibility_km
+  - uv_index
+  - gust_kph
+  - air_quality_Carbon_Monoxide
+  - air_quality_Ozone
+  - air_quality_Nitrogen_dioxide
+  - air_quality_Sulphur_dioxide
+  - air_quality_PM2.5
+  - air_quality_PM10
+  - air_quality_us-epa-index
+  - air_quality_gb-defra-index
+  - moon_illumination
+
+CATEGORICAL FEATURES (ONEHOT ENCODED):
+  - wind_direction: 8 categories
+  - condition_text: 24 categories
+  Total encoded dummies: 81
