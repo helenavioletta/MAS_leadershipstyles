@@ -1,3 +1,0 @@
-Model,RMSE (deg C),MAE (deg C),R2 Score,Features
-Random Forest,2.7545,1.8632,0.9179,101
-Ridge Regression,7.3527,5.2092,0.4153,101

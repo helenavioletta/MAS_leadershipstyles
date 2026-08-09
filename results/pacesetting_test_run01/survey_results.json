@@ -2,41 +2,41 @@
   "workers": {
     "Coder": {
       "raw_scores": {
-        "q5": 5,
-        "q4": 4,
+        "q2": 5,
+        "q4": 2,
+        "q3": 5,
         "q6": 5,
         "q1": 5,
-        "q2": 5,
-        "q3": 5
+        "q5": 5
       },
       "adjusted_scores": {
-        "q5": 5,
-        "q4": 2,
+        "q2": 5,
+        "q4": 4,
+        "q3": 5,
         "q6": 5,
         "q1": 5,
-        "q2": 5,
-        "q3": 5
+        "q5": 5
       },
-      "composite_score": 4.5,
-      "raw_response": "```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 4, \"q5\": 5, \"q6\": 5}\n```",
+      "composite_score": 4.833,
+      "raw_response": "```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
-        "q5": 5,
+        "q2": 5,
         "q4": 2,
+        "q3": 5,
         "q6": 5,
         "q1": 5,
-        "q2": 5,
-        "q3": 5
+        "q5": 5
       },
       "adjusted_scores": {
-        "q5": 5,
+        "q2": 5,
         "q4": 4,
+        "q3": 5,
         "q6": 5,
         "q1": 5,
-        "q2": 5,
-        "q3": 5
+        "q5": 5
       },
       "composite_score": 4.833,
       "raw_response": "```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
@@ -44,27 +44,27 @@
     },
     "Reviewer": {
       "raw_scores": {
-        "q5": 5,
+        "q2": 5,
         "q4": 2,
+        "q3": 5,
         "q6": 5,
         "q1": 5,
-        "q2": 5,
-        "q3": 5
+        "q5": 5
       },
       "adjusted_scores": {
-        "q5": 5,
+        "q2": 5,
         "q4": 4,
+        "q3": 5,
         "q6": 5,
         "q1": 5,
-        "q2": 5,
-        "q3": 5
+        "q5": 5
       },
       "composite_score": 4.833,
       "raw_response": "```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
       "valid": true
     }
   },
-  "team_mean": 4.722,
+  "team_mean": 4.833,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
     "q2": "The team leader helped the team identify and use each member's strengths.",

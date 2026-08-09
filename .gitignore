@@ -10,7 +10,7 @@ __pycache__/
 
 # Results (real results tracked for thesis hand-in)
 # results/
-results/validation_runs/
+results_archive/
 
 # Data (now tracked for thesis hand-in)
 # data/global_weather.csv
