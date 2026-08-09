@@ -16,6 +16,15 @@ You will be given:
 5. **Reference values** from a notebook showing one valid approach (NOT absolute ground truth)
 6. A list of **traps** (known data quality issues the team should have caught)
 
+## How to Verify Outputs
+
+You CANNOT see the actual chart images. Instead, verify the work using:
+- **Console output (stdout):** The task requires the team to print key results to the console. Check the stdout for the printed values — these are the ground truth for what was plotted.
+- **Files produced:** Check that the expected number of chart files (PNG) were saved. If files are missing, penalize under Completeness.
+- **Code:** Read the plotting code to verify it uses the same data that was printed.
+
+See the "HOW TO VERIFY" section in the reference values below for task-specific details.
+
 ## Evaluation Axes
 
 ### A. Trap Detection
@@ -31,12 +40,32 @@ Include a brief evidence string quoting the relevant code line, stdout output, o
 
 ### B. Quality Scoring
 
-Score each dimension from 1 to 5 (1 = very poor, 5 = excellent). Provide a 2–3 sentence justification citing specific evidence from the deliverable.
+Score each dimension from 1 to 5. Provide a 2–3 sentence justification citing specific evidence.
 
-1. **Accuracy** — Are the results technically correct and internally consistent? Do reported numbers match what the code actually produced? Are visualizations accurate representations of the data? Judge correctness based on whether the approach is methodologically sound, NOT by exact match to the reference values.
-2. **Completeness** — Were all required deliverables produced (correct number of charts, report at specified word count, all sub-requirements)? Does the deliverable address the core question? Was there anything done that exceeds the requirements in a helpful way?
-3. **Cohesion** — Does the written report reference the actual code outputs and visualizations? Does the deliverable feel like one unified product or disconnected pieces?
-4. **Quality** — Are visualizations well-labeled, properly formatted, and visually clear? Is the writing clear and well-structured? Is the methodology sound?
+**Score Anchors:**
+
+**1 (Very Poor):** Give a 1 if ANY of these apply: results are built on trivially correlated features (R² > 0.99), required deliverables are missing, the output contains fabricated/hallucinated numbers not backed by code, the approach is fundamentally broken (e.g., severe multicollinearity making model results meaningless), or the report is truncated/incomplete to the point of being unusable. A single good sub-step does NOT save a fundamentally broken approach from a 1.
+
+**2 (Poor):** Major issues exist. The output exists and shows some effort, but contains significant errors or methodological problems that undermine the conclusions.
+
+**3 (Adequate):** Meets basic requirements. The approach is generally sound but lacks rigor, has inconsistencies, or misses important nuances.
+
+**4 (Good):** Solid work with only minor issues that do not affect the main conclusions.
+
+**5 (Excellent):** Give a 5 if ALL of these apply: all required outputs are produced, the methodology is sound, results are internally consistent, and the writing/charts are clear. You do NOT need to see brilliance or novelty — solid, correct, complete work earns a 5. Minor imperfections (formatting, word count slightly off) should NOT prevent a 5.
+
+**IMPORTANT:** Use the full 1-5 range. Do NOT default to 3-4. A deliverable with fundamentally wrong methodology deserves a 1 even if it "looks professional." A deliverable that is correct, complete, and well-crafted deserves a 5 even if it has minor cosmetic issues.
+
+**Dimensions:**
+
+1. **Accuracy** — Are the results technically correct and internally consistent? Do reported numbers match what the code actually produced? Is the methodology sound (not just "did it run")? Judge based on whether the approach produces VALID conclusions, NOT by exact match to the reference values.
+2. **Completeness** — Were all required deliverables produced (correct number of charts, report at specified word count, all sub-requirements)? If the report is truncated or cuts off mid-sentence, this is NOT complete.
+3. **Cohesion** — Does the written report reference the actual code outputs? Does the deliverable feel like one unified product or disconnected pieces? A truncated report cannot score above 2 on cohesion.
+4. **Quality** — Is the methodology sound and well-executed? Is the writing clear? Are the results meaningful and well-presented? If the core methodology is broken (e.g., multicollinear features making a model comparison meaningless), this is a 1 regardless of surface presentation.
+
+### C. BONUS Items
+
+Some reference information is marked with **BONUS [reward under: <category>]**. These are NOT traps and teams should NOT be penalized for missing them. However, if the team did notice and address a BONUS item, reward them by nudging the specified category score up (e.g., a borderline 3→4 or 4→5). The category to reward is specified in brackets after "BONUS" (e.g., "BONUS [reward under: Quality]" means bump the Quality score).
 
 ## Response Format
 

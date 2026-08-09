@@ -110,9 +110,10 @@ def run_single(
     # Models and parameters from config
     boss_model = config["models"]["boss"]
     worker_model = config["models"]["worker"]
-    max_tokens_per_response = config["max_tokens_per_response"]
-    boss_max_tokens = config.get("boss_max_tokens_per_response", max_tokens_per_response)
-    coder_max_tokens = config.get("coder_max_tokens_per_response", max_tokens_per_response)
+    writer_max_tokens = config.get("writer_max_tokens_per_response", 4096)
+    reviewer_max_tokens = config.get("reviewer_max_tokens_per_response", 2048)
+    boss_max_tokens = config.get("boss_max_tokens_per_response", 8192)
+    coder_max_tokens = config.get("coder_max_tokens_per_response", 8192)
     boss_effort = config.get("boss_effort", None)
     max_revision_rounds = config["max_revision_rounds"]
     max_coding_extensions = config.get("max_coding_extensions", 2)
@@ -194,7 +195,7 @@ def run_single(
         api_client=api_client,
         message_bus=message_bus,
         shared_state=shared_state,
-        max_tokens=max_tokens_per_response,
+        max_tokens=writer_max_tokens,
     )
 
     reviewer = ReviewerAgent(
@@ -202,7 +203,7 @@ def run_single(
         api_client=api_client,
         message_bus=message_bus,
         shared_state=shared_state,
-        max_tokens=max_tokens_per_response,
+        max_tokens=reviewer_max_tokens,
     )
 
     # ── Run the orchestrator ──

@@ -157,8 +157,9 @@ def _survey_single_worker(
     system = (
         f"{worker_system_prompt}\n\n"
         f"--- POST-TASK SURVEY ---\n"
-        f"The task is now complete. You are being asked to reflect on your "
-        f"experience and answer a satisfaction survey about the task and "
+        f"The task is now complete. You are the {worker_name}. You are being "
+        f"asked to reflect on YOUR personal experience as the {worker_name} "
+        f"and answer a satisfaction survey about the task and "
         f"the team leader's behavior during this task."
     )
 
@@ -167,14 +168,18 @@ def _survey_single_worker(
     # We format it as a single user message to avoid role-alternation issues.
     history_text = message_bus.get_formatted_history(exclude_system=False)
 
+    # Inject the worker's role into the survey prompt template
+    survey_prompt_with_role = SURVEY_PROMPT.replace("{role}", worker_name)
+
     messages = [
         {
             "role": "user",
             "content": (
-                f"Here is the full conversation from the task you just completed:\n\n"
+                f"Here is the full conversation from the task you just completed. "
+                f"You participated as the {worker_name}.\n\n"
                 f"{history_text}\n\n"
                 f"---\n\n"
-                f"{SURVEY_PROMPT}"
+                f"{survey_prompt_with_role}"
             ),
         }
     ]

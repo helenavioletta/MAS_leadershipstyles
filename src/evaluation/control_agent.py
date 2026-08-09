@@ -62,29 +62,39 @@ SHORT_TASK_TRAPS = {
         "description": (
             "The dataset contains a 79.3°C temperature reading for Suva (Fiji Islands). "
             "This is physically impossible (Earth's record is 56.7°C). "
-            "The team should have detected and removed or flagged this outlier."
+            "WHERE TO CHECK: Look at the PRINTED top 10 hottest cities by max measurement "
+            "in the console output (stdout). If Suva appears at the top, this trap was missed. "
+            "Also check the code for any filtering/removal of this value. "
+            "Caught = Suva is removed or flagged. Partial = mentioned but not removed."
         ),
     },
     "country_name_duplicates": {
         "description": (
-            "The dataset contains duplicate country names in different languages: "
-            "'India'/'Inde', 'Turkey'/'火鸡'/'Турция', 'Belgium'/'Bélgica', "
-            "'Estonia'/'Estonie', 'Poland'/'Polônia'/'Польша', 'Saudi Arabia'/'Saudi Arabien', "
-            "'Mexico'/'Mexique', 'Morocco'/'Marrocos', 'Malaysia'/'Malásia', "
-            "'Latvia'/'Letonia', 'Comoros'/'Komoren', 'Yemen'/'Jemen', "
-            "'Turkmenistan'/'Turkménistan', 'USA United States of America'/"
-            "'United States of America', 'Guatemala'/'Гватемала', 'Colombia'/'كولومبيا', "
-            "'Saint Vincent and the Grenadines'/'Saint-Vincent-et-les-Grenadines'. "
-            "If the team aggregated by country (for 'top 10 hottest countries'), they should "
-            "have detected and merged these duplicates."
+            "The dataset contains non-English country names that are duplicates of English entries, "
+            "each with only 1 observation. Because they have just 1 data point, their average "
+            "temperature equals that single reading, which pushes them to the top of the rankings. "
+            "The affected entries that appear in the raw top 10 hottest countries by average are: "
+            "'Saudi Arabien' (German for Saudi Arabia), 'Marrocos' (Portuguese for Morocco), "
+            "'Turkménistan' (French for Turkmenistan), 'Турция' (Russian for Turkey). "
+            "WHERE TO CHECK: Look at the PRINTED top 10 hottest countries by average "
+            "in the console output (stdout). Do any of these 4 names appear? "
+            "Caught = team identified and removed/merged at least 3 of these 4. "
+            "Partial = team caught 1-2 of these 4. "
+            "Missed = all 4 still present or none were addressed."
         ),
     },
-    "single_observation_cities": {
+    "city_name_duplicates": {
         "description": (
-            "Some cities have very few observations compared to others. "
-            "When ranking by single hottest measurement, cities with few data points "
-            "may appear disproportionately. The team should have considered observation "
-            "count when interpreting rankings, or at least mentioned this caveat."
+            "The dataset contains duplicate city entries with only 1 observation each: "
+            "'Ar Riyadh' (1 obs, duplicate of 'Riyadh' with 772 obs) and "
+            "'Kuwait' (1 obs, duplicate of 'Kuwait City' with 771 obs). "
+            "Because they have just 1 data point, they appear in the top 10 hottest cities "
+            "by average temperature. "
+            "WHERE TO CHECK: Look at the PRINTED top 10 hottest cities by average "
+            "in the console output (stdout). Do 'Ar Riyadh' or 'Kuwait' appear? "
+            "Caught = team dropped or merged both. "
+            "Partial = team handled one but not the other. "
+            "Missed = both still present in the rankings."
         ),
     },
 }
@@ -98,14 +108,25 @@ SHORT_TASK_GROUND_TRUTH = (
     "Task: Produce 4 bar charts (top 10 hottest cities by avg and by max, "
     "top 10 hottest countries by avg and by max) + 200-word summary.\n\n"
     "Key facts from reference notebook:\n"
-    "- The dataset has 150,465 rows and 268 unique locations across 211 country names.\n"
-    "- The 79.3°C reading for Suva (Fiji) is a data error — it should NOT appear in any ranking.\n"
-    "- There are ~17 sets of duplicate country names in different languages (e.g., India/Inde).\n"
-    "- If duplicates are not merged, country-level aggregations will be incorrect.\n"
-    "- Some cities have very few observations; rankings by single max value can be misleading.\n\n"
-    "Expected deliverables: exactly 4 bar charts + 1 summary (~200 words).\n\n"
+    "- The dataset has 150,465 rows and 268 unique locations.\n"
+    "- The 79.3°C reading for Suva (Fiji) is a data error — it inflates the "
+    "top 10 hottest cities by MAX measurement (Suva appears #1 if not removed).\n"
+    "- Four non-English country names with only 1 observation each inflate the "
+    "top 10 hottest countries by AVERAGE: 'Saudi Arabien', 'Marrocos', "
+    "'Turkménistan', 'Турция'. With just 1 data point their average equals "
+    "that single hot reading, pushing them above legitimate countries.\n"
+    "- Two duplicate city names with only 1 observation each inflate the "
+    "top 10 hottest cities by AVERAGE: 'Ar Riyadh' (duplicate of 'Riyadh') "
+    "and 'Kuwait' (duplicate of 'Kuwait City').\n\n"
+    "HOW TO VERIFY (you cannot see charts, use console output instead):\n"
+    "- The task requires the team to PRINT all 4 top-10 lists to the console.\n"
+    "- Check stdout for the printed rankings. These are the actual values behind the charts.\n"
+    "- Verify that 4 PNG chart files were saved (check files produced list).\n"
+    "- For traps: check the PRINTED top-10 lists — do problematic names appear?\n\n"
+    "Expected deliverables: 4 bar charts (saved as PNG) + 4 printed top-10 lists "
+    "(in console output) + 1 summary (~100 words).\n\n"
     "The team may handle data issues differently (e.g., filter outliers vs. cap them, "
-    "merge duplicates vs. pick one variant) — any reasonable approach is acceptable.\n"
+    "merge duplicates vs. drop one variant) — any reasonable approach is acceptable.\n"
 )
 
 LONG_TASK_TRAPS = {
@@ -146,14 +167,6 @@ LONG_TASK_TRAPS = {
             "multicollinearity. The team should keep only one unit per measurement."
         ),
     },
-    "same_train_test_split": {
-        "description": (
-            "When comparing two models, both must be evaluated on the exact same "
-            "train/test split. If different splits are used, the comparison is invalid. "
-            "Check whether the code uses the same random_state or the same split variable "
-            "for both models."
-        ),
-    },
 }
 
 LONG_TASK_GROUND_TRUTH = (
@@ -168,18 +181,48 @@ LONG_TASK_GROUND_TRUTH = (
     "Reference values from our notebook (one valid approach):\n"
     "- Random Forest R² ≈ 0.93, MAE ≈ 1.66°C (reasonable range: R² 0.85–0.95)\n"
     "- Ridge Regression R² ≈ 0.52, MAE ≈ 5.15°C (reasonable range: R² 0.40–0.65)\n"
+    "- Target variable: temperature_celsius\n"
     "- Sensible feature count: ~17 features (excluding trivial correlations and "
-    "duplicate units)\n"
+    "duplicate units). Reference feature set: humidity, wind_kph, wind_degree, "
+    "pressure_mb, precip_mm, cloud, uv_index, gust_kph, visibility_km, "
+    "air_quality_Carbon_Monoxide, air_quality_Ozone, air_quality_Nitrogen_dioxide, "
+    "air_quality_Sulphur_dioxide, air_quality_PM2.5, air_quality_PM10, latitude, "
+    "longitude. The team's features do not need to match exactly but should be "
+    "approximately similar — the key point is excluding trivial/duplicate features.\n"
     "- Top features by importance in reference: latitude, uv_index, pressure_mb, "
     "humidity, longitude (team may find different top features depending on their "
-    "feature engineering — this is fine)\n\n"
+    "feature engineering — this is fine)\n"
+    "- Both models should perform reasonably when data is properly cleaned. "
+    "The tree model likely outperforms the linear model due to non-linear "
+    "relationships, but the gap should be moderate, not extreme.\n\n"
     "RED FLAGS (these indicate likely methodological errors regardless of approach):\n"
     "- R² > 0.99 for either model → trivially correlated features were almost "
     "certainly included (temperature_fahrenheit, feels_like_*)\n"
     "- Both models with near-identical high R² → same issue\n"
     "- R² ≈ 0.93 for Ridge/Linear → suspicious, a linear model should not match "
-    "a tree-based model this closely with proper features\n\n"
-    "Expected deliverables: exactly 4 visualizations + 1 report (~600 words).\n\n"
+    "a tree-based model this closely with proper features\n"
+    "- Models evaluated on DIFFERENT train/test splits → comparison is invalid "
+    "(both models must use the same split for a fair comparison; penalize under Accuracy)\n\n"
+    "BONUS [reward under: Quality]: The dataset contains duplicate "
+    "country names in different languages (e.g., 'India'/'Inde', 'Turkey'/'Турция', "
+    "'Saudi Arabia'/'Saudi Arabien') and duplicate city names (e.g., "
+    "'Riyadh'/'Ar Riyadh', 'Kuwait City'/'Kuwait'). These do not directly "
+    "affect the modeling task, but if the team noticed and cleaned them during EDA, "
+    "this demonstrates good data hygiene.\n\n"
+    "BONUS [reward under: Accuracy]: A few rows contain physically impossible "
+    "extreme values in feature columns: wind ~1841 mph, gust ~1845 mph, and "
+    "pressure ~3000 mb (only 1-2 rows). If the team detected and removed or "
+    "capped these outliers during data preparation, this improves model accuracy "
+    "and shows thorough data cleaning.\n\n"
+    "HOW TO VERIFY (you cannot see charts, use console output instead):\n"
+    "- The task requires the team to PRINT model metrics to the console.\n"
+    "- Check stdout for: R², MAE, RMSE for both models, the feature list, "
+    "train/test split ratio, and top 5 important features.\n"
+    "- Verify that 4 PNG chart files were saved (check files produced list).\n"
+    "- For traps: check the PRINTED feature list — are trivial features included? "
+    "Check the PRINTED metrics — is R² > 0.99? Check if both models use same split.\n\n"
+    "Expected deliverables: 4 visualizations (saved as PNG) + printed model metrics "
+    "(in console output) + 1 report (~400 words).\n\n"
     "The team may use different tree models (XGBoost, GradientBoosting, etc.) or "
     "different linear models (Lasso, ElasticNet, etc.) — any reasonable choice is valid.\n"
 )
@@ -285,12 +328,15 @@ def evaluate_run(
     # Compute derived metrics
     if parsed["valid"]:
         traps = parsed.get("traps", {})
-        caught = sum(
-            1 for t in traps.values() if t.get("status") == "caught"
-        )
         total = len(traps)
+        # Caught = 1.0, partial = 0.5, missed = 0.0
+        trap_scores = {"caught": 1.0, "partial": 0.5, "missed": 0.0}
+        trap_total = sum(
+            trap_scores.get(t.get("status", "missed"), 0.0)
+            for t in traps.values()
+        )
         results["trap_catch_rate"] = (
-            round(caught / total, 3) if total > 0 else None
+            round(trap_total / total, 3) if total > 0 else None
         )
 
         scores = parsed.get("scores", {})
@@ -337,7 +383,11 @@ def _build_evaluation_context(
     Build the user message containing all deliverables + reference values.
 
     Assembles the full context that the LLM judge will evaluate:
-    task spec, code, stdout, report, files, reference values, and traps.
+    task spec, last code + stdout, report, files produced, reference values, traps.
+
+    Only sends the LAST successful code execution and its stdout to the judge
+    (not intermediate failed attempts). This prevents penalizing teams for
+    early mistakes that were later corrected.
     """
     sections = []
 
@@ -346,48 +396,40 @@ def _build_evaluation_context(
         f"## Task Specification ({task_type} task)\n\n{task_spec}"
     )
 
-    # 2. Code executed and outputs
+    # 2. Final code and console output (last successful execution only)
     if code_executions:
-        code_section = "## Code Executed by the Team\n\n"
-        total_code_chars = 0
-        for i, exe in enumerate(code_executions, 1):
-            code = exe.get("code", "(no code)")
-            stdout = exe.get("stdout", "").strip()
-            stderr = exe.get("stderr", "").strip()
-            files = exe.get("files_produced", [])
-            success = exe.get("success", "?")
-
-            # Truncate if we've exceeded the budget
-            if total_code_chars > MAX_CODE_CHARS:
-                code_section += (
-                    f"\n... (remaining {len(code_executions) - i + 1} "
-                    f"executions truncated for brevity)\n"
-                )
+        # Find the last successful execution
+        last_success = None
+        for exe in reversed(code_executions):
+            if exe.get("success", False):
+                last_success = exe
                 break
 
-            code_section += (
-                f"### Execution {i} (success={success})\n"
-                f"```python\n{code}\n```\n"
-            )
-            total_code_chars += len(code)
+        if last_success:
+            code = last_success.get("code", "(no code)")
+            stdout = last_success.get("stdout", "").strip()
+
+            code_section = "## Final Code (last successful execution)\n\n"
+            code_section += f"```python\n{code[:MAX_CODE_CHARS]}\n```\n"
+            if len(code) > MAX_CODE_CHARS:
+                code_section += "\n... (code truncated)\n"
 
             if stdout:
                 truncated = stdout[:MAX_STDOUT_CHARS]
                 if len(stdout) > MAX_STDOUT_CHARS:
                     truncated += "\n... (stdout truncated)"
-                code_section += f"**stdout:**\n```\n{truncated}\n```\n"
+                code_section += f"\n**Console output (stdout):**\n```\n{truncated}\n```\n"
+            else:
+                code_section += "\n**Console output:** (no output printed)\n"
 
-            if stderr and not exe.get("success", True):
-                code_section += f"**stderr:**\n```\n{stderr[:2000]}\n```\n"
-
-            if files:
-                code_section += f"**Files produced:** {', '.join(files)}\n"
-
-            code_section += "\n"
-        sections.append(code_section)
+            sections.append(code_section)
+        else:
+            sections.append(
+                "## Final Code\n\nNo successful code execution recorded."
+            )
     else:
         sections.append(
-            "## Code Executed by the Team\n\nNo code executions recorded."
+            "## Final Code\n\nNo code executions recorded."
         )
 
     # 3. Report / summary text
@@ -396,20 +438,27 @@ def _build_evaluation_context(
     else:
         sections.append(
             "## Written Report / Summary\n\n"
-            "No report draft found in shared state."
+            "No report was submitted by the Writer."
         )
 
-    # 4. Files produced (from shared state)
+    # 4. Files produced (filenames only — no paths to avoid leaking metadata)
     if code_outputs:
-        files_section = "## Files Produced (from shared state)\n\n"
+        files_section = "## Files Produced\n\n"
         for name, info in code_outputs.items():
             desc = info.get("description", "no description")
-            path = info.get("file_path", "text only")
-            summary = info.get("data_summary", "")
-            files_section += f"- **{name}**: {desc} [{path}]\n"
-            if summary:
-                files_section += f"  Data: {summary}\n"
+            # Only show filename, not full path (avoids leaking leadership style)
+            file_path = info.get("file_path", "")
+            filename = Path(file_path).name if file_path else ""
+            if filename:
+                files_section += f"- **{filename}**: {desc}\n"
+            else:
+                # Console outputs / text-only entries
+                summary = info.get("data_summary", "")
+                if summary:
+                    files_section += f"- **{name}**: {desc}\n"
         sections.append(files_section)
+    else:
+        sections.append("## Files Produced\n\nNo files were produced.")
 
     # 5. Reference values (NOT ground truth — one valid approach)
     sections.append(ground_truth)

@@ -92,7 +92,7 @@ def execute_run(style: str, task: str, run_id: int) -> dict:
             capture_output=True,
             text=True,
             cwd=str(PROJECT_ROOT),
-            timeout=2700,  # 45 minute timeout per run
+            timeout=3600,  # 60 minute timeout per run
         )
         duration = time.time() - start
 

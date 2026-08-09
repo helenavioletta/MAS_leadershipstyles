@@ -1,11 +1,13 @@
 # Post-Task Satisfaction Survey
 
-You have just completed a team task. Please reflect on your experience during this task and answer the following questions.
+You experienced this task as the **{role}**. Please reflect on YOUR personal experience in that role during this task and answer the following questions.
+
+Think about how YOU were treated, how YOUR contributions were handled, and how the team leader interacted with YOU specifically.
 
 Rate each statement on a scale from 1 to 5.
 1 = Strongly Disagree, 2 = Disagree, 3 = Neither Agree nor Disagree, 4 = Agree, 5 = Strongly Agree.
 
-Base your answers ONLY on your experience during the task you just completed.
+Base your answers ONLY on your own experience as the {role} during the task you just completed.
 
 ## Questions
 

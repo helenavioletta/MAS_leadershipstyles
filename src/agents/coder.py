@@ -82,6 +82,7 @@ class CoderAgent(BaseAgent):
 
         self.sandbox = sandbox
         self.max_retries = max_retries
+        self._last_code: Optional[str] = None  # Previous code for revision context
 
     def respond(self, phase: int, instruction: Optional[str] = None) -> str:
         """
@@ -110,7 +111,13 @@ class CoderAgent(BaseAgent):
         instruction: Optional[str] = None,
     ) -> dict:
         """
-        Internal coding loop: generate code, execute, retry on errors.
+        Internal coding loop: explore data first, then generate code, execute, retry on errors.
+
+        Step 1 (mandatory): Run a fixed data exploration script so the LLM sees
+        the actual column names, shape, and data types before writing any code.
+        This prevents column-name hallucination (e.g., 'city' instead of 'location_name').
+
+        Step 2: Normal coding loop — generate code → execute → retry on error (max 3 tries).
 
         All attempts are logged to code_executions.jsonl but NOT posted to the bus.
         Outputs from successful execution are saved to shared state.
@@ -121,6 +128,35 @@ class CoderAgent(BaseAgent):
         system = self._build_system_prompt()
         messages = self._build_messages(phase=phase, instruction=instruction)
 
+        # ─── Step 1: Mandatory data exploration ───
+        # Run a fixed script so the LLM sees actual column names before coding.
+        # This is NOT counted as a retry attempt — it's a prerequisite.
+        exploration_output = self._explore_dataset()
+        if exploration_output:
+            # Inject exploration results into the message context
+            exploration_msg = (
+                f"[system]: Before you write any code, here is the actual structure of the dataset. "
+                f"Use these exact column names — do NOT guess or assume column names.\n\n"
+                f"```\n{exploration_output}\n```"
+            )
+            if messages and messages[-1]["role"] == "user":
+                messages[-1]["content"] += f"\n\n{exploration_msg}"
+            else:
+                messages.append({"role": "user", "content": exploration_msg})
+
+        # ─── Step 1b: Inject previous code if this is a revision ───
+        if self._last_code:
+            previous_code_msg = (
+                f"[system]: Here is your previous code from the last round. "
+                f"Revise it based on the feedback you received.\n\n"
+                f"```python\n{self._last_code}\n```"
+            )
+            if messages and messages[-1]["role"] == "user":
+                messages[-1]["content"] += f"\n\n{previous_code_msg}"
+            else:
+                messages.append({"role": "user", "content": previous_code_msg})
+
+        # ─── Step 2: Normal coding loop ───
         last_result: Optional[ExecutionResult] = None
         all_stdout = []
 
@@ -173,6 +209,7 @@ class CoderAgent(BaseAgent):
 
             # Execute all code blocks as a single script
             combined_code = "\n\n".join(code_blocks)
+            self._last_code = combined_code  # Save for revision context
             last_result = self.sandbox.execute(combined_code)
 
             if last_result.success:
@@ -190,9 +227,12 @@ class CoderAgent(BaseAgent):
             sanitized_stderr = self._sanitize_traceback(last_result.stderr)
 
             error_feedback = (
-                f"[system]: Your code failed with this error:\n"
+                f"[system]: Your code produced this output before failing:\n"
+                f"```\n{last_result.stdout}\n```\n\n"
+                f"Then it failed with this error:\n"
                 f"```\n{sanitized_stderr}\n```\n"
-                f"Please fix the code and try again."
+                f"Read the output carefully, since it could contain useful information. "
+                f"Fix the code and try again."
             )
 
             # Add the LLM's response as assistant, then error as user
@@ -209,6 +249,47 @@ class CoderAgent(BaseAgent):
             "last_error": last_result.error_message if last_result and not success else None,
             "no_code": False,
         }
+
+    def _explore_dataset(self) -> Optional[str]:
+        """
+        Run a fixed data exploration script to discover dataset structure.
+
+        Executes before the Coder's first coding attempt so the LLM sees
+        actual column names, dtypes, shape, and sample data. This prevents
+        the column-name hallucination problem (e.g., 'city' vs 'location_name').
+
+        Returns:
+            Exploration output string, or None if execution fails.
+        """
+        dataset_path = self.shared_state.dataset_path
+
+        exploration_code = (
+            f"import pandas as pd\n"
+            f"df = pd.read_csv('{dataset_path}')\n"
+            f"print('=== DATASET STRUCTURE ===')\n"
+            f"print(f'Shape: {{df.shape[0]}} rows × {{df.shape[1]}} columns')\n"
+            f"print()\n"
+            f"print('=== COLUMN NAMES (use these exact names) ===')\n"
+            f"print(df.columns.tolist())\n"
+            f"print()\n"
+            f"print('=== DTYPES ===')\n"
+            f"print(df.dtypes.to_string())\n"
+            f"print()\n"
+            f"print('=== FIRST 3 ROWS ===')\n"
+            f"print(df.head(3).to_string())\n"
+            f"print()\n"
+            f"print('=== NUMERIC SUMMARY ===')\n"
+            f"print(df.describe().to_string())\n"
+        )
+
+        result = self.sandbox.execute(exploration_code)
+
+        if result.success:
+            log.info("Coder: data exploration completed successfully")
+            return result.stdout
+        else:
+            log.warning(f"Coder: data exploration failed: {result.error_message}")
+            return None
 
     @staticmethod
     def _sanitize_traceback(stderr: str) -> str:

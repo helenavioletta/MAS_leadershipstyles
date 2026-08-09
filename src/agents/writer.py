@@ -6,6 +6,7 @@ After responding, automatically saves the text to shared_state.set_report_draft(
 so the Reviewer can access the latest version.
 """
 
+import re
 from typing import Optional
 
 from src.agents.base_agent import BaseAgent, load_prompt
@@ -61,12 +62,15 @@ class WriterAgent(BaseAgent):
             max_tokens=max_tokens,
         )
 
+        self._last_report: Optional[str] = None  # Previous report for revision context
+
     def respond(self, phase: int, instruction: Optional[str] = None) -> str:
         """
         Generate narrative text and save it as the report draft.
 
         Calls the base respond() (LLM call + post to bus), then saves
         the output to shared state so Reviewer can access the latest draft.
+        Injects previous report if available (for revisions).
 
         Args:
             phase: Current workflow phase (1-7).
@@ -75,9 +79,44 @@ class WriterAgent(BaseAgent):
         Returns:
             The generated text (also posted to bus and saved as report draft).
         """
+        # Inject previous report for revision context
+        if instruction and self._last_report:
+            instruction = (
+                f"{instruction}\n\n"
+                f"[system]: Here is your previous report from the last round. "
+                f"Revise it based on the feedback you received.\n\n"
+                f"---REPORT START---\n{self._last_report}\n---REPORT END---"
+            )
+        elif instruction and not self._last_report:
+            instruction = (
+                f"{instruction}\n\n"
+                f"[system]: WARNING — No report was saved from your previous round "
+                f"because you did not wrap it in the required markers. "
+                f"You MUST wrap your report between ---REPORT START--- and "
+                f"---REPORT END--- markers for it to be saved."
+            )
+
         content = super().respond(phase=phase, instruction=instruction)
 
-        # Save to shared state so Reviewer can access the latest draft
-        self.shared_state.set_report_draft(content)
+        # Extract report from markers
+        report_text = self._extract_report(content)
+
+        if report_text:
+            # Save to shared state so Reviewer can access the latest draft
+            self.shared_state.set_report_draft(report_text)
+            self._last_report = report_text
 
         return content
+
+    @staticmethod
+    def _extract_report(content: str) -> Optional[str]:
+        """
+        Extract report text from between ---REPORT START--- and ---REPORT END--- markers.
+
+        Returns None if markers are not found (report was not properly wrapped).
+        """
+        pattern = r"---REPORT START---\s*\n?(.*?)\n?\s*---REPORT END---"
+        match = re.search(pattern, content, re.DOTALL)
+        if match:
+            return match.group(1).strip()
+        return None

@@ -7,8 +7,10 @@ pandas
 matplotlib
 seaborn
 numpy
+scipy
 scikit-learn
-plotly 
+plotly
+jinja2
 nbformat>=4.2.0
 
 # Jupyter
