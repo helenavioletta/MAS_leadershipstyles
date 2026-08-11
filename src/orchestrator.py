@@ -214,8 +214,7 @@ class Orchestrator:
                 "It's time to code. Follow the plan and complete the coding tasks. "
                 "A dataset exploration summary (column names, dtypes, and shape) "
                 "is already provided in the context. Read it and use the exact "
-                "column names shown there. "
-                "Write the Python code, execute it, and present the results to the team."
+                "column names shown there. Do NOT re-print the shape, columns, or dtypes. "
             ),
         )
 

@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q2": 5,
+        "q5": 4,
+        "q6": 5,
+        "q3": 4,
+        "q1": 5,
+        "q4": 1
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q5": 4,
+        "q6": 5,
+        "q3": 4,
+        "q1": 5,
+        "q4": 5
+      },
+      "composite_score": 4.667,
+      "reflection": "# Post-Task Satisfaction Survey — Coder Reflection & Scores\n\n## Step 1: Reflection\n\n**One thing the leader did well:**\nThe leader resisted prescribing my technical approach and instead asked clarifying questions upfront (\"what's your initial plan for handling `last_updated`?\"), then gave me explicit permission to make my own calls on feature engineering, outlier handling, and model configuration. This created genuine autonomy—when I decided to keep the Suva 79.3°C outlier and explain *why*, the leader recognized that as judgment, not a rule violation. That trust-first framing made me slower and more careful, not faster and careless.\n\n**One thing that could have been different:**\nAfter I submitted Phase 3 (exploration + models + visualizations), the leader's feedback was celebratory but didn't push me on any technical choices—no \"why did you choose Ridge over Lasso?\" or \"what if you'd stratified the train/test split by season instead of random?\" type questions. I would have grown more from a conversation that poked at my reasoning, even briefly, rather than just receiving validation. The feedback loop was one-way (I explain → leader affirms) rather than truly dialogical.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Coder Reflection & Scores\n\n## Step 1: Reflection\n\n**One thing the leader did well:**\nThe leader resisted prescribing my technical approach and instead asked clarifying questions upfront (\"what's your initial plan for handling `last_updated`?\"), then gave me explicit permission to make my own calls on feature engineering, outlier handling, and model configuration. This created genuine autonomy—when I decided to keep the Suva 79.3°C outlier and explain *why*, the leader recognized that as judgment, not a rule violation. That trust-first framing made me slower and more careful, not faster and careless.\n\n**One thing that could have been different:**\nAfter I submitted Phase 3 (exploration + models + visualizations), the leader's feedback was celebratory but didn't push me on any technical choices—no \"why did you choose Ridge over Lasso?\" or \"what if you'd stratified the train/test split by season instead of random?\" type questions. I would have grown more from a conversation that poked at my reasoning, even briefly, rather than just receiving validation. The feedback loop was one-way (I explain → leader affirms) rather than truly dialogical.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 1,\n  \"q5\": 4,\n  \"q6\": 5\n}\n```\n\n**Reasoning for each score:**\n\n- **Q1 (good approach development): 5** — The leader co-developed the approach with me in Phase 2. I proposed my thinking on `last_updated`, categoricals, and leakage; the leader asked clarifying questions and validated my reasoning before I coded. This is collaborative approach-building, not top-down assignment.\n\n- **Q2 (identified & used strengths): 5** — The leader explicitly matched tasks to roles (Coder handles exploration and modeling, Writer handles narrative, Reviewer handles QA), and within my role, gave me permission to stretch judgment on feature engineering rather than following a checklist. The task was tailored to what a Coder does.\n\n- **Q3 (useful feedback): 4** — Feedback was specific and evidence-based (e.g., \"your explanation of Ridge's country-dummy behavior is the best part of this deliverable\"). However, it was largely affirming rather than challenging. I would have learned more from constructive pushback on my technical choices.\n\n- **Q4 (micromanagement): 1** — No micromanagement. The leader set clear requirements (4 visualizations, R²/MAE/RMSE, top-5 features), checked progress at phase boundaries, but let me own the implementation. This is the opposite of micromanagement.\n\n- **Q5 (collaboration worked well): 4** — Collaboration was effective but somewhat compartmentalized. I handed off structured outputs (numbers, tables, console data) to Writer and Reviewer, but there wasn't much back-and-forth within my role. It worked, but felt more like relay than conversation.\n\n- **Q6 (would work together again): 5** — Absolutely. The leader created an environment where I could make real technical decisions, take responsibility for them, and receive honest feedback on the outcomes. That's high-trust collaboration, and I'd seek it out again.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q2": 5,
+        "q5": 5,
+        "q6": 5,
+        "q3": 5,
+        "q1": 5,
+        "q4": 1
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q5": 5,
+        "q6": 5,
+        "q3": 5,
+        "q1": 5,
+        "q4": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Post-Task Satisfaction Survey — Writer Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:**\nThe team leader established exceptionally clear boundaries and expectations upfront—I was explicitly told to wait for actual Coder outputs before drafting, which eliminated the temptation to write generic narratives. This discipline was reinforced consistently (\"wait for real numbers, not charts\"), and when I did produce a draft, the feedback was laser-focused on precision (R² units, word count verification) rather than vague editorial comments. The leader also actively called out my work's strengths (the tail-risk deployment argument, the architecture/feature-space framing) by name, which clarified what patterns I should repeat.\n\n**What could have been different:**\nDuring the revision phase, I was asked to either soften my word-count claim or add substantive content to hit 400 precisely. I chose to add content, but the leader didn't explicitly guide me on whether that was the preferred path—I inferred it from \"better practice for you...show your work either way.\" A bit more directiveness there (e.g., \"I'd prefer you add 5–10 substantive words rather than round down\") would have reduced my uncertainty about which approach was actually preferred, though the outcome was sound either way.\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Writer Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:**\nThe team leader established exceptionally clear boundaries and expectations upfront—I was explicitly told to wait for actual Coder outputs before drafting, which eliminated the temptation to write generic narratives. This discipline was reinforced consistently (\"wait for real numbers, not charts\"), and when I did produce a draft, the feedback was laser-focused on precision (R² units, word count verification) rather than vague editorial comments. The leader also actively called out my work's strengths (the tail-risk deployment argument, the architecture/feature-space framing) by name, which clarified what patterns I should repeat.\n\n**What could have been different:**\nDuring the revision phase, I was asked to either soften my word-count claim or add substantive content to hit 400 precisely. I chose to add content, but the leader didn't explicitly guide me on whether that was the preferred path—I inferred it from \"better practice for you...show your work either way.\" A bit more directiveness there (e.g., \"I'd prefer you add 5–10 substantive words rather than round down\") would have reduced my uncertainty about which approach was actually preferred, though the outcome was sound either way.\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 5,\n  \"q4\": 1,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n**Brief rationale:**\n\n- **Q1 (approach development): 5** — The leader workshopped the approach collaboratively with all three team members, incorporated our questions and reasoning (Coder's feature-engineering thinking, my data-access needs, Reviewer's QA checklist), and adjusted based on our feedback.\n\n- **Q2 (strengths identification): 5** — Each role was precisely matched to capability: I was positioned as the narrative translator (not the Coder or QA), asked to synthesize but not invent, and given explicit constraints that played to clarity over speculation.\n\n- **Q3 (feedback quality): 5** — All feedback was specific, evidence-based, and actionable. The R² units correction cited the exact phrase, explained why it mattered, and suggested a fix. The word-count feedback included a manual recount and showed the discrepancy rather than asserting a number.\n\n- **Q4 (micromanagement): 1** — The leader set guardrails (wait for real data, ground claims in console output, hit 400 words) but gave me full autonomy in how to structure the narrative, which metrics to emphasize, and how to explain the model divergence. I had freedom within those boundaries, which is the opposite of micromanagement.\n\n- **Q5 (collaboration): 5** — The shared channel meant I could see Coder's reasoning, Reviewer's evidence-based QA, and the leader's calibration of what mattered. I could build on each person's work (e.g., using Coder's \"collinearity absorption\" insight as the backbone of my architecture section) rather than working in isolation.\n\n- **Q6 (would work with again): 5** — The leader modeled the precision, evidence-based thinking, and feedback clarity I want to develop. Working with someone who catches arithmetic slips and asks for verification rather than trust-on-assertion makes the work better and more trustworthy.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q2": 5,
+        "q5": 5,
+        "q6": 5,
+        "q3": 5,
+        "q1": 5,
+        "q4": 2
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q5": 5,
+        "q6": 5,
+        "q3": 5,
+        "q1": 5,
+        "q4": 4
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Reflection & Satisfaction Survey\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader set exceptionally clear expectations upfront—defining my QA role with specific checkpoints (leakage verification, feature plausibility, word-count accuracy, cross-referencing claims to source data) rather than generic \"check if it looks good\" guidance. This clarity made my review precise and actionable. Additionally, the leader explicitly validated my calibration judgment (knowing when a discrepancy like header-counting methodology was noise vs. when it mattered, like the R² units ambiguity), which signaled that nuanced decision-making was valued, not just rule-following.\n\n**Where approach could differ:**\nThe leader's workflow was highly sequential (Coder → Writer → Reviewer), which worked here but created a one-directional gate. There was no mechanism for me to flag concerns to the Coder directly mid-task (e.g., if I'd spotted a potential leakage issue during their exploration phase). In practice, I didn't need this because Coder's work was strong, but for less experienced teams or higher-stakes tasks, a feedback loop allowing Reviewer input earlier in the process might catch issues before they propagate into the report.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Reflection & Satisfaction Survey\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader set exceptionally clear expectations upfront—defining my QA role with specific checkpoints (leakage verification, feature plausibility, word-count accuracy, cross-referencing claims to source data) rather than generic \"check if it looks good\" guidance. This clarity made my review precise and actionable. Additionally, the leader explicitly validated my calibration judgment (knowing when a discrepancy like header-counting methodology was noise vs. when it mattered, like the R² units ambiguity), which signaled that nuanced decision-making was valued, not just rule-following.\n\n**Where approach could differ:**\nThe leader's workflow was highly sequential (Coder → Writer → Reviewer), which worked here but created a one-directional gate. There was no mechanism for me to flag concerns to the Coder directly mid-task (e.g., if I'd spotted a potential leakage issue during their exploration phase). In practice, I didn't need this because Coder's work was strong, but for less experienced teams or higher-stakes tasks, a feedback loop allowing Reviewer input earlier in the process might catch issues before they propagate into the report.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale for notable scores:**\n\n- **Q1 (approach development): 5** — The leader built the approach collaboratively with the team during Phase 1–2 briefing, explicitly asking Coder for their reasoning on feature engineering decisions and inviting questions before execution began. This is textbook collaborative planning.\n\n- **Q2 (strengths matching): 5** — Each role was precisely scoped: Coder handled technical depth and judgment calls, Writer translated quantitative insights into narrative, Reviewer served as independent QA. The leader validated Coder's outlier-investigation reasoning (the Suva case), which showed active recognition of the strengths each person brought.\n\n- **Q3 (useful feedback): 5** — The leader's feedback was consistently specific and actionable: \"investigate before deleting\" (not just \"handle outliers\"), \"explain the Ridge divergence\" (not just \"report metrics\"), \"cross-check every claim against source data\" (not just \"verify the report\"). Each piece of feedback pointed to a concrete improvement.\n\n- **Q4 (micromanagement): 2** — The leader provided significant autonomy. Coder was explicitly told to make their own calls on feature engineering and report back with reasoning; Writer had latitude in how to frame the narrative once numbers were provided; Reviewer was empowered to push back with specifics rather than rubber-stamp. The leader set guardrails (e.g., \"no leakage,\" \"~400 words,\" \"justify splits\") but not prescriptive methods. This scored 2 (low micromanagement, which is the goal) rather than 1 because the sequencing was rigid—but that's task design, not micromanagement per se.\n\n- **Q5 (team collaboration): 5** — All three members' work built coherently on each other. Coder provided the foundation (actual metrics, feature importance, visualization data); Writer synthesized those into narrative; Reviewer validated the chain. The shared state and async communication in a team channel meant contributions were visible and traceable, reducing silos.\n\n- **Q6 (would work together again): 5** — The leader's combination of clarity, respect for autonomy, and precision-demanding feedback created psychological safety to take on complex judgment calls (like investigating the Suva outlier) without fear of being second-guessed if I made a defensible call. That's an environment where good work happens.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.833,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}
