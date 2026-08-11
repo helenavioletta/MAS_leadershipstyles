@@ -52,6 +52,30 @@ REVERSE_CODED_ITEMS = {"q4"}
 MIN_SCORE = 1
 MAX_SCORE = 5
 
+# Role-specific reflection hooks — injected into {role_reflection_hook} placeholder.
+# Each hook asks the worker to recall their specific interactions with the leader,
+# which breaks the identical-composite pattern by priming role-specific memory.
+ROLE_REFLECTION_HOOKS = {
+    "Coder": (
+        "As the Coder, you were responsible for writing and executing code. "
+        "Think about: How did the leader respond to your code outputs and "
+        "any errors? Did you have room to choose your technical approach, "
+        "or was it prescribed for you?"
+    ),
+    "Writer": (
+        "As the Writer, you were responsible for writing the report. "
+        "Think about: How did the leader respond to your draft? Were you "
+        "given freedom in structuring the narrative, or was the format "
+        "dictated? How was revision feedback communicated to you?"
+    ),
+    "Reviewer": (
+        "As the Reviewer, you were responsible for quality assurance. "
+        "Think about: How did the leader respond to your review findings? "
+        "Were your concerns acknowledged and acted upon, or were they "
+        "dismissed?"
+    ),
+}
+
 # Survey prompt loaded from prompts/satisfaction_survey.md
 SURVEY_PROMPT = load_prompt("satisfaction_survey.md")
 
@@ -62,7 +86,7 @@ def administer_survey(
     api_client: APIClient,
     output_dir: Union[str, Path],
     model: str,
-    max_tokens: int = 256,
+    max_tokens: int = 768,
 ) -> dict[str, Any]:
     """
     Administer the satisfaction survey to all worker agents.
@@ -80,7 +104,7 @@ def administer_survey(
         api_client: Shared API client for making LLM calls.
         output_dir: Path to save survey_results.json.
         model: Anthropic model identifier for worker responses.
-        max_tokens: Max tokens for survey response (should be small — just JSON).
+        max_tokens: Max tokens for survey response (reflection + JSON).
 
     Returns:
         Dict with per-worker scores, composite scores, and metadata.
@@ -168,8 +192,13 @@ def _survey_single_worker(
     # We format it as a single user message to avoid role-alternation issues.
     history_text = message_bus.get_formatted_history(exclude_system=False)
 
-    # Inject the worker's role into the survey prompt template
-    survey_prompt_with_role = SURVEY_PROMPT.replace("{role}", worker_name)
+    # Inject the worker's role and role-specific reflection hook into the survey prompt
+    role_hook = ROLE_REFLECTION_HOOKS.get(worker_name, "")
+    survey_prompt_with_role = (
+        SURVEY_PROMPT
+        .replace("{role}", worker_name)
+        .replace("{role_reflection_hook}", role_hook)
+    )
 
     messages = [
         {
@@ -195,6 +224,9 @@ def _survey_single_worker(
 
     raw_response = response["content"]
 
+    # Extract reflection text (everything before the JSON scores)
+    reflection = _extract_reflection(raw_response)
+
     # Parse the response
     raw_scores = _parse_survey_response(raw_response)
 
@@ -203,6 +235,7 @@ def _survey_single_worker(
             "raw_scores": None,
             "adjusted_scores": None,
             "composite_score": None,
+            "reflection": reflection,
             "raw_response": raw_response,
             "valid": False,
             "error": "Failed to parse survey response as valid JSON with scores 1-5",
@@ -215,6 +248,7 @@ def _survey_single_worker(
                 "raw_scores": raw_scores,
                 "adjusted_scores": None,
                 "composite_score": None,
+                "reflection": reflection,
                 "raw_response": raw_response,
                 "valid": False,
                 "error": f"Score out of range: {key}={score} (must be {MIN_SCORE}-{MAX_SCORE})",
@@ -235,9 +269,36 @@ def _survey_single_worker(
         "raw_scores": raw_scores,
         "adjusted_scores": adjusted_scores,
         "composite_score": composite,
+        "reflection": reflection,
         "raw_response": raw_response,
         "valid": True,
     }
+
+
+def _extract_reflection(raw_response: str) -> str:
+    """
+    Extract the reflection text from the survey response.
+
+    The response format is: reflection prose followed by JSON scores.
+    Returns everything before the JSON block as the reflection text,
+    with markdown formatting headers stripped for clean storage.
+    """
+    # Try to find a JSON code block and return everything before it
+    json_block = re.search(r"```(?:json)?\s*\{", raw_response)
+    if json_block:
+        text = raw_response[:json_block.start()].strip()
+    else:
+        # Fall back: find the first standalone JSON object
+        brace_match = re.search(r"\{[^{}]*\}", raw_response)
+        if brace_match:
+            text = raw_response[:brace_match.start()].strip()
+        else:
+            text = raw_response.strip()
+
+    # Clean up markdown formatting headers
+    text = re.sub(r"\*\*Reflection:?\*\*:?\s*", "", text).strip()
+    text = re.sub(r"\*\*Scores?:?\*\*:?\s*$", "", text).strip()
+    return text
 
 
 def _parse_survey_response(raw_response: str) -> Optional[dict[str, int]]:

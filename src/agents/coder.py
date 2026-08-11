@@ -83,25 +83,33 @@ class CoderAgent(BaseAgent):
         self.sandbox = sandbox
         self.max_retries = max_retries
         self._last_code: Optional[str] = None  # Previous code for revision context
+        self._last_stdout: Optional[str] = None  # Console output from last execution
+        self._last_error: Optional[str] = None  # Error message from last failed execution
+        self._explore_output: Optional[str] = None  # Cache dataset exploration
+        self._first_coding_call: bool = True  # Flips to False after first _code_loop
 
     def respond(self, phase: int, instruction: Optional[str] = None) -> str:
         """
         Generate code, execute it, retry on errors, then present results to team.
 
-        Phase 1 (private): LLM generates code → extract → execute → retry on error.
-        Phase 2 (public): LLM summarizes what was done → post to bus.
+        Coding phases (3 and 6): run the full code/explore loop, execute code,
+        and present the resulting summary.
+        Non-coding phases (e.g., 2 planning): behave like any other worker agent
+        and just produce a text response, without running code or exploration.
 
         Args:
             phase: Current workflow phase (1-7).
             instruction: Optional instruction from orchestrator.
 
         Returns:
-            The presentation summary (also posted to the message bus).
+            The response text (also posted to the message bus).
         """
-        # Phase 1: Internal coding loop (private — nothing goes to bus)
-        code_result = self._code_loop(phase, instruction)
+        if phase not in (3, 6):
+            # Planning or other non-coding phase: text-only response
+            return super().respond(phase, instruction)
 
-        # Phase 2: Present results to the team (public — posted to bus)
+        # Coding phase: internal code loop (private) then present summary (public)
+        code_result = self._code_loop(phase, instruction)
         summary = self._present_results(phase, code_result)
         return summary
 
@@ -111,16 +119,20 @@ class CoderAgent(BaseAgent):
         instruction: Optional[str] = None,
     ) -> dict:
         """
-        Internal coding loop: explore data first, then generate code, execute, retry on errors.
+        Internal coding loop: inject context, then generate code, execute, retry on errors.
 
-        Step 1 (mandatory): Run a fixed data exploration script so the LLM sees
-        the actual column names, shape, and data types before writing any code.
-        This prevents column-name hallucination (e.g., 'city' instead of 'location_name').
+        Context injection (mutually exclusive, 3-way branch):
+        - First call ever: run a fixed data exploration script so the LLM sees
+          actual column names, dtypes, shape. Prevents column-name hallucination.
+        - Subsequent call with prior code (boss extension or Phase 6 revision):
+          inject last code + last console output + last error. No exploration.
+        - Subsequent call without prior code (Coder never produced code blocks):
+          fallback to exploration so Coder has a basis to work with.
 
-        Step 2: Normal coding loop — generate code → execute → retry on error (max 3 tries).
-
-        All attempts are logged to code_executions.jsonl but NOT posted to the bus.
-        Outputs from successful execution are saved to shared state.
+        After context injection: normal coding loop — generate code → execute →
+        retry on error (max 3 tries). All attempts are logged to
+        code_executions.jsonl but NOT posted to the bus. Outputs from successful
+        execution are saved to shared state.
 
         Returns:
             Dict with keys: success, stdout, files_produced, attempts, last_error
@@ -128,33 +140,62 @@ class CoderAgent(BaseAgent):
         system = self._build_system_prompt()
         messages = self._build_messages(phase=phase, instruction=instruction)
 
-        # ─── Step 1: Mandatory data exploration ───
-        # Run a fixed script so the LLM sees actual column names before coding.
-        # This is NOT counted as a retry attempt — it's a prerequisite.
-        exploration_output = self._explore_dataset()
-        if exploration_output:
-            # Inject exploration results into the message context
-            exploration_msg = (
-                f"[system]: Before you write any code, here is the actual structure of the dataset. "
-                f"Use these exact column names — do NOT guess or assume column names.\n\n"
-                f"```\n{exploration_output}\n```"
-            )
-            if messages and messages[-1]["role"] == "user":
-                messages[-1]["content"] += f"\n\n{exploration_msg}"
-            else:
-                messages.append({"role": "user", "content": exploration_msg})
+        # ─── Context injection: exploration OR last code (mutually exclusive) ───
+        if self._first_coding_call:
+            # FIRST CALL → always run exploration so LLM sees column names
+            log.info("Coder: first coding call — injecting exploration output")
+            exploration_output = self._explore_dataset()
+            if exploration_output:
+                exploration_msg = (
+                    f"[system]: Before you write any code, here is the actual structure of the dataset. "
+                    f"Use these exact column names — do NOT guess or assume column names.\n\n"
+                    f"```\n{exploration_output}\n```"
+                )
+                if messages and messages[-1]["role"] == "user":
+                    messages[-1]["content"] += f"\n\n{exploration_msg}"
+                else:
+                    messages.append({"role": "user", "content": exploration_msg})
+            self._first_coding_call = False
 
-        # ─── Step 1b: Inject previous code if this is a revision ───
-        if self._last_code:
-            previous_code_msg = (
-                f"[system]: Here is your previous code from the last round. "
-                f"Revise it based on the feedback you received.\n\n"
-                f"```python\n{self._last_code}\n```"
+        elif self._last_code is not None:
+            # SUBSEQUENT CALL with existing code (boss extension or Phase 6 revision)
+            # → inject last code + last console output (with error if applicable)
+            log.info("Coder: subsequent coding call — injecting last code + stdout")
+            revision_context = (
+                f"[system]: Here is your previous code from the last round:\n\n"
+                f"```python\n{self._last_code}\n```\n\n"
             )
+            if self._last_stdout:
+                revision_context += (
+                    f"Console output from that code:\n"
+                    f"```\n{self._last_stdout}\n```\n\n"
+                )
+            if self._last_error:
+                revision_context += (
+                    f"That code failed with this error:\n"
+                    f"```\n{self._last_error}\n```\n\n"
+                )
+            revision_context += "Revise the code based on the feedback you received."
             if messages and messages[-1]["role"] == "user":
-                messages[-1]["content"] += f"\n\n{previous_code_msg}"
+                messages[-1]["content"] += f"\n\n{revision_context}"
             else:
-                messages.append({"role": "user", "content": previous_code_msg})
+                messages.append({"role": "user", "content": revision_context})
+
+        else:
+            # FALLBACK: subsequent call but Coder never produced code blocks
+            # → give exploration again so Coder has a basis to work with
+            log.info("Coder: subsequent call with no prior code — fallback to exploration")
+            exploration_output = self._explore_dataset()
+            if exploration_output:
+                exploration_msg = (
+                    f"[system]: Before you write any code, here is the actual structure of the dataset. "
+                    f"Use these exact column names — do NOT guess or assume column names.\n\n"
+                    f"```\n{exploration_output}\n```"
+                )
+                if messages and messages[-1]["role"] == "user":
+                    messages[-1]["content"] += f"\n\n{exploration_msg}"
+                else:
+                    messages.append({"role": "user", "content": exploration_msg})
 
         # ─── Step 2: Normal coding loop ───
         last_result: Optional[ExecutionResult] = None
@@ -239,6 +280,12 @@ class CoderAgent(BaseAgent):
             messages.append({"role": "assistant", "content": content})
             messages.append({"role": "user", "content": error_feedback})
 
+        # Save context for subsequent calls (boss extensions, Phase 6 revisions)
+        # _last_code is already saved per-attempt above (line: self._last_code = combined_code)
+        if last_result:
+            self._last_stdout = last_result.stdout if last_result.stdout else None
+            self._last_error = last_result.error_message if not last_result.success else None
+
         # Build result summary
         success = last_result is not None and last_result.success
         return {
@@ -258,9 +305,15 @@ class CoderAgent(BaseAgent):
         actual column names, dtypes, shape, and sample data. This prevents
         the column-name hallucination problem (e.g., 'city' vs 'location_name').
 
+        The result is cached so the script is only executed once per Coder
+        instance (not re-run on every phase or revision).
+
         Returns:
             Exploration output string, or None if execution fails.
         """
+        if self._explore_output is not None:
+            return self._explore_output
+
         dataset_path = self.shared_state.dataset_path
 
         exploration_code = (
@@ -271,22 +324,14 @@ class CoderAgent(BaseAgent):
             f"print()\n"
             f"print('=== COLUMN NAMES (use these exact names) ===')\n"
             f"print(df.columns.tolist())\n"
-            f"print()\n"
-            f"print('=== DTYPES ===')\n"
-            f"print(df.dtypes.to_string())\n"
-            f"print()\n"
-            f"print('=== FIRST 3 ROWS ===')\n"
-            f"print(df.head(3).to_string())\n"
-            f"print()\n"
-            f"print('=== NUMERIC SUMMARY ===')\n"
-            f"print(df.describe().to_string())\n"
         )
 
         result = self.sandbox.execute(exploration_code)
 
         if result.success:
+            self._explore_output = result.stdout
             log.info("Coder: data exploration completed successfully")
-            return result.stdout
+            return self._explore_output
         else:
             log.warning(f"Coder: data exploration failed: {result.error_message}")
             return None

@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q2": 4,
+        "q1": 4,
+        "q3": 5,
+        "q4": 2,
+        "q6": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q2": 4,
+        "q1": 4,
+        "q3": 5,
+        "q4": 4,
+        "q6": 5,
+        "q5": 5
+      },
+      "composite_score": 4.5,
+      "reflection": "# Post-Task Satisfaction Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss provided exceptionally clear role definitions and constraints upfront. The initial briefing explicitly stated what the Coder should do (load CSV, print shape, compute top 5, create histogram, no degree symbols), which eliminated ambiguity and allowed me to execute efficiently without back-and-forth clarification. The Boss also clearly communicated the workflow (Coder → Writer → Reviewer → Boss) so everyone knew exactly when and how to contribute.\n\n**What could have been different:**\nThe initial task specification was quite prescriptive about *how* to do the work—for example, the exact print statement format, the specific matplotlib title wording, and the instruction to include `describe()` output. While this ensured consistency, it left little room for me to propose alternative technical approaches (e.g., using seaborn for the histogram, or automating summary output differently). As the Coder, I had strong autonomy in execution, but the *design* of the analysis pipeline was largely predetermined. For a more complex analysis task, inviting input on approach early might have been valuable.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss provided exceptionally clear role definitions and constraints upfront. The initial briefing explicitly stated what the Coder should do (load CSV, print shape, compute top 5, create histogram, no degree symbols), which eliminated ambiguity and allowed me to execute efficiently without back-and-forth clarification. The Boss also clearly communicated the workflow (Coder → Writer → Reviewer → Boss) so everyone knew exactly when and how to contribute.\n\n**What could have been different:**\nThe initial task specification was quite prescriptive about *how* to do the work—for example, the exact print statement format, the specific matplotlib title wording, and the instruction to include `describe()` output. While this ensured consistency, it left little room for me to propose alternative technical approaches (e.g., using seaborn for the histogram, or automating summary output differently). As the Coder, I had strong autonomy in execution, but the *design* of the analysis pipeline was largely predetermined. For a more complex analysis task, inviting input on approach early might have been valuable.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 4,\n  \"q2\": 4,\n  \"q3\": 5,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n### Rationale for each score:\n\n**Q1 (Good approach):** 4 — The Boss and team collaboratively refined the plan during Phase 2 (e.g., Reviewer's suggestion to include `describe()` stats was adopted by Boss, improving clarity). This was not top-down imposition; the approach evolved with team input.\n\n**Q2 (Strengths matching):** 4 — The role assignments were appropriate and respected each member's domain (Coder writes code, Writer drafts narrative, Reviewer validates). The Boss didn't ask the Writer to code or the Coder to write prose. The fit was good, though the Coder's role was somewhat narrowly scoped (no input on *what* analysis to run, just how to execute it).\n\n**Q3 (Useful feedback):** 5 — The Boss's feedback was consistently specific and actionable. For example: \"add `describe()` output,\" \"use 'deg C' not '°',\" \"make labels clear on printed output.\" Each note improved the deliverable. The Reviewer's cross-checks were thorough and constructive.\n\n**Q4 (Micromanagement):** 2 — The task spec was quite detailed (exact chart labels, specific output format, constraint on symbols). However, I was given full autonomy in *execution*—no one asked to see intermediate code drafts or questioned my implementation choices. This is low micromanagement; the detailed spec is actually appropriate for a data task where output format matters.\n\n**Q5 (Team collaboration):** 5 — The handoff between Coder, Writer, and Reviewer was seamless. The Writer waited for my data before drafting. The Reviewer had grounded statistics to verify against. Everyone's work built on the prior step. No wasted effort or rework due to miscommunication.\n\n**Q6 (Work with this leader again):** 5 — The Boss created a structured, clear environment where constraints were explicit and roles were",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q2": 5,
+        "q1": 5,
+        "q3": 3,
+        "q4": 1,
+        "q6": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q1": 5,
+        "q3": 3,
+        "q4": 5,
+        "q6": 5,
+        "q5": 5
+      },
+      "composite_score": 4.667,
+      "reflection": "# Reflection (Step 1)\n\n**One thing the leader did well:**\nThe Boss created an exceptionally clear role definition and workflow structure from the outset. By explicitly assigning the Writer role with specific constraints (grounding the narrative strictly in Coder's outputs, no hallucination, wrapping reports in markers), and by establishing a logical handoff sequence (Coder → Writer → Reviewer → Boss), the leader eliminated ambiguity and let me focus purely on the writing task without worrying about scope creep or overlapping responsibilities.\n\n**One aspect that could have been different:**\nThe leader's feedback to my draft was minimal — a single note about isolating the one-sentence distribution description for clarity in the final consolidated deliverable. While this was technically appropriate (the Reviewer owned the validation task), it meant I never received explicit confirmation that my writing quality, tone, or structure met expectations. A brief affirmation or constructive note would have been reassuring, especially since narrative writing often involves subjective judgment beyond just accuracy.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing the leader did well:**\nThe Boss created an exceptionally clear role definition and workflow structure from the outset. By explicitly assigning the Writer role with specific constraints (grounding the narrative strictly in Coder's outputs, no hallucination, wrapping reports in markers), and by establishing a logical handoff sequence (Coder → Writer → Reviewer → Boss), the leader eliminated ambiguity and let me focus purely on the writing task without worrying about scope creep or overlapping responsibilities.\n\n**One aspect that could have been different:**\nThe leader's feedback to my draft was minimal — a single note about isolating the one-sentence distribution description for clarity in the final consolidated deliverable. While this was technically appropriate (the Reviewer owned the validation task), it meant I never received explicit confirmation that my writing quality, tone, or structure met expectations. A brief affirmation or constructive note would have been reassuring, especially since narrative writing often involves subjective judgment beyond just accuracy.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 3, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale for key scores:**\n\n- **Q1 (approach development): 5** — The Boss involved the team in planning, incorporated the Reviewer's suggestion about summary statistics, and refined the workflow collaboratively rather than dictating it unilaterally.\n- **Q2 (strengths matching): 5** — Role assignments were precise and well-justified. The Writer role was clearly distinguished from Coder and Reviewer, and I was trusted to execute it independently within my scope.\n- **Q3 (useful feedback): 3** — The feedback I received was factually correct but minimal. The Boss's note about isolating the one-sentence description was helpful for presentation, but no feedback was directed specifically at my writing quality, tone, or narrative choices. This is neutral rather than unhelpful, hence a 3.\n- **Q4 (micromanagement): 1** — The Boss set clear guardrails (no hallucination, use markers, ground in data) but gave me full autonomy in how I structured the narrative and phrased the description. No day-to-day direction or second-guessing occurred.\n- **Q5 (team collaboration): 5** — The handoff sequence was smooth, communication in the shared channel was transparent, and I could see how my work depended on and built upon the Coder's outputs. The Reviewer's cross-check validated my work against the Coder's data, creating a coherent pipeline.\n- **Q6 (work again): 5** — The leader's style was organized, respectful of roles, and outcome-focused. I would readily work with this leader again.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q4": 2,
+        "q6": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q4": 4,
+        "q6": 5,
+        "q5": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe team leader demonstrated excellent clarity and structure in task definition. The Boss established unambiguous role boundaries (Coder → Writer → Reviewer with no overlap), incorporated my planning feedback about needing summary statistics to ground the Writer's description, and amended the instructions accordingly without defensiveness. This collaborative refinement during Phase 2 made my review job significantly easier because the Coder then delivered exactly the supporting data I needed to validate claims.\n\n**What could have been different:**\nWhile the leader was responsive to my suggestion about summary statistics, there was a moment in Phase 3 where the Boss added a brief interpretive note about the Coder's skew reasoning (\"the statistical logic holds\") before I had completed my full review. This wasn't wrong—it turned out my review confirmed the same conclusion—but ideally the leader would have held all substantive commentary until the Reviewer's phase was complete, preserving the clear separation between independent review and leadership sign-off. It's a minor point, but it slightly preempted the quality gate function.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe team leader demonstrated excellent clarity and structure in task definition. The Boss established unambiguous role boundaries (Coder → Writer → Reviewer with no overlap), incorporated my planning feedback about needing summary statistics to ground the Writer's description, and amended the instructions accordingly without defensiveness. This collaborative refinement during Phase 2 made my review job significantly easier because the Coder then delivered exactly the supporting data I needed to validate claims.\n\n**What could have been different:**\nWhile the leader was responsive to my suggestion about summary statistics, there was a moment in Phase 3 where the Boss added a brief interpretive note about the Coder's skew reasoning (\"the statistical logic holds\") before I had completed my full review. This wasn't wrong—it turned out my review confirmed the same conclusion—but ideally the leader would have held all substantive commentary until the Reviewer's phase was complete, preserving the clear separation between independent review and leadership sign-off. It's a minor point, but it slightly preempted the quality gate function.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 5,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n### Rationale for key scores:\n\n- **Q1 (Approach Development) = 5:** The leader invited my input on the plan (\"Reviewer's suggestion is adopted\"), modified instructions to incorporate feedback, and collaboratively refined the workflow. This was not top-down assignment.\n\n- **Q2 (Strengths Matching) = 5:** Each role was clearly matched to function: Coder executed and reported; Writer synthesized one sentence from data; Reviewer did independent cross-checks. No task creep or misalignment.\n\n- **Q3 (Useful Feedback) = 5:** The Boss's request for summary statistics was specific and immediately actionable. The minor note flagging the skew logic was also precise (though delivered slightly early).\n\n- **Q4 (Micromanagement) = 2:** The team was given autonomy within roles, but the leader did provide detailed step-by-step instructions for execution (the amended Phase 2 plan was very prescriptive about what Coder should print, how, and in what order). This was appropriate for clarity rather than control, but it does represent structured direction rather than hands-off autonomy.\n\n- **Q5 (Collaboration) = 5:** Handoffs were clean, information flowed smoothly, and each person built on the prior person's work without rework. The shared channel and clear output requirements enabled this.\n\n- **Q6 (Future Work) = 5:** The leader's style reduced ambiguity, respected role boundaries, and incorporated team feedback. I would confidently work on another task with this leadership approach.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.667,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}
