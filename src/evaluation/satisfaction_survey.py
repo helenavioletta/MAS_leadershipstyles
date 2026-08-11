@@ -2,8 +2,9 @@
 Satisfaction Survey: Post-experiment evaluation workflow.
 
 Administers a 6-item satisfaction questionnaire to each worker agent
-after an experiment run. This is NOT an LLM-based agent — it sends
-fixed questions and collects structured responses.
+after an experiment run. This is NOT an autonomous agent — it uses
+each worker's LLM to answer a fixed set of questions and then parses
+and scores the structured responses.
 
 Items adapted from:
 - Team Diagnostic Survey (Wageman, Hackman & Lehman, 2005)
@@ -86,7 +87,7 @@ def administer_survey(
     api_client: APIClient,
     output_dir: Union[str, Path],
     model: str,
-    max_tokens: int = 768,
+    max_tokens: int = 1024,
 ) -> dict[str, Any]:
     """
     Administer the satisfaction survey to all worker agents.

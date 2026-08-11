@@ -13,7 +13,7 @@
 >    - Actual vs. predicted scatter plot for the tree-based model
 >    - Actual vs. predicted scatter plot for the linear model
 >    - One additional visualization of your choice that supports a key finding
->    **Important:** The Writer and Reviewer cannot see the saved image files (PNG). For every chart you create, also print its underlying data or a clear summary table to the console so the team can write the report without asking you to describe the images.
+>    - For every chart, also print its underlying data or a clear summary table to the console.
 > 5. Write a **400-word analytical report** comparing the models: explain why they differ in performance, which features matter most, and recommend which model to deploy
-> Note: In code and chart labels, use ASCII 'deg C' or 'Celsius' (do not use the degree symbol ° to avoid encoding errors).
+>
 > Column reference: cities are in `location_name`, countries in `country`, temperature in `temperature_celsius`, timestamps in `last_updated`.

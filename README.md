@@ -23,7 +23,7 @@ MAS/
 │   ├── experiment_config.yaml      # Models, styles, token budgets
 │   └── tasks/
 │       ├── test_task.md             # Smoke test (1 chart, 1 sentence)
-│       ├── short_task.md            # Short task (4 charts + 200-word summary)
+│       ├── short_task.md            # Short task (4 charts + 100-word summary)
 │       └── long_task.md             # Long task (full EDA)
 │
 ├── prompts/

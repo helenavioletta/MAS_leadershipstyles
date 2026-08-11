@@ -123,7 +123,7 @@ class CoderAgent(BaseAgent):
 
         Context injection (mutually exclusive, 3-way branch):
         - First call ever: run a fixed data exploration script so the LLM sees
-          actual column names, dtypes, shape. Prevents column-name hallucination.
+          actual column names and shape. Prevents column-name hallucination.
         - Subsequent call with prior code (boss extension or Phase 6 revision):
           inject last code + last console output + last error. No exploration.
         - Subsequent call without prior code (Coder never produced code blocks):
@@ -302,8 +302,9 @@ class CoderAgent(BaseAgent):
         Run a fixed data exploration script to discover dataset structure.
 
         Executes before the Coder's first coding attempt so the LLM sees
-        actual column names, dtypes, shape, and sample data. This prevents
-        the column-name hallucination problem (e.g., 'city' vs 'location_name').
+        actual column names, shape, and column dtypes. This prevents the
+        column-name hallucination problem (e.g., 'city' vs 'location_name')
+        and helps the Coder avoid using string/object columns as numeric features.
 
         The result is cached so the script is only executed once per Coder
         instance (not re-run on every phase or revision).
@@ -324,6 +325,9 @@ class CoderAgent(BaseAgent):
             f"print()\n"
             f"print('=== COLUMN NAMES (use these exact names) ===')\n"
             f"print(df.columns.tolist())\n"
+            f"print()\n"
+            f"print('=== COLUMN DTYPES ===')\n"
+            f"print(df.dtypes.to_string())\n"
         )
 
         result = self.sandbox.execute(exploration_code)

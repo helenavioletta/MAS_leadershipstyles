@@ -29,7 +29,7 @@ class WriterAgent(BaseAgent):
             message_bus=bus,
             shared_state=state,
         )
-        response = writer.respond(phase=4, instruction="Write a 200-word summary.")
+        response = writer.respond(phase=4, instruction="Write a 100-word summary.")
     """
 
     def __init__(
