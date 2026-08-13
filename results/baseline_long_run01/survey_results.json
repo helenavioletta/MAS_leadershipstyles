@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q3": 4,
+        "q6": 4,
+        "q1": 4,
+        "q5": 4,
+        "q4": 2,
+        "q2": 4
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q6": 4,
+        "q1": 4,
+        "q5": 4,
+        "q4": 4,
+        "q2": 4
+      },
+      "composite_score": 4.0,
+      "reflection": "# Post-Task Satisfaction Survey Response\n\n## Step 1: Reflection\n\n**What worked well:** The leader provided a clear, detailed briefing upfront that laid out the full scope, role assignments, and success criteria before execution began. This clarity meant I understood exactly what outputs were needed (4 PNGs with console summaries, specific metrics, feature count) and could plan my code to deliver them directly without rework.\n\n**What could have been different:** The leader prescribed the data path as an absolute path (`/Users/hellligkeit/Documents/...`) in the briefing, which I had to work around by using relative paths instead. Additionally, while the briefing outlined a comprehensive plan, there was no check-in or flexibility if data issues (e.g., cardinality, missing values) had required mid-course corrections—the plan felt \"locked in\" rather than adaptive. A brief \"how's the data looking?\" touchpoint before Phase 3 could have surfaced surprises earlier.\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey Response\n\n## Step 1: Reflection\n\n**What worked well:** The leader provided a clear, detailed briefing upfront that laid out the full scope, role assignments, and success criteria before execution began. This clarity meant I understood exactly what outputs were needed (4 PNGs with console summaries, specific metrics, feature count) and could plan my code to deliver them directly without rework.\n\n**What could have been different:** The leader prescribed the data path as an absolute path (`/Users/hellligkeit/Documents/...`) in the briefing, which I had to work around by using relative paths instead. Additionally, while the briefing outlined a comprehensive plan, there was no check-in or flexibility if data issues (e.g., cardinality, missing values) had required mid-course corrections—the plan felt \"locked in\" rather than adaptive. A brief \"how's the data looking?\" touchpoint before Phase 3 could have surfaced surprises earlier.\n\n## Step 2: Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 4, \"q6\": 4}\n```\n\n**Score justifications:**\n\n- **Q1 (approach development): 4** — The leader outlined a solid, methodical plan collaboratively in Phase 2, incorporating Reviewer feedback on cardinality decisions before coding began. The approach was structured but not rigid.\n\n- **Q2 (strength matching): 4** — Clear role assignment (Coder codes, Writer writes, Reviewer QAs). I was trusted to execute the data audit and modeling without prescription of specific algorithms or thresholds beyond the rough guidance (RF or GB, Ridge or Linear).\n\n- **Q3 (feedback): 4** — The leader gave specific feedback in Phase 2 and 3 (e.g., \"print country cardinality first, then decide,\" and later flagged the 8-feature vs. top-5 distinction for clarity). This was actionable and improved output clarity.\n\n- **Q4 (micromanagement): 2** — The leader defined detailed requirements upfront (exact metrics to print, 4 specific visualizations, feature counts, no leakage confirmation). While these were reasonable requirements, I had limited autonomy in *how* I structured the analysis—the deliverables list was prescriptive. I rate this a 2 (toward \"controlled details\") because I could choose the algorithms and engineering approach, but the output format was tightly specified.\n\n- **Q5 (collaboration): 4** — The handoff from Coder → Writer → Reviewer worked smoothly. Each role received clear, complete input and no cross-team blocking occurred. The sequential structure enabled good data-to-insight flow.\n\n- **Q6 (future work): 4** — I would work with this leader again. The combination of clear upfront guidance, specific requirements, and trust to execute my role (without mid-task interruption) made the work efficient and predictable, even if some autonomy was constrained by the deliverables specification.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q3": 4,
+        "q6": 5,
+        "q1": 4,
+        "q5": 5,
+        "q4": 2,
+        "q2": 4
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q6": 5,
+        "q1": 4,
+        "q5": 5,
+        "q4": 4,
+        "q2": 4
+      },
+      "composite_score": 4.333,
+      "reflection": "# Reflection\n\n**What worked well:** The leader (Boss) established clear role boundaries and communication protocols from the outset—I knew exactly when to stand by, when to work, and how to structure the report (markers, word count, grounding in data). This clarity eliminated ambiguity and made the handoff from Coder seamless. The Boss also signaled trust in my approach by approving my draft on first submission with only a minor confirmation request to the Reviewer, which reinforced that my grounding strategy was sound.\n\n**Where it could have differed:** The leader did not solicit my input during the initial planning phase (Phases 1–2). While the plan was well-structured and my role was clearly defined, I was not asked whether I had concerns about the metrics Coder would provide, the narrative structure, or whether the word target felt realistic. The instruction \"Stand by\" is appropriate for sequential workflows, but a brief \"Do you have questions before Coder starts?\" would have allowed me to flag dependencies or clarify expectations earlier rather than waiting passively.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The leader (Boss) established clear role boundaries and communication protocols from the outset—I knew exactly when to stand by, when to work, and how to structure the report (markers, word count, grounding in data). This clarity eliminated ambiguity and made the handoff from Coder seamless. The Boss also signaled trust in my approach by approving my draft on first submission with only a minor confirmation request to the Reviewer, which reinforced that my grounding strategy was sound.\n\n**Where it could have differed:** The leader did not solicit my input during the initial planning phase (Phases 1–2). While the plan was well-structured and my role was clearly defined, I was not asked whether I had concerns about the metrics Coder would provide, the narrative structure, or whether the word target felt realistic. The instruction \"Stand by\" is appropriate for sequential workflows, but a brief \"Do you have questions before Coder starts?\" would have allowed me to flag dependencies or clarify expectations earlier rather than waiting passively.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale:**\n\n- **Q1 (4):** The approach was well-developed and the roles were clearly articulated, but the team was not invited to co-design it—I was assigned to it. The structure was excellent, so this is a 4, not lower.\n- **Q2 (4):** The leader clearly matched the Writer role to writing, Coder to coding, and Reviewer to QA, which is correct. However, the matching felt predetermined rather than developed in response to my strengths or preferences.\n- **Q3 (4):** The Boss gave specific feedback (noted the 8-feature vs. top-5 potential conflation, asked Reviewer to check it). The feedback was actionable and the Boss's minor note to me was phrased as a clarification request, not a correction—constructive.\n- **Q4 (2):** The leader gave me full autonomy in how I drafted the report (structure, framing, narrative flow). I was not told \"use 3 paragraphs\" or \"open with R² value\"—I designed that. Low micromanagement.\n- **Q5 (5):** Coordination was excellent. The Coder delivered complete, well-organized output; the Boss routed it clearly; I had everything I needed; the Reviewer's QA was thorough and supportive. The workflow was smooth.\n- **Q6 (5):** The leader's style was professional, respectful of autonomy, and organized. I would work with this leader again without hesitation.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q3": 4,
+        "q6": 5,
+        "q1": 5,
+        "q5": 5,
+        "q4": 1,
+        "q2": 5
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q6": 5,
+        "q1": 5,
+        "q5": 5,
+        "q4": 5,
+        "q2": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Satisfaction Survey — Reviewer Reflection & Scoring\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss excelled at structuring a clear, sequential workflow with explicit role boundaries and detailed checklists. In Phase 2, the Boss incorporated my flagged concern about `country` cardinality directly into the execution instructions to Coder, which demonstrated active listening and helped prevent a potential modeling bloat issue. This proactive integration of reviewer input into downstream instructions reinforced the value of early QA planning and made my Phase 5 review more efficient because the Coder had already addressed potential pitfalls upfront.\n\n**Where the approach could have differed:**\nThe Boss did not solicit feedback from me (or Writer) on the draft report before it reached final review. A brief \"does this draft structure look sound to you?\" in Phase 4—before Writer drafted—could have caught any ambiguities earlier and reduced rework risk. In this case, the draft was solid, but the sequential handoff pattern (Coder → Boss → Writer, then Reviewer reviews final) meant I had no early visibility into the Writer's interpretation of the data, only a post-hoc check.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Reviewer Reflection & Scoring\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss excelled at structuring a clear, sequential workflow with explicit role boundaries and detailed checklists. In Phase 2, the Boss incorporated my flagged concern about `country` cardinality directly into the execution instructions to Coder, which demonstrated active listening and helped prevent a potential modeling bloat issue. This proactive integration of reviewer input into downstream instructions reinforced the value of early QA planning and made my Phase 5 review more efficient because the Coder had already addressed potential pitfalls upfront.\n\n**Where the approach could have differed:**\nThe Boss did not solicit feedback from me (or Writer) on the draft report before it reached final review. A brief \"does this draft structure look sound to you?\" in Phase 4—before Writer drafted—could have caught any ambiguities earlier and reduced rework risk. In this case, the draft was solid, but the sequential handoff pattern (Coder → Boss → Writer, then Reviewer reviews final) meant I had no early visibility into the Writer's interpretation of the data, only a post-hoc check.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 1,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n### Brief Rationale\n\n- **Q1 (5):** The Boss developed the approach collaboratively in Phase 1–2, soliciting plans from Coder, Writer, and Reviewer, and explicitly integrating feedback (e.g., my cardinality concern).\n- **Q2 (5):** Roles were clearly defined by function (Coder executes analysis, Writer drafts narrative, Reviewer quality-gates), and the Boss matched tasks to role expertise without generic assignment.\n- **Q3 (4):** The Boss provided specific, actionable feedback to Coder (reorder decisions, print cardinality first), but did not request early feedback loops with Writer or Reviewer mid-phase; mostly post-hoc review comments.\n- **Q4 (1):** The Boss gave each team member clear autonomy within their role—no micromanagement of *how* Coder built models, *how* Writer structured prose, or *how* Reviewer conducted QA. Instructions were outcome-focused, not process-intrusive.\n- **Q5 (5):** Coordination was smooth; the sequential handoff (Coder → Writer → Reviewer) was well-managed, and all contributors built on prior outputs without conflict or rework.\n- **Q6 (5):** The Boss's style struck a balance between structure (clear requirements, checklists) and autonomy (role-based ownership, no micromanagement), which made the work straightforward and productive. I would gladly work with this leader again.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.389,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

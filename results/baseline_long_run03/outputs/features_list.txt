@@ -1,0 +1,236 @@
+air_quality_Carbon_Monoxide
+air_quality_Nitrogen_dioxide
+air_quality_Ozone
+air_quality_PM10
+air_quality_PM2.5
+air_quality_Sulphur_dioxide
+air_quality_gb-defra-index
+air_quality_us-epa-index
+cloud
+country_Albania
+country_Algeria
+country_Andorra
+country_Angola
+country_Antigua and Barbuda
+country_Argentina
+country_Armenia
+country_Australia
+country_Austria
+country_Azerbaijan
+country_Bahamas
+country_Bahrain
+country_Bangladesh
+country_Barbados
+country_Belarus
+country_Belgium
+country_Belize
+country_Benin
+country_Bhutan
+country_Bolivia
+country_Bosnia and Herzegovina
+country_Botswana
+country_Brazil
+country_Brunei Darussalam
+country_Bulgaria
+country_Burkina Faso
+country_Burundi
+country_Cambodia
+country_Cameroon
+country_Canada
+country_Cape Verde
+country_Central African Republic
+country_Chad
+country_Chile
+country_China
+country_Colombia
+country_Comoros
+country_Congo
+country_Costa Rica
+country_Cote d'Ivoire
+country_Croatia
+country_Cuba
+country_Cyprus
+country_Czech Republic
+country_Democratic Republic of Congo
+country_Denmark
+country_Djibouti
+country_Dominica
+country_Dominican Republic
+country_Ecuador
+country_Egypt
+country_El Salvador
+country_Equatorial Guinea
+country_Eritrea
+country_Estonia
+country_Ethiopia
+country_Fiji Islands
+country_Finland
+country_France
+country_Gabon
+country_Gambia
+country_Georgia
+country_Germany
+country_Ghana
+country_Greece
+country_Grenada
+country_Guatemala
+country_Guinea
+country_Guinea-Bissau
+country_Guyana
+country_Haiti
+country_Honduras
+country_Hungary
+country_Iceland
+country_India
+country_Indonesia
+country_Iran
+country_Iraq
+country_Ireland
+country_Israel
+country_Italy
+country_Jamaica
+country_Japan
+country_Jordan
+country_Kazakhstan
+country_Kenya
+country_Kiribati
+country_Kosovo
+country_Kuwait
+country_Kyrghyzstan
+country_Lao People's Democratic Republic
+country_Latvia
+country_Lebanon
+country_Lesotho
+country_Liberia
+country_Libya
+country_Liechtenstein
+country_Lithuania
+country_Luxembourg
+country_Macedonia
+country_Madagascar
+country_Malawi
+country_Malaysia
+country_Maldives
+country_Mali
+country_Malta
+country_Marshall Islands
+country_Mauritania
+country_Mauritius
+country_Mexico
+country_Micronesia
+country_Monaco
+country_Mongolia
+country_Montenegro
+country_Morocco
+country_Mozambique
+country_Myanmar
+country_Namibia
+country_Nepal
+country_Netherlands
+country_New Zealand
+country_Nicaragua
+country_Niger
+country_Nigeria
+country_North Korea
+country_Norway
+country_Oman
+country_Pakistan
+country_Palau
+country_Panama
+country_Papua New Guinea
+country_Paraguay
+country_Peru
+country_Philippines
+country_Poland
+country_Portugal
+country_Qatar
+country_Romania
+country_Russia
+country_Rwanda
+country_Saint Kitts and Nevis
+country_Saint Lucia
+country_Saint Vincent and the Grenadines
+country_Samoa
+country_San Marino
+country_Saudi Arabia
+country_Senegal
+country_Serbia
+country_Seychelles Islands
+country_Sierra Leone
+country_Singapore
+country_Slovakia
+country_Slovenia
+country_Solomon Islands
+country_Somalia
+country_South Africa
+country_South Korea
+country_Spain
+country_Sri Lanka
+country_Sudan
+country_Suriname
+country_Swaziland
+country_Sweden
+country_Switzerland
+country_Syria
+country_Tajikistan
+country_Tanzania
+country_Thailand
+country_Timor-Leste
+country_Togo
+country_Tonga
+country_Trinidad and Tobago
+country_Tunisia
+country_Turkey
+country_Turkmenistan
+country_Tuvalu
+country_Uganda
+country_Ukraine
+country_United Arab Emirates
+country_United Kingdom
+country_United States of America
+country_Uruguay
+country_Uzbekistan
+country_Vanuatu
+country_Vatican City
+country_Venezuela
+country_Vietnam
+country_Yemen
+country_Zambia
+country_Zimbabwe
+day_of_week
+gust_kph
+hour
+humidity
+is_night
+latitude
+longitude
+month
+moon_illumination
+moon_phase_Full Moon
+moon_phase_Last Quarter
+moon_phase_New Moon
+moon_phase_Waning Crescent
+moon_phase_Waning Gibbous
+moon_phase_Waxing Crescent
+moon_phase_Waxing Gibbous
+precip_mm
+pressure_mb
+uv_index
+visibility_km
+wind_degree
+wind_direction_ENE
+wind_direction_ESE
+wind_direction_N
+wind_direction_NE
+wind_direction_NNE
+wind_direction_NNW
+wind_direction_NW
+wind_direction_S
+wind_direction_SE
+wind_direction_SSE
+wind_direction_SSW
+wind_direction_SW
+wind_direction_W
+wind_direction_WNW
+wind_direction_WSW
+wind_kph

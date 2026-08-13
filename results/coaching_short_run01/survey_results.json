@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q2": 4,
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 1,
+        "q1": 5
+      },
+      "adjusted_scores": {
+        "q2": 4,
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 5,
+        "q1": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader explicitly asked me to walk through my aggregation logic before writing code, which caught alignment issues early and gave me confidence that my approach (raw readings by country, not hierarchical averaging) was defensible. This prevented me from building the whole pipeline on a questionable assumption.\n\n**One thing that could have been different:**\nWhen I flagged the Suva outlier and country name duplicates, the leader made the correction decisions rather than asking me to propose a threshold or mapping strategy. I could have been given more agency to suggest the exclusion criteria or consolidation rules, then have them reviewed, rather than being handed the decision. That said, the feedback was clear and the decision was right—it's more about professional growth than a flaw in the process.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader explicitly asked me to walk through my aggregation logic before writing code, which caught alignment issues early and gave me confidence that my approach (raw readings by country, not hierarchical averaging) was defensible. This prevented me from building the whole pipeline on a questionable assumption.\n\n**One thing that could have been different:**\nWhen I flagged the Suva outlier and country name duplicates, the leader made the correction decisions rather than asking me to propose a threshold or mapping strategy. I could have been given more agency to suggest the exclusion criteria or consolidation rules, then have them reviewed, rather than being handed the decision. That said, the feedback was clear and the decision was right—it's more about professional growth than a flaw in the process.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 4,\n  \"q3\": 5,\n  \"q4\": 1,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n---\n\n# Brief explanation of scores\n\n**Q1 (Good approach development): 5** — The leader solicited my input on aggregation logic upfront and incorporated my reasoning before I coded. The plan was collaborative.\n\n**Q2 (Used my strengths): 4** — The leader correctly identified that I should handle data quality and code execution, but made the data-cleaning *decisions* rather than asking me to recommend them. Still, the work matched my role well.\n\n**Q3 (Useful feedback): 5** — Every piece of feedback was specific and actionable: \"flag anomalies,\" \"document consolidation mapping,\" \"print before/after row counts.\" None of it was vague.\n\n**Q4 (Micromanagement): 1** — I had complete autonomy on how to implement the script, the structure, variable naming, and approach details. The leader set the what/why, I owned the how.\n\n**Q5 (Collaboration): 5** — The staged process (console → review → charts → summary) meant everyone's work built on validated outputs from the previous step. No rework, no gaps.\n\n**Q6 (Would work together again): 5** — The leader's combination of clear upfront planning, autonomous execution space, and specific feedback on deliverables is exactly the style that makes good work and professional growth possible.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q2": 5,
+        "q6": 5,
+        "q3": 4,
+        "q5": 5,
+        "q4": 1,
+        "q1": 5
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q6": 5,
+        "q3": 4,
+        "q5": 5,
+        "q4": 5,
+        "q1": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader established a clear, stage-gated workflow that prevented me from writing blindly. By insisting that Coder finish and Reviewer validate the numbers *before* I drafted, the leader removed the temptation to guess at findings or fabricate patterns. This made my job both easier and more credible — I had real data to work with, not speculation. The leader also explicitly told me not to pre-write conclusions and hunt for data to fit them, which caught a habit I might have fallen into.\n\n**One aspect that could have been different:**\nWhen I exceeded the word count on my first draft (166 words), the leader didn't give me direct feedback; instead, I self-corrected through three iterations and landed at 103 words. While the self-editing was valuable, a single line like \"You're at 166 — tighten by about 40%\" earlier in the process might have saved me the intermediate drafts. That said, the leader's trust in my self-discipline also worked — it just took longer than it might have with more explicit guidance on the target.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader established a clear, stage-gated workflow that prevented me from writing blindly. By insisting that Coder finish and Reviewer validate the numbers *before* I drafted, the leader removed the temptation to guess at findings or fabricate patterns. This made my job both easier and more credible — I had real data to work with, not speculation. The leader also explicitly told me not to pre-write conclusions and hunt for data to fit them, which caught a habit I might have fallen into.\n\n**One aspect that could have been different:**\nWhen I exceeded the word count on my first draft (166 words), the leader didn't give me direct feedback; instead, I self-corrected through three iterations and landed at 103 words. While the self-editing was valuable, a single line like \"You're at 166 — tighten by about 40%\" earlier in the process might have saved me the intermediate drafts. That said, the leader's trust in my self-discipline also worked — it just took longer than it might have with more explicit guidance on the target.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n---\n\n## Reasoning Behind Each Score\n\n**Q1 (Approach development): 5**\nThe leader developed the approach collaboratively, soliciting input from each role (Coder's aggregation logic, Writer's narrative framing strategy, Reviewer's QA checklist) before locking the plan. This wasn't top-down decree; it was a negotiated sequence that incorporated team feedback.\n\n**Q2 (Using each member's strengths): 5**\nEach role was matched precisely to capability: Coder got the complex aggregation logic (a technical strength), Reviewer got the traceability and verification work (a detail-oriented strength), and Writer got narrative translation (communication and synthesis). The leader also recognized my self-editing habit and trusted me to discipline my own word count, rather than imposing a hard rule.\n\n**Q3 (Useful feedback): 4**\nThe leader gave specific, actionable feedback on most moves (e.g., \"print data quality summary so anyone auditing later can trace an odd number back to data, not logic\"). However, on my word-count overages, the feedback was implicit rather than explicit — the leader observed my self-correction without intervening. This worked, but slightly more directed guidance earlier would have been useful.\n\n**Q4 (Micromanagement): 1**\nStrongly disagree with micromanagement. The leader set clear boundaries (console output before charts, numbers validated before narrative) but left the *how* entirely to each team member. I structured my drafts, revised my own work, and reported my progress without being asked for updates or sign-offs at every micro-step. This is how autonomy should work.\n\n**Q5 (Collaboration): 5**\nThe staged workflow forced collaboration: Coder's output became my source of truth, Reviewer's sign-off was my green light, Boss's guidance unified all three. We weren't siloed; each person's work explicitly depended on and built on the previous stage. The shared-state documentation meant nothing was lost in translation.\n\n**Q6 (Would work with this leader again): 5**\nAbsolutely. The leader created a structure that protected me from making mistakes (by insisting on validated data before drafting), trusted me to self-correct when I overshot targets, and gave me credit for catching patterns rather than just restating numbers. That combination of clarity, autonomy, and trust is rare and valuable.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q2": 5,
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 2,
+        "q1": 5
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 4,
+        "q1": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection\n\n**What worked well:**\nThe leader explicitly validated my early flagging of the data-quality gap (Coder's null/duplicate check) and empowered me to hold that standard throughout. When I flagged the Suva outlier and country-name inconsistencies in Phase 3, the leader immediately recognized those as legitimate correctness issues rather than over-scoping, decided on a clear resolution rule (majority-row-count canonical mapping), and documented the before/after impact so I could verify it was done correctly. That made my role feel consequential—I wasn't just rubber-stamping; my concerns shaped the actual output.\n\n**What could have been different:**\nIn Phase 3, after I signed off on the corrected output, the leader's Phase 4 message framed my verification table as \"thorough as always\" in a way that felt slightly patronizing in retrospect. It was positive feedback, but it read more like acknowledging my caution than valuing the specific work I'd done (the traceability logic itself, not just the fact that I was careful). A more direct framing—\"your claim-by-claim table caught X inconsistency\" or \"this verification method is reusable for future projects\"—would have felt more substantive. Minor point, but it's the difference between \"you're reliable\" and \"your approach is valuable.\"\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:**\nThe leader explicitly validated my early flagging of the data-quality gap (Coder's null/duplicate check) and empowered me to hold that standard throughout. When I flagged the Suva outlier and country-name inconsistencies in Phase 3, the leader immediately recognized those as legitimate correctness issues rather than over-scoping, decided on a clear resolution rule (majority-row-count canonical mapping), and documented the before/after impact so I could verify it was done correctly. That made my role feel consequential—I wasn't just rubber-stamping; my concerns shaped the actual output.\n\n**What could have been different:**\nIn Phase 3, after I signed off on the corrected output, the leader's Phase 4 message framed my verification table as \"thorough as always\" in a way that felt slightly patronizing in retrospect. It was positive feedback, but it read more like acknowledging my caution than valuing the specific work I'd done (the traceability logic itself, not just the fact that I was careful). A more direct framing—\"your claim-by-claim table caught X inconsistency\" or \"this verification method is reusable for future projects\"—would have felt more substantive. Minor point, but it's the difference between \"you're reliable\" and \"your approach is valuable.\"\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale:**\n\n- **Q1 (good approach):** 5 — The leader structured the full workflow upfront in Phase 2, incorporated team input (Coder's aggregation logic rationale, Writer's narrative framing, my data-quality concern), and only then committed to a sequence. That's collaborative design, not top-down assignment.\n\n- **Q2 (strengths):** 5 — Each role was specifically scoped to its strength: Coder owned aggregation logic and data quality judgment, Writer owned narrative/accessibility, I owned verification against specs and console output. The leader didn't conflate these; each member was trusted in their domain.\n\n- **Q3 (feedback):** 5 — Specific examples: the leader told Coder \"you could have buried the anomalies but you surfaced them—that's the standard I want,\" flagged Writer's self-editing discipline explicitly, and asked me to validate the consolidation dictionary mapping against the raw list (not just \"does it look right?\"). All actionable.\n\n- **Q4 (micromanagement):** 2 — The leader did NOT micromanage. They set clear gates (console output before charts, charts before summary, validation before each gate), but left implementation to each team member. The staging was deliberate structure, not overcontrol. Score is 2 because the statement itself is phrased as \"micromanagement = bad,\" and the leader did *not* do this; I'm scoring low to indicate absence of micromanagement, which is what we want.\n\n- **Q5 (collaboration):** 5 — The shared-channel design and staged handoffs forced coordination. Each deliverable depended on the prior one being validated, so we weren't talking past each other. Writer waited for my sign-off before drafting, Coder re-ran analyses after I flagged issues—that's genuine collaboration, not parallel work.\n\n- **Q6 (work together again):** 5 — The leader's discipline on sequencing, their willingness to resolve ambiguity (country mapping rule) rather than let Coder guess, and their explicit naming of good behavior (flagging your own anomalies, self-editing for word count, verification via traceability) made the task feel trustworthy and well-led. I'd want to work with this leader again.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.833,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

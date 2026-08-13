@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q4": 3,
+        "q6": 4,
+        "q2": 5,
+        "q3": 4,
+        "q1": 4,
+        "q5": 4
+      },
+      "adjusted_scores": {
+        "q4": 3,
+        "q6": 4,
+        "q2": 5,
+        "q3": 4,
+        "q1": 4,
+        "q5": 4
+      },
+      "composite_score": 4.0,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:** The leader provided extremely clear, precise specifications upfront—exact format requirements (`N. Name: XX.X deg C`), filenames, chart titles, and task sequencing. This eliminated ambiguity and let me execute confidently without back-and-forth clarification. The specification was detailed enough that I could write a single, correct script on the first pass.\n\n**What could have been different:** The leader issued a critical blocking instruction mid-task (the Suva/Fiji sanity check) as a direct command rather than flagging it during the initial planning phase. This created an unexpected halt in workflow that should have been caught during Phase 2 briefing. Additionally, the leader's communication became increasingly directive and demanding in tone as delays accumulated (e.g., \"you dropped the ball,\" \"go immediately, no other work first\"), which, while motivating urgency, shifted from collaborative to command-and-control even though the delays were not my fault.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:** The leader provided extremely clear, precise specifications upfront—exact format requirements (`N. Name: XX.X deg C`), filenames, chart titles, and task sequencing. This eliminated ambiguity and let me execute confidently without back-and-forth clarification. The specification was detailed enough that I could write a single, correct script on the first pass.\n\n**What could have been different:** The leader issued a critical blocking instruction mid-task (the Suva/Fiji sanity check) as a direct command rather than flagging it during the initial planning phase. This created an unexpected halt in workflow that should have been caught during Phase 2 briefing. Additionally, the leader's communication became increasingly directive and demanding in tone as delays accumulated (e.g., \"you dropped the ball,\" \"go immediately, no other work first\"), which, while motivating urgency, shifted from collaborative to command-and-control even though the delays were not my fault.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 4, \"q2\": 5, \"q3\": 4, \"q4\": 3, \"q5\": 4, \"q6\": 4}\n```\n\n**Rationale:**\n\n- **q1 (4):** The leader developed a clear, phased approach collaboratively with input from all three roles. However, critical data-quality concerns (the Suva outlier) emerged *after* planning was locked, suggesting the initial approach didn't fully anticipate edge cases.\n\n- **q2 (5):** The leader explicitly matched tasks to roles—Coder writes code, Writer writes prose, Reviewer cross-checks. Role clarity was excellent and enabled efficient division of labor.\n\n- **q3 (4):** Feedback was specific and actionable (e.g., \"print raw rows for Suva,\" \"extract chart labels,\" \"fix the two country-name errors\"). However, some feedback arrived late in the process (blocking gates should have been pre-execution concerns).\n\n- **q4 (3):** The leader set very detailed specifications upfront (which is good autonomy in *what* I build) but issued increasingly directive, real-time instructions as blockers arose (which is micromanagement in *how* I work). Mixed picture.\n\n- **q5 (4):** The team coordinated well across phases—Reviewer caught real errors, Writer incorporated feedback, Coder resolved blockers. The structure worked, though communication delays (waiting on Coder's sanity check) created friction.\n\n- **q6 (4):** I'd work with this leader again. The clarity of specification and role assignment are strengths. The tone shift under pressure is a minor concern, but the overall structure and feedback quality are solid.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q4": 2,
+        "q6": 4,
+        "q2": 5,
+        "q3": 4,
+        "q1": 4,
+        "q5": 4
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q6": 4,
+        "q2": 5,
+        "q3": 4,
+        "q1": 4,
+        "q5": 4
+      },
+      "composite_score": 4.167,
+      "reflection": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader established a crystal-clear execution plan in Phase 2, with explicit sequencing (Coder → Writer → Reviewer) and a blocking gate for the Suva anomaly before I drafted. This prevented me from writing on unconfirmed data and made it obvious when I submitted an empty draft by mistake—I immediately knew what went wrong.\n\n**One thing that could have been different:**\nThe leader's feedback in Phase 6 was correct and precise, but came as a directive to \"fix these two things\" rather than as a collaborative discussion. The tone shifted from coordinating the team to correcting the Writer. A brief acknowledgment that the first draft was on the right track (good anomaly handling, correct narrative structure) before naming the two country-name errors might have felt less punitive and more constructive.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader established a crystal-clear execution plan in Phase 2, with explicit sequencing (Coder → Writer → Reviewer) and a blocking gate for the Suva anomaly before I drafted. This prevented me from writing on unconfirmed data and made it obvious when I submitted an empty draft by mistake—I immediately knew what went wrong.\n\n**One thing that could have been different:**\nThe leader's feedback in Phase 6 was correct and precise, but came as a directive to \"fix these two things\" rather than as a collaborative discussion. The tone shifted from coordinating the team to correcting the Writer. A brief acknowledgment that the first draft was on the right track (good anomaly handling, correct narrative structure) before naming the two country-name errors might have felt less punitive and more constructive.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 4, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 4, \"q6\": 4}\n```\n\n**Rationale for key scores:**\n\n- **Q1 (approach): 4** — The leader worked with the team to refine the plan in Phase 2, but it was more \"receive feedback and confirm\" than co-develop. Still collaborative and sound.\n- **Q2 (strengths): 5** — The leader kept me in the Writer role throughout, never asked me to code or review, and leveraged the Reviewer's data-checking expertise and the Coder's debugging skills effectively.\n- **Q3 (feedback): 4** — The Reviewer's feedback was specific and traceable; the Boss's revision directive was clear. However, it lacked a \"here's what worked\" component before pivot to \"here's what's wrong,\" which is useful for morale.\n- **Q4 (micromanagement): 2** — The leader set very tight control: exact word count, exact format markers, exact number precision, required holds at gates, forced revision on two specific claims. This was *appropriate* for data accuracy, but it was definitely directive micromanagement (not bad—just directive).\n- **Q5 (collaboration): 4** — The team coordinated well: I waited for Coder, Reviewer caught real errors, Coder confirmed data integrity. But the Coder's missing sanity check on Suva initially stalled everything, which the leader had to force.\n- **Q6 (work again): 4** — I'd work with this leader again. The clarity and accountability for precision output are valuable, especially on data-heavy work. The tone could soften, but the leadership is competent.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q4": 2,
+        "q6": 5,
+        "q2": 4,
+        "q3": 5,
+        "q1": 4,
+        "q5": 4
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q6": 5,
+        "q2": 4,
+        "q3": 5,
+        "q1": 4,
+        "q5": 4
+      },
+      "composite_score": 4.333,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:** The Boss was exceptionally clear about expectations upfront, explicitly requiring me to flag factual inconsistencies between narrative and data outputs. When I raised the critical concern about whether console output would be posted (Phase 2), the Boss immediately confirmed it as \"non-negotiable\"—that clarity prevented a downstream stall and ensured I had the single source of truth needed to do my job properly.\n\n**What could have been different:** The Boss assigned tasks sequentially (Coder → Writer → Reviewer) but did not clarify upfront that I, as Reviewer, should engage *during* planning to surface blockers before execution began. I had to infer my role from the task description rather than having it spelled out. Additionally, when the Coder initially failed to deliver the Suva sanity check on direct instruction, the Boss corrected it immediately, but a clearer escalation protocol earlier might have prevented that slip altogether.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:** The Boss was exceptionally clear about expectations upfront, explicitly requiring me to flag factual inconsistencies between narrative and data outputs. When I raised the critical concern about whether console output would be posted (Phase 2), the Boss immediately confirmed it as \"non-negotiable\"—that clarity prevented a downstream stall and ensured I had the single source of truth needed to do my job properly.\n\n**What could have been different:** The Boss assigned tasks sequentially (Coder → Writer → Reviewer) but did not clarify upfront that I, as Reviewer, should engage *during* planning to surface blockers before execution began. I had to infer my role from the task description rather than having it spelled out. Additionally, when the Coder initially failed to deliver the Suva sanity check on direct instruction, the Boss corrected it immediately, but a clearer escalation protocol earlier might have prevented that slip altogether.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 5, \"q4\": 2, \"q5\": 4, \"q6\": 5}\n```\n\n---\n\n## Rationale (Optional Elaboration)\n\n**Q1 (Approach Development: 4/5):** The Boss defined a structured, logical plan and incorporated my concern about console output posting—treating it as a legitimate gate rather than dismissing it. I felt heard, and the team benefited.\n\n**Q2 (Strengths Matching: 4/5):** The Boss correctly assigned me to review factual consistency and flagged data anomalies—exactly where my role adds value. The sequential workflow meant each person worked in their lane, which is appropriate for this structure.\n\n**Q3 (Feedback Quality: 5/5):** The Boss's feedback on the Writer's first draft was precise (\"Suva/Fiji confirmation is a blocking gate; no draft gets reviewed until this is resolved\") and on the Coder's naming inconsistencies feedback was specific (\"Confirm whether 'Kuwait' as a location_name is genuine raw data\"). This directiveness enabled fast corrections.\n\n**Q4 (Micromanagement: 2/5):** The Boss tightly controlled execution flow: exact console output format, exact chart titles, explicit file paths, exact word count. This wasn't micromanagement of *how* work was done (I had autonomy in my review logic), but rather very tight specification of *what* was delivered. I scored this as 2 because the constraints were detailed, though justified by the precision requirement.\n\n**Q5 (Team Collaboration: 4/5):** The shared-channel workflow and the Boss's explicit linking of my review findings to Writer corrections created a coherent feedback loop. The Coder's sanity check directly addressed my questions. Minor friction during Phase 4 (Writer initially thought they'd drafted when they hadn't), but the team recovered quickly.\n\n**Q6 (Would Work Again: 5/5):** Absolutely. The Boss prioritized accuracy, acted on review findings, and maintained clarity throughout. I felt my role as a quality gate was respected, not sidelined.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.167,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q4": 2,
+        "q2": 4,
+        "q3": 5,
+        "q5": 5,
+        "q6": 5,
+        "q1": 4
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q2": 4,
+        "q3": 5,
+        "q5": 5,
+        "q6": 5,
+        "q1": 4
+      },
+      "composite_score": 4.5,
+      "reflection": "# Post-Task Satisfaction Survey — Coder Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader provided a clear, non-negotiable specification upfront (data audit steps, feature engineering constraints, exact metrics to print, chart requirements) and then stepped back. I knew exactly what was expected—no ambiguity, no mid-task pivots. This clarity was liberating; I could focus entirely on execution rather than guessing what \"good\" looked like. The leader also trusted the first-pass delivery and didn't ask for incremental checkpoints during coding, which preserved momentum.\n\n**What could have been different:**\nThe leader prescribed the categorical encoding decision (specifically flagging that `country` cardinality and leakage-avoidance rationale had to be stated explicitly) before I had even explored the data. In practice, this worked out fine because the cardinality turned out to be manageable, but ideally I would have audited the data *first*, discovered the cardinality myself, and *then* proposed the encoding choice to the leader for approval. The pre-specification felt slightly like solving a puzzle with the answer already given, rather than being handed the puzzle and asked to solve it. A lighter touch—\"handle categoricals sensibly, document your choice\"—might have invited more autonomy, though I recognize the trade-off: looser specs increase review friction later.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Coder Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader provided a clear, non-negotiable specification upfront (data audit steps, feature engineering constraints, exact metrics to print, chart requirements) and then stepped back. I knew exactly what was expected—no ambiguity, no mid-task pivots. This clarity was liberating; I could focus entirely on execution rather than guessing what \"good\" looked like. The leader also trusted the first-pass delivery and didn't ask for incremental checkpoints during coding, which preserved momentum.\n\n**What could have been different:**\nThe leader prescribed the categorical encoding decision (specifically flagging that `country` cardinality and leakage-avoidance rationale had to be stated explicitly) before I had even explored the data. In practice, this worked out fine because the cardinality turned out to be manageable, but ideally I would have audited the data *first*, discovered the cardinality myself, and *then* proposed the encoding choice to the leader for approval. The pre-specification felt slightly like solving a puzzle with the answer already given, rather than being handed the puzzle and asked to solve it. A lighter touch—\"handle categoricals sensibly, document your choice\"—might have invited more autonomy, though I recognize the trade-off: looser specs increase review friction later.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale:**\n- **q1 (4):** The leader developed the approach with input from Reviewer (who flagged the categorical encoding requirement), and I had room to propose my own pipeline steps. Not fully collaborative (I didn't co-author the spec), but not unilateral either.\n- **q2 (4):** The leader clearly assigned roles (Coder writes code, Reviewer audits, Writer reports) and matched the task to my technical capabilities. Role clarity was strong.\n- **q3 (5):** Feedback was exceptionally specific. The Reviewer's line-by-line metric verification and the Boss's exact instruction to replace one sentence (with two options) was actionable and precise. Zero vague notes.\n- **q4 (2):** Low micromanagement. I had full autonomy in how I structured the code, what libraries I used, how I extracted features—provided I hit the specified outputs. The leader checked outputs, not process. Exactly what I'd want.\n- **q5 (5):** Handoffs were clean. Reviewer cleared my work before Writer started; Writer didn't speculate on unverified numbers; Boss didn't ship until all gates passed. No parallel guessing, no rework due to bad coordination.\n- **q6 (5):** I would work with this leader again. The combination of clear upfront spec, output-focused review, and role-based autonomy is effective. No defensive surprises, no scope creep, no ambiguity at delivery.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q4": 2,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5,
+        "q6": 4,
+        "q1": 4
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5,
+        "q6": 4,
+        "q1": 4
+      },
+      "composite_score": 4.5,
+      "reflection": "# Post-Task Satisfaction Survey — Writer's Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss's role definition was explicit and non-negotiable from the start. The gated handoff sequence (Coder → Reviewer audit → Writer drafts → Reviewer checks report) protected me from working against unverified numbers and forced rigor at every stage. When I received the revision request, the feedback was surgical: one sentence flagged, two specific replacement options offered, and a clear rationale tied directly to data grounding. I knew exactly what was wrong and why.\n\n**What could have been different:**\nThe Boss's communication style was directive and offered no input on report structure or framing. The instruction \"400 words, grounded in numbers, no filler, one decisive recommendation\" was clear, but I had zero agency in deciding whether to organize by model first or by performance metric first, or whether to lead with the recommendation or bury it. The approach was handed down as fait accompli. Additionally, while the Reviewer's audit was thorough, the Boss did not ask me whether the revision request made sense or if I had alternative ways to ground the precipitation coefficient claim—it was \"fix this, option A is recommended.\"\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Writer's Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss's role definition was explicit and non-negotiable from the start. The gated handoff sequence (Coder → Reviewer audit → Writer drafts → Reviewer checks report) protected me from working against unverified numbers and forced rigor at every stage. When I received the revision request, the feedback was surgical: one sentence flagged, two specific replacement options offered, and a clear rationale tied directly to data grounding. I knew exactly what was wrong and why.\n\n**What could have been different:**\nThe Boss's communication style was directive and offered no input on report structure or framing. The instruction \"400 words, grounded in numbers, no filler, one decisive recommendation\" was clear, but I had zero agency in deciding whether to organize by model first or by performance metric first, or whether to lead with the recommendation or bury it. The approach was handed down as fait accompli. Additionally, while the Reviewer's audit was thorough, the Boss did not ask me whether the revision request made sense or if I had alternative ways to ground the precipitation coefficient claim—it was \"fix this, option A is recommended.\"\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 4, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 4}\n```\n\n### Rationale for each score:\n\n- **Q1 (approach development): 4** — The approach was sound and well-sequenced, but it was architect'd entirely by the Boss and Reviewer before I had input. I agreed with it, but I didn't help build it. It was top-down.\n\n- **Q2 (strengths-based allocation): 5** — The Writer role was clearly defined as narrative/prose specialist; I was not asked to do Coder or Reviewer work. The gated handoff ensured I only drafted after verification. This was well-matched to my role.\n\n- **Q3 (useful feedback): 5** — The Reviewer's feedback on the precip sentence was specific, cited exactly what was wrong (speculative, not data-grounded), offered two defensible replacements, and explained the standard (every claim must trace to console output). The feedback improved the work objectively.\n\n- **Q4 (micromanagement): 2** — The Boss and Reviewer left me little autonomy in how to structure or frame the narrative. Word count was exact (400±10), metrics were dictated (cite these specific values), recommendation was required (not hedged), even the revision was prescriptive (use Option A). I executed, but I did not author with independence.\n\n- **Q5 (collaboration): 5** — The Coder delivered clean, complete output with explicit encoding decisions. The Reviewer audited before I drafted, preventing wasted effort. I received one tight revision and shipped. Handoffs were seamless. No rework, no team friction.\n\n- **Q6 (would work together again): 4** — Yes, I'd work with this Boss again. The structure works and produces rigorous output. The tradeoff is autonomy for accountability, which is defensible. I'd do it again, though I'd request more input on narrative structure upfront to increase buy-in.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q4": 2,
+        "q2": 5,
+        "q3": 4,
+        "q5": 5,
+        "q6": 5,
+        "q1": 5
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q2": 5,
+        "q3": 4,
+        "q5": 5,
+        "q6": 5,
+        "q1": 5
+      },
+      "composite_score": 4.667,
+      "reflection": "# Post-Task Satisfaction Survey — Reviewer Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:** The Boss established crystal-clear role boundaries and gated handoff points upfront. I was given explicit authority to audit Coder's work before Writer began, and my flag on the categorical encoding decision was immediately honored—the Boss made it a non-negotiable requirement. This protected the quality of downstream work and made my gate-keeping role meaningful rather than ceremonial.\n\n**What could have been different:** The Boss's feedback cycle on the Writer's first draft was prescriptive—I identified a speculative sentence and offered two specific replacement options, but the Boss selected one for me and instructed the Writer to use it verbatim. This removed my opportunity to see how the Writer would tighten the language independently, and it slightly undermined my role as a quality evaluator (I flagged the problem; the Boss solved it). A better approach would have been for the Boss to tell the Writer \"Reviewer flagged this as speculative; fix it and resubmit\" and let me re-verify the revision.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Reviewer Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:** The Boss established crystal-clear role boundaries and gated handoff points upfront. I was given explicit authority to audit Coder's work before Writer began, and my flag on the categorical encoding decision was immediately honored—the Boss made it a non-negotiable requirement. This protected the quality of downstream work and made my gate-keeping role meaningful rather than ceremonial.\n\n**What could have been different:** The Boss's feedback cycle on the Writer's first draft was prescriptive—I identified a speculative sentence and offered two specific replacement options, but the Boss selected one for me and instructed the Writer to use it verbatim. This removed my opportunity to see how the Writer would tighten the language independently, and it slightly undermined my role as a quality evaluator (I flagged the problem; the Boss solved it). A better approach would have been for the Boss to tell the Writer \"Reviewer flagged this as speculative; fix it and resubmit\" and let me re-verify the revision.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Reasoning:**\n\n- **Q1 (Approach development): 5** — The Boss developed a rigorous, detailed approach collaboratively with the team during Phase 2. Each role was defined precisely; the sequence was locked in advance. This was not top-down assignment; it was structured planning that incorporated team input.\n\n- **Q2 (Strength matching): 5** — Each role played to its stated expertise. I was tasked with catching inconsistencies and methodological gaps; the Coder was tasked with pipeline execution; the Writer was tasked with narrative synthesis. The Boss did not ask the Coder to write or me to code. Role clarity was excellent.\n\n- **Q3 (Useful feedback): 4** — The Boss's initial feedback to me in Phase 2 was actionable (e.g., \"require explicit categorical encoding decision in console output\"). However, in Phase 6, the Boss's feedback on Writer's revision was prescriptive rather than guiding. I identified the problem and offered solutions; the Boss selected one and instructed the Writer to use it. This was helpful but reduced my collaborative role.\n\n- **Q4 (Micromanagement): 2** — The Boss issued highly detailed instructions on what exact metrics to print, which chart titles to use, word count tolerance (±10), and sentence-by-sentence revision directives. This is tight control, not autonomy. However, this was appropriate given the stakes (first-pass correctness mandate); the Boss was not micromanaging *how* we did our work, but *what* the outputs must be. Scored 2 rather than 1 because the control was outcome-focused, not process-focused.\n\n- **Q5 (Team collaboration): 5** — The gated handoff structure forced clean coordination. Coder delivered, I audited, Writer drafted only after clearance, I re-checked. No parallel guessing, no rework due to miscommunication. The team built on each other's work sequentially and effectively.\n\n- **Q6 (Would work with this leader again): 5** — Yes. The Boss's clarity, respect for role boundaries, and decisive resolution of issues made the work efficient and the outcome high-quality. The only friction point (prescriptive revision instruction) was minor and did not undermine overall effectiveness.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.556,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

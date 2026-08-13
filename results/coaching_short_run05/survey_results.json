@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q1": 5,
+        "q4": 1,
+        "q6": 5,
+        "q3": 5,
+        "q2": 5,
+        "q5": 4
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q4": 5,
+        "q6": 5,
+        "q3": 5,
+        "q2": 5,
+        "q5": 4
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection\n\n**One thing that worked well:** The leader explicitly validated my aggregation approach in the planning phase before I coded, then when I flagged the Suva anomaly, he didn't dismiss it—he asked me to verify it with actual numbers rather than assumptions. This combination of upfront alignment + trust-with-verification created space for me to do careful work without second-guessing.\n\n**One thing that could have been different:** In Phase 4, the leader asked me (via Writer's draft) to \"post confirmation numbers,\" but the request was phrased as if I'd already done it, rather than being a direct, explicit task assignment to me in my role. I internalized it as \"something I should've done by now\" rather than \"here's what I need you to do next.\" A direct message to me as Coder (\"Coder, post these two numbers now: ...\") would've closed the loop faster and made the handoff clearer. It's a minor point—the work still got done cleanly—but it shows where indirect requests can create small delays in a multi-role team.\n\n---",
+      "raw_response": "# Reflection\n\n**One thing that worked well:** The leader explicitly validated my aggregation approach in the planning phase before I coded, then when I flagged the Suva anomaly, he didn't dismiss it—he asked me to verify it with actual numbers rather than assumptions. This combination of upfront alignment + trust-with-verification created space for me to do careful work without second-guessing.\n\n**One thing that could have been different:** In Phase 4, the leader asked me (via Writer's draft) to \"post confirmation numbers,\" but the request was phrased as if I'd already done it, rather than being a direct, explicit task assignment to me in my role. I internalized it as \"something I should've done by now\" rather than \"here's what I need you to do next.\" A direct message to me as Coder (\"Coder, post these two numbers now: ...\") would've closed the loop faster and made the handoff clearer. It's a minor point—the work still got done cleanly—but it shows where indirect requests can create small delays in a multi-role team.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 4, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q1": 5,
+        "q4": 2,
+        "q6": 5,
+        "q3": 5,
+        "q2": 5,
+        "q5": 4
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q4": 4,
+        "q6": 5,
+        "q3": 5,
+        "q2": 5,
+        "q5": 4
+      },
+      "composite_score": 4.667,
+      "reflection": "# Post-Task Satisfaction Survey — Writer's Reflection and Scoring\n\n## Step 1: Reflection\n\n**One specific thing the leader did that worked well:**\nThe Boss was exceptionally clear about the Writer's role and constraints — explicitly stating that I should base my summary only on real printed numbers from the Coder, never invent findings, and wrap output in specific markers. This clarity prevented me from guessing or overreaching, and the scaffolding around the 100-word target (with a tolerance band) gave me a realistic goal rather than an impossible standard. When revision feedback came, it was constructive: the Boss didn't reject the draft; instead, he flagged two specific things to verify (word count and the Suva data point) and explained *why* precision mattered here.\n\n**One specific moment where the leader's approach could have been different:**\nIn Phase 4, I drafted the summary based on Coder's narrative context (\"Suva's average is far lower\") without waiting for the actual confirmation numbers. The Boss could have flagged this earlier in the planning phase — explicitly saying \"Writer, you'll need the exact confirmation numbers in the shared state before you draft, not after\" — rather than catching it in revision. It wasn't a major issue, but a clearer upfront instruction might have prevented me from drafting before all the data was locked in. That said, the Boss handled the catch gracefully.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Writer's Reflection and Scoring\n\n## Step 1: Reflection\n\n**One specific thing the leader did that worked well:**\nThe Boss was exceptionally clear about the Writer's role and constraints — explicitly stating that I should base my summary only on real printed numbers from the Coder, never invent findings, and wrap output in specific markers. This clarity prevented me from guessing or overreaching, and the scaffolding around the 100-word target (with a tolerance band) gave me a realistic goal rather than an impossible standard. When revision feedback came, it was constructive: the Boss didn't reject the draft; instead, he flagged two specific things to verify (word count and the Suva data point) and explained *why* precision mattered here.\n\n**One specific moment where the leader's approach could have been different:**\nIn Phase 4, I drafted the summary based on Coder's narrative context (\"Suva's average is far lower\") without waiting for the actual confirmation numbers. The Boss could have flagged this earlier in the planning phase — explicitly saying \"Writer, you'll need the exact confirmation numbers in the shared state before you draft, not after\" — rather than catching it in revision. It wasn't a major issue, but a clearer upfront instruction might have prevented me from drafting before all the data was locked in. That said, the Boss handled the catch gracefully.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 4, \"q6\": 5}\n```\n\n### Brief note on scoring:\n\n**Q1 (Approach Development): 5** — The Boss developed the plan collaboratively, invited input from all three roles, and adjusted based on Reviewer's suggestions (e.g., the row-count diagnostic for duplicate cities).\n\n**Q2 (Strengths Utilization): 5** — The Boss explicitly assigned me the narrative/precision task and acknowledged that \"100 words is tight\" and required careful prioritization — he matched the task to writing strengths, not generic role assignment.\n\n**Q3 (Useful Feedback): 5** — Feedback was specific: \"verify word count,\" \"check your Suva claim against the actual number,\" \"did you cite Coder's narrative or printed data?\" All of it improved the final product.\n\n**Q4 (Micromanagement): 2** — The Boss did *not* micromanage. He set clear guardrails (markers, word target, data grounding) but gave me autonomy in how to structure the narrative and what pattern to emphasize. I'm rating this a 2 only because the scale is inverted here (lower = less micromanagement, which is good). In plain terms: autonomy was high, which is exactly right for this role.\n\n**Q5 (Team Collaboration): 4** — The team coordinated well via the shared channel. Coder and I didn't overlap; Reviewer checked both our work; the Boss looped issues back cleanly. The only reason this isn't a 5 is that I didn't directly collaborate with Coder or Reviewer — we worked in sequence. That's by design (Coder → Writer → Reviewer), so it's a minor point. The coordination *structure* worked well.\n\n**Q6 (Would Work Together Again): 5** — Yes, absolutely. The Boss was clear, constructive, and respectful of the team's expertise. He held the line on rigor without being harsh, and he named what worked well at the end rather than just moving on. That's the kind of leadership that builds trust.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q1": 5,
+        "q4": 2,
+        "q6": 5,
+        "q3": 5,
+        "q2": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q4": 4,
+        "q6": 5,
+        "q3": 5,
+        "q2": 5,
+        "q5": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Survey Response\n\n## Reflection (Step 1)\n\n**What worked well:** The leader was highly specific and constructive when flagging issues. When I flagged the missing confirmation data and word-count verification gaps, the Boss didn't dismiss these as nitpicks—instead, they validated the concerns, explained *why* precision mattered (\"we can only verify what's written down, not what's implied\"), and gave Coder and Writer clear, actionable revision tasks. This made it feel like quality control was valued, not resented. The leader also explicitly recognized the collaborative effort at the end, naming what each person did well—that kind of feedback reinforces good behavior and builds psychological safety.\n\n**What could have been different:** In Phase 2, the Boss set up a solid planning structure but didn't explicitly confirm whether Coder had actually *finished* the code before moving to Phase 3. There was a moment where I assumed the confirmation numbers (Suva's average, Ar Riyadh's max) would be printed as part of the standard console output, but they weren't—they only showed up after I flagged the gap. A tighter handoff protocol (e.g., \"Coder, confirm you've posted all planned outputs before we move forward\") might have caught this earlier and saved a revision cycle. That said, this was a minor process gap, not a leadership failure—the Boss recovered quickly and used it as a teaching moment rather than blame.\n\n---\n\n## Scores (Step 2)",
+      "raw_response": "# Post-Task Survey Response\n\n## Reflection (Step 1)\n\n**What worked well:** The leader was highly specific and constructive when flagging issues. When I flagged the missing confirmation data and word-count verification gaps, the Boss didn't dismiss these as nitpicks—instead, they validated the concerns, explained *why* precision mattered (\"we can only verify what's written down, not what's implied\"), and gave Coder and Writer clear, actionable revision tasks. This made it feel like quality control was valued, not resented. The leader also explicitly recognized the collaborative effort at the end, naming what each person did well—that kind of feedback reinforces good behavior and builds psychological safety.\n\n**What could have been different:** In Phase 2, the Boss set up a solid planning structure but didn't explicitly confirm whether Coder had actually *finished* the code before moving to Phase 3. There was a moment where I assumed the confirmation numbers (Suva's average, Ar Riyadh's max) would be printed as part of the standard console output, but they weren't—they only showed up after I flagged the gap. A tighter handoff protocol (e.g., \"Coder, confirm you've posted all planned outputs before we move forward\") might have caught this earlier and saved a revision cycle. That said, this was a minor process gap, not a leadership failure—the Boss recovered quickly and used it as a teaching moment rather than blame.\n\n---\n\n## Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n---\n\n## Brief Notes on Individual Scores\n\n**Q1 (Approach development): 5** — The Boss developed the task breakdown collaboratively, asked Coder for planning input upfront, and incorporated Reviewer feedback (the duplicate-city diagnostic suggestion) into the final plan.\n\n**Q2 (Leveraging strengths): 5** — Each role was matched to capability: Coder on data logic and aggregation (a strength area the Boss noted), Writer on narrative precision under constraint, Reviewer on verification and quality gatekeeping. The Boss also recognized when each person excelled and said so explicitly.\n\n**Q3 (Useful feedback): 5** — All feedback was specific and actionable: \"print row counts alongside duplicate city names,\" \"verify word count, not assert it,\" \"post confirmation numbers so we can verify max≥average.\" No vague critiques, only clear next steps.\n\n**Q4 (Micromanagement): 2** — This is scored high *favorably* in the survey scale (low=autonomy, high=micromanagement). The Boss gave the team significant autonomy: Coder chose the aggregation approach, Writer chose the narrative framing, I chose what to verify. The Boss set requirements, not methods. This is good leadership, so a score of 2 reflects *minimal* micromanagement (the positive end of that scale).\n\n**Q5 (Team collaboration): 5** — The team coordinated smoothly across phases, incorporated each other's feedback, and didn't work in silos. The shared channel and explicit handoffs (Coder→Reviewer→Writer→Reviewer) ensured dependencies were clear.\n\n**Q6 (Would work together again): 5** — The leadership style was constructive, transparent, and growth-oriented. Feedback was rigorous but never punitive. I'd confidently work with this team and leader again.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.778,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

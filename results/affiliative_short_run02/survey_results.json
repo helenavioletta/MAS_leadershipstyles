@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q5": 5,
+        "q1": 5,
+        "q4": 1,
+        "q3": 4,
+        "q2": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q1": 5,
+        "q4": 5,
+        "q3": 4,
+        "q2": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**One thing that worked well:** The leader explicitly invited my input on technical approach (\"Take whatever approach feels cleanest to you — pandas groupby, whatever tooling you like\") and trusted my judgment on data quality decisions (whitespace trimming, case normalization, null handling). This gave me ownership over the technical execution without micromanagement, which made the work feel collaborative rather than prescribed.\n\n**One thing that could have been different:** The leader didn't explicitly acknowledge or validate the data quality findings I surfaced (the Suva outlier, the \"Saudi Arabien\" spelling quirk, the avg-vs-peak gap patterns) in real-time during Phase 3. While they praised the work in the handoff message, earlier recognition or a question like \"what did you find in the data?\" might have made the flagging feel more like a conversation and less like I was just checking boxes.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing that worked well:** The leader explicitly invited my input on technical approach (\"Take whatever approach feels cleanest to you — pandas groupby, whatever tooling you like\") and trusted my judgment on data quality decisions (whitespace trimming, case normalization, null handling). This gave me ownership over the technical execution without micromanagement, which made the work feel collaborative rather than prescribed.\n\n**One thing that could have been different:** The leader didn't explicitly acknowledge or validate the data quality findings I surfaced (the Suva outlier, the \"Saudi Arabien\" spelling quirk, the avg-vs-peak gap patterns) in real-time during Phase 3. While they praised the work in the handoff message, earlier recognition or a question like \"what did you find in the data?\" might have made the flagging feel more like a conversation and less like I was just checking boxes.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n---\n\n**Reasoning (for transparency):**\n\n- **Q1 (good approach): 5** — The leader co-developed the plan in Phase 2, asked for my input, and genuinely incorporated my concerns. This wasn't top-down assignment.\n- **Q2 (strengths-based): 5** — The leader explicitly matched tasks to roles (Coder on code, Writer on narrative, Reviewer on accuracy) and trusted each person's domain expertise.\n- **Q3 (useful feedback): 4** — The feedback I received was warm and affirmed the work, but it was relatively light on specific technical guidance. The suggestions that came (e.g., \"clear labels above each list\") were helpful, but there wasn't deep technical back-and-forth. This is fine and appropriate for the task, but not \"highly specific/actionable\" in the way the scale suggests 5 would be.\n- **Q4 (micromanagement): 1** — I had full autonomy on implementation details. No checking in mid-process, no prescribed libraries, no oversight on code structure. This is the opposite of micromanagement.\n- **Q5 (team collaboration): 5** — The team communicated clearly, coordinated handoffs smoothly, and each person's work built directly on the previous person's. The Reviewer's early clarification request and the Writer's willingness to adjust based on feedback showed real collaboration.\n- **Q6 (work together again): 5** — The leader created a low-friction, respectful environment. Autonomy + trust + clear communication is exactly how I'd want to work again.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q5": 5,
+        "q1": 5,
+        "q4": 1,
+        "q3": 5,
+        "q2": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q1": 5,
+        "q4": 5,
+        "q3": 5,
+        "q2": 5,
+        "q6": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "## Reflection:\n\nThe team leader excelled at collaborative planning—rather than dictating the approach, the Boss explicitly invited pushback (\"please push back if you'd rather approach it differently — I mean that genuinely\") and created space for each team member to voice concerns and refine the plan together. This early buy-in made the actual execution smooth and low-friction.\n\nOne moment where the approach could have been different: when the Boss caught the word count issue in my first draft, the feedback came with a somewhat uncertain tone (\"I trust you to eyeball it,\" \"totally not a big deal\") that left me slightly unsure whether a revision was actually expected. Clearer directive framing—either \"this needs to be tightened to exactly 100 words\" or \"this length is genuinely fine\"—would have removed ambiguity and let me act with more confidence.\n\n---\n\n## Scores:",
+      "raw_response": "## Reflection:\n\nThe team leader excelled at collaborative planning—rather than dictating the approach, the Boss explicitly invited pushback (\"please push back if you'd rather approach it differently — I mean that genuinely\") and created space for each team member to voice concerns and refine the plan together. This early buy-in made the actual execution smooth and low-friction.\n\nOne moment where the approach could have been different: when the Boss caught the word count issue in my first draft, the feedback came with a somewhat uncertain tone (\"I trust you to eyeball it,\" \"totally not a big deal\") that left me slightly unsure whether a revision was actually expected. Clearer directive framing—either \"this needs to be tightened to exactly 100 words\" or \"this length is genuinely fine\"—would have removed ambiguity and let me act with more confidence.\n\n---\n\n## Scores:\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q5": 5,
+        "q1": 5,
+        "q4": 1,
+        "q3": 5,
+        "q2": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q1": 5,
+        "q4": 5,
+        "q3": 5,
+        "q2": 5,
+        "q6": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**What worked well:** The leader explicitly invited input during planning (\"please push back if you'd rather approach it differently — I mean that genuinely\"), created clear role boundaries while signaling flexibility, and then demonstrated active listening by adopting my suggestion for clearer console labeling without defensiveness. When the Saudi Arabien/Saudi Arabia issue emerged, the leader validated my catch and reframed it as collaborative polish rather than blame—that balance of rigor and kindness set the tone for the whole team.\n\n**What could have been different:** The leader's note to Writer about the word count (\"I did a rough word count and it's landing a bit above 100... totally not a big deal\") felt slightly inconsistent with the original brief, which specified \"100-word summary.\" While the flexibility was generous, I would have appreciated the leader either clarifying the word-count requirement upfront or being more directive about it in the revision phase rather than leaving it ambiguous. This created a tiny moment of uncertainty about whether the deliverable truly met spec, even though it ultimately did.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The leader explicitly invited input during planning (\"please push back if you'd rather approach it differently — I mean that genuinely\"), created clear role boundaries while signaling flexibility, and then demonstrated active listening by adopting my suggestion for clearer console labeling without defensiveness. When the Saudi Arabien/Saudi Arabia issue emerged, the leader validated my catch and reframed it as collaborative polish rather than blame—that balance of rigor and kindness set the tone for the whole team.\n\n**What could have been different:** The leader's note to Writer about the word count (\"I did a rough word count and it's landing a bit above 100... totally not a big deal\") felt slightly inconsistent with the original brief, which specified \"100-word summary.\" While the flexibility was generous, I would have appreciated the leader either clarifying the word-count requirement upfront or being more directive about it in the revision phase rather than leaving it ambiguous. This created a tiny moment of uncertainty about whether the deliverable truly met spec, even though it ultimately did.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    }
+  },
+  "team_mean": 4.944,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

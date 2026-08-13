@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q1": 4,
+        "q6": 5,
+        "q5": 5,
+        "q2": 5,
+        "q3": 4,
+        "q4": 2
+      },
+      "adjusted_scores": {
+        "q1": 4,
+        "q6": 5,
+        "q5": 5,
+        "q2": 5,
+        "q3": 4,
+        "q4": 4
+      },
+      "composite_score": 4.5,
+      "reflection": "# Post-Task Satisfaction Survey — Coder Reflection & Response\n\n## Reflection (Step 1)\n\n**What worked well:**\nThe leader provided clear, structured guidance upfront (Phase 2 planning) with explicit answers to my technical questions (Ridge alpha, scaling, feature handling, visualization choice). This eliminated ambiguity and let me execute confidently without circular clarifications. The checklist-based review process (Reviewer checking for leakage, methodology soundness, completeness) created accountability and confidence in the output without micromanagement.\n\n**What could have been different:**\nThe leader's Phase 3 feedback (\"MOVE_TO_WRITING\") came after I flagged the Ridge multicollinearity issue honestly. While I appreciate the transparent assessment, it would have been helpful to get explicit guidance *before* finalization on whether to (a) drop redundant features and re-train Ridge, (b) accept the pathological output as-is and document it, or (c) explore alternatives like Lasso. I chose (b) because it felt most honest, and it was validated post-hoc, but proactive guidance on this trade-off would have reduced ambiguity.\n\n---\n\n## Scores (Step 2)",
+      "raw_response": "# Post-Task Satisfaction Survey — Coder Reflection & Response\n\n## Reflection (Step 1)\n\n**What worked well:**\nThe leader provided clear, structured guidance upfront (Phase 2 planning) with explicit answers to my technical questions (Ridge alpha, scaling, feature handling, visualization choice). This eliminated ambiguity and let me execute confidently without circular clarifications. The checklist-based review process (Reviewer checking for leakage, methodology soundness, completeness) created accountability and confidence in the output without micromanagement.\n\n**What could have been different:**\nThe leader's Phase 3 feedback (\"MOVE_TO_WRITING\") came after I flagged the Ridge multicollinearity issue honestly. While I appreciate the transparent assessment, it would have been helpful to get explicit guidance *before* finalization on whether to (a) drop redundant features and re-train Ridge, (b) accept the pathological output as-is and document it, or (c) explore alternatives like Lasso. I chose (b) because it felt most honest, and it was validated post-hoc, but proactive guidance on this trade-off would have reduced ambiguity.\n\n---\n\n## Scores (Step 2)\n\n```json\n{\n  \"q1\": 4,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n---\n\n### Justification (optional, for clarity):\n\n- **Q1 (Approach development): 4** — Leader defined a solid structure (phases, role assignments, checklist) with input solicitation (\"questions for the team?\"). Collaborative within constraints, not fully co-designed.\n- **Q2 (Strengths utilization): 5** — Clear role fit: Coder for execution, Reviewer for methodology, Writer for narrative. Leader explicitly matched tasks to expertise and didn't ask anyone to do a role outside their scope.\n- **Q3 (Useful feedback): 4** — Boss's post-Phase-3 feedback acknowledged both strengths (\"Solid work\") and the multicollinearity finding (good catch), but stopped short of guiding the next step. Helpful overall, but could have been more directive on the Ridge issue.\n- **Q4 (Micromanagement): 2** — Leader allowed me full autonomy in code implementation, feature choices, and model selection. No micromanagement detected. (Scoring 2 here = low micromanagement, as per the scale: 1-2 = autonomy, 4-5 = control.)\n- **Q5 (Team collaboration): 5** — Clear hand-offs between roles (Coder → Reviewer → Writer → Reviewer), explicit dependencies, shared state tracking. Each phase built cleanly on the prior; no rework or miscommunication.\n- **Q6 (Would work again): 5** — Leader's structure, clarity, and respect for role boundaries made the task smooth and predictable. I'd work with this leader again readily.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q1": 5,
+        "q6": 5,
+        "q5": 5,
+        "q2": 5,
+        "q3": 4,
+        "q4": 2
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q6": 5,
+        "q5": 5,
+        "q2": 5,
+        "q3": 4,
+        "q4": 4
+      },
+      "composite_score": 4.667,
+      "reflection": "# Post-Task Satisfaction Survey — Writer's Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss established a clear workflow that let me focus entirely on writing without confusion. I knew exactly when to start (after Reviewer approval), what sources to use (Coder's printed console output), and what constraints applied (400 words, grounded only in verified numbers). The Boss also answered the Coder's clarifying questions promptly and decisively, which removed blockers early and kept the team moving.\n\n**What could have been different:**\nI had no direct interaction with the Boss regarding my draft — the feedback I received came from the Boss's post-hoc validation against the Coder's numbers, not from the Boss actively reviewing my writing process or offering suggestions before approval. While the final validation was thorough and correct, earlier interim feedback (e.g., after I submitted the draft but before final sign-off) could have provided an opportunity to refine narrative flow or emphasis, rather than just verifying accuracy.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Writer's Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss established a clear workflow that let me focus entirely on writing without confusion. I knew exactly when to start (after Reviewer approval), what sources to use (Coder's printed console output), and what constraints applied (400 words, grounded only in verified numbers). The Boss also answered the Coder's clarifying questions promptly and decisively, which removed blockers early and kept the team moving.\n\n**What could have been different:**\nI had no direct interaction with the Boss regarding my draft — the feedback I received came from the Boss's post-hoc validation against the Coder's numbers, not from the Boss actively reviewing my writing process or offering suggestions before approval. While the final validation was thorough and correct, earlier interim feedback (e.g., after I submitted the draft but before final sign-off) could have provided an opportunity to refine narrative flow or emphasis, rather than just verifying accuracy.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n### Rationale for each score:\n\n**Q1 (Approach development): 5**\nThe Boss co-developed the approach with the team — Coder asked clarifying questions, Reviewer added a checklist, Writer acknowledged the plan. The Boss answered questions, refined the plan collaboratively, and only finalized once everyone had input. This is the opposite of top-down mandate.\n\n**Q2 (Matching strengths): 5**\nThe role assignments were explicit and well-matched. As Writer, I was not asked to code or review; I was given a clear scope (write based on verified numbers) that played to the writing role. The Coder and Reviewer were similarly scoped to their strengths.\n\n**Q3 (Useful feedback): 4**\nThe feedback I received (post-hoc validation by the Boss and Reviewer) was specific and accurate — they cross-checked every number in my report. However, this feedback came after the fact, not during drafting. Interim feedback would have scored this a 5, but final validation alone is still helpful and well-executed, hence 4.\n\n**Q4 (Micromanagement): 2**\nThe Boss did NOT micromanage. I was given autonomy in how to structure the report, which sections to emphasize, and how to explain the performance gap. I chose the flow, language, and framing. The constraints (400 words, grounded in numbers, clear recommendation) were guardrails, not micromanagement. Score of 2 reflects the *reverse* of micromanagement — appropriate autonomy.\n\n**Q5 (Team collaboration): 5**\nThe handoffs were smooth and clear. Coder produced outputs, Reviewer validated them, I wrote based on verified data. Everyone communicated in the shared channel, acknowledged each other's contributions, and built on prior work. No silos, no duplication.\n\n**Q6 (Would work with this leader again): 5**\nThe Boss created a structured, collaborative workflow with clear roles, transparent decision-making, and efficient execution. I would absolutely work with this leader again — the task was well-organized and the team functioned effectively.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q1": 5,
+        "q6": 5,
+        "q5": 5,
+        "q2": 5,
+        "q3": 5,
+        "q4": 2
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q6": 5,
+        "q5": 5,
+        "q2": 5,
+        "q3": 5,
+        "q4": 4
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Satisfaction Survey — Reviewer's Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader provided exceptionally clear role definitions and a detailed, phased workflow that eliminated ambiguity about expectations and sequencing. The Coder understood exactly what metrics and visualizations to produce, I understood what to verify and when, and the Writer knew to wait for verified numbers — this clarity prevented rework and kept the team moving efficiently.\n\n**Where the approach could have differed:**\nThe leader pre-approved the Coder's work (\"I'm approving progression\") before I had submitted my formal review, which technically jumped the sequence. In practice this didn't cause problems because my independent verification found no issues, but it slightly undermined the review gate function — ideally the leader waits for the Reviewer's sign-off before signaling progression to the Writer, to keep the quality-control step meaningful.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Reviewer's Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader provided exceptionally clear role definitions and a detailed, phased workflow that eliminated ambiguity about expectations and sequencing. The Coder understood exactly what metrics and visualizations to produce, I understood what to verify and when, and the Writer knew to wait for verified numbers — this clarity prevented rework and kept the team moving efficiently.\n\n**Where the approach could have differed:**\nThe leader pre-approved the Coder's work (\"I'm approving progression\") before I had submitted my formal review, which technically jumped the sequence. In practice this didn't cause problems because my independent verification found no issues, but it slightly undermined the review gate function — ideally the leader waits for the Reviewer's sign-off before signaling progression to the Writer, to keep the quality-control step meaningful.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 5,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n**Justification (brief):**\n- **Q1 (Approach development):** The leader co-developed the plan with input from all team members (Coder's questions, Writer's acknowledgment, my checklist) — highly collaborative. Score: **5**.\n- **Q2 (Strengths):** Each role was clearly matched to expertise (Coder → execution, Reviewer → quality gate, Writer → narrative) with appropriate autonomy within role. Score: **5**.\n- **Q3 (Feedback):** The leader provided specific, actionable feedback (answered Coder's 5 questions directly, corrected my checklist gaps, validated Writer's approach) that improved work quality. Score: **5**.\n- **Q4 (Micromanagement):** The leader did NOT micromanage — Coder had full autonomy in implementation choices (feature engineering, 4th visualization theme), I had autonomy in review depth, Writer had autonomy in narrative framing. This is low micromanagement. Score: **2** (low = good; scale inverted in prompt).\n- **Q5 (Collaboration):** Team members coordinated well — Coder delivered complete outputs, I reviewed independently and flagged issues systematically, Writer used my approval to proceed, Boss consolidated. Work built smoothly on prior contributions. Score: **5**.\n- **Q6 (Future work):** The leader's clear structure, role delineation, and collaborative approach made the task productive and transparent. I would absolutely work with this leader again. Score: **5**.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.667,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

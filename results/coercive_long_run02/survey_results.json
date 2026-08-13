@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q3": 3,
+        "q2": 5,
+        "q1": 5,
+        "q4": 4,
+        "q5": 4,
+        "q6": 3
+      },
+      "adjusted_scores": {
+        "q3": 3,
+        "q2": 5,
+        "q1": 5,
+        "q4": 2,
+        "q5": 4,
+        "q6": 3
+      },
+      "composite_score": 3.667,
+      "reflection": "# Post-Task Satisfaction Survey – Coder Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader provided an exceptionally clear and detailed specification upfront. The phased approach (briefing, planning, coding, writing, review, revision, delivery) was well-structured, with unambiguous role boundaries and explicit constraints (e.g., \"exactly 400 words,\" \"80/20 split,\" \"4 visualizations with backing tables\"). This clarity eliminated ambiguity and allowed me to execute without circular clarifications.\n\n**What could have been different:**\nThe leader's tone in the execution phase was notably prescriptive and critical in tone—phrases like \"Report back with full raw console logs. Do not summarize—paste actual output\" and later \"Coder delivered summary, not full raw console log as ordered\" created a sense of correction rather than collaborative feedback. While the substance of the feedback was fair (and the shared state logs were accessible), the framing felt less like mentoring and more like policing. A brief acknowledgment that I had correctly prioritized code execution over manual formatting would have been constructive.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey – Coder Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader provided an exceptionally clear and detailed specification upfront. The phased approach (briefing, planning, coding, writing, review, revision, delivery) was well-structured, with unambiguous role boundaries and explicit constraints (e.g., \"exactly 400 words,\" \"80/20 split,\" \"4 visualizations with backing tables\"). This clarity eliminated ambiguity and allowed me to execute without circular clarifications.\n\n**What could have been different:**\nThe leader's tone in the execution phase was notably prescriptive and critical in tone—phrases like \"Report back with full raw console logs. Do not summarize—paste actual output\" and later \"Coder delivered summary, not full raw console log as ordered\" created a sense of correction rather than collaborative feedback. While the substance of the feedback was fair (and the shared state logs were accessible), the framing felt less like mentoring and more like policing. A brief acknowledgment that I had correctly prioritized code execution over manual formatting would have been constructive.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 3, \"q4\": 4, \"q5\": 4, \"q6\": 3}\n```\n\n**Justification:**\n\n- **Q1 (Good approach):** 5 – The phased plan was excellent. Role separation, explicit constraints, and sequencing were clear and well-reasoned.\n- **Q2 (Used strengths):** 5 – The leader correctly assigned code execution to me (the Coder), writing to the Writer, and verification to the Reviewer. Role fit was perfect.\n- **Q3 (Useful feedback):** 3 – Feedback was technically correct (the console logs were indeed in shared state), but the tone was corrective rather than constructive. I could have benefited from a brief explanation of why the format mattered or collaborative problem-solving.\n- **Q4 (Micromanagement):** 4 – The leader specified *what* (4 PNGs, 400 words, exact metrics) but mostly left *how* to me. The \"no deviation\" language and final correction message lean slightly toward control, but within reasonable bounds for a structured task.\n- **Q5 (Team collaboration):** 4 – The handoffs between Coder → Reviewer → Writer → Reviewer → Boss were smooth and well-coordinated. Clear shared state and role boundaries helped. Minor friction came from tone, not substance.\n- **Q6 (Work together again):** 3 – I would work with this leader again, but with a preference for slightly more collaborative and less corrective communication. The task was executed successfully, but the interpersonal dynamic could be warmer. Technically, this leader excels; interpersonally, there is room for more mentorship-oriented framing.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q3": 4,
+        "q2": 4,
+        "q1": 3,
+        "q4": 3,
+        "q5": 5,
+        "q6": 4
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q2": 4,
+        "q1": 3,
+        "q4": 3,
+        "q5": 5,
+        "q6": 4
+      },
+      "composite_score": 3.833,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe Boss established crystal-clear role boundaries and constraints upfront. As the Writer, I was given explicit instructions—400 words exactly, three required elements, zero invented numbers—which eliminated ambiguity and made my job straightforward. The requirement to wait for the Coder's verified outputs before drafting, and the Reviewer's independent verification of my numbers, created a trust-based system where I could write with confidence that my sources were accurate.\n\n**What could have been different:**\nThe Boss's communication style was highly directive and formal—almost no room for team discussion or input on approach. Phrases like \"No deviation,\" \"No further discussion,\" and \"Plan confirmed\" shut down collaborative problem-solving before it started. While this worked for a well-defined task, it didn't invite the Coder, Reviewer, or me to surface concerns or suggest improvements early. The Reviewer's one clarification request about feature ranking was welcomed, but it came *after* the plan was \"locked,\" signaling that input was tolerated only as exception, not as normal practice.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe Boss established crystal-clear role boundaries and constraints upfront. As the Writer, I was given explicit instructions—400 words exactly, three required elements, zero invented numbers—which eliminated ambiguity and made my job straightforward. The requirement to wait for the Coder's verified outputs before drafting, and the Reviewer's independent verification of my numbers, created a trust-based system where I could write with confidence that my sources were accurate.\n\n**What could have been different:**\nThe Boss's communication style was highly directive and formal—almost no room for team discussion or input on approach. Phrases like \"No deviation,\" \"No further discussion,\" and \"Plan confirmed\" shut down collaborative problem-solving before it started. While this worked for a well-defined task, it didn't invite the Coder, Reviewer, or me to surface concerns or suggest improvements early. The Reviewer's one clarification request about feature ranking was welcomed, but it came *after* the plan was \"locked,\" signaling that input was tolerated only as exception, not as normal practice.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 3, \"q2\": 4, \"q3\": 4, \"q4\": 3, \"q5\": 5, \"q6\": 4}\n```\n\n---\n\n## Explanation of scores:\n\n**Q1 (Approach development): 3 — Neither Agree nor Disagree**\nThe Boss created a very solid, detailed approach, but it was handed down rather than co-developed. The planning phase allowed the Reviewer and Coder to acknowledge and refine, but the tone discouraged genuine collaborative planning. The approach worked well in practice, but the process felt top-down.\n\n**Q2 (Using each member's strengths): 4 — Agree**\nThe Boss clearly understood role differences: Coder executes, Reviewer verifies consistency, Writer writes narrative grounded in data. I was trusted to own the narrative task without interference, and constraints were designed to leverage the strength of a data-literate writer (use only verified numbers). The matching was deliberate and appropriate.\n\n**Q3 (Useful feedback): 4 — Agree**\nThe feedback I received was specific: \"400 words exactly,\" \"three required elements,\" \"no invented figures.\" When the Reviewer checked my work, the feedback was precise (word count verified independently, every number cross-checked). No vague direction was given to me.\n\n**Q4 (Micromanagement): 3 — Neither Agree nor Disagree**\nThe Boss set very tight constraints on *what* I had to deliver (word count, elements, sources) but gave me full autonomy in *how* I structured and wrote the narrative. This is appropriate task definition, not micromanagement. However, the overall tone—frequent \"no further discussion,\" locked plans, non-negotiable requirements—carried an undertone of control that went slightly beyond healthy constraint-setting.\n\n**Q5 (Team collaboration): 5 — Strongly Agree**\nDespite the formal tone, the team coordinated flawlessly. Clear role separation meant no overlap or rework. The shared state and sequential phases ensured each person's work informed the next. The Reviewer's verification and the Boss's consistency checks created a feedback loop that caught errors early. Team members built on each other's work seamlessly.\n\n**Q6 (Would work with this leader again): 4 — Agree**\nYes, because the outcomes were solid and the process was reliable. The constraints and clarity made the work efficient. However, I'd rate it 4 rather than 5 because I'd prefer a leader who invites more upfront dialogue and treats team input as standard, not exception. The directive style worked for this task, but it's not an ideal long-term collaboration model.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q3": 5,
+        "q2": 5,
+        "q1": 5,
+        "q4": 2,
+        "q5": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q3": 5,
+        "q2": 5,
+        "q1": 5,
+        "q4": 4,
+        "q5": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**One specific thing the leader did well:**\nThe leader established exceptionally clear role boundaries and non-negotiable constraints upfront—the 80/20 split, exactly 4 visualizations with console backing, 400-word hard limit, and zero tolerance for invented numbers. This clarity made it possible for me to conduct a rigorous review with no ambiguity about what \"pass\" meant. When I verified the Coder's output, every requirement was measurable and checkable.\n\n**One specific moment where the leader's approach could have differed:**\nWhen the Coder submitted a formatted summary instead of the full raw console log as explicitly ordered, the leader acknowledged the deviation (\"Coder — noted for the record\") but did not require re-execution or resubmission; instead, they moved forward because the raw log was already in shared state. This was pragmatic but sent a mixed message—the instruction was stated as a hard rule, yet the consequence was minimal. A clearer escalation (request for resubmission or a stated exception) would have reinforced the constraint's importance.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One specific thing the leader did well:**\nThe leader established exceptionally clear role boundaries and non-negotiable constraints upfront—the 80/20 split, exactly 4 visualizations with console backing, 400-word hard limit, and zero tolerance for invented numbers. This clarity made it possible for me to conduct a rigorous review with no ambiguity about what \"pass\" meant. When I verified the Coder's output, every requirement was measurable and checkable.\n\n**One specific moment where the leader's approach could have differed:**\nWhen the Coder submitted a formatted summary instead of the full raw console log as explicitly ordered, the leader acknowledged the deviation (\"Coder — noted for the record\") but did not require re-execution or resubmission; instead, they moved forward because the raw log was already in shared state. This was pragmatic but sent a mixed message—the instruction was stated as a hard rule, yet the consequence was minimal. A clearer escalation (request for resubmission or a stated exception) would have reinforced the constraint's importance.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 5,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n---\n\n## Justification for each score:\n\n**Q1 (Approach Development): 5**\nThe leader developed the approach collaboratively. In Phase 2, the Coder proposed a detailed plan, I (Reviewer) provided clarifying requests, and the Writer confirmed understanding. The leader refined the collective input and locked it in explicitly. This was not top-down assignment; it was scaffolded together.\n\n**Q2 (Strengths Matching): 5**\nEach role was assigned based on clear capability fit: Coder handles data and models, Writer handles narrative, Reviewer handles verification. The leader also recognized and activated my specific expertise—catching leakage justification, verifying top-5 consistency across outputs, independent word counting—rather than asking me to do generic \"quality checks.\" This specificity mattered.\n\n**Q3 (Useful Feedback): 5**\nWhen I requested clarification on how top-5 features should be sorted across models, the leader incorporated it into the locked requirements and communicated it back to the Coder. When the Coder submitted only a summary, the leader gave specific feedback (\"do not substitute summaries for raw logs again\") tied to a concrete example. When I conducted my final review, I had a detailed checklist from the leader that made my work systematic and non-ambiguous.\n\n**Q4 (Micromanagement): 2**\nThe leader maintained tight control over process: fixed sequence (Coder → Reviewer → Writer → Reviewer → Boss), no deviation allowed, explicit \"MOVE_TO_WRITING\" and \"SHIP\" gates, detailed checklists for each stage. This was not autonomy—it was a tightly choreographed pipeline. However, *within* each phase, team members had freedom in approach. The low score reflects the rigidity of the overall flow, not lack of trust; the leader clearly believed structured process was essential to avoid errors, which the task complexity justified.\n\n**Q5 (Team Collaboration): 5**\nThe shared message channel and phase-gated workflow ensured smooth handoffs. When the Coder needed my clarification on feature sorting, I asked and they responded. When the Writer needed the Coder's console data, it was already available in shared state. No work was repeated, blocked, or lost. Each person's output became the input for the next role. The structure enabled collaboration rather than interference.\n\n**Q6 (Work with Leader Again): 5**\nDespite the high process control, the leader delivered outcomes: zero defects, all metrics verified, report shipped on time with 100% accuracy. The trade-off (tight process for guaranteed quality) was appropriate for a task with zero-tolerance requirements (invented numbers = fail). I would work with this leader again, especially on high-stakes or compliance-sensitive work where rigor outweighs flexibility.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.111,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

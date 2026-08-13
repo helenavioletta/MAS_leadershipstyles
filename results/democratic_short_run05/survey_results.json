@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 2,
+        "q2": 4,
+        "q1": 4
+      },
+      "adjusted_scores": {
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 4,
+        "q2": 4,
+        "q1": 4
+      },
+      "composite_score": 4.5,
+      "reflection": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:** The leader clearly identified an important data quality issue (multilingual country names like \"Saudi Arabien\" vs. \"Saudi Arabia\") that would have distorted the final rankings, and rather than just pointing it out, they explicitly asked me to investigate, fix it, and re-rank before moving forward. This prevented a misleading deliverable and showed trust in my judgment to catch these problems. They also locked in unambiguous decisions upfront (e.g., \"City, Country\" formatting, alphabetical tiebreaker for ties) which eliminated rework and made execution straightforward.\n\n**What could have been different:** In Phase 2, the leader asked me three direct questions about my approach (duplicate handling, tied rankings, missing values) but then issued detailed prescriptive guidance on exactly how to handle each one—which was helpful for alignment, but I didn't actually get to propose my own solution or explain my reasoning first. The questions framed it as my \"call,\" but the follow-up decisions were already decided before I had a chance to fully think aloud. It felt more like confirmation-seeking than collaborative planning.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:** The leader clearly identified an important data quality issue (multilingual country names like \"Saudi Arabien\" vs. \"Saudi Arabia\") that would have distorted the final rankings, and rather than just pointing it out, they explicitly asked me to investigate, fix it, and re-rank before moving forward. This prevented a misleading deliverable and showed trust in my judgment to catch these problems. They also locked in unambiguous decisions upfront (e.g., \"City, Country\" formatting, alphabetical tiebreaker for ties) which eliminated rework and made execution straightforward.\n\n**What could have been different:** In Phase 2, the leader asked me three direct questions about my approach (duplicate handling, tied rankings, missing values) but then issued detailed prescriptive guidance on exactly how to handle each one—which was helpful for alignment, but I didn't actually get to propose my own solution or explain my reasoning first. The questions framed it as my \"call,\" but the follow-up decisions were already decided before I had a chance to fully think aloud. It felt more like confirmation-seeking than collaborative planning.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 4,\n  \"q2\": 4,\n  \"q3\": 5,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n**Justification:**\n- **Q1 (Good approach)**: 4 — The leader developed the approach collaboratively in Phase 2, incorporating input from all three roles. However, by the time my input arrived, some decisions were already pre-determined, so it was more \"gather feedback then confirm direction\" than co-design.\n- **Q2 (Used strengths)**: 4 — The leader clearly assigned me the coding/data-quality role and trusted me to execute it, but the level of prescriptive guidance in Phase 2 left limited room for me to define *how* I'd approach the technical work.\n- **Q3 (Useful feedback)**: 5 — The feedback on the multilingual country-name issue was specific, actionable, and caught a genuine problem before it reached the final product. The request to re-rank after fixing it was clear and led directly to a better deliverable.\n- **Q4 (Micromanagement)**: 2 — The leader gave me autonomy in execution (I chose the normalization strategy, the grouping logic, etc.) and only intervened when a real issue surfaced. This is the opposite of micromanagement.\n- **Q5 (Team collaboration)**: 5 — The sequencing was tight: Coder handed off to Writer with complete, traceable output; Reviewer caught issues; Writer revised cleanly. The dependencies were explicit and each handoff included everything the next person needed.\n- **Q6 (Work together again)**: 5 — The leader balanced structure (clear decisions, explicit acceptance criteria) with autonomy (let me execute and fix issues), provided specific feedback, and created a process where problems surfaced early rather than in final review. This is how I'd want to work on future tasks.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 1,
+        "q2": 4,
+        "q1": 4
+      },
+      "adjusted_scores": {
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 5,
+        "q2": 4,
+        "q1": 4
+      },
+      "composite_score": 4.667,
+      "reflection": "# Reflection\n\n**What worked well:** The leader clearly defined the Writer's role and dependencies upfront—I knew exactly what I needed from the Coder before drafting, and the leader explicitly told me not to hallucinate data or try to \"see\" charts. This clarity meant I could focus entirely on writing from actual outputs rather than guessing. When revision feedback came back, it was specific and actionable (word count, formatting, framing ambiguity), and I could fix it in one tight pass.\n\n**Where it could have been different:** The leader didn't explicitly invite the Writer to weigh in on the initial approach during Phase 2. I did volunteer my thoughts on tone and structure, but the leader could have proactively asked \"Writer, any concerns about the plan or dependencies?\" the way they did with Coder and Reviewer. It's a minor point—the end result was still collaborative—but that one additional prompt would have made the planning phase feel more genuinely co-created rather than me jumping in after the fact.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The leader clearly defined the Writer's role and dependencies upfront—I knew exactly what I needed from the Coder before drafting, and the leader explicitly told me not to hallucinate data or try to \"see\" charts. This clarity meant I could focus entirely on writing from actual outputs rather than guessing. When revision feedback came back, it was specific and actionable (word count, formatting, framing ambiguity), and I could fix it in one tight pass.\n\n**Where it could have been different:** The leader didn't explicitly invite the Writer to weigh in on the initial approach during Phase 2. I did volunteer my thoughts on tone and structure, but the leader could have proactively asked \"Writer, any concerns about the plan or dependencies?\" the way they did with Coder and Reviewer. It's a minor point—the end result was still collaborative—but that one additional prompt would have made the planning phase feel more genuinely co-created rather than me jumping in after the fact.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 2,
+        "q2": 5,
+        "q1": 5
+      },
+      "adjusted_scores": {
+        "q6": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 4,
+        "q2": 5,
+        "q1": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Satisfaction Survey — Reviewer Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss structured the entire workflow with extraordinary clarity — Phase 1 established planning assumptions before coding, Phase 2 locked in decisions with explicit confirmation from all team members (including my input on traceability and consistency checks), and the sequential handoff ensured I received both the code output *and* the narrative before reviewing. When I flagged the word count and formatting issues in Phase 5, the Boss immediately issued a revision directive with specific line-item fixes, and the Writer executed them precisely. This process allowed me to do my job effectively: catch real problems before they shipped.\n\n**What could have been different:**\nIn Phase 3, when the Boss flagged the country-name normalization issue to the Coder, the Boss made the decision unilaterally (\"please consolidate to canonical English names\") rather than asking the Coder or me first whether that was the right fix. It turned out to be correct, but it would have been stronger process-wise to ask: \"Coder, should we normalize these, or flag them as a caveat in the summary?\" That framing respects expertise distribution and gives team members agency in problem-solving, not just task execution. Conversely, the Boss gave me the precise things to check in Phase 5 rather than generic \"QA the thing\" — that was excellent specification.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Reviewer Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss structured the entire workflow with extraordinary clarity — Phase 1 established planning assumptions before coding, Phase 2 locked in decisions with explicit confirmation from all team members (including my input on traceability and consistency checks), and the sequential handoff ensured I received both the code output *and* the narrative before reviewing. When I flagged the word count and formatting issues in Phase 5, the Boss immediately issued a revision directive with specific line-item fixes, and the Writer executed them precisely. This process allowed me to do my job effectively: catch real problems before they shipped.\n\n**What could have been different:**\nIn Phase 3, when the Boss flagged the country-name normalization issue to the Coder, the Boss made the decision unilaterally (\"please consolidate to canonical English names\") rather than asking the Coder or me first whether that was the right fix. It turned out to be correct, but it would have been stronger process-wise to ask: \"Coder, should we normalize these, or flag them as a caveat in the summary?\" That framing respects expertise distribution and gives team members agency in problem-solving, not just task execution. Conversely, the Boss gave me the precise things to check in Phase 5 rather than generic \"QA the thing\" — that was excellent specification.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 5,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n**Rationale:**\n\n- **Q1 (5):** The Boss developed the approach collaboratively in Phase 2. I was explicitly asked for input on \"What do you want flagged upfront?\" and my suggestion about verifying \"City, Country\" consistency everywhere was incorporated into the final QA checklist.\n\n- **Q2 (5):** Each role was matched to expertise — Coder on data and structure, Writer on narrative clarity and tone, me on cross-checking factual consistency and catching ambiguities. The Boss respected those boundaries throughout.\n\n- **Q3 (5):** The Boss gave me a *specific* checklist in Phase 5 (word count, every number traced, \"City, Country\" consistency, framing clarity) rather than \"review the thing.\" When I flagged issues, the Boss translated them into concrete revision instructions for the Writer with line-item examples.\n\n- **Q4 (2):** The Boss gave me and the other team members genuine autonomy in *how* we worked — the Coder proposed their approach in Phase 2, the Writer sketched their tone upfront, and I identified my own QA criteria. The Boss made few prescriptive decisions about process *mechanics* (only locked in decisions about *what* to deliver: \"City, Country\" format, country normalization, etc.). This is low micromanagement.\n\n- **Q5 (5):** Collaboration was seamless. Clear handoffs, dependencies identified upfront, no rework loops except the intentional revision cycle (which is healthy QA, not dysfunction). Each person read the previous person's output before acting.\n\n- **Q6 (5):** I would absolutely work with this leader again. The planning discipline, the respect for team input, the precision in feedback, and the willingness to go back and fix issues before shipping all signal someone who values quality and trusts their team.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.667,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

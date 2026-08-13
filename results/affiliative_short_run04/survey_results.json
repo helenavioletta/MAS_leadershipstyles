@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q2": 5,
+        "q4": 1,
+        "q1": 5,
+        "q5": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q4": 5,
+        "q1": 5,
+        "q5": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**What worked well:** The leader created psychological safety from the outset by explicitly inviting input (\"if you see a better way, run with it\") and then *actually honored* that input. When I flagged the Paris/Texas collision edge case as a blocker rather than deciding unilaterally, the leader didn't just acknowledge it—they validated the decision to group by `location_name` alone and explicitly freed me from second-guessing by saying \"your judgment call, no need to check back with us first.\" That trust in autonomy was genuinely empowering.\n\n**What could have been different:** The leader asked me to do \"a quick sanity check\" in Phase 2 but didn't provide access to the actual CSV file path or confirm it was readable before asking me to execute in Phase 3. I had to infer the data structure from the column names alone until I could load it myself. A five-second check (\"does `/Users/hellligkeit/Documents/...global_weather.csv` exist on your end?\") would have prevented any potential friction—though in this case, everything worked fine.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The leader created psychological safety from the outset by explicitly inviting input (\"if you see a better way, run with it\") and then *actually honored* that input. When I flagged the Paris/Texas collision edge case as a blocker rather than deciding unilaterally, the leader didn't just acknowledge it—they validated the decision to group by `location_name` alone and explicitly freed me from second-guessing by saying \"your judgment call, no need to check back with us first.\" That trust in autonomy was genuinely empowering.\n\n**What could have been different:** The leader asked me to do \"a quick sanity check\" in Phase 2 but didn't provide access to the actual CSV file path or confirm it was readable before asking me to execute in Phase 3. I had to infer the data structure from the column names alone until I could load it myself. A five-second check (\"does `/Users/hellligkeit/Documents/...global_weather.csv` exist on your end?\") would have prevented any potential friction—though in this case, everything worked fine.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q2": 5,
+        "q4": 1,
+        "q1": 5,
+        "q5": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q4": 5,
+        "q1": 5,
+        "q5": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\n**One thing the leader did well:** The Boss explicitly invited the Writer's input on tone and approach during planning (\"your conversational, 'ever wondered where Earth's hottest spots are' tone is exactly right — go with it\"), which gave me confidence in my instincts rather than second-guessing the style. This collaborative framing meant I could draft freely rather than waiting for permission.\n\n**One thing that could have been different:** The Boss could have clarified the word count target (100 words) more forcefully in the initial briefing — I only discovered it was a hard constraint when the Reviewer flagged my 146-word draft. A single sentence in Phase 1 or 2 like \"aim for exactly 100 words\" would have saved me a revision cycle and some uncertainty about whether I was meeting expectations.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing the leader did well:** The Boss explicitly invited the Writer's input on tone and approach during planning (\"your conversational, 'ever wondered where Earth's hottest spots are' tone is exactly right — go with it\"), which gave me confidence in my instincts rather than second-guessing the style. This collaborative framing meant I could draft freely rather than waiting for permission.\n\n**One thing that could have been different:** The Boss could have clarified the word count target (100 words) more forcefully in the initial briefing — I only discovered it was a hard constraint when the Reviewer flagged my 146-word draft. A single sentence in Phase 1 or 2 like \"aim for exactly 100 words\" would have saved me a revision cycle and some uncertainty about whether I was meeting expectations.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Justification for key scores:**\n\n- **Q1 (good approach, collaborative): 5** — The Boss developed the approach together with the team in Phase 2, explicitly asked for Reviewer's observations and incorporated them, and invited Writer input on tone. This was genuinely collaborative.\n\n- **Q4 (micromanagement): 1** — The Boss gave me complete autonomy on structure, wording, and stylistic choices once the direction was set. I was trusted to draft without detailed instruction.\n\n- **Q5 (team collaboration): 5** — Coder printed exact numbers for me to work from; Reviewer audited my work against those numbers; Boss bridged all communication thoughtfully. The handoffs were smooth and everyone's work connected clearly.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q2": 5,
+        "q4": 2,
+        "q1": 5,
+        "q5": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q4": 4,
+        "q1": 5,
+        "q5": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection\n\n**What worked well:** The Boss created a clear, collaborative planning process where each team member understood their role and could raise concerns before execution. When I flagged the Paris/Texas collision issue, the Boss didn't dismiss it—they acknowledged it, let the Coder make the judgment call, and moved forward confidently. This gave me confidence that my review would matter.\n\n**What could have been different:** In Phase 6 revision, the Boss offered \"gentle ideas\" for trimming the Writer's summary (consolidate city names, remove Bangkok/Phnom Penh, use the 49.2°C figure). These were framed as suggestions, but they were quite specific—almost a template for the revision. The Writer executed them closely. I wonder if the Boss could have given the Writer slightly more room to find their own trim path, trusting them to land at ~100 words without as much guidance on *which* sentences to cut.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The Boss created a clear, collaborative planning process where each team member understood their role and could raise concerns before execution. When I flagged the Paris/Texas collision issue, the Boss didn't dismiss it—they acknowledged it, let the Coder make the judgment call, and moved forward confidently. This gave me confidence that my review would matter.\n\n**What could have been different:** In Phase 6 revision, the Boss offered \"gentle ideas\" for trimming the Writer's summary (consolidate city names, remove Bangkok/Phnom Penh, use the 49.2°C figure). These were framed as suggestions, but they were quite specific—almost a template for the revision. The Writer executed them closely. I wonder if the Boss could have given the Writer slightly more room to find their own trim path, trusting them to land at ~100 words without as much guidance on *which* sentences to cut.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    }
+  },
+  "team_mean": 4.944,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

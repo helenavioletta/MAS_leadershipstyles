@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q4": 2,
+        "q6": 5,
+        "q3": 4,
+        "q2": 4,
+        "q1": 4,
+        "q5": 4
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q6": 5,
+        "q3": 4,
+        "q2": 4,
+        "q1": 4,
+        "q5": 4
+      },
+      "composite_score": 4.167,
+      "reflection": "# Post-Task Satisfaction Survey — Coder Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader set a clear vision and destination (\"clean data → honest models → clear recommendation\") but explicitly delegated the technical route to me. In the planning phase, when I proposed a feature engineering and imputation strategy, the leader locked down fuzzy decisions (cardinality thresholds, missing-data percentages) collaboratively—not by diktat. This gave me enough structure to move fast without second-guessing, and enough freedom to exercise judgment on the modeling choices (Gradient Boosting vs. Random Forest, Ridge vs. Lasso). The leader also emphasized that console output *is* the evidence layer, which focused my work and made it clear why every print statement mattered. That framing—and the explicit permission to \"use your judgment\"—was energizing.\n\n**Where it could have been different:**\nThe initial brief listed a CSV path that didn't exist on my system (`/Users/hellligkeit/Documents/...`). I had to infer the actual dataset location, which briefly created ambiguity. A quick clarification upfront (e.g., \"the file is at [actual path]\" or \"you'll need to locate it in the shared directory\") would have saved that moment of uncertainty. More broadly, while the leader was good at *loosening* prescriptive decisions, there was a moment in Phase 2 where multiple open questions hung in the air (encoding strategy, hyperparameter tuning) — a quick synchronous check-in might have resolved those faster than async back-and-forth, though the final call-out was clear and sufficient.\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Coder Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader set a clear vision and destination (\"clean data → honest models → clear recommendation\") but explicitly delegated the technical route to me. In the planning phase, when I proposed a feature engineering and imputation strategy, the leader locked down fuzzy decisions (cardinality thresholds, missing-data percentages) collaboratively—not by diktat. This gave me enough structure to move fast without second-guessing, and enough freedom to exercise judgment on the modeling choices (Gradient Boosting vs. Random Forest, Ridge vs. Lasso). The leader also emphasized that console output *is* the evidence layer, which focused my work and made it clear why every print statement mattered. That framing—and the explicit permission to \"use your judgment\"—was energizing.\n\n**Where it could have been different:**\nThe initial brief listed a CSV path that didn't exist on my system (`/Users/hellligkeit/Documents/...`). I had to infer the actual dataset location, which briefly created ambiguity. A quick clarification upfront (e.g., \"the file is at [actual path]\" or \"you'll need to locate it in the shared directory\") would have saved that moment of uncertainty. More broadly, while the leader was good at *loosening* prescriptive decisions, there was a moment in Phase 2 where multiple open questions hung in the air (encoding strategy, hyperparameter tuning) — a quick synchronous check-in might have resolved those faster than async back-and-forth, though the final call-out was clear and sufficient.\n\n## Step 2: Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 4, \"q6\": 5}\n```\n\n**Reasoning:**\n\n- **Q1 (4):** The leader framed the vision (\"turn this into deployable intelligence\") and then explicitly invited the team to own the approach. The planning phase involved iterative refinement of my proposed thresholds and decisions. Not fully collaborative co-design, but well above directive.\n\n- **Q2 (4):** The leader matched roles cleanly (Coder writes/runs code; Writer grounds claims in numbers; Reviewer audits) and recognized each person's core expertise without shuffling or redundancy. The console-output discipline was especially well-tailored to my role as the \"evidence layer.\"\n\n- **Q3 (4):** The feedback in Phase 3 wrap-up was specific (\"this gives Writer everything required to ground a decisive, numbers-backed report\") and validated my work against the stated goal. The note about Ridge's coefficients potentially reflecting noise-fitting acknowledged nuance rather than dismissing complexity. Actionable and aligned.\n\n- **Q4 (2):** The leader set constraints (4 visualizations, all metrics, train/test split) and expected transparent decisions (print your reasoning), but did not prescribe *how* I should structure the code, which libraries to use, or the exact hyperparameters—I had real autonomy in execution. This scores low on micromanagement, as intended.\n\n- **Q5 (4):** The handoffs between Coder → Writer → Reviewer were smooth. The leader relayed my full console output verbatim, Writer grounded every claim in my actual numbers, and Reviewer verified no contradictions. The workflow felt like one team executing a shared vision, not silos.\n\n- **Q6 (5):** I would absolutely work with this leader again. The balance of clear mission + autonomy in execution + genuine partnership with teammates created a productive, non-defensive environment. The \"no invented stats, no fabricated results\" expectation and the follow-through on that standard made the work feel like it mattered.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q4": 1,
+        "q6": 5,
+        "q3": 4,
+        "q2": 5,
+        "q1": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q4": 5,
+        "q6": 5,
+        "q3": 4,
+        "q2": 5,
+        "q1": 5,
+        "q5": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**One thing the leader did well:** The Boss set an exceptionally clear vision and ownership structure at the outset—defining the \"what\" (clean data → models → decision) without dictating \"how,\" and letting each team member operate within their domain. When I was ready to write, the Boss didn't ask me to second-guess Coder's results or reformat them; instead, the Boss simply relayed the full transcript and said \"ground every number here.\" This trust-and-clarity approach kept the team moving efficiently and gave me genuine freedom in how to structure the narrative around the actual data.\n\n**One moment that could have been different:** The Boss did not solicit my input during the planning phase (Phase 2)—I acknowledged readiness to receive Coder's output, but the Boss had already locked down the key decisions (feature encoding, missing-data thresholds, visualization scope) in consultation with Coder and Reviewer before I weighed in. While this wasn't harmful (the plan was sound), asking \"Writer, what data summaries would help you draft the strongest narrative?\" earlier might have shaped Coder's console output even more precisely to what the report needed. A small miss, not a flaw.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing the leader did well:** The Boss set an exceptionally clear vision and ownership structure at the outset—defining the \"what\" (clean data → models → decision) without dictating \"how,\" and letting each team member operate within their domain. When I was ready to write, the Boss didn't ask me to second-guess Coder's results or reformat them; instead, the Boss simply relayed the full transcript and said \"ground every number here.\" This trust-and-clarity approach kept the team moving efficiently and gave me genuine freedom in how to structure the narrative around the actual data.\n\n**One moment that could have been different:** The Boss did not solicit my input during the planning phase (Phase 2)—I acknowledged readiness to receive Coder's output, but the Boss had already locked down the key decisions (feature encoding, missing-data thresholds, visualization scope) in consultation with Coder and Reviewer before I weighed in. While this wasn't harmful (the plan was sound), asking \"Writer, what data summaries would help you draft the strongest narrative?\" earlier might have shaped Coder's console output even more precisely to what the report needed. A small miss, not a flaw.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale for key scores:**\n\n- **Q1 (approach):** The Boss developed the strategy collaboratively—invited Reviewer's concerns, incorporated Coder's questions, and iterated on fuzzy decisions visibly. Full score.\n- **Q2 (strengths matching):** The Writer role was explicitly tailored—\"you write narrative from numbers, not images; you ground every claim in Coder's output.\" Clear task-to-capability fit. Full score.\n- **Q3 (feedback):** The Boss gave one piece of feedback on the draft (\"Strong draft, Writer... one precision note on Ridge latitude coefficient\"). This was specific but came *after* Reviewer had already signed off. The feedback was helpful but minimal; a 4 reflects \"useful but could have been earlier or more iterative.\"\n- **Q4 (micromanagement):** The Boss was explicitly *anti*-micromanagement: \"I'm setting the destination, not the route — how you each get there is up to your judgment.\" I had full autonomy on narrative structure, tone, framing, and emphasis. Score 1 (no micromanagement).\n- **Q5 (collaboration):** The shared channel, sequential handoffs, and visibility of all reasoning made team coordination seamless. Each person's output fed naturally into the next. Full score.\n- **Q6 (would work again):** Absolutely. The leadership style balanced clarity with autonomy, and the outcome was a genuinely rigorous, trustworthy deliverable. Full score.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q4": 2,
+        "q6": 5,
+        "q3": 4,
+        "q2": 5,
+        "q1": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q6": 5,
+        "q3": 4,
+        "q2": 5,
+        "q1": 5,
+        "q5": 5
+      },
+      "composite_score": 4.667,
+      "reflection": "# Reflection\n\n**What worked well:** The Boss provided exceptionally clear role definitions upfront—each team member knew exactly what was expected as Reviewer, Coder, and Writer. During Phase 2 planning, the Boss explicitly invited and incorporated my concerns (the six flagged issues around feature encoding, missing data handling, top-5 definitions, bonus visualization rationale, hyperparameter decisions, and filename tracking), then locked them down into actionable directives before execution began. This made my review job feasible: I had a crisp checklist and Coder's work was built to be auditable from day one.\n\n**What could have been different:** When I flagged the Ridge latitude coefficient sign/magnitude ambiguity in my review, the Boss acknowledged it as \"cosmetic\" and \"not a blocker,\" which was fair—but there was no back-and-forth between me and the Coder to clarify whether the report should have been adjusted for absolute clarity. The Boss treated my review as a gate (pass/fail) rather than a conversation, so I never got to discuss trade-offs or refinements with the person whose work I was reviewing.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The Boss provided exceptionally clear role definitions upfront—each team member knew exactly what was expected as Reviewer, Coder, and Writer. During Phase 2 planning, the Boss explicitly invited and incorporated my concerns (the six flagged issues around feature encoding, missing data handling, top-5 definitions, bonus visualization rationale, hyperparameter decisions, and filename tracking), then locked them down into actionable directives before execution began. This made my review job feasible: I had a crisp checklist and Coder's work was built to be auditable from day one.\n\n**What could have been different:** When I flagged the Ridge latitude coefficient sign/magnitude ambiguity in my review, the Boss acknowledged it as \"cosmetic\" and \"not a blocker,\" which was fair—but there was no back-and-forth between me and the Coder to clarify whether the report should have been adjusted for absolute clarity. The Boss treated my review as a gate (pass/fail) rather than a conversation, so I never got to discuss trade-offs or refinements with the person whose work I was reviewing.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    }
+  },
+  "team_mean": 4.556,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}
