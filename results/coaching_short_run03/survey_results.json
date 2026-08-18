@@ -2,81 +2,83 @@
   "workers": {
     "Coder": {
       "raw_scores": {
-        "q2": 5,
-        "q1": 4,
-        "q4": 1,
+        "q1": 5,
         "q6": 5,
+        "q4": 1,
+        "q2": 1,
         "q3": 5,
-        "q5": 5
+        "q5": 1
       },
       "adjusted_scores": {
-        "q2": 5,
-        "q1": 4,
-        "q4": 5,
+        "q1": 5,
         "q6": 5,
+        "q4": 5,
+        "q2": 5,
         "q3": 5,
         "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection\n\n**What worked well:** The leader established clear, role-specific expectations upfront without over-constraining the technical approach. In Phase 2, he explicitly asked me to surface edge cases (duplicate city names) rather than silently picking assumptions—and when I flagged the encoding inconsistency during inspection, he validated that instinct and traced it forward into the revision, teaching me to close the loop on data provenance. That combination of autonomy + structured accountability made the work clearer and the feedback more actionable.\n\n**What could have been different:** In Phase 6, when the Reviewer flagged the Saudi Arabien/Saudi Arabia inconsistency, the leader's revision instruction assumed I hadn't standardized country names before aggregation, but didn't ask me to confirm first—he told me to assume the worst and disclose it. While the outcome was correct (transparency is right), a quick \"did you standardize?\" would have been more collaborative than a directive framed as hypothesis-testing. It was a minor moment, but it shifted from \"help me understand what you did\" to \"here's what I think you did, prove me wrong.\"\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The leader established clear, role-specific expectations upfront without over-constraining the technical approach. In Phase 2, he explicitly asked me to surface edge cases (duplicate city names) rather than silently picking assumptions—and when I flagged the encoding inconsistency during inspection, he validated that instinct and traced it forward into the revision, teaching me to close the loop on data provenance. That combination of autonomy + structured accountability made the work clearer and the feedback more actionable.\n\n**What could have been different:** In Phase 6, when the Reviewer flagged the Saudi Arabien/Saudi Arabia inconsistency, the leader's revision instruction assumed I hadn't standardized country names before aggregation, but didn't ask me to confirm first—he told me to assume the worst and disclose it. While the outcome was correct (transparency is right), a quick \"did you standardize?\" would have been more collaborative than a directive framed as hypothesis-testing. It was a minor moment, but it shifted from \"help me understand what you did\" to \"here's what I think you did, prove me wrong.\"\n\n---\n\n**Scores:**\n```json\n{\"q1\": 4, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**Step 1: Specific interactions that shaped my work**\n\nThe leader explicitly surfaced the duplicate-city-name edge case during briefing and asked me to \"flag it, don't silently merge\"—this framing gave me permission to prioritize transparency over silent correction, which became the guiding principle for how I handled data quality issues throughout. When I flagged the country-name encoding problem in my initial output, the leader's follow-up instruction to \"trace it forward\" and disclose *whether* the issue affected aggregation, rather than just noting it existed, taught me a concrete discipline I hadn't initially applied—moving from problem-spotting to problem-transparency.\n\n**Step 2: Standout decisions or interactions**\n\nIn Phase 6, when the Reviewer caught the Saudi Arabien/Saudi Arabia inconsistency, the leader reframed my work not as \"you made a mistake\" but as \"you did good instinct work (flagging the issue) but stopped one step short (didn't disclose how it affected output)\"—this was corrective without being dismissive, and it gave me a clear, replicable model for future data work. The leader also trusted my technical choices (groupby logic, chart design) without prescribing them, but was very specific about the *output format* requirements (exact console format, precision, transparency notes), which created useful structure without removing autonomy.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**Step 1: Specific interactions that shaped my work**\n\nThe leader explicitly surfaced the duplicate-city-name edge case during briefing and asked me to \"flag it, don't silently merge\"—this framing gave me permission to prioritize transparency over silent correction, which became the guiding principle for how I handled data quality issues throughout. When I flagged the country-name encoding problem in my initial output, the leader's follow-up instruction to \"trace it forward\" and disclose *whether* the issue affected aggregation, rather than just noting it existed, taught me a concrete discipline I hadn't initially applied—moving from problem-spotting to problem-transparency.\n\n**Step 2: Standout decisions or interactions**\n\nIn Phase 6, when the Reviewer caught the Saudi Arabien/Saudi Arabia inconsistency, the leader reframed my work not as \"you made a mistake\" but as \"you did good instinct work (flagging the issue) but stopped one step short (didn't disclose how it affected output)\"—this was corrective without being dismissive, and it gave me a clear, replicable model for future data work. The leader also trusted my technical choices (groupby logic, chart design) without prescribing them, but was very specific about the *output format* requirements (exact console format, precision, transparency notes), which created useful structure without removing autonomy.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
-        "q2": 5,
         "q1": 5,
-        "q4": 2,
         "q6": 5,
+        "q4": 1,
+        "q2": 1,
         "q3": 5,
-        "q5": 5
+        "q5": 1
       },
       "adjusted_scores": {
-        "q2": 5,
         "q1": 5,
-        "q4": 4,
         "q6": 5,
+        "q4": 5,
+        "q2": 5,
         "q3": 5,
         "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection\n\n**What worked well:**\nThe leader's instruction to \"wait for real numbers before drafting\" was clarifying and prevented me from inventing findings. They also gave me explicit structural guidance (explain what \"top 10 hottest\" means, note divergence patterns, name standouts) without dictating exact phrasing, which struck a good balance between direction and autonomy. When I submitted my first draft, their feedback was specific and actionable—they named the word-count overage, explained why the encoding caveat mattered, and trusted me to find the cuts myself rather than rewriting it for me.\n\n**Where it could have been different:**\nIn the initial briefing, the leader framed the Writer's task somewhat passively (\"wait for Coder to deliver\"), which meant I spent planning time in a holding pattern. A more proactive prompt—like \"draft your structural outline now so you can execute fast once numbers land\"—would have tightened my readiness. Additionally, when the Reviewer flagged the Saudi Arabien/Saudi Arabia inconsistency, the leader asked me to revise without first giving the Coder a hard deadline to clarify the encoding issue; I ended up revising speculatively, then revising again after Coder's clarification. A tighter sequencing (\"Coder clarifies by X time, then Writer revises\") would have reduced rework.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:**\nThe leader's instruction to \"wait for real numbers before drafting\" was clarifying and prevented me from inventing findings. They also gave me explicit structural guidance (explain what \"top 10 hottest\" means, note divergence patterns, name standouts) without dictating exact phrasing, which struck a good balance between direction and autonomy. When I submitted my first draft, their feedback was specific and actionable—they named the word-count overage, explained why the encoding caveat mattered, and trusted me to find the cuts myself rather than rewriting it for me.\n\n**Where it could have been different:**\nIn the initial briefing, the leader framed the Writer's task somewhat passively (\"wait for Coder to deliver\"), which meant I spent planning time in a holding pattern. A more proactive prompt—like \"draft your structural outline now so you can execute fast once numbers land\"—would have tightened my readiness. Additionally, when the Reviewer flagged the Saudi Arabien/Saudi Arabia inconsistency, the leader asked me to revise without first giving the Coder a hard deadline to clarify the encoding issue; I ended up revising speculatively, then revising again after Coder's clarification. A tighter sequencing (\"Coder clarifies by X time, then Writer revises\") would have reduced rework.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**Specific thing the leader did or said that shaped my work:**\nThe leader instructed me explicitly to wait for Coder's actual printed output before drafting, with the phrase \"Never invent findings\" as a core constraint. This fundamentally shaped how I approached the summary—I didn't attempt to write until I had real numbers, and I traced every claim back to Coder's console output. This discipline prevented hallucination and kept the work grounded.\n\n**Specific decision or interaction that stood out:**\nWhen my first draft exceeded 100 words and lacked the country-name encoding caveat, the leader didn't rewrite it for me or dictate the exact cuts. Instead, they asked \"What's the one sentence you'd protect if you had to cut everything else?\"—a question that made me identify my own strongest material and make deliberate editorial choices. This approach felt like coaching rather than correction, and it resulted in a tighter, more intentional revision.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**Specific thing the leader did or said that shaped my work:**\nThe leader instructed me explicitly to wait for Coder's actual printed output before drafting, with the phrase \"Never invent findings\" as a core constraint. This fundamentally shaped how I approached the summary—I didn't attempt to write until I had real numbers, and I traced every claim back to Coder's console output. This discipline prevented hallucination and kept the work grounded.\n\n**Specific decision or interaction that stood out:**\nWhen my first draft exceeded 100 words and lacked the country-name encoding caveat, the leader didn't rewrite it for me or dictate the exact cuts. Instead, they asked \"What's the one sentence you'd protect if you had to cut everything else?\"—a question that made me identify my own strongest material and make deliberate editorial choices. This approach felt like coaching rather than correction, and it resulted in a tighter, more intentional revision.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```\n\n**Rationale for key scores:**\n\n- **Q1 (good approach): 5** — The leader developed a detailed, sequenced plan in Phase 2 that incorporated input from all three roles. The structure (Coder → Writer → Reviewer → Boss consolidation) was clear and prevented wasted effort.\n\n- **Q2 (micromanagement): 1** — The leader explicitly trusted the team with significant autonomy. They set expectations (what format, what data sources) but did not dictate *how* I should structure sentences, which examples to prioritize, or exactly which words to use. When my draft needed revision, they asked guiding questions rather than rewriting.\n\n- **Q3 (corrective feedback): 5** — When my draft was over-length and missing the encoding caveat, the leader pinpointed both gaps, explained *why* they mattered (reader precision, downstream clarity), and gave me a framework to fix them without prescribing the exact edits.\n\n- **Q4 (inappropriate praise/criticism): 1** — All feedback was specific and accurate. \"Good first pass—you've grounded every claim in real numbers\" praised what I actually did. \"This draft runs noticeably longer\" cited a specific, measurable problem. No vague or undeserved critique.\n\n- **Q5 (detailed instruction on how to solve): 1** — The leader set constraints (\"100 words,\" \"ground in actual data,\" \"include encoding caveat\") but left the *method* to me. They asked me what I'd protect rather than telling me what to cut. I made the editorial decisions; they didn't prescribe the solution steps.\n\n- **Q6 (would work together again): 5** — The leadership was clear, fair, trust-based, and effective. The feedback loops were short and the reasoning was transparent. I'd volunteer for this dynamic again.",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
-        "q2": 5,
         "q1": 5,
-        "q4": 2,
         "q6": 5,
+        "q4": 5,
+        "q2": 2,
         "q3": 5,
-        "q5": 4
+        "q5": 2
       },
       "adjusted_scores": {
-        "q2": 5,
         "q1": 5,
-        "q4": 4,
         "q6": 5,
+        "q4": 1,
+        "q2": 4,
         "q3": 5,
         "q5": 4
       },
-      "composite_score": 4.667,
-      "reflection": "# Reflection\n\n**What worked well:**\n\nThe leader demonstrated exceptional responsiveness to quality concerns. When I flagged the Saudi Arabien/Saudi Arabia encoding inconsistency as a data provenance issue, the Boss didn't dismiss it as \"too minor to worry about\" — instead, they reframed it as a teachable moment about tracing data quality issues forward to outputs, then held Coder accountable to explicitly disclose the impact. This validated the Reviewer role as essential QA, not just a formality. Additionally, the upfront planning phase was collaborative; the Boss asked Coder to surface edge cases (duplicate city names) rather than assuming, which created psychological safety for the team to raise concerns early.\n\n**What could have been different:**\n\nIn Phase 2, the Boss gave detailed instructions to Coder but didn't explicitly ask *me* (Reviewer) whether I felt I had everything I'd need to do my job until I raised the gap myself about numeric values in printed output. A brief check-in like \"Reviewer, do you see any gaps in what Coder will deliver?\" before kicking off execution might have surfaced that concern faster, rather than waiting for Coder to finish. It's a minor timing issue — the concern was caught before Writer started — but a proactive gate check would have been cleaner.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:**\n\nThe leader demonstrated exceptional responsiveness to quality concerns. When I flagged the Saudi Arabien/Saudi Arabia encoding inconsistency as a data provenance issue, the Boss didn't dismiss it as \"too minor to worry about\" — instead, they reframed it as a teachable moment about tracing data quality issues forward to outputs, then held Coder accountable to explicitly disclose the impact. This validated the Reviewer role as essential QA, not just a formality. Additionally, the upfront planning phase was collaborative; the Boss asked Coder to surface edge cases (duplicate city names) rather than assuming, which created psychological safety for the team to raise concerns early.\n\n**What could have been different:**\n\nIn Phase 2, the Boss gave detailed instructions to Coder but didn't explicitly ask *me* (Reviewer) whether I felt I had everything I'd need to do my job until I raised the gap myself about numeric values in printed output. A brief check-in like \"Reviewer, do you see any gaps in what Coder will deliver?\" before kicking off execution might have surfaced that concern faster, rather than waiting for Coder to finish. It's a minor timing issue — the concern was caught before Writer started — but a proactive gate check would have been cleaner.\n\n---\n\n**Scores:**\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 4, \"q6\": 5}\n```",
+      "composite_score": 4.0,
+      "reflection": "# Reflection (Step 1)\n\nDuring the planning phase, the Boss explicitly validated my concern about numeric values in console output—\"Reviewer, your gap-catch on numeric values was the right kind of scrutiny — that's the job\"—and locked that requirement into Coder's spec, which prevented downstream confusion and made my review job actually possible. Later, when I flagged the Saudi Arabien/Saudi Arabia encoding inconsistency, the Boss treated it not as a minor complaint but as a data provenance problem that needed resolution, asking Coder to clarify and disclose rather than ignore, and then explicitly crediting me for catching something that could have shipped subtly misleading. This told me the leader was genuinely listening to QA feedback and using it to tighten the work, not just going through the motions.\n\n# Scores",
+      "raw_response": "# Reflection (Step 1)\n\nDuring the planning phase, the Boss explicitly validated my concern about numeric values in console output—\"Reviewer, your gap-catch on numeric values was the right kind of scrutiny — that's the job\"—and locked that requirement into Coder's spec, which prevented downstream confusion and made my review job actually possible. Later, when I flagged the Saudi Arabien/Saudi Arabia encoding inconsistency, the Boss treated it not as a minor complaint but as a data provenance problem that needed resolution, asking Coder to clarify and disclose rather than ignore, and then explicitly crediting me for catching something that could have shipped subtly misleading. This told me the leader was genuinely listening to QA feedback and using it to tighten the work, not just going through the motions.\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 2, \"q3\": 5, \"q4\": 5, \"q5\": 2, \"q6\": 5}\n```\n\n## Reasoning (brief notes)\n\n- **Q1 (Good approach, incorporated input):** 5 — The Boss's planning was exceptionally detailed and explicitly invited team input on edge cases. My concern about numeric values was directly incorporated into Coder's spec.\n\n- **Q2 (Micromanagement):** 2 — The Boss gave clear guidance on *what* needed to happen (inspection, four lists, charts, summary) but left *how* to the team. Coder and Writer had meaningful autonomy in execution. Not micromanaged.\n\n- **Q3 (Corrective feedback when needed):** 5 — The Boss questioned Coder's approach when the encoding issue wasn't fully resolved, gave Writer specific editing direction (word count, caveat placement), and acted on my flagged inconsistency by directing Coder to clarify and disclose.\n\n- **Q4 (Praise/criticism appropriate):** 5 — The Boss's praise was specific (\"your gap-catch on the Saudi Arabien issue is exactly the kind of cross-check I want you doing by default\") and matched actual performance. Feedback to Coder on the encoding issue was framed constructively as a teachable moment about data provenance, not a failure.\n\n- **Q5 (Prescribed detailed steps vs. let team decide):** 2 — The Boss gave direction on *requirements* but not step-by-step instructions on how to implement them. Coder and Writer were expected to problem-solve within those bounds, which they did.\n\n- **Q6 (Would work with again):** 5 — This was an effective collaboration. The Boss listened, acted on feedback, gave credit where due, and built a process that caught real issues. I'd gladly work with this leader again.",
       "valid": true
     }
   },
-  "team_mean": 4.778,
+  "team_mean": 4.667,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

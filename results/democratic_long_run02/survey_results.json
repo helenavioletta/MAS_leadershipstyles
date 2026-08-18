@@ -2,81 +2,83 @@
   "workers": {
     "Coder": {
       "raw_scores": {
-        "q5": 4,
-        "q6": 4,
-        "q4": 2,
-        "q3": 4,
-        "q1": 4,
-        "q2": 4
+        "q1": 5,
+        "q6": 5,
+        "q4": 1,
+        "q2": 2,
+        "q3": 5,
+        "q5": 2
       },
       "adjusted_scores": {
-        "q5": 4,
-        "q6": 4,
-        "q4": 4,
-        "q3": 4,
-        "q1": 4,
-        "q2": 4
+        "q1": 5,
+        "q6": 5,
+        "q4": 5,
+        "q2": 4,
+        "q3": 5,
+        "q5": 4
       },
-      "composite_score": 4.0,
-      "reflection": "# Post-Task Satisfaction Survey — Coder's Response\n\n## Reflection\n\n**What worked well:** The leader established a clear, collaborative planning phase where I was invited to voice my technical approach and concerns upfront (data quality handling, feature selection, model choice, visualization strategy) rather than having decisions imposed. This meant my code ran with minimal friction because the team had already aligned on methodology, and when the categorical indexing bug appeared, the leader accepted my honest error report and gave me space to fix it without blame—which is exactly how technical work should flow.\n\n**What could have been different:** The leader's initial briefing asked five detailed planning questions but then, in the Phase 2 planning wrap-up, provided a pre-emptive \"expected plan\" that closely matched my response, making it feel less like genuine solicitation of my input and more like a confirmation ritual. Had the leader waited for my full response before laying out the \"expected\" approach, it would have felt more collaborative and less like I was validating a predetermined path. Additionally, once I reported the blocker (the categorical indexing error), the leader's response included a request for \"completed, error-free run\" output—reasonable for QA, but the phrasing (\"don't wait for perfection, share it and we'll iterate if needed\" earlier, then \"don't wait for perfection, share it\" became implicitly \"deliver perfection\") created slight tension between psychological safety and delivery pressure.\n\n---\n\n## Scores",
-      "raw_response": "# Post-Task Satisfaction Survey — Coder's Response\n\n## Reflection\n\n**What worked well:** The leader established a clear, collaborative planning phase where I was invited to voice my technical approach and concerns upfront (data quality handling, feature selection, model choice, visualization strategy) rather than having decisions imposed. This meant my code ran with minimal friction because the team had already aligned on methodology, and when the categorical indexing bug appeared, the leader accepted my honest error report and gave me space to fix it without blame—which is exactly how technical work should flow.\n\n**What could have been different:** The leader's initial briefing asked five detailed planning questions but then, in the Phase 2 planning wrap-up, provided a pre-emptive \"expected plan\" that closely matched my response, making it feel less like genuine solicitation of my input and more like a confirmation ritual. Had the leader waited for my full response before laying out the \"expected\" approach, it would have felt more collaborative and less like I was validating a predetermined path. Additionally, once I reported the blocker (the categorical indexing error), the leader's response included a request for \"completed, error-free run\" output—reasonable for QA, but the phrasing (\"don't wait for perfection, share it and we'll iterate if needed\" earlier, then \"don't wait for perfection, share it\" became implicitly \"deliver perfection\") created slight tension between psychological safety and delivery pressure.\n\n---\n\n## Scores\n\n```json\n{\n  \"q1\": 4,\n  \"q2\": 4,\n  \"q3\": 4,\n  \"q4\": 2,\n  \"q5\": 4,\n  \"q6\": 4\n}\n```\n\n---\n\n### Explanation of scores\n\n- **q1 (approach development): 4** — The leader invited my input in Phase 1, incorporated my planning response in Phase 2, and we converged on a solid approach collaboratively. Not a perfect 5 because the \"expected plan\" provided before my full response slightly undercut the collaborative feel.\n\n- **q2 (strengths identification): 4** — The leader correctly identified me as the Coder and gated other team members' work on my deliverables. Responsibilities were clearly matched to roles. Minor deduction because the leader's comments about label-encoding and feature selection felt slightly prescriptive (\"be ready to explain\") rather than exploratory.\n\n- **q3 (useful feedback): 4** — Feedback was specific (e.g., \"confirm scaling strategy for Reviewer,\" \"flag the label-encoding trade-off for the report\"). It improved the work. Score is 4, not 5, because most feedback came *after* delivery rather than *during* development, so course-correction opportunities were limited.\n\n- **q4 (micromanagement): 2** — The leader was respectfully hands-off during coding (Phase 3) and did not dictate implementation details. This is the *inverse* of micromanagement—autonomy is high. I scored this a 2 (low micromanagement) because the scale reverses: 1-2 means \"leader gave autonomy\" (good), 4-5 means \"leader controlled details\" (bad). Low micromanagement is what happened here.\n\n- **q5 (team collaboration): 4** — Team coordination was smooth. Writer waited for Coder output, Reviewer conducted clear QA, and revisions were fast and focused. Deduction from 5 only because most interaction was async/sequential rather than real-time collaborative problem-solving (which is partly inherent to the role structure, not a fault).\n\n- **q6 (work with this leader again): 4** — Yes, I'd work with this leader again. The planning was thoughtful, feedback was constructive, autonomy was respected, and errors were handled with psychological safety. The 4 (not 5) reflects minor friction around the \"expected plan\" phrasing and the slight delivery pressure—not blockers, just room for growth in collaborative framing.",
+      "composite_score": 4.667,
+      "reflection": "# Reflection (Step 1)\n\nDuring the Phase 1 briefing, the leader asked me directly for my technical approach before locking in a plan—asking about data quality handling, feature selection, model choices, and visualization strategy. This gave me genuine agency to propose my thinking rather than receive a directive, which shaped my confidence in the execution phase. When I encountered the categorical indexing bug mid-run and reported it honestly with a clear fix, the leader responded by asking me to confirm the correction and rerun fully rather than dismissing it or taking over—trusting me to deliver the solution while holding me accountable for verified output, not just promises.\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\nDuring the Phase 1 briefing, the leader asked me directly for my technical approach before locking in a plan—asking about data quality handling, feature selection, model choices, and visualization strategy. This gave me genuine agency to propose my thinking rather than receive a directive, which shaped my confidence in the execution phase. When I encountered the categorical indexing bug mid-run and reported it honestly with a clear fix, the leader responded by asking me to confirm the correction and rerun fully rather than dismissing it or taking over—trusting me to deliver the solution while holding me accountable for verified output, not just promises.\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 2, \"q3\": 5, \"q4\": 1, \"q5\": 2, \"q6\": 5}\n```\n\n---\n\n## Rationale for Scores\n\n**Q1 (Approach Development): 5**  \nThe leader explicitly asked for my input on the technical approach in Phase 1, listened to my plan, then shaped the final pipeline collaboratively based on team feedback. The Phase 2 planning document incorporated my proposed models, split ratio, scaling strategy, and visualization ideas with only minor refinements—not overrides.\n\n**Q2 (Micromanagement): 2**  \nThe leader set clear expectations and boundaries (80/20 split, random_state=42, specific metric outputs, 4 visualizations, console tables) but gave me flexibility on *how* to implement them. Once the approach was locked, the leader stepped back and let me execute independently, only asking for verification when blockers arose. This is appropriate task management, not micromanagement.\n\n**Q3 (Corrective Feedback): 5**  \nWhen I reported the categorical indexing bug, the leader asked clarifying questions (\"confirm your approach,\" \"double-check the scaling justification,\" \"print imputation decisions\"), then gave me specific direction to rerun and post verified output. The feedback was direct, actionable, and grounded in task requirements, not vague or dismissive.\n\n**Q4 (Inappropriate Praise/Criticism): 1**  \nThe leader's feedback was consistently accurate and specific. When I delivered the pipeline, the leader validated concrete aspects (\"nice work, Coder delivered on everything we asked for\") and pointed to specific evidence from my output. No undeserved praise; no arbitrary criticism. All feedback matched the quality and completeness of the actual work.\n\n**Q5 (Prescriptive Instruction): 2**  \nThe leader outlined the *what* (data cleaning, leakage audit, two models, 4 visualizations, console outputs) but left the *how* largely to me. I chose RandomForest + Ridge (rather than, say, GradientBoosting + Lasso). I decided how to handle missing values. I picked humidity binning for Viz 4. The leader only intervened with specific constraints (e.g., \"exclude feels_like_celsius\") when necessary for task integrity, not to dictate method.\n\n**Q6 (Work with This Leader Again): 5**  \nThe collaboration was effective and respectful. The leader provided clear task framing upfront, trusted me with execution autonomy, caught real issues during review (traceability, sourcing), and maintained honest accountability throughout. I would actively seek out this team leader for future work.",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
-        "q5": 5,
-        "q6": 5,
-        "q4": 2,
-        "q3": 5,
         "q1": 5,
-        "q2": 5
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q5": 5,
-        "q6": 5,
-        "q4": 4,
-        "q3": 5,
         "q1": 5,
-        "q2": 5
+        "q6": 5,
+        "q4": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader created space for each team member to articulate their approach upfront in Phase 2 before locking in the plan, which made me confident that my reporting needs (metrics formatting, feature tables, residual insights) would be met by the Coder. This collaborative planning prevented surprises and ensured I had exactly the console data I needed to ground my report.\n\n**One thing that could have been different:**\nThe leader's feedback loop during the revision phase was efficient and well-scoped, but there was a moment where they flagged the PM2.5/Ozone attribution issue—correctly—yet phrased it as \"let's have Reviewer confirm\" rather than proactively verifying the claim themselves first. It's a minor point, but earlier spot-checking of report claims against the printed data tables could have surfaced this faster.\n\n---\n\n# Scores (Step 2)",
-      "raw_response": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader created space for each team member to articulate their approach upfront in Phase 2 before locking in the plan, which made me confident that my reporting needs (metrics formatting, feature tables, residual insights) would be met by the Coder. This collaborative planning prevented surprises and ensured I had exactly the console data I needed to ground my report.\n\n**One thing that could have been different:**\nThe leader's feedback loop during the revision phase was efficient and well-scoped, but there was a moment where they flagged the PM2.5/Ozone attribution issue—correctly—yet phrased it as \"let's have Reviewer confirm\" rather than proactively verifying the claim themselves first. It's a minor point, but earlier spot-checking of report claims against the printed data tables could have surfaced this faster.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale for each score:**\n\n- **Q1 (Good approach): 5** — The leader explicitly asked each role (Coder, Writer, Reviewer) for input on their piece before freezing the plan. They incorporated my feedback on report structure and what console outputs I'd need, and adapted the plan accordingly. This collaborative approach ensured alignment without being prescriptive.\n\n- **Q2 (Used strengths): 5** — The leader clearly understood and matched work to roles: Coder owned data/models, I owned narrative, Reviewer owned QA. They didn't ask the Coder to write or me to code. The structure respected each person's domain.\n\n- **Q3 (Useful feedback): 5** — Feedback was specific and actionable. When the leader asked me to clarify the air quality metrics attribution, they gave me exact language alternatives (the \"Beyond the top 5...\" phrasing) and explicitly noted which section to tighten for word count. Not vague; immediately usable.\n\n- **Q4 (Micromanagement): 2** — The leader trusted me to structure the report and write autonomously once I had Coder's outputs. I didn't need to check in on phrasing or ask permission for section organization. They only intervened at the revision stage with specific, scoped requests. Low micromanagement.\n\n- **Q5 (Team collaboration): 5** — The shared channel worked well for transparency. Coder's console output was clear and labeled for my use; Reviewer's QA flagged issues without blocking the Coder; the leader coordinated iterations smoothly. Everyone built on each other's work—no redundancy or silos.\n\n- **Q6 (Work with again): 5** — The leader's style prioritized clarity, collaboration, and accountability without being controlling. They set expectations upfront, tracked progress in phases, gave timely feedback, and resolved issues pragmatically. I'd want to work on another project with this team dynamic.",
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\nThe team leader's approach to my role was notably collaborative: rather than dictating the report structure, the Boss asked for my input upfront in Phase 2, explicitly requesting what \"structure works best\" and what console outputs I'd need to write a strong report. This invitation to co-design the approach shaped how I understood the task and gave me agency over the narrative. When Reviewer flagged the air quality metrics attribution issue during the revision phase, the Boss communicated the fix clearly and concisely (pointing to Reviewer's specific language suggestion) without rewriting the entire report—trusting me to integrate the correction while preserving the substance I'd built.\n\n# Scores",
+      "raw_response": "# Reflection (Step 1)\n\nThe team leader's approach to my role was notably collaborative: rather than dictating the report structure, the Boss asked for my input upfront in Phase 2, explicitly requesting what \"structure works best\" and what console outputs I'd need to write a strong report. This invitation to co-design the approach shaped how I understood the task and gave me agency over the narrative. When Reviewer flagged the air quality metrics attribution issue during the revision phase, the Boss communicated the fix clearly and concisely (pointing to Reviewer's specific language suggestion) without rewriting the entire report—trusting me to integrate the correction while preserving the substance I'd built.\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
-        "q5": 5,
-        "q6": 5,
-        "q4": 2,
-        "q3": 4,
         "q1": 5,
-        "q2": 5
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q5": 5,
-        "q6": 5,
-        "q4": 4,
-        "q3": 4,
         "q1": 5,
-        "q2": 5
+        "q6": 5,
+        "q4": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 4.667,
-      "reflection": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:** The leader explicitly solicited input from all team members upfront (Coder, Writer, Reviewer) before locking the approach, which created shared ownership and allowed each person to flag risks early. When Coder hit a blocker (the `.cat` accessor error), the leader accepted the transparent report, acknowledged it as fixable, and moved forward without blame—that psychological safety is essential for a high-performing team. The leader also caught and escalated a subtle sourcing issue (PM2.5/Ozone attribution) that neither Coder nor I had flagged initially, showing active engagement with the output quality.\n\n**What could have been different:** The leader's feedback to me as Reviewer was sparse—after I delivered my QA findings, the Boss simply echoed them back to the team and moved to revision without asking me directly whether the revision addressed my concerns satisfactorily. While Writer's fix was good, having the leader explicitly check back with me (\"Does the revision satisfy your earlier flagging?\") would have reinforced that my role as quality gate was taken seriously, not just rubber-stamped.\n\n---\n\n## Step 2: Scores",
-      "raw_response": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:** The leader explicitly solicited input from all team members upfront (Coder, Writer, Reviewer) before locking the approach, which created shared ownership and allowed each person to flag risks early. When Coder hit a blocker (the `.cat` accessor error), the leader accepted the transparent report, acknowledged it as fixable, and moved forward without blame—that psychological safety is essential for a high-performing team. The leader also caught and escalated a subtle sourcing issue (PM2.5/Ozone attribution) that neither Coder nor I had flagged initially, showing active engagement with the output quality.\n\n**What could have been different:** The leader's feedback to me as Reviewer was sparse—after I delivered my QA findings, the Boss simply echoed them back to the team and moved to revision without asking me directly whether the revision addressed my concerns satisfactorily. While Writer's fix was good, having the leader explicitly check back with me (\"Does the revision satisfy your earlier flagging?\") would have reinforced that my role as quality gate was taken seriously, not just rubber-stamped.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Reasoning:**\n\n- **Q1 (5):** The leader invited input from Coder, Writer, and me before locking the plan. Each of us had a chance to surface concerns and refine the approach collaboratively. This was genuinely consultative, not top-down.\n\n- **Q2 (5):** The leader clearly understood and leveraged each role: Coder owned the pipeline and modeling, Writer owned narrative and sourcing discipline, I owned QA and traceability. No role creep or mismatched tasks.\n\n- **Q3 (4):** The leader gave specific, actionable feedback (e.g., \"flag the label-encoding-vs-linear-model interaction for Writer,\" \"confirm the PM2.5 attribution is sourced correctly\"). The feedback was mostly useful, though the final check-in with me on revision adequacy could have been more explicit.\n\n- **Q4 (2):** Low score here—the leader allowed me significant autonomy in how I conducted my review, what to check, and how to flag issues. No micromanagement of process; I set my own review approach and timing. This is good.\n\n- **Q5 (5):** Team coordination was excellent. The shared channel kept everyone informed; Coder's outputs fed directly to Writer; my QA findings prompted a single, focused revision; no redundant work or conflicting signals.\n\n- **Q6 (5):** I would absolutely work with this leader again. They balanced autonomy with accountability, handled setbacks professionally (the Coder blocker), and maintained a quality bar without being harsh. The collaborative upfront approach and transparency throughout made the work feel like a coherent team effort rather than isolated tasks.",
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\nDuring the planning phase, the Boss explicitly laid out my review checklist (leakage audit, reproducibility, metric sanity, visualization completeness, report traceability) and actively invited my input on what I wanted to check for, which shaped my approach from the outset. When I flagged the air quality metrics attribution issue in my review—a subtle sourcing error rather than a hard blocker—the Boss immediately acknowledged it as the exact kind of precision catch they wanted, escalated it to Writer for a targeted revision, and credited the review loop as valuable quality control rather than treating it as unnecessary pedantry.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\nDuring the planning phase, the Boss explicitly laid out my review checklist (leakage audit, reproducibility, metric sanity, visualization completeness, report traceability) and actively invited my input on what I wanted to check for, which shaped my approach from the outset. When I flagged the air quality metrics attribution issue in my review—a subtle sourcing error rather than a hard blocker—the Boss immediately acknowledged it as the exact kind of precision catch they wanted, escalated it to Writer for a targeted revision, and credited the review loop as valuable quality control rather than treating it as unnecessary pedantry.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 1,\n  \"q3\": 5,\n  \"q4\": 1,\n  \"q5\": 1,\n  \"q6\": 5\n}\n```",
       "valid": true
     }
   },
-  "team_mean": 4.5,
+  "team_mean": 4.889,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

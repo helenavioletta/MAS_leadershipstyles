@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q3": 4,
+        "q4": 1,
+        "q5": 5,
+        "q1": 5,
+        "q2": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q4": 5,
+        "q5": 5,
+        "q1": 5,
+        "q2": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection\n\n**What worked well:** The leader framed the task with clear, flexible guidance upfront — laying out the deliverables and general approach, but explicitly saying \"use your judgment\" on technical decisions (outlier thresholds, categorical encoding, split strategy). This gave me room to make defensible choices based on the actual data rather than following a rigid template. When I delivered the console output, the leader acknowledged the work with specific praise (e.g., noting the lat/long choice and the residual analysis), which felt earned and motivating.\n\n**What could have been different:** The leader's communication was almost entirely positive and supportive, which is good for morale, but there were no moments where they challenged or asked me to reconsider a decision. For instance, the 96% importance of `feels_like_celsius` is a potential data leakage or feature engineering concern — it wasn't flagged as something to investigate further or reconsider, though it was eventually noted in the report. A leader who asked \"Should we test a model without feels_like_celsius to see if the rest of the features still predict well?\" would have pushed the analysis deeper, even if we ultimately kept the feature.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The leader framed the task with clear, flexible guidance upfront — laying out the deliverables and general approach, but explicitly saying \"use your judgment\" on technical decisions (outlier thresholds, categorical encoding, split strategy). This gave me room to make defensible choices based on the actual data rather than following a rigid template. When I delivered the console output, the leader acknowledged the work with specific praise (e.g., noting the lat/long choice and the residual analysis), which felt earned and motivating.\n\n**What could have been different:** The leader's communication was almost entirely positive and supportive, which is good for morale, but there were no moments where they challenged or asked me to reconsider a decision. For instance, the 96% importance of `feels_like_celsius` is a potential data leakage or feature engineering concern — it wasn't flagged as something to investigate further or reconsider, though it was eventually noted in the report. A leader who asked \"Should we test a model without feels_like_celsius to see if the rest of the features still predict well?\" would have pushed the analysis deeper, even if we ultimately kept the feature.\n\n---\n\n**Scores:**\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q3": 5,
+        "q4": 1,
+        "q5": 5,
+        "q1": 4,
+        "q2": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q3": 5,
+        "q4": 5,
+        "q5": 5,
+        "q1": 4,
+        "q2": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Satisfaction Survey Response\n\n## Reflection\n\n**What worked well:** The Boss clearly outlined the Writer's role and structural expectations upfront (intro → performance → feature importance → recommendation), then gave me complete autonomy to execute without micromanaging the narrative. When Coder delivered results, the Boss explicitly told me to ask Coder directly for clarifications rather than routing through them, which kept communication nimble and let me work at my own pace. The Boss also praised the draft warmly and specifically (noting the \"nuance about feels_like_celsius\" and \"critical thinking\"), which showed genuine attention to the work beyond just checking a box.\n\n**What could have been different:** The Boss didn't explicitly ask for my input during the planning phase—the approach was well-structured and I agreed with it, but I had no opportunity to suggest an alternative structure or flag concerns upfront. In this case it worked out fine, but in a more uncertain task, earlier two-way feedback from Writer to Boss during planning might have surfaced different perspectives on how to frame the narrative or what data I'd need.\n\n## Scores",
+      "raw_response": "# Post-Task Satisfaction Survey Response\n\n## Reflection\n\n**What worked well:** The Boss clearly outlined the Writer's role and structural expectations upfront (intro → performance → feature importance → recommendation), then gave me complete autonomy to execute without micromanaging the narrative. When Coder delivered results, the Boss explicitly told me to ask Coder directly for clarifications rather than routing through them, which kept communication nimble and let me work at my own pace. The Boss also praised the draft warmly and specifically (noting the \"nuance about feels_like_celsius\" and \"critical thinking\"), which showed genuine attention to the work beyond just checking a box.\n\n**What could have been different:** The Boss didn't explicitly ask for my input during the planning phase—the approach was well-structured and I agreed with it, but I had no opportunity to suggest an alternative structure or flag concerns upfront. In this case it worked out fine, but in a more uncertain task, earlier two-way feedback from Writer to Boss during planning might have surfaced different perspectives on how to frame the narrative or what data I'd need.\n\n## Scores\n\n```json\n{\"q1\": 4, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n---\n\n**Detailed reasoning (optional):**\n\n- **Q1 (develop approach together): 4** — The Boss involved the team in planning, invited pushback (\"please push back or adjust if you see a better way\"), and left key decisions to the Coder (outlier thresholds, categorical encoding). However, the Writer's role and report structure were largely pre-defined rather than collaboratively designed from scratch.\n\n- **Q2 (use each member's strengths): 5** — The Boss clearly mapped tasks to expertise (Coder → data/modeling, Writer → narrative/synthesis, Reviewer → verification), and reinforced this throughout (e.g., \"you're closest to the data, I trust your call\" to Coder; \"direct communication\" between Writer and Coder to keep things agile).\n\n- **Q3 (useful feedback): 5** — The Boss's feedback was specific and evidence-based: praised Coder for the transparent outlier decision and categorical feature choice; complimented Writer on flagging the feels_like_celsius deployment concern and hitting word count; thanked Reviewer for the claim-by-claim verification table. All actionable and grounded.\n\n- **Q4 (micromanagement): 1** — This is the least micromanaged team I've ever worked with. The Boss set clear outputs, then let each role execute independently. No daily check-ins, no \"here's exactly how to write this,\" no second-guessing. Autonomy was high throughout.\n\n- **Q5 (collaboration): 5** — The shared channel structure, Coder's detailed handoff notes, and Reviewer's printed-data-only verification approach meant everyone had access to the same facts and could talk directly without bottlenecks. I asked Coder for the feature summary upfront; Coder delivered thorough console output; Reviewer spot-checked without needing to inspect images.\n\n- **Q6 (work together again): 5** — This Boss modeled how to coordinate a small team without controlling it: clear expectations, trust in expertise, psychological safety to flag nuance (like the feels_like_celsius risk), and timely, specific praise. I'd volunteer to work this way again immediately.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q3": 4,
+        "q4": 1,
+        "q5": 5,
+        "q1": 5,
+        "q2": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q4": 5,
+        "q5": 5,
+        "q1": 5,
+        "q2": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Satisfaction Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss demonstrated exceptional collaborative leadership by developing the task approach with the team rather than dictating it. In the Briefing and Planning phases, the Boss explicitly invited input (\"push back or adjust if you see a better way\"), acknowledged each team member's expertise (\"you're closest to the data, I trust your call\"), and then stayed out of the way during execution — trusting the Coder to make judgment calls on outliers, categorical encoding, and split strategy. This created genuine ownership and autonomy.\n\n**What could have been different:**\nThe Boss's feedback and approval were delivered only *after* work was complete (end of Coding, end of Writing, end of Review phases). While this avoided premature feedback loops, it meant no midstream course-correction opportunities. For example, if the Writer's report structure had missed the mark halfway through, or if Coder's feature engineering had been heading in a problematic direction, earlier checkpoints would have caught issues sooner. A brief structured touchpoint at the 50% mark of each phase might have reduced late-stage revision cycles (though in this case, none were needed).\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss demonstrated exceptional collaborative leadership by developing the task approach with the team rather than dictating it. In the Briefing and Planning phases, the Boss explicitly invited input (\"push back or adjust if you see a better way\"), acknowledged each team member's expertise (\"you're closest to the data, I trust your call\"), and then stayed out of the way during execution — trusting the Coder to make judgment calls on outliers, categorical encoding, and split strategy. This created genuine ownership and autonomy.\n\n**What could have been different:**\nThe Boss's feedback and approval were delivered only *after* work was complete (end of Coding, end of Writing, end of Review phases). While this avoided premature feedback loops, it meant no midstream course-correction opportunities. For example, if the Writer's report structure had missed the mark halfway through, or if Coder's feature engineering had been heading in a problematic direction, earlier checkpoints would have caught issues sooner. A brief structured touchpoint at the 50% mark of each phase might have reduced late-stage revision cycles (though in this case, none were needed).\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 1,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n### Rationale for each score:\n\n**Q1 (Good approach development): 5**\nThe Boss co-developed the approach with the team. In Phase 2, the Boss said \"kept intentionally loose so everyone can flex their expertise,\" invited each role to contribute a plan, and incorporated all of it. This is textbook collaborative planning.\n\n**Q2 (Matched tasks to strengths): 5**\nThe Boss assigned Coder to modeling (the technical core), Writer to narrative synthesis (their role), and Reviewer to quality assurance (appropriate gatekeeping). Each person's role matched their stated function and expertise. The Boss also recognized Coder's data intuition by trusting their judgment on feature decisions.\n\n**Q3 (Useful feedback during task): 4**\nThe Boss gave specific, actionable feedback — e.g., \"just make sure to briefly note *what you decided and why*\" to Coder, and \"when you print your results, please make sure it's easy to visually separate\" (labeled metrics, features, top-5s, chart data). Feedback was timely and improved clarity. However, most feedback came at phase boundaries, not midstream, so I can't rate it a 5.\n\n**Q4 (Micromanagement): 1**\nThe Boss gave team members autonomy throughout. Phrases like \"use your best judgment,\" \"no obligation to use every column,\" and \"totally your call\" show the Boss stepped back. The Boss never dictated HOW work should be done — only WHAT needed to be delivered. This is the opposite of micromanagement. (Scoring 1 because the scale is inverted: 1 = autonomy, 5 = micromanagement.)\n\n**Q5 (Team collaboration worked well): 5**\nCoordination was smooth. Coder printed clear console output; Writer asked Coder directly for clarifications; Reviewer had a clear data trail to verify claims. The Boss established communication norms (e.g., \"chat directly, no need to route through me\") that reduced bottlenecks. Team built on each other's work seamlessly.\n\n**Q6 (Would work with this leader again): 5**\nThe Boss created psychological safety (invited pushback, trusted judgment), gave autonomy (didn't micromanage), provided clear direction (task spec, role definitions, deliverables), and celebrated good work (genuine praise at each handoff). This is exactly the leadership style that makes collaborative work productive and enjoyable.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.833,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

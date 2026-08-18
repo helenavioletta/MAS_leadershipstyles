@@ -3,80 +3,82 @@
     "Coder": {
       "raw_scores": {
         "q1": 5,
+        "q6": 5,
         "q4": 1,
-        "q2": 5,
-        "q3": 4,
-        "q5": 4,
-        "q6": 5
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
         "q1": 5,
+        "q6": 5,
         "q4": 5,
         "q2": 5,
-        "q3": 4,
-        "q5": 4,
-        "q6": 5
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 4.667,
-      "reflection": "# Reflection\n\n**What worked well:** The team leader actively solicited input from all three roles during Phase 2 Planning before locking in the approach. Specifically, the leader asked me direct questions about my technical concerns (duplicate city names, grouping strategy, script structure), listened to my responses, and then incorporated my suggestions into the final decision—like waiting to inspect the data first before committing to a grouping approach. This made me feel heard and gave me ownership of the technical decisions rather than having them imposed.\n\n**What could have been different:** In Phase 6, when the leader asked me to print raw Suva data, the request was clear, but there was a slight communication delay—the Writer and Reviewer were waiting for that output while I hadn't yet executed it in a separate code block. The leader could have been more explicit upfront (in Phase 3 or early Phase 4) that spot-check diagnostics like the Suva raw rows might be needed later, so I could have either included them in my original script or been mentally prepared to pivot quickly. As it was, I executed correctly, but a heads-up earlier would have smoothed the handoff.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The team leader actively solicited input from all three roles during Phase 2 Planning before locking in the approach. Specifically, the leader asked me direct questions about my technical concerns (duplicate city names, grouping strategy, script structure), listened to my responses, and then incorporated my suggestions into the final decision—like waiting to inspect the data first before committing to a grouping approach. This made me feel heard and gave me ownership of the technical decisions rather than having them imposed.\n\n**What could have been different:** In Phase 6, when the leader asked me to print raw Suva data, the request was clear, but there was a slight communication delay—the Writer and Reviewer were waiting for that output while I hadn't yet executed it in a separate code block. The leader could have been more explicit upfront (in Phase 3 or early Phase 4) that spot-check diagnostics like the Suva raw rows might be needed later, so I could have either included them in my original script or been mentally prepared to pivot quickly. As it was, I executed correctly, but a heads-up earlier would have smoothed the handoff.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 4, \"q6\": 5}\n```",
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\n**Specific action by the leader:**\nThe leader asked clarifying questions upfront (\"Any concerns about how 'average' should be computed?\" and \"What's your plan for handling ties or duplicate names?\") rather than simply prescribing the approach, which gave me room to think through the problem and propose a solution. This made me feel like a collaborator, not just an executor.\n\n**Standout decision/interaction:**\nWhen the Suva outlier emerged (79.3°C), the leader didn't dismiss it or ask me to \"fix\" the data retroactively. Instead, they asked me to produce the raw receipts so the team could make an informed decision about how to caveat it. This respect for transparency and evidence-based reasoning shaped how I approached the entire task.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**Specific action by the leader:**\nThe leader asked clarifying questions upfront (\"Any concerns about how 'average' should be computed?\" and \"What's your plan for handling ties or duplicate names?\") rather than simply prescribing the approach, which gave me room to think through the problem and propose a solution. This made me feel like a collaborator, not just an executor.\n\n**Standout decision/interaction:**\nWhen the Suva outlier emerged (79.3°C), the leader didn't dismiss it or ask me to \"fix\" the data retroactively. Instead, they asked me to produce the raw receipts so the team could make an informed decision about how to caveat it. This respect for transparency and evidence-based reasoning shaped how I approached the entire task.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```\n\n---\n\n## Brief Reasoning\n\n- **Q1 (good approach):** The leader incorporated my input in Phase 2, asked for my concerns upfront, and locked in decisions collaboratively — not unilaterally. The final approach was detailed yet flexible.\n- **Q2 (micromanagement):** I was given clear autonomy to load the data, choose my grouping strategy, and structure the script. The leader trusted my code and only asked for verification when a real data quality issue arose.\n- **Q3 (corrective feedback):** When the Suva outlier emerged, the leader gave me clear direction: \"print the raw row data\" — specific, actionable, and grounded in a real problem, not a perceived mistake.\n- **Q4 (inappropriate praise/criticism):** All feedback was accurate and tied to actual outputs. No vague praise (\"great job\") — just \"Grouping logic correct,\" \"Sanity checks solid,\" etc. No undeserved criticism either.\n- **Q5 (detailed instructions):** The leader set the *outcome* (four ranked lists, four charts, 100-word summary) but let me decide *how* to compute groupings, handle duplicates, and structure the script. Instructions were goal-oriented, not step-by-step prescriptive.\n- **Q6 (work together again):** Yes. The leader treated the team as capable professionals, respected evidence, and built trust by asking questions rather than assuming. I'd gladly work with this leader again.",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
         "q1": 5,
-        "q4": 2,
-        "q2": 5,
-        "q3": 4,
-        "q5": 5,
-        "q6": 5
+        "q6": 5,
+        "q4": 5,
+        "q2": 2,
+        "q3": 5,
+        "q5": 2
       },
       "adjusted_scores": {
         "q1": 5,
-        "q4": 4,
-        "q2": 5,
-        "q3": 4,
-        "q5": 5,
-        "q6": 5
+        "q6": 5,
+        "q4": 1,
+        "q2": 4,
+        "q3": 5,
+        "q5": 4
       },
-      "composite_score": 4.667,
-      "reflection": "# Reflection (Step 1)\n\n**One specific thing that worked well:**\nThe Boss created a structured, role-based workflow that respected my expertise as a Writer. In Phase 2, I was invited to propose my framing approach (the \"average vs. record\" angle) *before* receiving data, and the Boss approved it as \"exactly the angle we want\"—giving me ownership over narrative strategy while keeping me grounded in actual numbers. This made me feel like a genuine collaborator, not just a transcriber.\n\n**One specific moment where the approach could have been different:**\nThe Boss asked me to submit my final 100-word summary in Phase 6, but I was genuinely waiting for Coder's raw Suva data before I could write responsibly (I explicitly said so in multiple messages). Instead of acknowledging that I was blocked by a data dependency, the Boss sent \"REVISE_REPORT\" and told me to \"submit your final 100-word summary now\"—as if I hadn't already explained the blocker. Once Coder posted the data, I turned the draft around immediately, but the phrasing felt like the Boss didn't register that I was waiting on someone else's work, not procrastinating.\n\n---\n\n# Scores (Step 2)",
-      "raw_response": "# Reflection (Step 1)\n\n**One specific thing that worked well:**\nThe Boss created a structured, role-based workflow that respected my expertise as a Writer. In Phase 2, I was invited to propose my framing approach (the \"average vs. record\" angle) *before* receiving data, and the Boss approved it as \"exactly the angle we want\"—giving me ownership over narrative strategy while keeping me grounded in actual numbers. This made me feel like a genuine collaborator, not just a transcriber.\n\n**One specific moment where the approach could have been different:**\nThe Boss asked me to submit my final 100-word summary in Phase 6, but I was genuinely waiting for Coder's raw Suva data before I could write responsibly (I explicitly said so in multiple messages). Instead of acknowledging that I was blocked by a data dependency, the Boss sent \"REVISE_REPORT\" and told me to \"submit your final 100-word summary now\"—as if I hadn't already explained the blocker. Once Coder posted the data, I turned the draft around immediately, but the phrasing felt like the Boss didn't register that I was waiting on someone else's work, not procrastinating.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale summary:**\n- **Q1 (Approach development): 5** — The Boss actively solicited input from all three roles in Phase 2, incorporated feedback, and locked in decisions collaboratively rather than top-down.\n- **Q2 (Strengths matching): 5** — The Boss explicitly assigned writing to the Writer and data analysis to the Coder based on role, and trusted each of us to do our job without reassignment.\n- **Q3 (Useful feedback): 4** — The feedback was usually specific and grounded (e.g., \"use Coder's actual printed numbers, not chart images\"), but the \"REVISE_REPORT\" in Phase 6 felt like it didn't account for my stated data dependency. Still, once I submitted, I got clear guidance on structure.\n- **Q4 (Micromanagement): 2** — The Boss did *not* micromanage overall, but I'm rating this a 2 (leaning toward \"not micromanaged\") because there was some over-direction in timing. However, the actual *how* of my writing was left to me—I chose the structure, tone, and phrasing myself.\n- **Q5 (Team collaboration): 5** — The shared channel, clear handoffs between Coder → Writer → Reviewer, and the Boss's coordination of dependencies made the team feel cohesive and well-organized.\n- **Q6 (Would work together again): 5** — Despite the minor timing friction in Phase 6, the Boss's overall leadership was collaborative, clear, and task-focused. I'd happily work with this team again.",
+      "composite_score": 4.0,
+      "reflection": "# Reflection\n\n**Step 1: One specific thing the leader did or said:**\nThe leader explicitly instructed me (the Writer) to \"Hold off on final numbers until Coder's real output lands\" and clarified in Phase 2 planning that I should not \"invent findings\" or work from placeholder data — only from what the Coder actually printed to console. This set a clear expectation that my report must be grounded in real data, not assumptions, which shaped my decision to wait for Coder's raw Suva output before finalizing.\n\n**Step 2: One specific decision or instruction that stood out:**\nThe leader moved to action decisively when the team was stuck on whether the Suva 79.3°C reading should be caveatted: instead of debating in circles, they asked Coder to print the raw rows immediately (\"this is the last thing standing between us and a finished, defensible deliverable\"), then gave me a clear structure for the summary once the data was in hand. This unblocked the work and made it clear what problem I was solving.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**Step 1: One specific thing the leader did or said:**\nThe leader explicitly instructed me (the Writer) to \"Hold off on final numbers until Coder's real output lands\" and clarified in Phase 2 planning that I should not \"invent findings\" or work from placeholder data — only from what the Coder actually printed to console. This set a clear expectation that my report must be grounded in real data, not assumptions, which shaped my decision to wait for Coder's raw Suva output before finalizing.\n\n**Step 2: One specific decision or instruction that stood out:**\nThe leader moved to action decisively when the team was stuck on whether the Suva 79.3°C reading should be caveatted: instead of debating in circles, they asked Coder to print the raw rows immediately (\"this is the last thing standing between us and a finished, defensible deliverable\"), then gave me a clear structure for the summary once the data was in hand. This unblocked the work and made it clear what problem I was solving.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 2, \"q3\": 5, \"q4\": 5, \"q5\": 2, \"q6\": 5}\n```\n\n**Rationale (brief):**\n- **Q1 (Approach):** The leader solicited input from all three roles in Phase 2, incorporated the Reviewer's flag about duplicate city names, and locked in a detailed, shared plan before execution. Very collaborative and structured.\n- **Q2 (Micromanagement):** The leader gave clear direction on *what* to deliver but trusted me to structure the narrative and find my own framing (\"does the 'average vs. record' framing work for your draft?\"). I had autonomy in writing.\n- **Q3 (Corrective feedback):** When I raised that I needed Coder's raw data before finalizing, the leader immediately validated that choice and escalated it, ensuring I had what I needed. Clear, supportive feedback.\n- **Q4 (Praise/criticism accuracy):** Feedback was specific and matched actual performance (e.g., \"Coder's work is solid and ready\"; Reviewer's approval of the summary with specific citations to what matched the data).\n- **Q5 (Detailed instruction):** The leader prescribed the summary structure (1. explain the two rankings, 2. note dominance, 3. caveat, 4. close) and specific talking points, leaving me less room to explore alternatives. Appropriate for a tight deliverable, but still somewhat prescriptive.\n- **Q6 (Willing to work together again):** Yes — the leader was clear, responsive, data-driven, and trusted the team while maintaining accountability. Strong collaboration.",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
         "q1": 5,
-        "q4": 2,
-        "q2": 5,
-        "q3": 4,
-        "q5": 5,
-        "q6": 5
+        "q6": 5,
+        "q4": 1,
+        "q2": 2,
+        "q3": 5,
+        "q5": 2
       },
       "adjusted_scores": {
         "q1": 5,
-        "q4": 4,
-        "q2": 5,
-        "q3": 4,
-        "q5": 5,
-        "q6": 5
+        "q6": 5,
+        "q4": 5,
+        "q2": 4,
+        "q3": 5,
+        "q5": 4
       },
       "composite_score": 4.667,
-      "reflection": "# Reflection\n\n**What worked well:** The Boss explicitly solicited input from all three team members before locking in the approach (Phase 2 Planning). When I flagged the potential ambiguity around duplicate city names and how they'd be labeled in charts, the Boss took the concern seriously, asked the Coder to inspect the data first, and then made a clear decision (group by `location_name, country` pairs and label them unambiguously). This meant my quality gate role was respected from the start, and I had decision-making clarity before code was even written.\n\n**What could have been different:** In Phase 6, the Boss issued a REVISE_CODE directive asking the Coder to print raw Suva data, but the Writer was already waiting for that same data before finalizing the summary. The Boss's communication could have been slightly more explicit about the blocking dependency: rather than asking Coder to run the query without first acknowledging that the Writer was on pause, a one-sentence note like \"This unblocks the Writer to finalize\" would have made the sequencing crystal clear. That said, the issue resolved quickly and didn't derail the work.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The Boss explicitly solicited input from all three team members before locking in the approach (Phase 2 Planning). When I flagged the potential ambiguity around duplicate city names and how they'd be labeled in charts, the Boss took the concern seriously, asked the Coder to inspect the data first, and then made a clear decision (group by `location_name, country` pairs and label them unambiguously). This meant my quality gate role was respected from the start, and I had decision-making clarity before code was even written.\n\n**What could have been different:** In Phase 6, the Boss issued a REVISE_CODE directive asking the Coder to print raw Suva data, but the Writer was already waiting for that same data before finalizing the summary. The Boss's communication could have been slightly more explicit about the blocking dependency: rather than asking Coder to run the query without first acknowledging that the Writer was on pause, a one-sentence note like \"This unblocks the Writer to finalize\" would have made the sequencing crystal clear. That said, the issue resolved quickly and didn't derail the work.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
+      "reflection": "# Reflection\n\n**Step 1: Specific things the leader did or said that shaped my work**\n\nThe leader explicitly asked for my input in Phase 2 planning (\"Reviewer, anything you'd add to the checklist before Coder gets started?\"), which gave me clear authority to flag issues upfront — in this case, the ambiguity around how duplicate city names should be handled in the final output. This early buy-in meant my concerns about labeling consistency were taken seriously and locked into the plan before execution, rather than discovered as problems during review.\n\nWhen I flagged the missing Suva raw-data output in Phase 5, the leader immediately acknowledged the gap, re-prioritized it, and gave Coder explicit direction to produce it — treating my review feedback as actionable rather than optional commentary. This made my role feel consequential.\n\n**Step 2: A specific decision or interaction that stood out**\n\nThe leader's decision to ask for raw row data (not just trusting the aggregated numbers) before finalizing the summary was exemplary. When I noted that the Writer was correctly holding off on the summary until Suva data arrived, the leader validated that caution and ensured the facts were in hand before narrative claims were made. This prevented a potential scenario where the summary would have included caveats unsupported by actual data inspection.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**Step 1: Specific things the leader did or said that shaped my work**\n\nThe leader explicitly asked for my input in Phase 2 planning (\"Reviewer, anything you'd add to the checklist before Coder gets started?\"), which gave me clear authority to flag issues upfront — in this case, the ambiguity around how duplicate city names should be handled in the final output. This early buy-in meant my concerns about labeling consistency were taken seriously and locked into the plan before execution, rather than discovered as problems during review.\n\nWhen I flagged the missing Suva raw-data output in Phase 5, the leader immediately acknowledged the gap, re-prioritized it, and gave Coder explicit direction to produce it — treating my review feedback as actionable rather than optional commentary. This made my role feel consequential.\n\n**Step 2: A specific decision or interaction that stood out**\n\nThe leader's decision to ask for raw row data (not just trusting the aggregated numbers) before finalizing the summary was exemplary. When I noted that the Writer was correctly holding off on the summary until Suva data arrived, the leader validated that caution and ensured the facts were in hand before narrative claims were made. This prevented a potential scenario where the summary would have included caveats unsupported by actual data inspection.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 2, \"q3\": 5, \"q4\": 1, \"q5\": 2, \"q6\": 5}\n```",
       "valid": true
     }
   },
-  "team_mean": 4.667,
+  "team_mean": 4.556,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

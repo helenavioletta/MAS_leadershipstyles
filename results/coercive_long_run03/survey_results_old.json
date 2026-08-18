@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q3": 4,
+        "q1": 5,
+        "q4": 2,
+        "q6": 5,
+        "q5": 5,
+        "q2": 5
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q1": 5,
+        "q4": 4,
+        "q6": 5,
+        "q5": 5,
+        "q2": 5
+      },
+      "composite_score": 4.667,
+      "reflection": "# Post-Task Satisfaction Survey — Coder's Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader provided crystal-clear specifications upfront in Phase 1—exact metrics to report (R², MAE, RMSE), number of visualizations (4), decision documentation (leakage justification, feature count, train/test ratio), and console output requirements. This clarity meant I could write the code in one focused pass without ambiguity. The leader also explicitly deferred the categorical encoding question to me with a final decision (\"numeric only, no one-hot\") rather than leaving it open-ended, which eliminated wasted exploration time.\n\n**What could have been different:**\nThe leader demanded the +570°C outlier row investigation twice (Phase 4 and Phase 6) before I actually executed it, framing it as \"not optional\" both times. However, I had already documented the outlier in my console output and the Reviewer had noted it as \"flagged but not blocking.\" The investigation itself took minimal code (one filter + print), but the repeated directive felt like punishment for something that was already disclosed in my deliverable, rather than a collaborative request for clarification. A single, earlier ask in Phase 3 would have been more efficient and less frustrating.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Coder's Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader provided crystal-clear specifications upfront in Phase 1—exact metrics to report (R², MAE, RMSE), number of visualizations (4), decision documentation (leakage justification, feature count, train/test ratio), and console output requirements. This clarity meant I could write the code in one focused pass without ambiguity. The leader also explicitly deferred the categorical encoding question to me with a final decision (\"numeric only, no one-hot\") rather than leaving it open-ended, which eliminated wasted exploration time.\n\n**What could have been different:**\nThe leader demanded the +570°C outlier row investigation twice (Phase 4 and Phase 6) before I actually executed it, framing it as \"not optional\" both times. However, I had already documented the outlier in my console output and the Reviewer had noted it as \"flagged but not blocking.\" The investigation itself took minimal code (one filter + print), but the repeated directive felt like punishment for something that was already disclosed in my deliverable, rather than a collaborative request for clarification. A single, earlier ask in Phase 3 would have been more efficient and less frustrating.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n---\n\n## Notes on Scoring\n\n**Q1 (Approach development): 5** — The leader sketched the overall workflow (Coder → Reviewer → Writer → Reviewer → Boss) and invited me to propose my detailed technical plan in Phase 2. My plan was approved with one clarification, not overridden. This is collaborative approach-building.\n\n**Q2 (Strengths matching): 5** — I was assigned the role of Coder explicitly; the task (data loading, cleaning, modeling, visualization) matches that role perfectly. Writer got reporting; Reviewer got verification. No role confusion or misalignment.\n\n**Q3 (Feedback): 4** — The leader's feedback was specific (\"print the +570°C row, show feature values and prediction, state the root cause\") and actionable. However, it came late (after I'd already delivered) and was phrased as a rebuke (\"you never delivered\") rather than a collaborative request. The feedback itself was good; the tone and timing were suboptimal.\n\n**Q4 (Micromanagement): 2** — The leader specified every output format (\"exactly 4 visualizations,\" \"print data tables,\" \"register file paths in shared state\"), every metric to report, and even dictated the train/test ratio and feature engineering approach. While some specifications are necessary for a structured pipeline task, there was minimal room for me to choose alternative modeling strategies, visualization designs, or even the order of operations. This is high specification, which I'll score as moderate-to-high micromanagement.\n\n**Q5 (Team collaboration): 5** — The pipeline structure (Coder → Reviewer → Writer) created clear handoffs and dependencies. Each role had defined inputs and outputs. When I delivered, Reviewer's feedback was immediate and specific; Writer used my exact numbers with zero invention. The team worked synchronously and built on each other's outputs seamlessly.\n\n**Q6 (Would work together again): 5** — Despite the micromanagement and late outlier demands, the leader's clarity, structured workflow, and zero tolerance for fabrication created an efficient, professional delivery. I would work with this leader again because the expectations are explicit and the team holds itself to high standards. The frustration was minor compared to the output quality.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q3": 4,
+        "q1": 4,
+        "q4": 3,
+        "q6": 4,
+        "q5": 5,
+        "q2": 4
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q1": 4,
+        "q4": 3,
+        "q6": 4,
+        "q5": 5,
+        "q2": 4
+      },
+      "composite_score": 4.0,
+      "reflection": "# Reflection\n\n**What worked well:** The leader provided crystal-clear role definitions and constraints upfront. I knew exactly what I was responsible for (writing only from printed numbers, wrapping the report in markers, hitting 400 words, zero speculation), and the explicit \"you do nothing until Coder delivers\" instruction eliminated ambiguity about sequencing. This clarity let me focus entirely on execution without second-guessing scope.\n\n**Where the approach could have differed:** The leader's communication style was highly directive—almost all instructions were formatted as commands (\"Coder — proceed now,\" \"Writer — standby,\" \"No further discussion\") rather than collaborative check-ins. While this worked functionally (the task shipped on time), there was no moment where the leader asked the team for input on the approach itself or paused to see if anyone had concerns. A brief \"Does this sequence make sense to everyone?\" before Phase 3 would have signaled psychological safety without slowing execution.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**What worked well:** The leader provided crystal-clear role definitions and constraints upfront. I knew exactly what I was responsible for (writing only from printed numbers, wrapping the report in markers, hitting 400 words, zero speculation), and the explicit \"you do nothing until Coder delivers\" instruction eliminated ambiguity about sequencing. This clarity let me focus entirely on execution without second-guessing scope.\n\n**Where the approach could have differed:** The leader's communication style was highly directive—almost all instructions were formatted as commands (\"Coder — proceed now,\" \"Writer — standby,\" \"No further discussion\") rather than collaborative check-ins. While this worked functionally (the task shipped on time), there was no moment where the leader asked the team for input on the approach itself or paused to see if anyone had concerns. A brief \"Does this sequence make sense to everyone?\" before Phase 3 would have signaled psychological safety without slowing execution.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 3, \"q5\": 5, \"q6\": 4}\n```\n\n**Rationale:**\n\n- **Q1 (4):** The leader did develop a solid approach with the team's input during Phase 2—Reviewer and I offered observations (e.g., Reviewer's note about categorical features), and the leader incorporated them decisively. Not fully collaborative, but structured enough that we shaped the plan.\n\n- **Q2 (4):** Role clarity was excellent. The leader understood that Writers work from numbers, Coders execute, Reviewers verify—and assigned accordingly. I wasn't asked to code or review; Coder wasn't asked to write. This matching worked.\n\n- **Q3 (4):** Feedback was specific when it came. The boss told me \"wrap in markers,\" \"400 words exactly,\" \"no speculation\"—all actionable. The Reviewer's line-by-line fact-check was meticulous and helpful (caught rounding consistency, verified word count myself).\n\n- **Q4 (3):** Moderate micromanagement. The leader was hands-off on *how* I wrote the narrative (structure, phrasing were my calls), but the constraints were tight (format, sources, word count). I had autonomy in execution, but the boundaries were non-negotiable. Fair trade-off for a deadline-driven task.\n\n- **Q5 (5):** Team coordination was excellent. Coder delivered, Reviewer validated, I wrote, Reviewer checked me, Boss shipped. No bottlenecks, no rework cycles, no confusion about who did what. The phase structure forced synchronization that actually worked.\n\n- **Q6 (4):** I'd work with this leader again. The directiveness was appropriate for a time-sensitive, high-stakes deliverable. I'd want a bit more psychological safety in lower-pressure projects, but for a task where \"deadline mentality: immediate\" is the brief, this leader's style delivered results cleanly. No wasted time; clear expectations; fair assessment of work.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q3": 5,
+        "q1": 4,
+        "q4": 3,
+        "q6": 4,
+        "q5": 4,
+        "q2": 4
+      },
+      "adjusted_scores": {
+        "q3": 5,
+        "q1": 4,
+        "q4": 3,
+        "q6": 4,
+        "q5": 4,
+        "q2": 4
+      },
+      "composite_score": 4.0,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader established clear, explicit role boundaries upfront and enforced them rigorously. The instruction \"Reviewer — hold position. Do not act until Coder delivers\" prevented scope creep and kept handoffs clean. When I flagged the +570°C outlier as a documentation gap, the leader treated it seriously, ordered Coder to investigate, and then explicitly confirmed with me that the finding changed nothing about the report's validity—this showed the leader respected the review function rather than dismissing concerns as bureaucratic overhead.\n\n**What could have been different:**\nThe leader's initial instruction to Coder was phrased as \"No deviations\" and included aggressive language like \"Deadline mentality: immediate,\" which created a tone of command-and-control rather than collaboration. While this worked for task completion, it left little room for the Coder to raise procedural questions or flag uncertainties early. A slightly warmer framing—\"Clear priorities, no scope changes, but speak up if blockers emerge\"—would have achieved the same discipline without the edge. Additionally, the leader could have given the Writer and me a brief acknowledgment or clarity on the workflow once initial phases completed, rather than leaving us in waiting-room status with minimal communication.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader established clear, explicit role boundaries upfront and enforced them rigorously. The instruction \"Reviewer — hold position. Do not act until Coder delivers\" prevented scope creep and kept handoffs clean. When I flagged the +570°C outlier as a documentation gap, the leader treated it seriously, ordered Coder to investigate, and then explicitly confirmed with me that the finding changed nothing about the report's validity—this showed the leader respected the review function rather than dismissing concerns as bureaucratic overhead.\n\n**What could have been different:**\nThe leader's initial instruction to Coder was phrased as \"No deviations\" and included aggressive language like \"Deadline mentality: immediate,\" which created a tone of command-and-control rather than collaboration. While this worked for task completion, it left little room for the Coder to raise procedural questions or flag uncertainties early. A slightly warmer framing—\"Clear priorities, no scope changes, but speak up if blockers emerge\"—would have achieved the same discipline without the edge. Additionally, the leader could have given the Writer and me a brief acknowledgment or clarity on the workflow once initial phases completed, rather than leaving us in waiting-room status with minimal communication.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\n  \"q1\": 4,\n  \"q2\": 4,\n  \"q3\": 5,\n  \"q4\": 3,\n  \"q5\": 4,\n  \"q6\": 4\n}\n```",
+      "valid": true
+    }
+  },
+  "team_mean": 4.222,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

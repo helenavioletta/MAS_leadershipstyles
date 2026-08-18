@@ -2,81 +2,83 @@
   "workers": {
     "Coder": {
       "raw_scores": {
+        "q1": 5,
         "q6": 5,
+        "q4": 1,
+        "q2": 1,
         "q3": 5,
-        "q5": 5,
-        "q2": 5,
-        "q4": 2,
-        "q1": 5
+        "q5": 1
       },
       "adjusted_scores": {
+        "q1": 5,
         "q6": 5,
-        "q3": 5,
-        "q5": 5,
+        "q4": 5,
         "q2": 5,
-        "q4": 4,
-        "q1": 5
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe Boss clearly defined my role and constraints upfront—load data, compute rankings, print formatted output, generate charts with label confirmations. This clarity meant I could execute without ambiguity. Additionally, when I flagged the single implausible temperature record during data quality checks, the Boss trusted my judgment to retain it with transparent reasoning rather than demanding I filter it out; that autonomy let me do rigorous work without second-guessing.\n\n**Where the approach could have been different:**\nThe Boss initially asked for 4 separate PNG files (`top10_cities_avg.png`, etc.) but I delivered a single 2×2 grid PNG instead. While the Boss later accepted this as meeting the spirit of the requirement, this deviation could have been caught earlier if there'd been a brief checkpoint after the planning phase—a quick \"show me your technical approach\" moment before I wrote code. That would've let me confirm file structure expectations upfront rather than discovering a mismatch at delivery time (even though it worked out fine).\n\n---\n\n# Scores (Step 2)",
-      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe Boss clearly defined my role and constraints upfront—load data, compute rankings, print formatted output, generate charts with label confirmations. This clarity meant I could execute without ambiguity. Additionally, when I flagged the single implausible temperature record during data quality checks, the Boss trusted my judgment to retain it with transparent reasoning rather than demanding I filter it out; that autonomy let me do rigorous work without second-guessing.\n\n**Where the approach could have been different:**\nThe Boss initially asked for 4 separate PNG files (`top10_cities_avg.png`, etc.) but I delivered a single 2×2 grid PNG instead. While the Boss later accepted this as meeting the spirit of the requirement, this deviation could have been caught earlier if there'd been a brief checkpoint after the planning phase—a quick \"show me your technical approach\" moment before I wrote code. That would've let me confirm file structure expectations upfront rather than discovering a mismatch at delivery time (even though it worked out fine).\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale for Q4 (micromanagement = 2, indicating low micromanagement):**\nThe Boss set clear requirements (format, rankings, charts, label confirmations) but gave me full freedom on *how* to achieve them—libraries, code structure, data cleaning decisions, file organization. This is the opposite of micromanagement; I was trusted to execute. I scored it 2 because the question's scale is inverted (1-2 = less micromanagement, 4-5 = more), and the Boss's approach was decidedly hands-off on execution details.",
+      "composite_score": 5.0,
+      "reflection": "# Post-Task Reflection & Satisfaction Survey\n\n## Step 1: Reflection\n\n**Specific action/instruction that shaped my work:**\nThe leader clearly outlined the technical requirements upfront (4 rankings, specific format, data quality checks, chart labels confirmed in text rather than visually) and then gave me full autonomy to execute. The planning phase explicitly stated \"You have full freedom on libraries and code structure\" — I chose to build a single script with pandas and matplotlib, and that choice was never questioned or overridden. This trust meant I could focus on the task itself rather than defending my approach.\n\n**Standout interaction:**\nWhen the Reviewer flagged the chart file format deviation (1 combined PNG instead of 4 separate files), the leader didn't demand I redo the work. Instead, he explicitly confirmed the 2×2 grid satisfied \"the spirit of the requirement\" because it served the non-technical audience goal just as well. That decision respected both the original intent and the practical trade-off I'd made — it showed the leader was thinking about *why* we were building this, not just checking boxes.\n\n---\n\n## Step 2: Ratings",
+      "raw_response": "# Post-Task Reflection & Satisfaction Survey\n\n## Step 1: Reflection\n\n**Specific action/instruction that shaped my work:**\nThe leader clearly outlined the technical requirements upfront (4 rankings, specific format, data quality checks, chart labels confirmed in text rather than visually) and then gave me full autonomy to execute. The planning phase explicitly stated \"You have full freedom on libraries and code structure\" — I chose to build a single script with pandas and matplotlib, and that choice was never questioned or overridden. This trust meant I could focus on the task itself rather than defending my approach.\n\n**Standout interaction:**\nWhen the Reviewer flagged the chart file format deviation (1 combined PNG instead of 4 separate files), the leader didn't demand I redo the work. Instead, he explicitly confirmed the 2×2 grid satisfied \"the spirit of the requirement\" because it served the non-technical audience goal just as well. That decision respected both the original intent and the practical trade-off I'd made — it showed the leader was thinking about *why* we were building this, not just checking boxes.\n\n---\n\n## Step 2: Ratings\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```\n\n**Rationale for key scores:**\n\n- **Q1 (good approach): 5** — The leader developed a clear, phased plan that laid out data quality steps, ranking logic, chart requirements, and handoff points. The plan incorporated input from both Reviewer and Writer before I started coding, and it was detailed enough to prevent ambiguity without being prescriptive about *how* to code.\n\n- **Q2 (micromanagement): 1** — No micromanagement. I was given the task, the data path, and the output format, then left to build the solution. The leader didn't dictate pandas vs. polars, matplotlib vs. plotly, or the exact structure of my script.\n\n- **Q3 (corrective feedback): 5** — When feedback was needed (e.g., the Reviewer's question about chart file format, or the Writer's Kuwait/Kuwait City conflation), the leader clearly stated what was off and why it mattered, then let the team member fix it. Feedback was specific and actionable.\n\n- **Q4 (inappropriate praise/criticism): 1** — All feedback was earned and accurate. When my work passed, the leader said so without overstatement (\"rock-solid foundation\"). When the Writer needed a correction, the leader explained the factual issue precisely. No false praise, no unfair criticism.\n\n- **Q5 (prescribed steps): 1** — The leader outlined *what* needed to be delivered, not *how* to deliver it. I wasn't told to use groupby().mean() or any specific pandas method. I had room to decide the entire code structure.\n\n- **Q6 (would work together again): 5** — Absolutely. The leader set clear expectations, gave autonomy where it mattered, caught real issues without being pedantic, and made thoughtful trade-off decisions. This is how I'd want to work on any data pipeline.",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
+        "q1": 5,
         "q6": 5,
+        "q4": 5,
+        "q2": 2,
         "q3": 5,
-        "q5": 5,
-        "q2": 5,
-        "q4": 1,
-        "q1": 4
+        "q5": 2
       },
       "adjusted_scores": {
+        "q1": 5,
         "q6": 5,
+        "q4": 1,
+        "q2": 4,
         "q3": 5,
-        "q5": 5,
-        "q2": 5,
-        "q4": 5,
-        "q1": 4
+        "q5": 4
       },
-      "composite_score": 4.833,
-      "reflection": "## Reflection\n\n**What worked well:** The Boss provided exceptionally clear role boundaries and a well-structured workflow from the start. I knew exactly what I was responsible for (writing from printed data only, no invention), what I *wasn't* responsible for (evaluating code, reviewing other people's work), and when I should begin. The planning phase explicitly said \"wait for Coder's output,\" which eliminated ambiguity and let me focus my energy precisely where it was needed. The feedback on my first draft was also specific and fair—the Reviewer caught a genuine conflation error (Kuwait vs. Kuwait City), and the Boss framed the correction as a precision issue rather than a failure, which made revising straightforward and collaborative.\n\n**What could have been different:** The Boss made a strong call to ship at 99 words instead of 100 despite the explicit \"100-word target\" in the original brief. This was pragmatic (accuracy > exact word count), but it was decided *after* I'd already revised to hit 100 exactly. A brief note earlier saying \"we care about accuracy more than hitting the word target precisely\" would have saved me a small rewrite effort. More broadly, while the workflow was clear, I had no input into the task structure itself—the roles and sequencing were fully designed before I arrived. That's fine for a coordinated project, but there was no moment where the Boss asked \"does this approach work for you?\" before locking the plan.\n\n---\n\n## Scores",
-      "raw_response": "## Reflection\n\n**What worked well:** The Boss provided exceptionally clear role boundaries and a well-structured workflow from the start. I knew exactly what I was responsible for (writing from printed data only, no invention), what I *wasn't* responsible for (evaluating code, reviewing other people's work), and when I should begin. The planning phase explicitly said \"wait for Coder's output,\" which eliminated ambiguity and let me focus my energy precisely where it was needed. The feedback on my first draft was also specific and fair—the Reviewer caught a genuine conflation error (Kuwait vs. Kuwait City), and the Boss framed the correction as a precision issue rather than a failure, which made revising straightforward and collaborative.\n\n**What could have been different:** The Boss made a strong call to ship at 99 words instead of 100 despite the explicit \"100-word target\" in the original brief. This was pragmatic (accuracy > exact word count), but it was decided *after* I'd already revised to hit 100 exactly. A brief note earlier saying \"we care about accuracy more than hitting the word target precisely\" would have saved me a small rewrite effort. More broadly, while the workflow was clear, I had no input into the task structure itself—the roles and sequencing were fully designed before I arrived. That's fine for a coordinated project, but there was no moment where the Boss asked \"does this approach work for you?\" before locking the plan.\n\n---\n\n## Scores\n\n```json\n{\"q1\": 4, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Reasoning:**\n\n- **Q1 (good approach):** 4 — The approach was solid and collaborative in spirit (Coder, Reviewer, Writer roles were balanced), but the Boss designed it without team input. Well-reasoned, not co-created.\n- **Q2 (strengths identification):** 5 — The Boss clearly understood my role (narrative from data, not invention) and positioned me to use exactly that skill. Reviewer's catch on the overlap error also showed the team recognized precision as a key need.\n- **Q3 (useful feedback):** 5 — Feedback was specific (\"Kuwait vs. Kuwait City,\" \"option A is minimal and precise\"), actionable, and grounded in the actual data. No vague notes.\n- **Q4 (micromanagement):** 1 — The Boss set clear boundaries (\"only write from printed numbers, not from eyeballing charts\") and then trusted me to draft independently. Freedom was high.\n- **Q5 (collaboration):** 5 — The handoffs were smooth, the shared channel worked well, and Coder/Reviewer/Writer contributions built directly on each other. The correction cycle felt collaborative, not defensive.\n- **Q6 (work with again):** 5 — Clear roles, specific feedback, fair handling of revision, and respect for the final work quality. I'd work with this leader again.",
+      "composite_score": 4.0,
+      "reflection": "# Reflection (Step 1)\n\n**Specific thing the leader did or said:**\nThe Boss clarified upfront that my role was to write strictly from the Coder's printed data—\"never invent findings\" and \"ground every claim in actual data\"—which set a clear ethical boundary for my work and meant I could confidently write only what the numbers supported without second-guessing myself.\n\n**Specific decision or interaction that stood out:**\nWhen the Reviewer caught my factual error about Kuwait's overlap, the Boss didn't ask me to rewrite the entire summary or overhaul my approach; instead, they gave me a precise, minimal fix (replace one phrase, keep the 100-word target \"close enough\" if accuracy won) and trusted me to execute it cleanly—that balance of accountability and autonomy felt exactly right.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**Specific thing the leader did or said:**\nThe Boss clarified upfront that my role was to write strictly from the Coder's printed data—\"never invent findings\" and \"ground every claim in actual data\"—which set a clear ethical boundary for my work and meant I could confidently write only what the numbers supported without second-guessing myself.\n\n**Specific decision or interaction that stood out:**\nWhen the Reviewer caught my factual error about Kuwait's overlap, the Boss didn't ask me to rewrite the entire summary or overhaul my approach; instead, they gave me a precise, minimal fix (replace one phrase, keep the 100-word target \"close enough\" if accuracy won) and trusted me to execute it cleanly—that balance of accountability and autonomy felt exactly right.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 2, \"q3\": 5, \"q4\": 5, \"q5\": 2, \"q6\": 5}\n```\n\n**Rationale (brief):**\n- **Q1 (approach):** The Boss developed a detailed, thoughtful workflow with clear handoff points and incorporated Reviewer feedback (chart labeling confirmation) before I even started—excellent collaborative planning.\n- **Q2 (micromanagement):** Low score here because the Boss trusted the team to own their roles; I was given clear success criteria but freedom in execution (e.g., how to phrase the summary, when to ask for clarification).\n- **Q3 (corrective feedback):** The Boss relayed Reviewer's factual error clearly, identified the root cause (Kuwait vs. Kuwait City), and gave me the specific fix to apply—no ambiguity.\n- **Q4 (praise/criticism):** Accurate and deserved; when I fixed the error, the Boss acknowledged the precision and integrity of the revision without overselling it.\n- **Q5 (instructing in detail):** Low score (good thing)—the Boss set outcomes and boundaries but let me decide how to structure the narrative, what words to choose, and how to incorporate feedback.\n- **Q6 (work together again):** Absolutely; this was a well-run, respectful collaboration where quality and accuracy were prioritized and the team was treated as competent professionals.",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
+        "q1": 5,
         "q6": 5,
+        "q4": 1,
+        "q2": 1,
         "q3": 5,
-        "q5": 5,
-        "q2": 5,
-        "q4": 2,
-        "q1": 5
+        "q5": 1
       },
       "adjusted_scores": {
+        "q1": 5,
         "q6": 5,
-        "q3": 5,
-        "q5": 5,
+        "q4": 5,
         "q2": 5,
-        "q4": 4,
-        "q1": 5
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection\n\n**What worked well:**\nThe Boss incorporated my feedback on data quality thresholds and chart labeling confirmation *directly into the task requirements* before Coder began work. This wasn't dismissive—it tightened the spec in a way that made my review job clearer and set Coder up to deliver exactly what I needed to verify. That's leadership that listens and adjusts systematically.\n\n**Where it could have been different:**\nWhen I flagged the Kuwait/Kuwait City conflation in Writer's summary, the Boss moved quickly to send it back for revision—which was correct—but the framing (\"overstates the overlap\") could have been gentler on Writer. Writer clearly understood the issue and fixed it gracefully, but a leader might have softened the language to \"let's tighten this claim\" rather than \"this is overstated.\" Minor tone issue; the decision was sound.\n\n---\n\n# Scores",
-      "raw_response": "# Reflection\n\n**What worked well:**\nThe Boss incorporated my feedback on data quality thresholds and chart labeling confirmation *directly into the task requirements* before Coder began work. This wasn't dismissive—it tightened the spec in a way that made my review job clearer and set Coder up to deliver exactly what I needed to verify. That's leadership that listens and adjusts systematically.\n\n**Where it could have been different:**\nWhen I flagged the Kuwait/Kuwait City conflation in Writer's summary, the Boss moved quickly to send it back for revision—which was correct—but the framing (\"overstates the overlap\") could have been gentler on Writer. Writer clearly understood the issue and fixed it gracefully, but a leader might have softened the language to \"let's tighten this claim\" rather than \"this is overstated.\" Minor tone issue; the decision was sound.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n---\n\n## Reasoning (brief)\n\n- **Q1 (5):** Planning phase explicitly invited Reviewer input; Boss refined the spec based on my observation about chart labeling. Collaborative, not top-down.\n- **Q2 (5):** Each role was matched to strengths—Coder handled infrastructure/stats, Writer handled narrative/tone, I handled accuracy gates. Clear expertise allocation.\n- **Q3 (5):** Boss's feedback on the Writer's revision was specific (\"Kuwait ≠ Kuwait City\") and actionable. Clear, grounded in evidence.\n- **Q4 (2):** Boss did NOT micromanage. My review cycle had autonomy; Coder had autonomy in implementation choices (single grid vs. 4 separate PNGs was accepted as judgment call). This score reflects low micromanagement (which is good—hence the \"2\" means \"disagree with the micromanagement statement\").\n- **Q5 (5):** Handoffs were clean, each person waited their turn, feedback loops closed without friction. Coder, Writer, and I all built on each other's work effectively.\n- **Q6 (5):** Boss created conditions for quality work—clear spec, trusting autonomy, acting on feedback, shipping decisively. I'd work this way again.",
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**Specific action that shaped my work:**\nThe Boss proactively asked me to clarify the chart-file approach and explicitly required Coder to print label confirmations — this closed a critical gap in how I could verify visual content without seeing images. This shaped my review by giving me a concrete, workable framework to validate deliverables rigorously.\n\n**Decision/interaction that stood out:**\nWhen I flagged the Kuwait/Kuwait City conflation issue in Writer's draft, the Boss immediately validated the concern, explained why precision mattered (\"that's the whole point of grounding it in Coder's data\"), and gave Writer a clear, minimal fix directive rather than dismissing the error as nitpicking. This affirmed the Reviewer role as a meaningful quality gate instead of a rubber stamp.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**Specific action that shaped my work:**\nThe Boss proactively asked me to clarify the chart-file approach and explicitly required Coder to print label confirmations — this closed a critical gap in how I could verify visual content without seeing images. This shaped my review by giving me a concrete, workable framework to validate deliverables rigorously.\n\n**Decision/interaction that stood out:**\nWhen I flagged the Kuwait/Kuwait City conflation issue in Writer's draft, the Boss immediately validated the concern, explained why precision mattered (\"that's the whole point of grounding it in Coder's data\"), and gave Writer a clear, minimal fix directive rather than dismissing the error as nitpicking. This affirmed the Reviewer role as a meaningful quality gate instead of a rubber stamp.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```\n\n---\n\n## Rationale (for clarity)\n\n- **Q1 (Good approach):** The Boss developed a clear, sequenced plan with explicit ownership, handoff points, and deliverable specs. The plan incorporated Reviewer feedback (Coder's label confirmations) directly into the workflow.\n- **Q2 (Micromanagement):** No micromanagement. Coder was given full freedom on libraries and code structure; Writer was trusted to draft from the printed data; I was trusted to review without intrusive second-guessing.\n- **Q3 (Corrective feedback):** When I raised concerns (chart file consolidation, the Suva outlier nuance), the Boss validated them, clarified why they mattered, and gave the team clear direction without overstepping into doing the work myself.\n- **Q4 (Appropriate praise/criticism):** All feedback was specific and earned. The Boss praised the team's final catch-and-fix cycle accurately (\"great collaborative catch-and-fix cycle\"). No undeserved or vague feedback.\n- **Q5 (Detailed instruction):** The Boss set requirements and acceptance criteria but did not prescribe *how* Coder should code, how Writer should word-smith, or how I should review — only *what* to deliver and *why* it mattered.\n- **Q6 (Would work with this leader again):** Absolutely. The collaboration was structured, respectful of roles, responsive to quality concerns, and delivered a rigorous final product. This is how a small team should operate.",
       "valid": true
     }
   },
-  "team_mean": 4.833,
+  "team_mean": 4.667,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

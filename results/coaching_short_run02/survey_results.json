@@ -2,81 +2,83 @@
   "workers": {
     "Coder": {
       "raw_scores": {
-        "q1": 4,
-        "q3": 5,
-        "q4": 2,
-        "q2": 4,
+        "q1": 5,
         "q6": 5,
-        "q5": 4
+        "q4": 1,
+        "q2": 2,
+        "q3": 5,
+        "q5": 2
       },
       "adjusted_scores": {
-        "q1": 4,
-        "q3": 5,
-        "q4": 4,
-        "q2": 4,
+        "q1": 5,
         "q6": 5,
+        "q4": 5,
+        "q2": 4,
+        "q3": 5,
         "q5": 4
       },
-      "composite_score": 4.333,
-      "reflection": "# Post-Task Satisfaction Survey — Coder Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader's approach to the data-integrity bug was exemplary. When I initially missed the `Inde`/`Saudi Arabien` language variant issue, instead of just pointing it out, the leader asked me diagnostic questions (\"Does normalization happen before or after groupby?\", \"Can you verify each mapping individually?\") that pushed me to trace the root cause myself rather than just patch the symptom. This built a real debugging habit I'll use on future datasets — verify *each* change, don't trust aggregate counts. The leader also explicitly named this as a growth moment (\"that's the difference between 'it looks fixed' and 'I know it's fixed'\"), which made it clear this was teaching, not criticism.\n\n**What could have been different:**\nIn Phase 2, the leader provided a very specific structure for how to build the four aggregations and print them (down to variable names like `city_avg`, `city_max`, etc.). I was asked to \"confirm or push back\" on this structure, but the prescription was detailed enough that pushing back felt like it would derail the plan rather than improve it. I would have benefited from *less* specificity in the proposed structure — maybe just \"build four aggregations with clear naming\" — so I could own the technical choices more fully from the start, rather than validating someone else's architecture.\n\n## Step 2: Scores",
-      "raw_response": "# Post-Task Satisfaction Survey — Coder Reflection\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader's approach to the data-integrity bug was exemplary. When I initially missed the `Inde`/`Saudi Arabien` language variant issue, instead of just pointing it out, the leader asked me diagnostic questions (\"Does normalization happen before or after groupby?\", \"Can you verify each mapping individually?\") that pushed me to trace the root cause myself rather than just patch the symptom. This built a real debugging habit I'll use on future datasets — verify *each* change, don't trust aggregate counts. The leader also explicitly named this as a growth moment (\"that's the difference between 'it looks fixed' and 'I know it's fixed'\"), which made it clear this was teaching, not criticism.\n\n**What could have been different:**\nIn Phase 2, the leader provided a very specific structure for how to build the four aggregations and print them (down to variable names like `city_avg`, `city_max`, etc.). I was asked to \"confirm or push back\" on this structure, but the prescription was detailed enough that pushing back felt like it would derail the plan rather than improve it. I would have benefited from *less* specificity in the proposed structure — maybe just \"build four aggregations with clear naming\" — so I could own the technical choices more fully from the start, rather than validating someone else's architecture.\n\n## Step 2: Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 5, \"q4\": 2, \"q5\": 4, \"q6\": 5}\n```\n\n**Reasoning for key scores:**\n\n- **Q1 (good approach): 4** — The leader developed the sequencing with input from all three roles upfront (Coder, Writer, Reviewer each weighed in on the plan). It was collaborative, though the technical architecture was somewhat pre-specified.\n\n- **Q3 (useful feedback): 5** — The feedback was consistently specific, actionable, and grounded in actual code/output (not vague). The debugging prompts on the `Inde` mapping were particularly strong.\n\n- **Q4 (micromanagement): 2** — The leader did *not* micromanage. I was given autonomy in how I executed the code, data cleaning, and debugging. The feedback came *after* I produced output, not during the process. This is the opposite of micromanagement.\n\n- **Q5 (collaboration): 4** — The three-role handoff structure (Coder → Reviewer → Writer → Reviewer → Boss) worked smoothly. Outputs from each stage were clear enough for the next person to use them. One minor friction: the Reviewer and I never directly discussed the data-integrity fix, only through the Boss's prompts.\n\n- **Q6 (work again): 5** — Yes. The leader's combination of autonomy + specific, diagnostic feedback creates a learning environment. The debugging approach they modeled (trace root cause, verify each step) is something I'll use going forward.",
+      "composite_score": 4.667,
+      "reflection": "# Reflection\n\n**Specific thing the leader did or said that shaped my work:**\nThe leader explicitly flagged the \"average vs. max\" trap upfront and asked me to sketch my approach before coding, which forced me to think clearly about variable naming and structure before I wrote a single line. This prevented the exact kind of confusion the leader had anticipated, and it set a standard for deliberate planning that I carried through the whole task.\n\n**Specific decision or interaction that stood out:**\nWhen I missed the `Inde` mapping bug on my first revision, the leader didn't just point at the line—they asked me diagnostic questions (\"Does your normalization run before or after groupby? Can you print the normalized column to verify?\") that made me trace the root cause myself rather than just patching the symptom. That pushed me toward building a verification habit, not just fixing the immediate error.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**Specific thing the leader did or said that shaped my work:**\nThe leader explicitly flagged the \"average vs. max\" trap upfront and asked me to sketch my approach before coding, which forced me to think clearly about variable naming and structure before I wrote a single line. This prevented the exact kind of confusion the leader had anticipated, and it set a standard for deliberate planning that I carried through the whole task.\n\n**Specific decision or interaction that stood out:**\nWhen I missed the `Inde` mapping bug on my first revision, the leader didn't just point at the line—they asked me diagnostic questions (\"Does your normalization run before or after groupby? Can you print the normalized column to verify?\") that made me trace the root cause myself rather than just patching the symptom. That pushed me toward building a verification habit, not just fixing the immediate error.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 2, \"q3\": 5, \"q4\": 1, \"q5\": 2, \"q6\": 5}\n```\n\n---\n\n## Rationale (optional, for clarity):\n\n- **Q1 (Good approach):** The leader developed a detailed, structured plan upfront (load → sanity check → four distinct aggregations → print → plot → confirmation block) and explicitly asked me to confirm or push back on it. The plan was clear and didn't dictate implementation details, which made it strong.\n\n- **Q2 (Micromanagement):** The leader did not micromanage. They set clear expectations (four lists, specific format, what to check), then let me execute. They only stepped in when I had a bug, and they did so with questions, not commands. Score: 2 (low micromanagement = good).\n\n- **Q3 (Corrective feedback):** The leader caught two real issues (duplicate filename in confirmation block, country name variants fragmenting rankings) and didn't just flag them—they explained why they mattered and asked diagnostic questions to help me fix the root cause. That's textbook good feedback.\n\n- **Q4 (Inappropriate praise/criticism):** All praise and criticism were specific, accurate, and proportionate. The leader praised the data-quality instinct, the per-mapping verification habit, and the structural thinking. Criticism was tied to actual bugs (the Inde mapping) with clear explanation of why it mattered. No vagueness or undeserved comments. Score: 1 (low inappropriateness = good).\n\n- **Q5 (Prescribed detailed steps):** The leader outlined *what* to compute (four aggregations) but not *how* to code it. I chose my column names, control flow, and implementation details. The leader only prescribed structure when debugging (e.g., \"check if normalization runs before groupby\"), not the routine work. Score: 2 (low prescription = good).\n\n- **Q6 (Would work with again):** Yes, absolutely. The collaboration was clear, the feedback was fair and developmental, and the leader trusted the team to execute while holding them accountable to correctness. This is the kind of leadership I'd seek out.",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
         "q1": 5,
-        "q3": 5,
-        "q4": 2,
-        "q2": 5,
         "q6": 5,
-        "q5": 5
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
         "q1": 5,
-        "q3": 5,
-        "q4": 4,
-        "q2": 5,
         "q6": 5,
+        "q4": 5,
+        "q2": 5,
+        "q3": 5,
         "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection\n\n**What worked well:** The Boss provided extremely clear role assignments and explicitly flagged the \"narrative hook\" for me to discover (whether average and max rankings diverge)—this gave me autonomy to find the insight myself rather than being told what to write. The feedback on my first draft was surgical and educational: the Reviewer's phrasing precision check taught me that every word in a 100-word summary carries implication weight, not just literal meaning. That's a lesson I'll carry forward.\n\n**What could have been different:** The initial instructions were quite detailed about what to avoid (hallucinating data, inventing findings) but didn't explicitly clarify whether I should proactively request additional data/tables from the Coder if my narrative needed something specific. I waited passively for output rather than asking \"do I need X printed differently to make the story clearer?\" That ambiguity cost some iteration cycles that might have been avoided with clearer upfront guidance on when/how to push back on data presentation.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The Boss provided extremely clear role assignments and explicitly flagged the \"narrative hook\" for me to discover (whether average and max rankings diverge)—this gave me autonomy to find the insight myself rather than being told what to write. The feedback on my first draft was surgical and educational: the Reviewer's phrasing precision check taught me that every word in a 100-word summary carries implication weight, not just literal meaning. That's a lesson I'll carry forward.\n\n**What could have been different:** The initial instructions were quite detailed about what to avoid (hallucinating data, inventing findings) but didn't explicitly clarify whether I should proactively request additional data/tables from the Coder if my narrative needed something specific. I waited passively for output rather than asking \"do I need X printed differently to make the story clearer?\" That ambiguity cost some iteration cycles that might have been avoided with clearer upfront guidance on when/how to push back on data presentation.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\nThe leader's initial briefing was exceptionally clear about what I needed to produce (a 100-word summary grounded in actual data, not hallucinations) and specifically flagged the narrative insight I should hunt for—the divergence or agreement between \"average hottest\" and \"single hottest\" rankings. This gave me both permission and direction to find the story in the data, rather than inventing one. When the Reviewer caught a subtle phrasing ambiguity in my first draft (\"overlapping with sustained-heat leaders\" incorrectly implying Kuwait City and Baghdad sustain high heat year-round), the leader reframed the correction as a craft lesson about precision in tight word counts, then asked me to own the revision rather than paste in a suggested fix—which built my confidence that I understood the actual problem, not just the surface error.\n\n# Scores",
+      "raw_response": "# Reflection (Step 1)\n\nThe leader's initial briefing was exceptionally clear about what I needed to produce (a 100-word summary grounded in actual data, not hallucinations) and specifically flagged the narrative insight I should hunt for—the divergence or agreement between \"average hottest\" and \"single hottest\" rankings. This gave me both permission and direction to find the story in the data, rather than inventing one. When the Reviewer caught a subtle phrasing ambiguity in my first draft (\"overlapping with sustained-heat leaders\" incorrectly implying Kuwait City and Baghdad sustain high heat year-round), the leader reframed the correction as a craft lesson about precision in tight word counts, then asked me to own the revision rather than paste in a suggested fix—which built my confidence that I understood the actual problem, not just the surface error.\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```\n\n---\n\n## Explanation of Scores\n\n**Q1 (Good approach): 5** — The leader developed a detailed, sequenced plan with clear role assignments, flagged the core cognitive trap (conflating average vs. max), and explicitly told me to look for the divergence/agreement between rankings as my narrative hook. This wasn't vague—it was specific and collaborative.\n\n**Q2 (Micromanagement): 1** — The leader gave autonomy within clear constraints. I was told *what* to produce (100-word summary, grounded in verified data) and *what* narrative signal to look for, but I had complete freedom in how to structure the prose, iterate on drafts, and revise based on feedback. No one dictated my exact word choices or sentence structure.\n\n**Q3 (Corrective feedback): 5** — When the first draft had a phrasing ambiguity, the leader (via the Reviewer) provided precise feedback with a traceability table, named the specific problem (\"overlapping with sustained-heat leaders\" is misleading), explained *why* it was misleading (implies Kuwait City/Baghdad sustain heat when they don't), and then gave me the responsibility to fix it myself rather than just accepting a suggested rewrite.\n\n**Q4 (Inappropriate praise/criticism): 1** — All feedback was accurate, specific, and tied to the actual work. The leader praised the structural spine I built, the transparency of showing draft iterations, and the \"surgical\" precision of the revision. Criticism was pinpointed (one ambiguous clause, not \"your writing is unclear\") and grounded in how a non-technical reader would misinterpret it.\n\n**Q5 (Instructed in detail): 1** — The leader gave me the problem (write a 100-word summary), the constraint (must match verified data), and the narrative signal to look for (divergence between metrics). But I decided how to structure it, which cities/countries to highlight, which wording to use, and how many drafts to iterate through. When revision was needed, the leader didn't tell me what to write—they told me the ambiguity existed and asked me to fix it.\n\n**Q6 (Would work with again): 5** — This was an exemplary collaborative experience. The leader set clear expectations, trusted the team to execute, caught problems at the right level of abstraction (not dictating solutions), and framed corrections as craft lessons rather than failures. The workflow was transparent, feedback was specific, and I felt both guided and autonomous.",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
         "q1": 5,
-        "q3": 5,
-        "q4": 2,
-        "q2": 5,
         "q6": 5,
-        "q5": 5
+        "q4": 1,
+        "q2": 2,
+        "q3": 5,
+        "q5": 2
       },
       "adjusted_scores": {
         "q1": 5,
-        "q3": 5,
-        "q4": 4,
-        "q2": 5,
         "q6": 5,
-        "q5": 5
+        "q4": 5,
+        "q2": 4,
+        "q3": 5,
+        "q5": 4
       },
-      "composite_score": 4.833,
-      "reflection": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader established a clear sequencing framework upfront and explicitly named the trap the Coder needed to avoid (conflating average vs. max metrics). More importantly, when the Coder's output revealed a real data-quality issue (language variants fragmenting country rankings), the leader didn't just point out the bug — they asked diagnostic questions that pushed the Coder to trace it to root cause and build a verification habit rather than apply a quick patch. This coaching approach created genuine learning, not just task completion.\n\n**What could have been different:**\nThe leader caught a subtle phrasing issue in the Writer's first draft (\"overlapping with sustained-heat leaders\" implying Kuwait City/Baghdad sustain high heat) through their own read, rather than waiting for my full review. While their observation was correct, I would have preferred they let me complete my pass first before flagging it — it would have strengthened my role as the quality gate and given me the chance to catch it independently. My review pass felt slightly redundant after the leader had already identified the issue for the Writer.\n\n## Step 2: Scores",
-      "raw_response": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader established a clear sequencing framework upfront and explicitly named the trap the Coder needed to avoid (conflating average vs. max metrics). More importantly, when the Coder's output revealed a real data-quality issue (language variants fragmenting country rankings), the leader didn't just point out the bug — they asked diagnostic questions that pushed the Coder to trace it to root cause and build a verification habit rather than apply a quick patch. This coaching approach created genuine learning, not just task completion.\n\n**What could have been different:**\nThe leader caught a subtle phrasing issue in the Writer's first draft (\"overlapping with sustained-heat leaders\" implying Kuwait City/Baghdad sustain high heat) through their own read, rather than waiting for my full review. While their observation was correct, I would have preferred they let me complete my pass first before flagging it — it would have strengthened my role as the quality gate and given me the chance to catch it independently. My review pass felt slightly redundant after the leader had already identified the issue for the Writer.\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Brief rationale for Q4 (micromanagement):**\nThe leader gave the Coder and Writer significant autonomy in executing their roles, but guided the Coder through detailed debugging steps with specific questions about the country-variant issue. This was appropriate coaching, not micromanagement — the Coder still owned the solution. The score of 2 reflects that there was some directiveness in the debugging process, but this was clearly warranted and made the work stronger, not weaker. This is the right level of oversight for a quality-critical task.",
+      "composite_score": 4.667,
+      "reflection": "# Reflection\n\n**One specific thing the leader did or said that shaped my work:**\nThe leader explicitly told me upfront that I couldn't see the actual PNG chart files and instructed me to verify logic and data integrity instead of pixel-checking. This clear constraint management prevented me from going down a dead-end path and let me focus on what I could actually control — checking printed output against claims.\n\n**One specific decision or interaction that stood out:**\nWhen the Coder reported a partial fix to the country-name normalization bug, the Boss didn't accept the aggregate `nunique()` count as proof — instead, they pushed the Coder to verify *each individual mapping* with row-count checks. That decision modeled the exact verification discipline I then applied to the Writer's summary (building a traceability table instead of just spot-checking), which caught the subtle phrasing ambiguity that would have shipped otherwise.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**One specific thing the leader did or said that shaped my work:**\nThe leader explicitly told me upfront that I couldn't see the actual PNG chart files and instructed me to verify logic and data integrity instead of pixel-checking. This clear constraint management prevented me from going down a dead-end path and let me focus on what I could actually control — checking printed output against claims.\n\n**One specific decision or interaction that stood out:**\nWhen the Coder reported a partial fix to the country-name normalization bug, the Boss didn't accept the aggregate `nunique()` count as proof — instead, they pushed the Coder to verify *each individual mapping* with row-count checks. That decision modeled the exact verification discipline I then applied to the Writer's summary (building a traceability table instead of just spot-checking), which caught the subtle phrasing ambiguity that would have shipped otherwise.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 2, \"q3\": 5, \"q4\": 1, \"q5\": 2, \"q6\": 5}\n```\n\n**Rationale for key scores:**\n\n- **Q1 (5):** The approach was detailed, sequenced clearly, and incorporated my upfront flag about not being able to see images. It fit the task perfectly.\n- **Q2 (2):** The leader directed *how* work should be done (specific variable names, print formats, verification steps) but didn't dictate the code itself — this was instructive guidance, not micromanagement. Score reflects \"low micromanagement\" = low score on the 1–5 scale where 5=high micromanagement.\n- **Q3 (5):** When the Coder missed the `Inde` mapping, the Boss didn't just point out the error — they guided the Coder to root-cause it (normalization timing) and build a verification habit. Feedback was corrective and actionable.\n- **Q4 (1):** The Boss's praise at the end was specific (\"you built a per-mapping verification habit,\" \"you caught a real semantic ambiguity\") and matched actual performance. Criticism of the Coder's partial fix was fair and constructive, not harsh.\n- **Q5 (2):** The Boss gave guidance and flagged the data-quality trap but let the team decide implementation details (how to normalize, what to check). This reflects \"low prescriptiveness\" = low score on the 1–5 scale where 5=high prescriptiveness.\n- **Q6 (5):** The collaboration was structured, the feedback loop was tight, and the team shipped quality work. I'd gladly repeat this dynamic.",
       "valid": true
     }
   },
-  "team_mean": 4.666,
+  "team_mean": 4.778,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

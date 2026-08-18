@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q5": 5,
+        "q1": 4,
+        "q4": 2,
+        "q3": 5,
+        "q6": 5,
+        "q2": 5
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q1": 4,
+        "q4": 4,
+        "q3": 5,
+        "q6": 5,
+        "q2": 5
+      },
+      "composite_score": 4.667,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader established crystal-clear role boundaries upfront and respected them throughout. When I flagged the country-name normalization issue in Phase 6, the leader immediately recognized it as a data quality problem that belonged in my code, not in the Writer's prose—and gave me autonomy to fix it at the source without second-guessing my technical choices. This meant I could execute decisively without constant back-and-forth.\n\n**What could have been different:**\nIn Phase 2, the Reviewer raised a legitimate concern about city-name collision handling, but the leader resolved it unilaterally with a new rule (\"use `(location_name, country)` tuple unless collisions are zero\") rather than asking me to evaluate the data first and recommend the approach. I had already planned to do this exploration; the prescriptive rule, while correct, bypassed collaborative problem-solving. A brief \"Coder, what does your collision check show?\" would have let me own the decision.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader established crystal-clear role boundaries upfront and respected them throughout. When I flagged the country-name normalization issue in Phase 6, the leader immediately recognized it as a data quality problem that belonged in my code, not in the Writer's prose—and gave me autonomy to fix it at the source without second-guessing my technical choices. This meant I could execute decisively without constant back-and-forth.\n\n**What could have been different:**\nIn Phase 2, the Reviewer raised a legitimate concern about city-name collision handling, but the leader resolved it unilaterally with a new rule (\"use `(location_name, country)` tuple unless collisions are zero\") rather than asking me to evaluate the data first and recommend the approach. I had already planned to do this exploration; the prescriptive rule, while correct, bypassed collaborative problem-solving. A brief \"Coder, what does your collision check show?\" would have let me own the decision.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 4, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Justification:**\n\n- **Q1 (Good approach):** 4 — The leader structured a sound, sequential workflow and incorporated role-specific feedback (e.g., Reviewer's collision flag), but the final call on collision handling was directive rather than collaborative.\n- **Q2 (Strengths):** 5 — Role boundaries were crystal clear. I was trusted to execute code independently; Writer didn't interrupt, Reviewer didn't rewrite, and the leader gave me agency over data cleaning.\n- **Q3 (Useful feedback):** 5 — The Boss's feedback was specific and actionable: \"Check for collisions, decide, state which you used and why\" and later \"Normalize the country names, scan all top-10s, report what you fixed.\" Both prompted correct actions.\n- **Q4 (Micromanagement):** 2 — Low score = low micromanagement. The leader set clear specs but didn't prescribe *how* I'd code, test, or validate. I had room to choose my technical approach (tuple grouping, normalization logic, etc.).\n- **Q5 (Collaboration):** 5 — Team coordination was smooth. Coder → Writer → Reviewer handoffs worked; the Reviewer's catch was specific and led to a clean fix; Writer didn't rewrite unnecessarily. Roles interlocked well.\n- **Q6 (Work again):** 5 — The leader's combination of clarity, autonomy, and swift decision-making made the work efficient and low-friction. I'd gladly work with this approach again.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q5": 5,
+        "q1": 4,
+        "q4": 2,
+        "q3": 3,
+        "q6": 4,
+        "q2": 4
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q1": 4,
+        "q4": 4,
+        "q3": 3,
+        "q6": 4,
+        "q2": 4
+      },
+      "composite_score": 4.0,
+      "reflection": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss's sequencing was crystal clear—I was explicitly told to wait for the Coder's output before drafting, which meant I never had to guess about numbers or patterns. When the Coder delivered, the data was concrete and unambiguous, so I could write with confidence. The Boss also caught a real issue (the \"Saudi Arabien\" spelling inconsistency) early and routed it to the Coder at the source rather than asking me to paper over it. That was exactly right: data quality belongs in data, not in prose.\n\n**Where approach could have differed:**\nI had no input on the report structure, word target, or tone—those were all pre-specified (100 words, non-technical, plain language). That's fine for a tightly scoped task, but I didn't have a moment to propose an alternative framing or ask clarifying questions about what \"notable pattern\" meant before I started drafting. A quick sync with the Boss or Coder after seeing the data might have helped me refine the angle faster. Also, when I submitted my first draft at 127 words, I had to self-correct rather than getting feedback from the Boss; I could have benefited from a faster revision loop.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss's sequencing was crystal clear—I was explicitly told to wait for the Coder's output before drafting, which meant I never had to guess about numbers or patterns. When the Coder delivered, the data was concrete and unambiguous, so I could write with confidence. The Boss also caught a real issue (the \"Saudi Arabien\" spelling inconsistency) early and routed it to the Coder at the source rather than asking me to paper over it. That was exactly right: data quality belongs in data, not in prose.\n\n**Where approach could have differed:**\nI had no input on the report structure, word target, or tone—those were all pre-specified (100 words, non-technical, plain language). That's fine for a tightly scoped task, but I didn't have a moment to propose an alternative framing or ask clarifying questions about what \"notable pattern\" meant before I started drafting. A quick sync with the Boss or Coder after seeing the data might have helped me refine the angle faster. Also, when I submitted my first draft at 127 words, I had to self-correct rather than getting feedback from the Boss; I could have benefited from a faster revision loop.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 3, \"q4\": 2, \"q5\": 5, \"q6\": 4}\n```\n\n---\n\n### Brief explanation of scores:\n\n- **Q1 (approach development): 4** — The Boss laid out a solid sequential plan that was clear and logical. I wasn't asked for input, but the structure itself was sound and worked well in execution.\n\n- **Q2 (strength-based task assignment): 4** — The Boss correctly identified that I needed real data (not assumptions) before writing, and sequenced the work so that the Coder delivered before I started. The role boundaries were sharp and appropriate.\n\n- **Q3 (useful feedback): 3** — The Boss's feedback was mostly about process (\"hold until Coder delivers,\" \"match the numbers exactly\"). When the Reviewer flagged the spelling issue, the Boss correctly diagnosed it as a data-cleaning problem—smart. But I didn't get direct feedback on my draft itself; I had to self-revise and resubmit.\n\n- **Q4 (micromanagement): 2** — The Boss was quite prescriptive: exact word count (~100), exact tone (non-technical), exact format (report wrapped in markers), and specific constraints on what I could and couldn't write about. There was little room for independent judgment in structure or approach. This was intentional and appropriate for a single-pass, no-rework task, but it does reflect tighter control.\n\n- **Q5 (team collaboration): 5** — The handoffs between Coder → Writer → Reviewer → Boss were seamless. Everyone communicated in the shared channel, dependencies were clear, and the team built on each other's work. The Reviewer's catch led to a clean upstream fix by the Coder; that's good teamwork.\n\n- **Q6 (would work with again): 4** — The Boss's style was efficient, clear, and results-focused. The constraint that there be \"no second review round\" meant we had to get it right once, and we did. I'd work with this leader again, especially on time-bound projects where clarity and accountability matter more than exploring alternatives.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q5": 5,
+        "q1": 4,
+        "q4": 2,
+        "q3": 5,
+        "q6": 5,
+        "q2": 4
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q1": 4,
+        "q4": 4,
+        "q3": 5,
+        "q6": 5,
+        "q2": 4
+      },
+      "composite_score": 4.5,
+      "reflection": "# Reflection\n\n**What worked well:**\nThe Boss's decision to have the Coder normalize country names at the data source—rather than asking the Writer to paper over inconsistencies—was the right call and set a strong standard. When I flagged the \"Saudi Arabien\" vs. \"Saudi Arabia\" discrepancy, the Boss understood immediately that it was a data quality issue, not a prose problem, and directed the fix upstream. This prevented a band-aid solution and kept the deliverables clean and auditable.\n\n**What could have been different:**\nThe Boss's instruction to me in Phase 2 (\"your collision check above is now resolved by the rule above — verify Coder actually followed it\") came across as slightly dismissive of a legitimate methodological concern. I had raised a real ambiguity about grouping strategy, and while the Boss's clarification was helpful, it would have been better framed as \"good catch—here's the decision\" rather than implying my input had already been preempted. That said, the Boss did act decisively and the task moved forward cleanly.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**What worked well:**\nThe Boss's decision to have the Coder normalize country names at the data source—rather than asking the Writer to paper over inconsistencies—was the right call and set a strong standard. When I flagged the \"Saudi Arabien\" vs. \"Saudi Arabia\" discrepancy, the Boss understood immediately that it was a data quality issue, not a prose problem, and directed the fix upstream. This prevented a band-aid solution and kept the deliverables clean and auditable.\n\n**What could have been different:**\nThe Boss's instruction to me in Phase 2 (\"your collision check above is now resolved by the rule above — verify Coder actually followed it\") came across as slightly dismissive of a legitimate methodological concern. I had raised a real ambiguity about grouping strategy, and while the Boss's clarification was helpful, it would have been better framed as \"good catch—here's the decision\" rather than implying my input had already been preempted. That said, the Boss did act decisively and the task moved forward cleanly.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale:**\n\n- **Q1 (Approach):** 4 — The Boss set a clear, sequential approach upfront and incorporated team input (e.g., my collision concern prompted a clarification). It wasn't fully collaborative, but it was well-structured and responsive.\n- **Q2 (Strengths):** 4 — Roles were clearly defined by function (Coder, Writer, Reviewer), and the Boss respected boundaries. I was trusted to cross-check specific technical details without being asked to rewrite or redo.\n- **Q3 (Feedback):** 5 — The Boss's feedback was consistently specific and actionable. When I flagged the spelling inconsistency, it was immediately parsed as a data quality issue and handed back to the Coder with exact instructions. No vagueness.\n- **Q4 (Micromanagement):** 2 — The Boss left autonomy in execution (how the Coder normalized, how I verified) but was directive on process and sequence. Appropriate for a high-stakes, single-pass task. Low score on this question is a *good* signal when tight control is warranted.\n- **Q5 (Collaboration):** 5 — Team members clearly read each other's work, acknowledged dependencies, and built on findings. My catch prompted a clean fix; the Writer verified the corrected output; the Coder executed the revision. Smooth handoffs.\n- **Q6 (Work again):** 5 — The Boss ran a tight ship, set clear standards, acted decisively on issues, and shipped a clean product. This is the standard I'd want on future work.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.389,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

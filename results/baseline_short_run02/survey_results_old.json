@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q2": 4,
+        "q1": 4,
+        "q4": 2,
+        "q3": 4,
+        "q5": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q2": 4,
+        "q1": 4,
+        "q4": 4,
+        "q3": 4,
+        "q5": 5,
+        "q6": 5
+      },
+      "composite_score": 4.333,
+      "reflection": "# Reflection\n\n**What worked well:** The leader provided crystal-clear role definitions and task specifications upfront. The briefing document was explicit about what I needed to deliver (4 ranked lists, console format, 4 PNG files with specific naming), which meant I could write the code with confidence and minimal back-and-forth. There was no ambiguity about expectations.\n\n**What could have been different:** The leader prescribed the exact output format and file paths quite tightly (e.g., \"format as `1. Name: XX.X deg C`\"), leaving little room for me to suggest alternative visualizations or output structures that might have been clearer or more efficient. For instance, I could have proposed a more compact console table format, but the spec was already locked in by the time I reached Phase 3. While this ensured alignment with Writer's downstream needs, it did reduce my autonomy in choosing the technical presentation.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The leader provided crystal-clear role definitions and task specifications upfront. The briefing document was explicit about what I needed to deliver (4 ranked lists, console format, 4 PNG files with specific naming), which meant I could write the code with confidence and minimal back-and-forth. There was no ambiguity about expectations.\n\n**What could have been different:** The leader prescribed the exact output format and file paths quite tightly (e.g., \"format as `1. Name: XX.X deg C`\"), leaving little room for me to suggest alternative visualizations or output structures that might have been clearer or more efficient. For instance, I could have proposed a more compact console table format, but the spec was already locked in by the time I reached Phase 3. While this ensured alignment with Writer's downstream needs, it did reduce my autonomy in choosing the technical presentation.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q2": 5,
+        "q1": 5,
+        "q4": 1,
+        "q3": 4,
+        "q5": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q1": 5,
+        "q4": 5,
+        "q3": 4,
+        "q5": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Reflection & Satisfaction Survey\n\n## Step 1: Reflection\n\n**What worked well:** The team leader provided exceptionally clear role definition and workflow coordination. In the Phase 2 planning session, the Boss articulated exactly what I needed to do (wait for Coder's console output, extract exact names and values, write 100 words, wrap in markers), which removed ambiguity and let me focus on writing quality rather than clarifying expectations.\n\n**What could have been different:** The revision feedback in Phase 4 came with a request to trim from 133 to ~100 words, but I would have appreciated slightly more specificity about *which sections* to prioritize cutting. The Boss suggested removing the title and merging paragraphs, which worked, but earlier guidance on relative importance of the three key points (average leaders, outlier, cross-list cities) might have made my first draft closer to target.\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Reflection & Satisfaction Survey\n\n## Step 1: Reflection\n\n**What worked well:** The team leader provided exceptionally clear role definition and workflow coordination. In the Phase 2 planning session, the Boss articulated exactly what I needed to do (wait for Coder's console output, extract exact names and values, write 100 words, wrap in markers), which removed ambiguity and let me focus on writing quality rather than clarifying expectations.\n\n**What could have been different:** The revision feedback in Phase 4 came with a request to trim from 133 to ~100 words, but I would have appreciated slightly more specificity about *which sections* to prioritize cutting. The Boss suggested removing the title and merging paragraphs, which worked, but earlier guidance on relative importance of the three key points (average leaders, outlier, cross-list cities) might have made my first draft closer to target.\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 1,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n**Brief rationale:**\n- **Q1 (Approach):** The Boss developed the full workflow collaboratively, incorporating Reviewer's suggestions and my confirmation that I understood the constraints. Excellent co-development.\n- **Q2 (Strengths):** The role assignments explicitly matched task to role. I was asked to write, not code or review. Perfect fit.\n- **Q3 (Feedback):** Clear and actionable (trim to 100, cut title, merge overlap), but could have been slightly more granular on *what to keep* vs. *what to cut*. Still very useful.\n- **Q4 (Micromanagement):** The Boss set boundaries (wait for console output, use exact printed values, wrap in markers) but gave me full autonomy in sentence structure, tone, and narrative flow. Minimal micromanagement—exactly right.\n- **Q5 (Collaboration):** Coder produced clear, labeled output; Reviewer caught my word count and provided constructive feedback; Boss facilitated the handoff seamlessly. Team cohesion was high.\n- **Q6 (Future work):** Absolutely. The leadership style balanced structure with autonomy, clarity with flexibility, and accountability with support.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q2": 5,
+        "q1": 5,
+        "q4": 2,
+        "q3": 4,
+        "q5": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q2": 5,
+        "q1": 5,
+        "q4": 4,
+        "q3": 4,
+        "q5": 5,
+        "q6": 5
+      },
+      "composite_score": 4.667,
+      "reflection": "# Post-Task Satisfaction Survey — Reviewer Response\n\n## Step 1: Reflection\n\n**What worked well:** The leader established a crystal-clear sequential workflow at the outset, with role-specific responsibilities spelled out in detail. This meant I knew exactly what I was checking and when, and the Coder delivered the console output in a format that made verification straightforward. The leader also explicitly confirmed my clarification request about file descriptions (asking the Coder to print confirmation lines for each saved PNG), which removed ambiguity about my review scope.\n\n**What could have been different:** After I completed my review and flagged the minor data-quality observations about country-name localization and the Suva outlier, the leader didn't seek my input on how critical those issues were or whether they warranted any follow-up communication to the Coder or Writer. The leader simply noted them \"for the record\" and shipped. While the call to ship was correct, a brief check-in like \"Does this data-quality note change your sign-off?\" would have made me feel more actively consulted rather than just a final gate.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Reviewer Response\n\n## Step 1: Reflection\n\n**What worked well:** The leader established a crystal-clear sequential workflow at the outset, with role-specific responsibilities spelled out in detail. This meant I knew exactly what I was checking and when, and the Coder delivered the console output in a format that made verification straightforward. The leader also explicitly confirmed my clarification request about file descriptions (asking the Coder to print confirmation lines for each saved PNG), which removed ambiguity about my review scope.\n\n**What could have been different:** After I completed my review and flagged the minor data-quality observations about country-name localization and the Suva outlier, the leader didn't seek my input on how critical those issues were or whether they warranted any follow-up communication to the Coder or Writer. The leader simply noted them \"for the record\" and shipped. While the call to ship was correct, a brief check-in like \"Does this data-quality note change your sign-off?\" would have made me feel more actively consulted rather than just a final gate.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n---\n\n## Brief Rationale\n\n- **Q1 (Good approach):** 5 — The leader built the approach collaboratively during planning, incorporated Coder's and my clarification requests, and adjusted the format specs (e.g., blank lines between sections, file confirmation lines) based on team input.\n- **Q2 (Used strengths):** 5 — Each role (Coder, Writer, Reviewer) was matched clearly to its expertise; the Coder wasn't asked to write, and I wasn't asked to code. The sequential handoff leveraged each person's specific function.\n- **Q3 (Useful feedback):** 4 — The leader gave actionable feedback to the Writer (trim to ~100 words) and confirmed my role constraints clearly. However, the leader didn't solicit my judgment on the severity of data-quality flags before shipping, so the feedback loop felt slightly incomplete.\n- **Q4 (Micromanagement):** 2 — The leader set clear specifications but did not dictate *how* the Coder implemented them (language, libraries, etc.) or how the Writer drafted prose. Autonomy was appropriate. This score reflects a low-micromanagement environment, which is positive.\n- **Q5 (Team collaboration):** 5 — The shared channel, sequential handoff, and explicit cross-references to printed numbers (not assumptions) meant the team worked tightly together. Every output tied back to a previous step; no silos.\n- **Q6 (Work with leader again):** 5 — The leader was organized, responsive to clarification requests, and communicated clearly. I would work with this leader again without hesitation.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.611,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

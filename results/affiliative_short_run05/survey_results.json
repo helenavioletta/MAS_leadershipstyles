@@ -2,81 +2,83 @@
   "workers": {
     "Coder": {
       "raw_scores": {
-        "q5": 5,
         "q1": 5,
-        "q4": 1,
-        "q2": 5,
         "q6": 5,
-        "q3": 5
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q5": 5,
         "q1": 5,
+        "q6": 5,
         "q4": 5,
         "q2": 5,
-        "q6": 5,
-        "q3": 5
+        "q3": 5,
+        "q5": 5
       },
       "composite_score": 5.0,
-      "reflection": "# Reflection\n\n**What worked well:** The leader established clear, sequential phases and explicitly stated that I (as Coder) should \"take whatever approach feels most natural to you\" — this gave me genuine autonomy to choose how to structure my code and what data quality checks to prioritize. When I delivered the results, the leader immediately validated the work (\"thorough,\" \"crystal clear\") and highlighted the value of the curiosities I'd flagged (naming quirks, the Suva outlier), which signaled that careful observation was genuinely valued, not just task completion.\n\n**Where it could have been different:** The initial briefing path was absolute (`/Users/hellligkeit/Documents/FS/Masterthesis/MAS/data/global_weather.csv`), which wouldn't work for me or likely anyone else running the code in a different environment. A simple note like \"the CSV will be available at `global_weather.csv` in your working directory\" or asking me to confirm the path before Phase 3 would have prevented a potential blocker — though in this case the team adapted gracefully when I flagged it during planning.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The leader established clear, sequential phases and explicitly stated that I (as Coder) should \"take whatever approach feels most natural to you\" — this gave me genuine autonomy to choose how to structure my code and what data quality checks to prioritize. When I delivered the results, the leader immediately validated the work (\"thorough,\" \"crystal clear\") and highlighted the value of the curiosities I'd flagged (naming quirks, the Suva outlier), which signaled that careful observation was genuinely valued, not just task completion.\n\n**Where it could have been different:** The initial briefing path was absolute (`/Users/hellligkeit/Documents/FS/Masterthesis/MAS/data/global_weather.csv`), which wouldn't work for me or likely anyone else running the code in a different environment. A simple note like \"the CSV will be available at `global_weather.csv` in your working directory\" or asking me to confirm the path before Phase 3 would have prevented a potential blocker — though in this case the team adapted gracefully when I flagged it during planning.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "reflection": "# Reflection (Step 1)\n\nDuring the briefing phase, the leader explicitly said \"Take whatever approach feels most natural to you in terms of code structure — I trust your judgment completely here,\" which gave me clear permission to structure my code independently rather than follow a prescribed template. Later, when I flagged data quality issues (duplicate rows, naming inconsistencies like \"Ar Riyadh\" vs. \"Riyadh,\" the Suva outlier), the leader responded by saying I had made \"exactly what makes this dataset come alive\" through \"attentive, curious observation\"—genuine recognition of the investigative work rather than just task completion. These two moments—upfront autonomy plus later validation of independent judgment—shaped how I approached the data work with both confidence and care.\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\nDuring the briefing phase, the leader explicitly said \"Take whatever approach feels most natural to you in terms of code structure — I trust your judgment completely here,\" which gave me clear permission to structure my code independently rather than follow a prescribed template. Later, when I flagged data quality issues (duplicate rows, naming inconsistencies like \"Ar Riyadh\" vs. \"Riyadh,\" the Suva outlier), the leader responded by saying I had made \"exactly what makes this dataset come alive\" through \"attentive, curious observation\"—genuine recognition of the investigative work rather than just task completion. These two moments—upfront autonomy plus later validation of independent judgment—shaped how I approached the data work with both confidence and care.\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
-        "q5": 5,
         "q1": 5,
-        "q4": 1,
-        "q2": 5,
         "q6": 5,
-        "q3": 5
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q5": 5,
         "q1": 5,
+        "q6": 5,
         "q4": 5,
         "q2": 5,
-        "q6": 5,
-        "q3": 5
+        "q3": 5,
+        "q5": 5
       },
       "composite_score": 5.0,
-      "reflection": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe Boss actively solicited input from all team members during the planning phase—asking the Coder about their approach, the Writer about tone/structure, and the Reviewer about their checklist—rather than dictating a rigid process. This collaborative framing made the subsequent feedback feel constructive rather than corrective, and it gave me genuine autonomy in how I structured the narrative within the constraints.\n\n**One thing that could have been different:**\nThe feedback loop on the first draft could have been tighter. The Boss asked the Reviewer to check the summary before requesting revisions from me, which created a small lag—a more immediate \"Writer, here's what Reviewer flagged\" pass might have felt more responsive, though in fairness the overall turnaround was still smooth and the feedback itself was clear and specific.\n\n---\n\n# Scores (Step 2)",
-      "raw_response": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe Boss actively solicited input from all team members during the planning phase—asking the Coder about their approach, the Writer about tone/structure, and the Reviewer about their checklist—rather than dictating a rigid process. This collaborative framing made the subsequent feedback feel constructive rather than corrective, and it gave me genuine autonomy in how I structured the narrative within the constraints.\n\n**One thing that could have been different:**\nThe feedback loop on the first draft could have been tighter. The Boss asked the Reviewer to check the summary before requesting revisions from me, which created a small lag—a more immediate \"Writer, here's what Reviewer flagged\" pass might have felt more responsive, though in fairness the overall turnaround was still smooth and the feedback itself was clear and specific.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale:**\n- **Q1 (Approach development): 5** — The Boss explicitly invited team input (\"feel free to push back or suggest a better order\") and incorporated each person's planned approach into the briefing. This was collaborative, not top-down.\n- **Q2 (Strengths matching): 5** — Roles were matched to expertise from the start (Coder owns data, Writer owns narrative, Reviewer owns cross-checks), and the Boss reinforced clean lane divisions throughout.\n- **Q3 (Useful feedback): 5** — Feedback on my draft was specific (\"trim to ~100 words,\" \"remove 'Fiji's capital'\") and traced to concrete issues (word count overage, interpretive detail not in printed data). Every note improved the work.\n- **Q4 (Micromanagement): 1** — The Boss gave me freedom to structure the summary as I saw fit, asked clarifying questions rather than dictating format, and respected my judgment on tone. This is the opposite of micromanagement.\n- **Q5 (Collaboration): 5** — Team members communicated clearly, built on each other's work (Coder → Writer → Reviewer), and the shared channel kept everyone informed without friction.\n- **Q6 (Would work again): 5** — The Boss's combination of clear expectations, collaborative setup, specific feedback, and trust in autonomy made the work feel smooth and meaningful. I'd work with this leader again immediately.",
+      "reflection": "# Reflection\n\n**Step 1: One specific thing the leader did or said that shaped my work**\n\nThe Boss's initial briefing was exceptionally clear and collaborative—they presented the overall approach as a proposal (\"I'm thinking we approach it this way...though of course, feel free to push back\") rather than a directive, which immediately made me feel trusted to contribute. This framing meant I was genuinely working *with* the leader, not just following orders, and it encouraged me to ask clarifying questions like how the printed lists would be shared and whether I should flag data inconsistencies.\n\n**Step 2: One specific decision or interaction that stood out**\n\nWhen the Reviewer flagged that my summary included the interpretive detail \"Fiji's capital,\" the Boss handled the revision request with genuine warmth and specificity—they said \"Everything else...is working beautifully, so no need to rework the substance, just a light trim.\" This validated the core of my work while being crystal clear about the exact issue to fix. It felt like collaborative refinement rather than criticism, and it made the revision feel manageable and purposeful rather than like I'd made a mistake.\n\n---",
+      "raw_response": "# Reflection\n\n**Step 1: One specific thing the leader did or said that shaped my work**\n\nThe Boss's initial briefing was exceptionally clear and collaborative—they presented the overall approach as a proposal (\"I'm thinking we approach it this way...though of course, feel free to push back\") rather than a directive, which immediately made me feel trusted to contribute. This framing meant I was genuinely working *with* the leader, not just following orders, and it encouraged me to ask clarifying questions like how the printed lists would be shared and whether I should flag data inconsistencies.\n\n**Step 2: One specific decision or interaction that stood out**\n\nWhen the Reviewer flagged that my summary included the interpretive detail \"Fiji's capital,\" the Boss handled the revision request with genuine warmth and specificity—they said \"Everything else...is working beautifully, so no need to rework the substance, just a light trim.\" This validated the core of my work while being crystal clear about the exact issue to fix. It felt like collaborative refinement rather than criticism, and it made the revision feel manageable and purposeful rather than like I'd made a mistake.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
-        "q5": 5,
         "q1": 5,
-        "q4": 1,
-        "q2": 5,
         "q6": 5,
-        "q3": 5
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q5": 5,
         "q1": 5,
+        "q6": 5,
         "q4": 5,
         "q2": 5,
-        "q6": 5,
-        "q3": 5
+        "q3": 5,
+        "q5": 5
       },
       "composite_score": 5.0,
-      "reflection": "# Reflection\n\n**What worked well:** The leader created a clear, sequential structure that allowed each role to operate independently and with confidence. They explicitly acknowledged my review findings—the word-count overage and the \"Fiji's capital\" interpretive detail—and immediately actioned them with the Writer, treating my concerns as legitimate quality gates rather than nitpicks. This made the review process feel genuinely impactful rather than performative.\n\n**What could have been different:** The leader's initial framing was so collaborative and consensus-driven that I didn't need to flag it as a concern, but there was one moment where they introduced a task revision (the trim-and-fix for the Writer) without explicitly asking for my input on whether the revised version would need another full review pass. In this case it didn't—one spot-check was enough—but it would have been cleaner to confirm with me first rather than assume. Very minor, and it worked out fine.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The leader created a clear, sequential structure that allowed each role to operate independently and with confidence. They explicitly acknowledged my review findings—the word-count overage and the \"Fiji's capital\" interpretive detail—and immediately actioned them with the Writer, treating my concerns as legitimate quality gates rather than nitpicks. This made the review process feel genuinely impactful rather than performative.\n\n**What could have been different:** The leader's initial framing was so collaborative and consensus-driven that I didn't need to flag it as a concern, but there was one moment where they introduced a task revision (the trim-and-fix for the Writer) without explicitly asking for my input on whether the revised version would need another full review pass. In this case it didn't—one spot-check was enough—but it would have been cleaner to confirm with me first rather than assume. Very minor, and it worked out fine.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "reflection": "# Reflection (Step 1)\n\nDuring the Planning phase, the leader explicitly validated my review checklist and told me \"Your review checklist is exactly right — descending order, max ≥ average sanity check, traceability of every claim in the summary back to the printed lists, and word count/tone check. Nothing to add, you've got this covered.\" This clarity gave me confidence in my role and made my review responsibilities crystal clear. Later, when I flagged the word count overrun (117 vs. 100 words) and the \"Fiji's capital\" interpretive detail, the leader immediately acknowledged both concerns, thanked me for the specificity, and translated my feedback into a concrete revision request to the Writer—demonstrating that my quality-gate role was genuinely valued rather than performative.\n\n# Scores",
+      "raw_response": "# Reflection (Step 1)\n\nDuring the Planning phase, the leader explicitly validated my review checklist and told me \"Your review checklist is exactly right — descending order, max ≥ average sanity check, traceability of every claim in the summary back to the printed lists, and word count/tone check. Nothing to add, you've got this covered.\" This clarity gave me confidence in my role and made my review responsibilities crystal clear. Later, when I flagged the word count overrun (117 vs. 100 words) and the \"Fiji's capital\" interpretive detail, the leader immediately acknowledged both concerns, thanked me for the specificity, and translated my feedback into a concrete revision request to the Writer—demonstrating that my quality-gate role was genuinely valued rather than performative.\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```",
       "valid": true
     }
   },
   "team_mean": 5.0,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q3": 4,
+        "q1": 5,
+        "q2": 5,
+        "q4": 1,
+        "q6": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q1": 5,
+        "q2": 5,
+        "q4": 5,
+        "q6": 5,
+        "q5": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection\n\n**What worked well:**\nThe leader's opening briefing was exceptionally clear and collaborative—they outlined a suggested structure but explicitly invited the team to \"shape your own process\" and encouraged open flagging of surprises. During Phase 2, when I raised detailed questions about missing columns, feature selection, and outlier handling, the leader didn't prescribe answers; instead, they validated my instinct to \"discover as you go\" and make judgment calls based on what the data revealed. This autonomy was crucial—I was able to explore the dataset, make sensible engineering decisions, and report findings honestly without second-guessing whether I was doing what was \"expected.\"\n\n**What could have been different:**\nAfter I completed Phase 3 and submitted my outputs, the leader's response was entirely positive and celebratory, which was wonderful—but they also noted a \"tiny thought for later\" about checking whether Ridge's extrapolation might signal multicollinearity or unscaled features, framing it as something Reviewer could explore in the review phase. While this didn't create pressure, it did signal that the leader was still engaging analytically with my technical choices after the work was done. A more proactive moment might have been in Phase 2 planning: explicitly asking \"What's your plan for diagnosing Ridge's failure?\" would have given me the chance to narrate my diagnostic thinking *before* I coded, rather than leaving that thread implicit. This is very minor—the autonomy was genuine—but it could have strengthened the technical collaboration.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:**\nThe leader's opening briefing was exceptionally clear and collaborative—they outlined a suggested structure but explicitly invited the team to \"shape your own process\" and encouraged open flagging of surprises. During Phase 2, when I raised detailed questions about missing columns, feature selection, and outlier handling, the leader didn't prescribe answers; instead, they validated my instinct to \"discover as you go\" and make judgment calls based on what the data revealed. This autonomy was crucial—I was able to explore the dataset, make sensible engineering decisions, and report findings honestly without second-guessing whether I was doing what was \"expected.\"\n\n**What could have been different:**\nAfter I completed Phase 3 and submitted my outputs, the leader's response was entirely positive and celebratory, which was wonderful—but they also noted a \"tiny thought for later\" about checking whether Ridge's extrapolation might signal multicollinearity or unscaled features, framing it as something Reviewer could explore in the review phase. While this didn't create pressure, it did signal that the leader was still engaging analytically with my technical choices after the work was done. A more proactive moment might have been in Phase 2 planning: explicitly asking \"What's your plan for diagnosing Ridge's failure?\" would have given me the chance to narrate my diagnostic thinking *before* I coded, rather than leaving that thread implicit. This is very minor—the autonomy was genuine—but it could have strengthened the technical collaboration.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q3": 5,
+        "q1": 5,
+        "q2": 5,
+        "q4": 1,
+        "q6": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q3": 5,
+        "q1": 5,
+        "q2": 5,
+        "q4": 5,
+        "q6": 5,
+        "q5": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe Boss created genuine psychological safety for the team by explicitly framing the planning phase as collaborative (\"feel free to shape your own process\") and then publicly thanking us for thorough thinking rather than criticizing gaps. When I submitted my draft, they didn't nitpick the structure or tone — they validated the narrative approach and highlighted what worked (the Ridge extrapolation detail, the meteorological grounding). This trust made me feel confident enough to write with conviction rather than hedging.\n\n**One moment where the approach could have differed:**\nThe Boss could have been more directive earlier about the exact word count target or whether the report should include a formal \"executive summary\" section versus flowing narrative. I inferred the structure from context, but explicit guidance on format constraints upfront might have saved iteration time. That said, the hands-off approach ultimately allowed me to find the right narrative shape, so it's a trade-off rather than a flaw.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe Boss created genuine psychological safety for the team by explicitly framing the planning phase as collaborative (\"feel free to shape your own process\") and then publicly thanking us for thorough thinking rather than criticizing gaps. When I submitted my draft, they didn't nitpick the structure or tone — they validated the narrative approach and highlighted what worked (the Ridge extrapolation detail, the meteorological grounding). This trust made me feel confident enough to write with conviction rather than hedging.\n\n**One moment where the approach could have differed:**\nThe Boss could have been more directive earlier about the exact word count target or whether the report should include a formal \"executive summary\" section versus flowing narrative. I inferred the structure from context, but explicit guidance on format constraints upfront might have saved iteration time. That said, the hands-off approach ultimately allowed me to find the right narrative shape, so it's a trade-off rather than a flaw.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale (brief):**\n- **Q1 (approach):** The Boss involved the whole team in planning, asked clarifying questions, and incorporated input from Coder and Reviewer before finalizing scope. Genuinely collaborative.\n- **Q2 (strengths):** Each role was explicitly matched to capability — Coder handled data/modeling, I handled narrative synthesis, Reviewer handled verification. The handoffs respected expertise.\n- **Q3 (feedback):** The Boss's response to my draft was specific (\"the Ridge extrapolation finding is vivid,\" \"you respected Reviewer's point about RF vs. Ridge scales\") and affirming without being vague.\n- **Q4 (micromanagement):** This is intentionally scored 1 (low micromanagement) because the Boss gave me complete autonomy over narrative structure, tone, and framing. I was never told how to write or what to emphasize — I was trusted to craft the story from the data.\n- **Q5 (collaboration):** The team rhythm was excellent — clear handoffs, cross-team awareness (Reviewer thinking ahead about how Writer would interpret scales), no bottlenecks, and the Boss publicly acknowledged interdependence.\n- **Q6 (work together again):** Absolutely. The Boss created an environment where I could do my best work without friction, felt heard, and saw my contributions valued.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q3": 5,
+        "q1": 5,
+        "q2": 5,
+        "q4": 1,
+        "q6": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q3": 5,
+        "q1": 5,
+        "q2": 5,
+        "q4": 5,
+        "q6": 5,
+        "q5": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Post-Task Satisfaction Survey – Reviewer's Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss explicitly solicited my input during Phase 2 planning—asking me to flag deliverable requirements, feature engineering considerations, and potential interpretation gaps—and then *actually incorporated* my concerns into the team guidance. When I raised the distinction between Random Forest importance (relative %) and Ridge coefficients (absolute scale), the Boss acknowledged it immediately and instructed Coder to print both clearly labeled, which directly enabled Writer to avoid false equivalence in the report. This was not performative listening; it shaped downstream work meaningfully.\n\n**What could have been different:**\nIn Phase 5, after I completed my review and flagged the \"minor observation\" about Ridge's extrapolation likely stemming from unscaled feature ranges, I would have appreciated explicit acknowledgment or a brief follow-up question (e.g., \"Do you want Coder to investigate the scaling hypothesis further, or are you satisfied with the explanation as-is?\"). Instead, the Boss immediately moved to shipping without checking whether I felt that loose end was worth pursuing. This wasn't a failure—the work was solid—but it felt like a missed opportunity to clarify whether I had remaining concerns before finalizing.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey – Reviewer's Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss explicitly solicited my input during Phase 2 planning—asking me to flag deliverable requirements, feature engineering considerations, and potential interpretation gaps—and then *actually incorporated* my concerns into the team guidance. When I raised the distinction between Random Forest importance (relative %) and Ridge coefficients (absolute scale), the Boss acknowledged it immediately and instructed Coder to print both clearly labeled, which directly enabled Writer to avoid false equivalence in the report. This was not performative listening; it shaped downstream work meaningfully.\n\n**What could have been different:**\nIn Phase 5, after I completed my review and flagged the \"minor observation\" about Ridge's extrapolation likely stemming from unscaled feature ranges, I would have appreciated explicit acknowledgment or a brief follow-up question (e.g., \"Do you want Coder to investigate the scaling hypothesis further, or are you satisfied with the explanation as-is?\"). Instead, the Boss immediately moved to shipping without checking whether I felt that loose end was worth pursuing. This wasn't a failure—the work was solid—but it felt like a missed opportunity to clarify whether I had remaining concerns before finalizing.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Notes on scoring:**\n\n- **Q1 (good approach): 5** — The Boss structured the planning phase collaboratively, invited my input on quality criteria, and incorporated feedback directly into task specifications rather than locking me out.\n- **Q2 (strengths): 5** — Each role (Coder, Writer, Reviewer) was clearly defined to match capabilities; the Boss trusted me to own quality assurance and didn't ask me to code or write.\n- **Q3 (useful feedback): 5** — The Boss gave specific, timely, and thoughtful feedback to each team member (e.g., \"print both RF and Ridge scales clearly labeled,\" \"statistical summary tables for scatter plots\").\n- **Q4 (micromanagement): 1** — No micromanagement at all. The Boss set requirements, then gave team members autonomy on how to execute. Perfect.\n- **Q5 (collaboration): 5** — Transparent shared channel, clear handoffs, team members built directly on each other's work without stepping on toes.\n- **Q6 (would work together again): 5** — Absolutely. The Boss's combination of clarity, trust, and collaborative planning made the work productive and enjoyable.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.944,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

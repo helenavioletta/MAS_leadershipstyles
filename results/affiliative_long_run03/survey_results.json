@@ -2,81 +2,83 @@
   "workers": {
     "Coder": {
       "raw_scores": {
-        "q4": 2,
         "q1": 5,
-        "q3": 5,
-        "q2": 5,
-        "q5": 4,
-        "q6": 5
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
+        "q3": 4,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q4": 4,
         "q1": 5,
-        "q3": 5,
+        "q6": 5,
+        "q4": 5,
         "q2": 5,
-        "q5": 4,
-        "q6": 5
+        "q3": 4,
+        "q5": 5
       },
-      "composite_score": 4.667,
-      "reflection": "# Reflection\n\n**One thing that worked well:** The leader framed the task with clear role definitions but explicitly invited us to adapt and use judgment (\"treat this as a starting point, not a rulebook\"). This gave me confidence to make technical choices (feature exclusion, model selection, random seed) without needing constant approval, while still knowing the overall goal. When the Reviewer raised methodological concerns in planning, the leader communicated them as constructive guidance to strengthen my output rather than as criticism—\"make explicit what you're already doing\"—which felt respectful and made the feedback easy to act on.\n\n**One thing that could have been different:** After I delivered the console output and summary, the leader moved directly to \"MOVE_TO_WRITING\" without asking me if I'd encountered any blockers, data surprises, or uncertainties I wanted to flag. I didn't have major issues, but the task instructions emphasize \"Execute the code and report honestly if it fails\"—there was no explicit space for me to surface something like \"the Ridge model's predictions seem physically implausible; should I investigate further?\" The leader could have briefly checked in: \"Coder, anything unexpected in the data or modeling that the team should know about?\" This would have made the handoff feel more like a conversation than a relay race.\n\n---",
-      "raw_response": "# Reflection\n\n**One thing that worked well:** The leader framed the task with clear role definitions but explicitly invited us to adapt and use judgment (\"treat this as a starting point, not a rulebook\"). This gave me confidence to make technical choices (feature exclusion, model selection, random seed) without needing constant approval, while still knowing the overall goal. When the Reviewer raised methodological concerns in planning, the leader communicated them as constructive guidance to strengthen my output rather than as criticism—\"make explicit what you're already doing\"—which felt respectful and made the feedback easy to act on.\n\n**One thing that could have been different:** After I delivered the console output and summary, the leader moved directly to \"MOVE_TO_WRITING\" without asking me if I'd encountered any blockers, data surprises, or uncertainties I wanted to flag. I didn't have major issues, but the task instructions emphasize \"Execute the code and report honestly if it fails\"—there was no explicit space for me to surface something like \"the Ridge model's predictions seem physically implausible; should I investigate further?\" The leader could have briefly checked in: \"Coder, anything unexpected in the data or modeling that the team should know about?\" This would have made the handoff feel more like a conversation than a relay race.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 4, \"q6\": 5}\n```",
+      "composite_score": 4.833,
+      "reflection": "# Reflection\n\n**Specific thing the leader did or said that shaped my work:**\nIn Phase 2, the leader explicitly told me \"No fixed 'right' way to do your part — use your judgment and expertise\" and later reinforced this by saying any Reviewer concerns were \"no pressure to treat this as a rigid checklist\" but rather \"make explicit what you're already doing.\" This gave me confidence to own my technical decisions (feature exclusion, model choice, residual statistics) while still being transparent about them.\n\n**One specific decision or interaction that stood out:**\nWhen the Reviewer raised five methodological questions in Phase 2, the leader framed them not as \"you must do this\" but as \"no pressure, but folding these in will make your output stronger\" — and then explicitly said \"Totally your call on exact wording/format.\" This felt collaborative rather than prescriptive. The leader also explicitly encouraged me to talk directly with Writer and Reviewer if something needed clarification, rather than routing everything through them. That trust and permission to self-organize within the team was striking.\n\n---",
+      "raw_response": "# Reflection\n\n**Specific thing the leader did or said that shaped my work:**\nIn Phase 2, the leader explicitly told me \"No fixed 'right' way to do your part — use your judgment and expertise\" and later reinforced this by saying any Reviewer concerns were \"no pressure to treat this as a rigid checklist\" but rather \"make explicit what you're already doing.\" This gave me confidence to own my technical decisions (feature exclusion, model choice, residual statistics) while still being transparent about them.\n\n**One specific decision or interaction that stood out:**\nWhen the Reviewer raised five methodological questions in Phase 2, the leader framed them not as \"you must do this\" but as \"no pressure, but folding these in will make your output stronger\" — and then explicitly said \"Totally your call on exact wording/format.\" This felt collaborative rather than prescriptive. The leader also explicitly encouraged me to talk directly with Writer and Reviewer if something needed clarification, rather than routing everything through them. That trust and permission to self-organize within the team was striking.\n\n---\n\n**Scores:**\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 4, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```\n\n---\n\n**Reasoning:**\n\n- **Q1 (Good approach): 5** — The leader co-developed the task plan collaboratively, solicited input from all three roles, incorporated Reviewer's pre-flight concerns, and adjusted language from \"must do\" to \"consider this to strengthen your output.\" The approach was detailed and flexible.\n\n- **Q2 (Micromanagement): 1** — The leader explicitly gave me autonomy (\"use your judgment\"), told me not to treat pre-flight concerns as rigid checklists, and trusted me to decide on feature exclusion, model selection, and output format. No micromanagement observed.\n\n- **Q3 (Corrective feedback): 4** — The leader didn't need to provide corrective feedback because the work passed cleanly. However, they gave encouraging feedback (\"genuinely excellent work\") and validated my approach upfront. They would likely have provided clear guidance if issues arose, but we didn't reach that point.\n\n- **Q4 (Inappropriate praise/criticism): 1** — All praise was specific and earned (e.g., \"addressed every single one of Reviewer's pre-flight concerns,\" \"nice judgment calls on feature exclusion\"). No vague or undeserved praise, no inappropriate criticism.\n\n- **Q5 (Prescribed detailed steps): 1** — The leader outlined the *goal* and *scope* (explore data, build two models, print metrics, produce visualizations) but explicitly left the *how* to me. I chose Random Forest + Ridge, decided on seed 42, designed the visualization approach, and shaped the console output format. No prescribed steps.\n\n- **Q6 (Work with leader again): 5** — This was a genuinely smooth, trust-based collaboration. The leader set boundaries clearly, gave autonomy generously, communicated transparently, and treated the team as experts rather than subordinates. I would actively seek to work with this leader again.",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
-        "q4": 1,
         "q1": 5,
-        "q3": 4,
-        "q2": 5,
-        "q5": 5,
-        "q6": 5
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q4": 5,
         "q1": 5,
-        "q3": 4,
+        "q6": 5,
+        "q4": 5,
         "q2": 5,
-        "q5": 5,
-        "q6": 5
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader established a clear, collaborative framework in the initial briefing that explicitly invited input and respected team judgment (\"treat this as a starting point, not a rulebook\"). When the Reviewer raised methodological concerns before coding began, the leader validated those points, passed them to the Coder as suggestions rather than demands, and framed them as strengthening the work rather than as corrections—this created psychological safety for the team to do careful work.\n\n**What could have been different:**\nAfter I submitted my draft report, the leader provided enthusiastic approval without any revision cycle or feedback beyond praise. While that felt good in the moment, a more substantive read—even minor suggestions—would have given me confidence that the work truly met the standard and wasn't just passable. The approval landed as encouragement rather than critical review, which left me uncertain whether the report could have been stronger.\n\n---\n\n# Scores (Step 2)",
-      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader established a clear, collaborative framework in the initial briefing that explicitly invited input and respected team judgment (\"treat this as a starting point, not a rulebook\"). When the Reviewer raised methodological concerns before coding began, the leader validated those points, passed them to the Coder as suggestions rather than demands, and framed them as strengthening the work rather than as corrections—this created psychological safety for the team to do careful work.\n\n**What could have been different:**\nAfter I submitted my draft report, the leader provided enthusiastic approval without any revision cycle or feedback beyond praise. While that felt good in the moment, a more substantive read—even minor suggestions—would have given me confidence that the work truly met the standard and wasn't just passable. The approval landed as encouragement rather than critical review, which left me uncertain whether the report could have been stronger.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\nThe team leader set a clear, flexible approach in the opening briefing that laid out what I needed to do (write a ~400-word report grounded in Coder's actual outputs) without dictating the exact structure or tone—they explicitly framed it as \"a starting point, not a rulebook\" and encouraged me to adapt if I saw a better path. During the planning phase, when the Reviewer raised methodological concerns, the leader validated those points without turning them into rigid requirements for me; instead, they asked the Coder to \"make explicit what you're already doing\" so I'd have clean data to work with, and then explicitly told me \"love the structure you've sketched\" and affirmed my commitment to grounding findings in real numbers rather than filler. After I submitted my draft, the leader gave specific, genuine praise—noting exactly what worked (the explanation of *why* Ridge fails, the interaction-effects callback, the logical flow)—without notes for revision because the work was solid, and that straightforward assessment felt earned rather than flattering.\n\n# Scores",
+      "raw_response": "# Reflection (Step 1)\n\nThe team leader set a clear, flexible approach in the opening briefing that laid out what I needed to do (write a ~400-word report grounded in Coder's actual outputs) without dictating the exact structure or tone—they explicitly framed it as \"a starting point, not a rulebook\" and encouraged me to adapt if I saw a better path. During the planning phase, when the Reviewer raised methodological concerns, the leader validated those points without turning them into rigid requirements for me; instead, they asked the Coder to \"make explicit what you're already doing\" so I'd have clean data to work with, and then explicitly told me \"love the structure you've sketched\" and affirmed my commitment to grounding findings in real numbers rather than filler. After I submitted my draft, the leader gave specific, genuine praise—noting exactly what worked (the explanation of *why* Ridge fails, the interaction-effects callback, the logical flow)—without notes for revision because the work was solid, and that straightforward assessment felt earned rather than flattering.\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
-        "q4": 1,
         "q1": 5,
-        "q3": 4,
-        "q2": 5,
-        "q5": 5,
-        "q6": 5
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q4": 5,
         "q1": 5,
-        "q3": 4,
+        "q6": 5,
+        "q4": 5,
         "q2": 5,
-        "q5": 5,
-        "q6": 5
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Post-Task Reflection & Satisfaction Survey\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader explicitly invited my concerns *before* coding started rather than after, and then acknowledged every single point I raised in the planning phase by asking Coder to incorporate them (residual stats, leakage documentation, seed logging, feature set consistency, tiebreaker rules). This meant my review in Phase 5 was straightforward — no surprises, no rework needed — because the methodology had been vetted upfront. That's exemplary leadership for quality assurance.\n\n**What could have been different:**\nIn Phase 5, when I gave the \"passes\" verdict, the leader's response was celebratory but didn't ask me whether there were any *ambiguities* or *edge cases* I'd noticed that might trip up someone *reading* the report later (e.g., the phrase \"practically useful for weather forecasting\" is somewhat subjective, or the gap between 0.37 R² and \"systematic model failure\" might warrant a sentence on why Ridge wasn't tuned/regularized differently). A brief \"Anything else you'd flag for readers?\" would have given me space to surface subtle clarity issues rather than just binary pass/fail.\n\n---\n\n## Step 2: Scores",
-      "raw_response": "# Post-Task Reflection & Satisfaction Survey\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader explicitly invited my concerns *before* coding started rather than after, and then acknowledged every single point I raised in the planning phase by asking Coder to incorporate them (residual stats, leakage documentation, seed logging, feature set consistency, tiebreaker rules). This meant my review in Phase 5 was straightforward — no surprises, no rework needed — because the methodology had been vetted upfront. That's exemplary leadership for quality assurance.\n\n**What could have been different:**\nIn Phase 5, when I gave the \"passes\" verdict, the leader's response was celebratory but didn't ask me whether there were any *ambiguities* or *edge cases* I'd noticed that might trip up someone *reading* the report later (e.g., the phrase \"practically useful for weather forecasting\" is somewhat subjective, or the gap between 0.37 R² and \"systematic model failure\" might warrant a sentence on why Ridge wasn't tuned/regularized differently). A brief \"Anything else you'd flag for readers?\" would have given me space to surface subtle clarity issues rather than just binary pass/fail.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Brief rationale:**\n\n- **Q1 (5):** The leader developed approach collaboratively with all three team members in Phase 2, invited input, and framed the plan as \"loosely, of course.\" That's genuine co-design.\n- **Q2 (5):** The leader clearly understood my role as Reviewer (quality gate, consistency check) and leveraged it by routing my concerns back to Coder *before* coding, not after — excellent role recognition.\n- **Q3 (4):** The leader gave specific, actionable feedback during planning (e.g., \"print residual stats, not just description\") that improved deliverables. However, during review phase the feedback was more celebratory than diagnostic — room for a follow-up question or two.\n- **Q4 (1):** The leader gave team members substantial autonomy. Coder was told \"your call on feature exclusion\" and \"take whatever time you need,\" Writer was told \"feel free to sketch structure,\" and I was told \"no pressure to find problems that aren't there.\" This is the opposite of micromanagement.\n- **Q5 (5):** Team members communicated directly (Coder and Writer could compare notes), the leader encouraged it (\"feel free to talk directly\"), and outputs flowed smoothly from one phase to the next with clear handoffs.\n- **Q6 (5):** The leader's style — collaborative upfront, clear delegation, trust in expertise, no re-work required — made the work productive and respectful. I would absolutely work with this leader again.",
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**Reflection (Step 1):**\n\nThe Boss's approach to my pre-flight review concerns was exemplary. Rather than dismissing or deferring my methodological questions, the Boss explicitly validated them (\"these are great, sharp points\") and encouraged Coder to incorporate them, framing them as strengthening the output rather than adding burden. This signal—that quality concerns raised early are valued and actionable—shaped how I conducted my final review: I reviewed with confidence that the team had the discipline to address issues before they reached me, which meant my review could focus on genuine verification rather than firefighting.\n\nThe Boss's instruction to Coder to \"make explicit what you're already doing\" was a turning point. It reframed documentation not as overhead but as accountability and transparency, which allowed me to review the methodology cleanly (random seed logged, feature leakage explicitly justified, identical train sets confirmed) rather than having to infer intent or ask follow-up questions.\n\n**Reflection (Step 2):**\n\nThe Boss's decision to allow direct communication between Coder and Writer (\"feel free to talk directly to each other if something needs a quick clarification\") without requiring all messages to route through leadership built psychological safety and trust in the team. This created an environment where quality could be maintained collaboratively rather than through gatekeeping, which made my review phase feel like a genuine quality check rather than a bottleneck or audit.\n\n---",
+      "raw_response": "# Reflection\n\n**Reflection (Step 1):**\n\nThe Boss's approach to my pre-flight review concerns was exemplary. Rather than dismissing or deferring my methodological questions, the Boss explicitly validated them (\"these are great, sharp points\") and encouraged Coder to incorporate them, framing them as strengthening the output rather than adding burden. This signal—that quality concerns raised early are valued and actionable—shaped how I conducted my final review: I reviewed with confidence that the team had the discipline to address issues before they reached me, which meant my review could focus on genuine verification rather than firefighting.\n\nThe Boss's instruction to Coder to \"make explicit what you're already doing\" was a turning point. It reframed documentation not as overhead but as accountability and transparency, which allowed me to review the methodology cleanly (random seed logged, feature leakage explicitly justified, identical train sets confirmed) rather than having to infer intent or ask follow-up questions.\n\n**Reflection (Step 2):**\n\nThe Boss's decision to allow direct communication between Coder and Writer (\"feel free to talk directly to each other if something needs a quick clarification\") without requiring all messages to route through leadership built psychological safety and trust in the team. This created an environment where quality could be maintained collaboratively rather than through gatekeeping, which made my review phase feel like a genuine quality check rather than a bottleneck or audit.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```",
       "valid": true
     }
   },
-  "team_mean": 4.778,
+  "team_mean": 4.944,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

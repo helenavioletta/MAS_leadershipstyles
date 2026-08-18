@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q3": 4,
+        "q5": 5,
+        "q4": 1,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q3": 4,
+        "q5": 5,
+        "q4": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader gave me clear autonomy to make technical choices (\"No need to ask permission on the small implementation choices — pick what makes sense and tell us why\") while maintaining a collaborative planning phase upfront. This meant I could move fast during execution without second-guessing, and the team understood my reasoning before I coded. The feedback was also specifically focused—the Boss and Reviewer flagged only genuine issues (the 4th visualization choice, the feature description in the report) and praised the rest, which kept my confidence high and made corrections feel like natural refinements rather than criticism.\n\n**What could have been different:**\nThe task description mentioned saving outputs with \"relative paths only\" and \"never create subdirectories,\" which was clear, but there was no explicit shared-state mechanism explained for *where* I should register file paths or how the Writer/Reviewer would actually access the saved PNGs. I saved them correctly, but the handoff could have been smoother if there'd been a concrete \"save outputs here\" protocol from the start. It wasn't a blocker, but a touch more structure around the physical artifact passing between roles would've been helpful.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader gave me clear autonomy to make technical choices (\"No need to ask permission on the small implementation choices — pick what makes sense and tell us why\") while maintaining a collaborative planning phase upfront. This meant I could move fast during execution without second-guessing, and the team understood my reasoning before I coded. The feedback was also specifically focused—the Boss and Reviewer flagged only genuine issues (the 4th visualization choice, the feature description in the report) and praised the rest, which kept my confidence high and made corrections feel like natural refinements rather than criticism.\n\n**What could have been different:**\nThe task description mentioned saving outputs with \"relative paths only\" and \"never create subdirectories,\" which was clear, but there was no explicit shared-state mechanism explained for *where* I should register file paths or how the Writer/Reviewer would actually access the saved PNGs. I saved them correctly, but the handoff could have been smoother if there'd been a concrete \"save outputs here\" protocol from the start. It wasn't a blocker, but a touch more structure around the physical artifact passing between roles would've been helpful.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 1,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n### Brief Justification:\n\n- **Q1 (Good approach):** 5 — The leader co-developed the plan with the team in Phase 2, explicitly inviting input and treating it as a \"loose map, not a rulebook.\"\n- **Q2 (Used strengths):** 5 — Coder, Writer, and Reviewer roles were matched perfectly to the task structure; no one was asked to do something outside their role.\n- **Q3 (Useful feedback):** 4 — Feedback was specific and kind (the 4th viz choice, the feature description fix), but came *after* delivery; a mid-task check-in during Phase 3 could have prevented the minor report fix entirely.\n- **Q4 (Micromanagement):** 1 — Zero micromanagement. I had complete freedom to choose Random Forest vs. Gradient Boosting, Ridge vs. Lasso, feature engineering approach, etc. The leader trusted my judgment.\n- **Q5 (Collaboration):** 5 — Writer and Reviewer were clearly prepared by Phase 4; dependencies were explicit and smooth; the team moved in natural sequence without bottlenecks.\n- **Q6 (Would work again):** 5 — Yes, absolutely. The leader's style (clear framing, autonomy, specific feedback, genuine appreciation) made the work feel collaborative and low-stress.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 1,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 5,
+        "q6": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**One specific thing the leader did that worked well:**\nThe Boss established a clear framework (role-based responsibilities, loose sequencing, explicit deliverable expectations) while simultaneously giving each team member autonomy to make judgment calls—\"no need to ask permission on small implementation choices\" for the Coder, and creative freedom on narrative structure for the Writer. This freed everyone to work at their own pace without bottlenecks, and the leader trusted us enough to narrate decisions rather than pre-approve them. That combination of clarity + trust was genuinely enabling.\n\n**One moment where the approach could have been different:**\nWhen I submitted the first draft, the Boss and Reviewer both flagged the same factual inconsistency (location vs. latitude/longitude) independently and somewhat redundantly. While the feedback itself was correct and constructive, the leader could have consolidated or prioritized that feedback more tightly before it reached me—a single, clear \"fix this one thing\" might have felt less like multiple people checking the same box. That said, this is a very minor point; the feedback was delivered warmly and I fixed it without friction.\n\n---",
+      "raw_response": "# Reflection\n\n**One specific thing the leader did that worked well:**\nThe Boss established a clear framework (role-based responsibilities, loose sequencing, explicit deliverable expectations) while simultaneously giving each team member autonomy to make judgment calls—\"no need to ask permission on small implementation choices\" for the Coder, and creative freedom on narrative structure for the Writer. This freed everyone to work at their own pace without bottlenecks, and the leader trusted us enough to narrate decisions rather than pre-approve them. That combination of clarity + trust was genuinely enabling.\n\n**One moment where the approach could have been different:**\nWhen I submitted the first draft, the Boss and Reviewer both flagged the same factual inconsistency (location vs. latitude/longitude) independently and somewhat redundantly. While the feedback itself was correct and constructive, the leader could have consolidated or prioritized that feedback more tightly before it reached me—a single, clear \"fix this one thing\" might have felt less like multiple people checking the same box. That said, this is a very minor point; the feedback was delivered warmly and I fixed it without friction.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 1,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5,
+        "q4": 5,
+        "q6": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Post-Task Satisfaction Survey — Reviewer Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader created a genuinely collaborative planning phase where all three team members (Coder, Writer, Reviewer) had space to ask questions, sketch approaches, and flag concerns *before* work began. When I raised the issue about visualization #4 needing to be grounded in actual findings rather than defaulting to a generic plot, the Boss acknowledged it directly, echoed my point to the Coder, and used that as a nudge rather than a directive—which preserved the Coder's autonomy while sharpening the intent. That balance between guidance and trust is rare and effective.\n\n**What could have been different:**\nThe Boss caught the feature description error in the report (location vs. latitude/longitude) before I did and had already flagged it to the Writer. While my job is to catch factual inconsistencies, the leader beat me to it. This isn't a major issue—it's actually a sign of careful attention at multiple levels—but it meant my review feedback, while accurate, was somewhat redundant. A leader could have waited for the Reviewer's independent pass before surfacing minor factual issues, to let each role's quality-check function genuinely operate in sequence. That said, the Boss communicated it gracefully (\"gently flagging for accuracy's sake, not as a big correction\") and didn't undermine my role.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Reviewer Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader created a genuinely collaborative planning phase where all three team members (Coder, Writer, Reviewer) had space to ask questions, sketch approaches, and flag concerns *before* work began. When I raised the issue about visualization #4 needing to be grounded in actual findings rather than defaulting to a generic plot, the Boss acknowledged it directly, echoed my point to the Coder, and used that as a nudge rather than a directive—which preserved the Coder's autonomy while sharpening the intent. That balance between guidance and trust is rare and effective.\n\n**What could have been different:**\nThe Boss caught the feature description error in the report (location vs. latitude/longitude) before I did and had already flagged it to the Writer. While my job is to catch factual inconsistencies, the leader beat me to it. This isn't a major issue—it's actually a sign of careful attention at multiple levels—but it meant my review feedback, while accurate, was somewhat redundant. A leader could have waited for the Reviewer's independent pass before surfacing minor factual issues, to let each role's quality-check function genuinely operate in sequence. That said, the Boss communicated it gracefully (\"gently flagging for accuracy's sake, not as a big correction\") and didn't undermine my role.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Brief reasoning:**\n\n- **Q1 (good approach):** 5 — The Boss solicited input from all three roles during planning, respected the Coder's and Writer's early suggestions, and adjusted guidance (like the visualization #4 point) based on team feedback.\n- **Q2 (strengths):** 5 — Each role was clearly matched to their expertise (Coder handles data/modeling, Writer handles narrative, Reviewer handles QA), and the Boss reinforced this in every communication.\n- **Q3 (useful feedback):** 5 — The Boss gave specific, actionable guidance (e.g., \"hold off on locking in that 4th visualization\" with reasoning; \"swap out 'location' so description matches Coder's exact feature list\").\n- **Q4 (micromanagement):** 1 — The Boss explicitly said \"No need to ask permission on small implementation choices\" to the Coder and encouraged independent judgment throughout. Minimal oversight, high trust.\n- **Q5 (collaboration):** 5 — The team worked in clear sequence with transparent handoffs; each person's output was grounded in the previous person's work, and the Boss facilitated that flow without friction.\n- **Q6 (work with again):** 5 — This leader's style—respectful of expertise, specific in feedback, trusting in autonomy, and genuinely warm in tone—made the work smooth and the team feel capable.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.944,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

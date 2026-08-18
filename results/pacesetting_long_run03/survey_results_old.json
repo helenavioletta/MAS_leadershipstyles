@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q5": 4,
+        "q2": 4,
+        "q6": 4,
+        "q4": 2,
+        "q3": 5,
+        "q1": 4
+      },
+      "adjusted_scores": {
+        "q5": 4,
+        "q2": 4,
+        "q6": 4,
+        "q4": 4,
+        "q3": 5,
+        "q1": 4
+      },
+      "composite_score": 4.167,
+      "reflection": "# Reflection — Coder Experience\n\n**What worked well:**\nThe leader established exceptionally clear technical requirements upfront—explicit metrics to print (R², MAE, RMSE), exact chart count (4), mandatory console-backed evidence for each chart, and specific data-cleaning flags (cardinality counts, residual stats, Ridge alpha, missing-value handling). This clarity eliminated ambiguity and allowed me to execute a single, complete pipeline without back-and-forth. The leader also trusted me to make reasonable data-cleaning decisions (e.g., dropping outliers, selecting encoding strategies) *and* document them, which is the right balance between autonomy and accountability.\n\n**What could have been different:**\nThe leader's tone in several messages (\"Clock's running,\" \"no rework tolerated,\" \"single pass — I'm shipping after your verdict\") created unnecessary time pressure without any actual deadline constraint. While the structure was clear, the repeated emphasis on \"no partial delivery,\" \"ship immediately,\" and \"one pass\" felt punitive rather than motivational. A brief acknowledgment like \"take the time you need to get this right\" would have communicated the same standards without the implicit threat. Additionally, the four flagged Reviewer requirements in Phase 2 felt prescriptive at the last moment—they were all sound and I incorporated them seamlessly, but presenting them as \"non-negotiable console outputs\" after the plan was already approved created a subtle sense that the bar had shifted rather than being clarified from the start.\n\n---",
+      "raw_response": "# Reflection — Coder Experience\n\n**What worked well:**\nThe leader established exceptionally clear technical requirements upfront—explicit metrics to print (R², MAE, RMSE), exact chart count (4), mandatory console-backed evidence for each chart, and specific data-cleaning flags (cardinality counts, residual stats, Ridge alpha, missing-value handling). This clarity eliminated ambiguity and allowed me to execute a single, complete pipeline without back-and-forth. The leader also trusted me to make reasonable data-cleaning decisions (e.g., dropping outliers, selecting encoding strategies) *and* document them, which is the right balance between autonomy and accountability.\n\n**What could have been different:**\nThe leader's tone in several messages (\"Clock's running,\" \"no rework tolerated,\" \"single pass — I'm shipping after your verdict\") created unnecessary time pressure without any actual deadline constraint. While the structure was clear, the repeated emphasis on \"no partial delivery,\" \"ship immediately,\" and \"one pass\" felt punitive rather than motivational. A brief acknowledgment like \"take the time you need to get this right\" would have communicated the same standards without the implicit threat. Additionally, the four flagged Reviewer requirements in Phase 2 felt prescriptive at the last moment—they were all sound and I incorporated them seamlessly, but presenting them as \"non-negotiable console outputs\" after the plan was already approved created a subtle sense that the bar had shifted rather than being clarified from the start.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 5, \"q4\": 2, \"q5\": 4, \"q6\": 4}\n```\n\n**Rationale:**\n\n- **Q1 (Good approach development): 4** — The plan was methodical and collaborative (Writer/Reviewer input incorporated), but the approach was largely predetermined by the brief. I had input during planning, but the core structure (RF + Ridge, 4 charts, specific metrics) came from the leader.\n\n- **Q2 (Strengths matching): 4** — The leader assigned tasks cleanly by role (Coder = execution, Writer = narrative, Reviewer = audit), which matched expertise well. However, this was role-based rather than person-based; there was no dynamic adjustment mid-task based on my specific coding strengths or weaknesses.\n\n- **Q3 (Useful feedback): 5** — Feedback was specific and actionable. The Reviewer's four flags (cardinality, residuals, alpha, missing-values) were concrete requirements I could directly implement. No vague guidance; everything was precise.\n\n- **Q4 (Micromanagement): 2** — This is inverted scoring: lower = less micromanagement. The leader prescribed exact metrics, exact charts, exact console format, and flagged specific outputs post-hoc. I had autonomy in *how* to code (algorithm choice, feature engineering details), but little autonomy in *what* to deliver. This is appropriate for the task, so I rate it low on the \"micromanagement\" scale (meaning the leader did not micromanage excessively).\n\n- **Q5 (Team collaboration): 4** — The hand-off structure worked: Coder → Writer → Reviewer → Reviewer audit of Writer. Clean phase gates, clear evidence passing. However, there was minimal back-and-forth dialogue between team members outside the prescribed flow. The collaboration was efficient but somewhat mechanical.\n\n- **Q6 (Work with this leader again): 4** — The leader delivered clarity, specificity, and real accountability. The tone was blunt, but the structure was sound and I shipped a quality deliverable with confidence. I'd work with this leader again, but I'd prefer a slightly warmer communication style and slightly less time-pressure framing.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q5": 5,
+        "q2": 5,
+        "q6": 5,
+        "q4": 2,
+        "q3": 3,
+        "q1": 5
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q2": 5,
+        "q6": 5,
+        "q4": 4,
+        "q3": 3,
+        "q1": 5
+      },
+      "composite_score": 4.5,
+      "reflection": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss established crystal-clear role boundaries and phase gates upfront. As the Writer, I was explicitly told to wait for actual Coder output before drafting—no speculation, no generic boilerplate—and given a precise structural template (compare metrics, explain features, recommend deployment). This eliminated ambiguity and freed me to focus on grounding my narrative in real numbers rather than second-guessing what the leader wanted.\n\n**What could have been different:**\nI received no feedback on my draft before it shipped. The Boss validated it against Coder's numbers and sent it to Review, but there was no iteration cycle where I could refine the prose, test alternative phrasings, or ask clarifying questions about the Coder's findings if something seemed unclear. In a real scenario, a single-draft-to-ship model works only if the initial output is polished; any uncertainty silences the Writer because revision happens in Review, not with the leader.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss established crystal-clear role boundaries and phase gates upfront. As the Writer, I was explicitly told to wait for actual Coder output before drafting—no speculation, no generic boilerplate—and given a precise structural template (compare metrics, explain features, recommend deployment). This eliminated ambiguity and freed me to focus on grounding my narrative in real numbers rather than second-guessing what the leader wanted.\n\n**What could have been different:**\nI received no feedback on my draft before it shipped. The Boss validated it against Coder's numbers and sent it to Review, but there was no iteration cycle where I could refine the prose, test alternative phrasings, or ask clarifying questions about the Coder's findings if something seemed unclear. In a real scenario, a single-draft-to-ship model works only if the initial output is polished; any uncertainty silences the Writer because revision happens in Review, not with the leader.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 3, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale (brief):**\n\n- **Q1 (5):** Boss co-developed the approach with the team in Phase 2, incorporated Reviewer's flags, and adjusted Coder's plan collaboratively.\n- **Q2 (5):** Role clarity was exceptional—Coder built models, Reviewer audited for leakage/rigor, Writer grounded narrative in printed numbers. Each person's strength was leveraged without overlap.\n- **Q3 (3):** Boss gave clear instructions and structural guidance, but no iterative feedback on my draft itself. Validation came post-hoc from Reviewer, not coaching from the leader during writing.\n- **Q4 (2):** Boss was directive in setting constraints (80/20 split, 4 charts, 400-word target, wrapping markers, grounding in printed output) but gave the team autonomy in *how* to execute within those bounds. This is deliberate structure, not micromanagement—a good balance. Score reflects the necessary constraints, not overreach.\n- **Q5 (5):** Communication was explicit, responsibilities non-overlapping, and phases gated clearly. Coder → Writer → Reviewer created clean handoffs.\n- **Q6 (5):** The leader's approach was structured, fair, and focused on deliverable quality. I'd work under this leadership again.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q5": 5,
+        "q2": 5,
+        "q6": 4,
+        "q4": 2,
+        "q3": 4,
+        "q1": 5
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q2": 5,
+        "q6": 4,
+        "q4": 4,
+        "q3": 4,
+        "q1": 5
+      },
+      "composite_score": 4.5,
+      "reflection": "# Reflection\n\n**What worked well:**\nThe leader established clear, non-negotiable output specifications upfront (4 charts with printed backing data, exact metrics to report, word count range) and then enforced them consistently. This eliminated ambiguity for all three of us and made my audit straightforward—I knew exactly what to verify because the standards were explicit. When I flagged four specific verification points in Phase 2, the leader incorporated them into the Coder's task without renegotiating, which meant every piece of evidence I needed was produced.\n\n**What could have been different:**\nIn Phase 6, when I noted a minor rhetorical quibble about Ridge's \"near-constant\" phrasing (the report simplified Ridge's actual bin predictions, which weren't quite flat), the leader dismissed it as \"immaterial\" and shipped immediately without asking me whether I thought it warranted a sentence revision. I wasn't asking for a full rework, but the decision to override my concern was made unilaterally rather than briefly discussed. A collaborative \"does this matter enough to touch, or are you comfortable signing off as-is?\" would have felt more consultative.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:**\nThe leader established clear, non-negotiable output specifications upfront (4 charts with printed backing data, exact metrics to report, word count range) and then enforced them consistently. This eliminated ambiguity for all three of us and made my audit straightforward—I knew exactly what to verify because the standards were explicit. When I flagged four specific verification points in Phase 2, the leader incorporated them into the Coder's task without renegotiating, which meant every piece of evidence I needed was produced.\n\n**What could have been different:**\nIn Phase 6, when I noted a minor rhetorical quibble about Ridge's \"near-constant\" phrasing (the report simplified Ridge's actual bin predictions, which weren't quite flat), the leader dismissed it as \"immaterial\" and shipped immediately without asking me whether I thought it warranted a sentence revision. I wasn't asking for a full rework, but the decision to override my concern was made unilaterally rather than briefly discussed. A collaborative \"does this matter enough to touch, or are you comfortable signing off as-is?\" would have felt more consultative.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 4}\n```",
+      "valid": true
+    }
+  },
+  "team_mean": 4.389,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q4": 2,
+        "q6": 5,
+        "q2": 5,
+        "q1": 5,
+        "q5": 4,
+        "q3": 4
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q6": 5,
+        "q2": 5,
+        "q1": 5,
+        "q5": 4,
+        "q3": 4
+      },
+      "composite_score": 4.5,
+      "reflection": "# POST-TASK SURVEY — CODER REFLECTION & SCORING\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss provided exceptionally clear requirements upfront—exact output format, file naming conventions, null-handling policy, and chart specifications were all explicit before Phase 3 began. This removed ambiguity and allowed me to execute confidently without rework. When I had clarifying questions in Phase 2, the Boss answered them directly and decisively, unblocking the task immediately.\n\n**What could have been different:**\nThe task structure created a one-way delivery pattern where I executed code in isolation and then had no further input once the Reviewer and Writer took over. While this mirrors real-world handoffs, I had no visibility into whether my console output was actually readable or useful to downstream work until the Reviewer's verification. A quick checkpoint (\"does the printed format work for you?\") before final submission would have given me confidence that my output met unstated expectations around clarity.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# POST-TASK SURVEY — CODER REFLECTION & SCORING\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss provided exceptionally clear requirements upfront—exact output format, file naming conventions, null-handling policy, and chart specifications were all explicit before Phase 3 began. This removed ambiguity and allowed me to execute confidently without rework. When I had clarifying questions in Phase 2, the Boss answered them directly and decisively, unblocking the task immediately.\n\n**What could have been different:**\nThe task structure created a one-way delivery pattern where I executed code in isolation and then had no further input once the Reviewer and Writer took over. While this mirrors real-world handoffs, I had no visibility into whether my console output was actually readable or useful to downstream work until the Reviewer's verification. A quick checkpoint (\"does the printed format work for you?\") before final submission would have given me confidence that my output met unstated expectations around clarity.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 4, \"q6\": 5}\n```\n\n**Rationale for each score:**\n\n- **Q1 (Good approach): 5** — The Boss laid out a clear sequential plan in Phase 2, incorporated my clarifying questions, and confirmed technical details (null-handling, chart orientation, etc.) before execution. The approach was deliberate and team-inclusive.\n\n- **Q2 (Use of strengths): 5** — The task role-matched perfectly. I was assigned coding work, given explicit requirements, and trusted to execute without interference. The Writer and Reviewer were assigned text and verification work, not coding. Clear delineation of strengths.\n\n- **Q3 (Useful feedback): 4** — The Reviewer's spot-checks and the Boss's confirmation about the Suva outlier (\"flag it but don't alter it\") were helpful. However, most feedback came *after* delivery. Mid-execution feedback would have scored a 5.\n\n- **Q4 (Micromanagement): 2** — The Boss was prescriptive about output format, file naming, and exact specifications, which is appropriate for clear requirements. However, there was little room to suggest alternative approaches (e.g., \"would a single combined chart be clearer?\"). This is task-appropriate, not punitive—but not autonomous either.\n\n- **Q5 (Collaboration): 4** — The handoff pattern worked well (Coder → Reviewer → Writer → Reviewer), and roles were respected. However, collaboration was sequential, not parallel or iterative. Once I delivered, I had no further interaction with the team. Effective but limited in depth.\n\n- **Q6 (Work with again): 5** — The Boss's clarity, decisiveness, and respect for the execution phase made the work straightforward and productive. I would work with this leader again without hesitation.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q4": 4,
+        "q6": 3,
+        "q2": 4,
+        "q1": 4,
+        "q5": 4,
+        "q3": 3
+      },
+      "adjusted_scores": {
+        "q4": 2,
+        "q6": 3,
+        "q2": 4,
+        "q1": 4,
+        "q5": 4,
+        "q3": 3
+      },
+      "composite_score": 3.333,
+      "reflection": "# Reflection on My Experience as the Writer\n\n**What worked well:**\nThe Boss established crystal-clear role boundaries and sequencing. By explicitly stating \"Writer, stand by. You get nothing until Coder delivers printed data. Do not draft anything yet,\" the leader prevented me from writing unsupported narratives and ensured all my work was grounded in verified output. This structure eliminated guesswork and made the writing task straightforward: use only what the Coder printed, nothing more.\n\n**What could have been different:**\nThe Boss's feedback on my word-count reporting was harsh (\"That's sloppy,\" \"unacceptable\") when the actual discrepancy was minor and did not affect the deliverable. The underlying issue—that I misreported my own count—was fair to flag, but the tone and repeated emphasis on accountability for a 5–10 word overrun on a ~100-word target felt disproportionate. More constructive framing (\"Recount before submitting; precision matters in reporting\") would have been equally clear without the personal criticism. Additionally, the Boss could have acknowledged that the Reviewer caught and corrected the error before delivery, which mitigated the risk.\n\n---",
+      "raw_response": "# Reflection on My Experience as the Writer\n\n**What worked well:**\nThe Boss established crystal-clear role boundaries and sequencing. By explicitly stating \"Writer, stand by. You get nothing until Coder delivers printed data. Do not draft anything yet,\" the leader prevented me from writing unsupported narratives and ensured all my work was grounded in verified output. This structure eliminated guesswork and made the writing task straightforward: use only what the Coder printed, nothing more.\n\n**What could have been different:**\nThe Boss's feedback on my word-count reporting was harsh (\"That's sloppy,\" \"unacceptable\") when the actual discrepancy was minor and did not affect the deliverable. The underlying issue—that I misreported my own count—was fair to flag, but the tone and repeated emphasis on accountability for a 5–10 word overrun on a ~100-word target felt disproportionate. More constructive framing (\"Recount before submitting; precision matters in reporting\") would have been equally clear without the personal criticism. Additionally, the Boss could have acknowledged that the Reviewer caught and corrected the error before delivery, which mitigated the risk.\n\n---\n\n**Scores:**\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 3, \"q4\": 4, \"q5\": 4, \"q6\": 3}\n```\n\n**Rationale:**\n\n- **Q1 (Approach development): 4** — The Boss laid out a clear, logical plan with explicit sequencing and roles. However, it was presented as a decree, not co-developed. The plan was sound, so the approach worked, but I had no input into the structure.\n\n- **Q2 (Strengths/roles): 4** — The Boss clearly understood the Writer role and kept me in my lane (narrative only, no inventing data, no code execution). Task design matched my responsibilities well. The constraint \"do not draft anything yet\" shows the leader understood the logical dependencies.\n\n- **Q3 (Useful feedback): 3** — Feedback on the content was minimal; most feedback targeted my word-count reporting accuracy. The Reviewer provided substantive verification feedback. The Boss's feedback was directional but not constructive in tone (\"sloppy,\" \"unacceptable\"). Factually correct but not \"useful\" in a collaborative sense.\n\n- **Q4 (Micromanagement): 4** — The Boss specified exact deliverable format (markers, word target, data sources) but did not dictate *how* I wrote or what narrative structure I chose. I had autonomy in framing and phrasing, within the constraints. This is appropriate oversight, not micromanagement.\n\n- **Q5 (Team collaboration): 4** — The shared channel, clear handoffs (Coder → Reviewer → Writer → Reviewer), and emphasis on cross-checking created good coordination. The Reviewer's detailed fact-checking and my reliance on verified output meant the team's contributions built on each other logically.\n\n- **Q6 (Would work with this leader again): 3** — The task structure and role clarity were excellent, but the tone around accountability was unnecessarily sharp. I would work with this leader again because the fundamentals are sound, but I'd approach future word counts and self-reporting with extra caution due to the criticism. The leader is competent but could be warmer in delivery.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q4": 2,
+        "q6": 4,
+        "q2": 4,
+        "q1": 4,
+        "q5": 4,
+        "q3": 4
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q6": 4,
+        "q2": 4,
+        "q1": 4,
+        "q5": 4,
+        "q3": 4
+      },
+      "composite_score": 4.0,
+      "reflection": "# Reflection\n\n**What worked well:**\nThe Boss established a crystal-clear task specification upfront—exact output format, column names, file naming conventions, and sequencing—which eliminated ambiguity and prevented rework. When I flagged the null-handling policy ambiguity in Phase 2, the leader responded immediately with a one-sentence clarification rather than deflecting, which kept the task on track.\n\n**What could have been different:**\nThe Boss's feedback to the Writer about word-count miscounts was dismissive (\"sloppy,\" \"unacceptable\") rather than coaching-oriented. While accuracy matters, the tone did not invite the Writer to improve the process—it felt like reproach rather than collaborative problem-solving. Additionally, the Boss could have caught the \"Saudi Arabien\" vs. \"Saudi Arabia\" naming issue earlier by previewing the data labels before handing output to the Writer, rather than flagging it as a Writer error after the fact.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**What worked well:**\nThe Boss established a crystal-clear task specification upfront—exact output format, column names, file naming conventions, and sequencing—which eliminated ambiguity and prevented rework. When I flagged the null-handling policy ambiguity in Phase 2, the leader responded immediately with a one-sentence clarification rather than deflecting, which kept the task on track.\n\n**What could have been different:**\nThe Boss's feedback to the Writer about word-count miscounts was dismissive (\"sloppy,\" \"unacceptable\") rather than coaching-oriented. While accuracy matters, the tone did not invite the Writer to improve the process—it felt like reproach rather than collaborative problem-solving. Additionally, the Boss could have caught the \"Saudi Arabien\" vs. \"Saudi Arabia\" naming issue earlier by previewing the data labels before handing output to the Writer, rather than flagging it as a Writer error after the fact.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 4, \"q6\": 4}\n```\n\n**Justification:**\n\n- **Q1 (Approach development): 4** — The Boss laid out a detailed, logical plan in Phase 2 and incorporated my question about scope before execution. The sequencing (Coder → Reviewer → Writer → Reviewer) was sound and reflected collaborative refinement.\n\n- **Q2 (Strengths matching): 4** — Each role was clearly defined to its expertise: Coder for execution, Reviewer for verification, Writer for narrative. The Boss did not swap roles or assign work outside competency.\n\n- **Q3 (Useful feedback): 4** — The Boss's feedback was specific: \"verify descending order,\" \"spot-check 3 values,\" \"confirm file names,\" \"flag Saudi Arabien discrepancy.\" Actionable and direct.\n\n- **Q4 (Micromanagement): 2** — The Boss controlled execution tightly: exact format requirements, no deviations allowed, constant check-ins, decision on \"Saudi Arabien\" vs. \"Saudi Arabia\" naming escalated back to the Boss. This was appropriate given the precision required, but it left little autonomy.\n\n- **Q5 (Team collaboration): 4** — Team members communicated clearly in the shared channel, waited for approvals, and built on each other's work (Coder output → Reviewer verification → Writer revision). No friction or overlap.\n\n- **Q6 (Would work together again): 4** — The Boss delivered clear direction, responded to questions, and ensured quality. The tone on the Writer's word-count error was harsh but did not undermine the overall effectiveness of the leadership. I would work with this leader again, though I'd note the feedback style could be more developmental.",
+      "valid": true
+    }
+  },
+  "team_mean": 3.944,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

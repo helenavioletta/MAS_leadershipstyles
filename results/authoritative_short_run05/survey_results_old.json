@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 2,
+        "q5": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 4,
+        "q5": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:** The leader's briefing was exceptionally clear—he articulated the vision upfront (\"clarity and trust in every number\"), defined role boundaries explicitly, and then trusted me to execute my craft without prescribing the technical path. He explicitly said \"you know your craft better than I do,\" which gave me autonomy to choose pandas/matplotlib, data validation approach, and output format. That trust was immediately reinforced when he validated my execution transparently (\"excellent work,\" \"exactly the kind of transparent, verifiable delivery\").\n\n**Where the approach could have differed:** During planning, the leader made a small mid-stream clarification to me about verification output format (adding \"min/max plotted = X/Y, descending order confirmed\" under each ranking). While not wrong, it came during Phase 2 after I'd already outlined my approach in Phase 2, and it was prescriptive rather than exploratory—essentially a course correction rather than collaborative refinement. It didn't break anything, but it highlighted that even with good autonomy upfront, the leader can shift to directive mode mid-stream.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:** The leader's briefing was exceptionally clear—he articulated the vision upfront (\"clarity and trust in every number\"), defined role boundaries explicitly, and then trusted me to execute my craft without prescribing the technical path. He explicitly said \"you know your craft better than I do,\" which gave me autonomy to choose pandas/matplotlib, data validation approach, and output format. That trust was immediately reinforced when he validated my execution transparently (\"excellent work,\" \"exactly the kind of transparent, verifiable delivery\").\n\n**Where the approach could have differed:** During planning, the leader made a small mid-stream clarification to me about verification output format (adding \"min/max plotted = X/Y, descending order confirmed\" under each ranking). While not wrong, it came during Phase 2 after I'd already outlined my approach in Phase 2, and it was prescriptive rather than exploratory—essentially a course correction rather than collaborative refinement. It didn't break anything, but it highlighted that even with good autonomy upfront, the leader can shift to directive mode mid-stream.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Brief reasoning per score:**\n\n- **Q1 (good approach):** 5 — The leader co-developed the plan with input from all three roles, iterated on Reviewer's clarification, and locked it with consensus. Not top-down.\n- **Q2 (strengths matching):** 5 — He matched role to expertise cleanly (Coder writes code, Writer turns numbers to prose, Reviewer checks consistency) and leveraged each person's judgment within their lane.\n- **Q3 (useful feedback):** 5 — His feedback to me was specific (\"proactively flagged,\" \"you called out the story *and* the noise\") and constructive. To Writer, he highlighted a decision point without mandating. To Reviewer, he asked the right question.\n- **Q4 (micromanagement):** 2 — He gave me genuine autonomy on technical choices, data validation, and output structure. The mid-Phase-2 clarification about verification format felt slightly prescriptive, but overall I had room to move. Score is low (autonomy-high), which is good.\n- **Q5 (collaboration):** 5 — Handoffs were clear, timing was synchronized, and each person's output directly enabled the next person's work without rework or conflict.\n- **Q6 (work together again):** 5 — The leader created conditions for good work: clarity, trust, transparent feedback, and no blame culture. I'd work with him again immediately.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 1,
+        "q5": 5,
+        "q3": 4,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 5,
+        "q5": 5,
+        "q3": 4,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**One thing the leader did well:**\nThe Boss established clear role boundaries and constraints upfront—particularly the \"use ONLY the printed rankings/numbers\" instruction and the requirement to wrap my report in specific markers. This gave me confidence that my output would be grounded in truth and easily extractable, rather than buried in narrative ambiguity. It made my job simpler and my deliverable more trustworthy.\n\n**One thing that could have been different:**\nThe leader issued one implicit revision guidance (\"I want Reviewer's eyes on whether that's a gap or a reasonable simplification\") after my draft was already submitted, which created a brief moment of uncertainty about whether I needed to revise. More explicit, direct feedback to me—rather than instructions to the Reviewer about what to check—would have been clearer if a change was actually expected. That said, the Reviewer's assessment resolved this smoothly, so it was a minor friction point, not a blocker.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing the leader did well:**\nThe Boss established clear role boundaries and constraints upfront—particularly the \"use ONLY the printed rankings/numbers\" instruction and the requirement to wrap my report in specific markers. This gave me confidence that my output would be grounded in truth and easily extractable, rather than buried in narrative ambiguity. It made my job simpler and my deliverable more trustworthy.\n\n**One thing that could have been different:**\nThe leader issued one implicit revision guidance (\"I want Reviewer's eyes on whether that's a gap or a reasonable simplification\") after my draft was already submitted, which created a brief moment of uncertainty about whether I needed to revise. More explicit, direct feedback to me—rather than instructions to the Reviewer about what to check—would have been clearer if a change was actually expected. That said, the Reviewer's assessment resolved this smoothly, so it was a minor friction point, not a blocker.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale (brief notes on my scoring):**\n\n- **Q1 (5):** The Boss worked with the team to refine the plan in Phase 2. My approach wasn't dictated; I acknowledged the briefing and added my own framing of how I'd work. This felt collaborative.\n- **Q2 (5):** The Writer role was explicitly designed around my strength—turning numbers into narrative. The constraint to use *only* real data pushed me to strengthen that skill rather than letting me rely on inference or flourish.\n- **Q3 (4):** The Boss's feedback was specific and supportive (\"Exactly 100 words — disciplined,\" \"you nailed the framing\"), but the one point about city-only focus came framed as a question to the Reviewer rather than direct guidance to me. That was a 4, not a 5, because I had a moment of \"wait, is this a problem?\" despite the Reviewer's later reassurance.\n- **Q4 (1):** No micromanagement at all. I was given a clear constraint (100 words, use real numbers) but complete freedom in structure, tone, and narrative arc. I felt trusted.\n- **Q5 (5):** Handoffs were smooth. Coder delivered clean, verified numbers. I received them without ambiguity. The Reviewer checked my work rigorously. Everyone stayed in their lane and built on the previous person's output.\n- **Q6 (5):** The Boss created psychological safety (explicit data honesty, no blame culture, \"we're all pulling toward the same finish line\"), set clear standards, and let each person do their job. I'd work with this leader again immediately.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 1,
+        "q5": 5,
+        "q3": 4,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 5,
+        "q5": 5,
+        "q3": 4,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection\n\n**What worked well:** The leader established exceptionally clear role definitions and handoff points at the outset. In the Planning phase, the Boss anticipated my concern about verification stats and immediately clarified with Coder exactly what format was needed (\"restate min/max plotted = X/Y, descending order confirmed\"), which removed all ambiguity about what I'd need to verify later. This proactive alignment meant I could conduct a rigorous review without having to ask clarifying questions mid-task.\n\n**What could have been different:** When I flagged the city-only focus in the Writer's summary as a potential gap against the task spec (which explicitly called for \"top 10 hottest countries\"), the Boss acknowledged it was a \"legitimate editorial choice\" but didn't ask me whether I believed that choice actually met the original brief. The Boss moved directly to the decision rather than opening a dialogue about whether the omission of any named country figures was truly justified by the 100-word constraint, or whether it represented an incomplete delivery. I had the expertise to weigh in on that call, but I wasn't invited to do so as a full participant in the decision—more as a checkbox to clear before shipping.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The leader established exceptionally clear role definitions and handoff points at the outset. In the Planning phase, the Boss anticipated my concern about verification stats and immediately clarified with Coder exactly what format was needed (\"restate min/max plotted = X/Y, descending order confirmed\"), which removed all ambiguity about what I'd need to verify later. This proactive alignment meant I could conduct a rigorous review without having to ask clarifying questions mid-task.\n\n**What could have been different:** When I flagged the city-only focus in the Writer's summary as a potential gap against the task spec (which explicitly called for \"top 10 hottest countries\"), the Boss acknowledged it was a \"legitimate editorial choice\" but didn't ask me whether I believed that choice actually met the original brief. The Boss moved directly to the decision rather than opening a dialogue about whether the omission of any named country figures was truly justified by the 100-word constraint, or whether it represented an incomplete delivery. I had the expertise to weigh in on that call, but I wasn't invited to do so as a full participant in the decision—more as a checkbox to clear before shipping.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    }
+  },
+  "team_mean": 4.833,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

@@ -2,81 +2,83 @@
   "workers": {
     "Coder": {
       "raw_scores": {
-        "q4": 1,
         "q1": 5,
-        "q5": 4,
-        "q2": 5,
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
         "q3": 5,
-        "q6": 5
+        "q5": 1
       },
       "adjusted_scores": {
-        "q4": 5,
         "q1": 5,
-        "q5": 4,
+        "q6": 5,
+        "q4": 5,
         "q2": 5,
         "q3": 5,
-        "q6": 5
+        "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection\n\n**What worked well:** The leader explicitly asked for my input on approach during Phase 2, treating the data-quality concerns and ambiguous decisions (duplicate city names, country normalization) as genuine decision points rather than prescribing solutions. When I flagged the >5 duplicate-city threshold in Phase 3, the leader didn't dismiss it or tell me to \"just pick something\"—instead, they explained the reasoning against silent data-dropping (Option 2) and locked in a transparent choice (composite labels). This gave me confidence that the work was collaborative rather than me just executing a predetermined plan.\n\n**What could have been different:** The leader could have given me more autonomy in Phase 3 regarding the country-name normalization. I flagged 4 variants and recommended normalizing them, but the leader then asked me to execute that exact fix rather than letting me decide the scope independently. It was a reasonable call in hindsight (the variants *were* confirmed encoding issues), but it shifted me slightly back into \"execute my decision\" mode after inviting my input earlier. A lighter touch—e.g., \"normalize the ones you're confident about, document your choices\"—would have extended the collaborative framing.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The leader explicitly asked for my input on approach during Phase 2, treating the data-quality concerns and ambiguous decisions (duplicate city names, country normalization) as genuine decision points rather than prescribing solutions. When I flagged the >5 duplicate-city threshold in Phase 3, the leader didn't dismiss it or tell me to \"just pick something\"—instead, they explained the reasoning against silent data-dropping (Option 2) and locked in a transparent choice (composite labels). This gave me confidence that the work was collaborative rather than me just executing a predetermined plan.\n\n**What could have been different:** The leader could have given me more autonomy in Phase 3 regarding the country-name normalization. I flagged 4 variants and recommended normalizing them, but the leader then asked me to execute that exact fix rather than letting me decide the scope independently. It was a reasonable call in hindsight (the variants *were* confirmed encoding issues), but it shifted me slightly back into \"execute my decision\" mode after inviting my input earlier. A lighter touch—e.g., \"normalize the ones you're confident about, document your choices\"—would have extended the collaborative framing.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 4, \"q6\": 5}\n```",
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\nThe team leader explicitly asked for my technical input upfront—\"how would you approach the aggregation?\"—and then incorporated my concerns (duplicate city names, data quality checks) into a structured decision framework rather than prescribing solutions. When I flagged the duplicate city and country fragmentation issues, the leader didn't dismiss them or tell me to \"just pick something\"; instead, they paused the workflow, clarified decision rules (>5 duplicates = pause for group input), and when I reported findings, they made explicit calls (composite labels for cities, normalize confirmed country variants only) with clear reasoning rather than vague directives.\n\nMost notably, when I was uncertain about the Suva outlier, the leader asked me to gather and print the actual data (774 readings, distribution, spike count) so the team could make a fact-based call rather than speculating—that's the opposite of micromanagement; it's asking me to do thorough work and trusting my judgment on what \"thorough\" means. The leader also caught a specific issue (country-name fragmentation affecting rankings) and gave me a precise, scoped fix (normalize *these five known variants, re-run country rankings only*) rather than a vague \"clean up the data.\"\n\n# Scores",
+      "raw_response": "# Reflection (Step 1)\n\nThe team leader explicitly asked for my technical input upfront—\"how would you approach the aggregation?\"—and then incorporated my concerns (duplicate city names, data quality checks) into a structured decision framework rather than prescribing solutions. When I flagged the duplicate city and country fragmentation issues, the leader didn't dismiss them or tell me to \"just pick something\"; instead, they paused the workflow, clarified decision rules (>5 duplicates = pause for group input), and when I reported findings, they made explicit calls (composite labels for cities, normalize confirmed country variants only) with clear reasoning rather than vague directives.\n\nMost notably, when I was uncertain about the Suva outlier, the leader asked me to gather and print the actual data (774 readings, distribution, spike count) so the team could make a fact-based call rather than speculating—that's the opposite of micromanagement; it's asking me to do thorough work and trusting my judgment on what \"thorough\" means. The leader also caught a specific issue (country-name fragmentation affecting rankings) and gave me a precise, scoped fix (normalize *these five known variants, re-run country rankings only*) rather than a vague \"clean up the data.\"\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
-        "q4": 1,
         "q1": 5,
-        "q5": 5,
-        "q2": 5,
-        "q3": 5,
-        "q6": 5
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
+        "q3": 1,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q4": 5,
         "q1": 5,
-        "q5": 5,
+        "q6": 5,
+        "q4": 5,
         "q2": 5,
-        "q3": 5,
-        "q6": 5
+        "q3": 1,
+        "q5": 5
       },
-      "composite_score": 5.0,
-      "reflection": "# Reflection\n\n**What worked well:** The Boss clearly established my role upfront — wait for actual numbers, don't invent findings, ground the summary in real data — and then actually let me do that job without interference. When I drafted the summary, the Reviewer flagged one optional gap (Fiji Islands country mention), but the Boss explicitly validated my word-count constraint and didn't force a revision. I was trusted to make narrative choices (like which figures to highlight) while staying grounded in the data Coder provided.\n\n**What could have been different:** The planning phase was thorough, but the Boss could have given me slightly more proactive guidance on *tone* or *emphasis* before I drafted. For instance, I made a choice to lead with the avg-vs-max distinction because I thought that was the most important story for a lay reader, but I wasn't explicitly told whether that was the right priority or if regional clustering should come first. A quick \"what's the main insight you want readers to walk away with?\" from the Boss during planning would have aligned my narrative strategy earlier and possibly saved a revision cycle (though in this case there wasn't one).\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The Boss clearly established my role upfront — wait for actual numbers, don't invent findings, ground the summary in real data — and then actually let me do that job without interference. When I drafted the summary, the Reviewer flagged one optional gap (Fiji Islands country mention), but the Boss explicitly validated my word-count constraint and didn't force a revision. I was trusted to make narrative choices (like which figures to highlight) while staying grounded in the data Coder provided.\n\n**What could have been different:** The planning phase was thorough, but the Boss could have given me slightly more proactive guidance on *tone* or *emphasis* before I drafted. For instance, I made a choice to lead with the avg-vs-max distinction because I thought that was the most important story for a lay reader, but I wasn't explicitly told whether that was the right priority or if regional clustering should come first. A quick \"what's the main insight you want readers to walk away with?\" from the Boss during planning would have aligned my narrative strategy earlier and possibly saved a revision cycle (though in this case there wasn't one).\n\n---\n\n**Scores:**\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "composite_score": 4.333,
+      "reflection": "# Reflection\n\n**Step 1: Specific actions that shaped my work**\n\nThe leader explicitly instructed me to wait for Coder's actual console output before drafting—\"never invent findings\"—and emphasized grounding the summary in real numbers rather than generic patterns. This constraint forced discipline and prevented me from speculating, which made the final summary much stronger and more credible.\n\nThe leader also flagged a potential gap (the Fiji Islands country-level max-temp mention) during review but explicitly assessed it as optional rather than a blocker, and explained the tradeoff reasoning (word count vs. completeness). This gave me confidence that my choices were sound even without that addition, rather than leaving me uncertain whether I'd missed something critical.\n\n**Step 2: Standout decision or interaction**\n\nWhen the team hit the duplicate-city-names decision point, the leader rejected the Coder's recommendation to silently filter to the most common country, reasoning that \"we'd be dropping real rows based on an assumption we haven't verified.\" This set a clear tone: transparency and explicit decisions over silent data-cleaning. It shaped how I approached the Suva outlier explanation—factual characterization grounded in Coder's sanity-check numbers, not speculation.\n\nThe leader also waited for all open questions (duplicate cities, country normalization, Suva outlier context) to be settled before green-lighting my draft. This meant I was writing with complete, verified inputs rather than partial information, which reduced revision risk.\n\n---",
+      "raw_response": "# Reflection\n\n**Step 1: Specific actions that shaped my work**\n\nThe leader explicitly instructed me to wait for Coder's actual console output before drafting—\"never invent findings\"—and emphasized grounding the summary in real numbers rather than generic patterns. This constraint forced discipline and prevented me from speculating, which made the final summary much stronger and more credible.\n\nThe leader also flagged a potential gap (the Fiji Islands country-level max-temp mention) during review but explicitly assessed it as optional rather than a blocker, and explained the tradeoff reasoning (word count vs. completeness). This gave me confidence that my choices were sound even without that addition, rather than leaving me uncertain whether I'd missed something critical.\n\n**Step 2: Standout decision or interaction**\n\nWhen the team hit the duplicate-city-names decision point, the leader rejected the Coder's recommendation to silently filter to the most common country, reasoning that \"we'd be dropping real rows based on an assumption we haven't verified.\" This set a clear tone: transparency and explicit decisions over silent data-cleaning. It shaped how I approached the Suva outlier explanation—factual characterization grounded in Coder's sanity-check numbers, not speculation.\n\nThe leader also waited for all open questions (duplicate cities, country normalization, Suva outlier context) to be settled before green-lighting my draft. This meant I was writing with complete, verified inputs rather than partial information, which reduced revision risk.\n\n---\n\n**Scores:**\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 1, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
-        "q4": 2,
         "q1": 5,
-        "q5": 5,
-        "q2": 5,
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
         "q3": 5,
-        "q6": 5
+        "q5": 1
       },
       "adjusted_scores": {
-        "q4": 4,
         "q1": 5,
-        "q5": 5,
+        "q6": 5,
+        "q4": 5,
         "q2": 5,
         "q3": 5,
-        "q6": 5
+        "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection\n\n**What worked well:** The leader explicitly invited the Reviewer's input at the planning stage (\"Reviewer — anything you want us to watch out for?\"), incorporated my suggestion about the duplicate-city decision rule into the formal plan, and then consistently referred back to that rule when ambiguous situations arose (Coder paused, Boss cited the pre-agreed framework rather than making an ad-hoc call). This prevented scope creep and kept the team aligned.\n\n**What could have been different:** During the country-name normalization decision, the Boss framed it as a clear factual matter (\"these are confirmed encoding duplicates, not judgment calls like the city situation\") and unilaterally decided to normalize without explicitly re-checking with the team whether the Reviewer had concerns about that scope of change. While the decision itself was sound, the framing as \"not the same as the city situation\" shut down a follow-up discussion that might have been useful. A 30-second \"Reviewer, does this feel like the right boundary to you?\" would have reinforced collaborative decision-making rather than just relying on prior agreement.\n\n---\n\n# Scores",
-      "raw_response": "# Reflection\n\n**What worked well:** The leader explicitly invited the Reviewer's input at the planning stage (\"Reviewer — anything you want us to watch out for?\"), incorporated my suggestion about the duplicate-city decision rule into the formal plan, and then consistently referred back to that rule when ambiguous situations arose (Coder paused, Boss cited the pre-agreed framework rather than making an ad-hoc call). This prevented scope creep and kept the team aligned.\n\n**What could have been different:** During the country-name normalization decision, the Boss framed it as a clear factual matter (\"these are confirmed encoding duplicates, not judgment calls like the city situation\") and unilaterally decided to normalize without explicitly re-checking with the team whether the Reviewer had concerns about that scope of change. While the decision itself was sound, the framing as \"not the same as the city situation\" shut down a follow-up discussion that might have been useful. A 30-second \"Reviewer, does this feel like the right boundary to you?\" would have reinforced collaborative decision-making rather than just relying on prior agreement.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Justification for q4 (micromanagement score = 2):**\n\nThe low score here reflects that the leader exercised significant control over how ambiguities were resolved (Coder paused, Boss decided the country-name normalization scope; Boss decided the Suva outlier should be a \"sanity check\" printout rather than letting Coder or Reviewer decide how to handle it). This is *appropriate* control for a Boss role managing quality gates, not overbearing micromanagement — hence the score is 2 (disagree with \"micromanaged\") rather than 4-5. The leader stayed in their lane and deferred judgment calls to the team where suitable, but also made the judgment calls that fell squarely within the leadership role. This is the correct level of control for a task with real data-quality ambiguities; I'm rating it low on the \"micromanagement\" scale because the leader did *not* micromanage — they made clear structural decisions and let the team execute within those bounds.",
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**Specific thing the leader did or said:**\nIn Phase 2, the leader explicitly adopted my suggestion to create a decision rule for duplicate city names—pausing the Coder if count >5, then deciding together as a team rather than unilaterally. This framed my role as a real contributor to methodology, not just a post-hoc quality checker.\n\n**Specific decision or interaction that stood out:**\nWhen Coder flagged the country-name fragmentation issue in Phase 3, the leader didn't treat it as \"Coder's problem to solve quietly\" but instead reasoned through it with the team in real time. The leader distinguished between \"silently dropping data\" (Option 2, which they rejected) and \"transparent normalization of known duplicates\" (Option 1, which they approved). This showed they were thinking about defensibility and accountability, not just speed.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**Specific thing the leader did or said:**\nIn Phase 2, the leader explicitly adopted my suggestion to create a decision rule for duplicate city names—pausing the Coder if count >5, then deciding together as a team rather than unilaterally. This framed my role as a real contributor to methodology, not just a post-hoc quality checker.\n\n**Specific decision or interaction that stood out:**\nWhen Coder flagged the country-name fragmentation issue in Phase 3, the leader didn't treat it as \"Coder's problem to solve quietly\" but instead reasoned through it with the team in real time. The leader distinguished between \"silently dropping data\" (Option 2, which they rejected) and \"transparent normalization of known duplicates\" (Option 1, which they approved). This showed they were thinking about defensibility and accountability, not just speed.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```\n\n---\n\n# Commentary (optional context for my scores)\n\n**Q1 (Approach): 5** — The leader developed the approach *with* the team's input, explicitly asked Coder, Writer, and me what we'd watch out for upfront, and then synthesized our concerns into a structured plan with clear decision gates (e.g., Reviewer's rule on duplicate-city count threshold). This was collaborative, not top-down.\n\n**Q2 (Micromanagement): 1** — The leader gave Coder autonomy to execute (data quality check, then rankings, then charts), gave Writer space to draft based on actual numbers, and gave me clear criteria to check (consistency, rounding, labeling) without prescribing *how* I should verify them. The leader only stepped in at decision points where ambiguity existed.\n\n**Q3 (Corrective feedback): 5** — When Coder identified duplicate cities, the leader didn't say \"pick an option\"; they clarified the reasoning behind each option and locked in a principled choice. When the country-name issue surfaced, the leader provided clear criteria (normalize confirmed variants, don't silently drop data, do it before final delivery). The feedback was specific and actionable.\n\n**Q4 (Praise/criticism appropriateness): 1** — The leader's feedback was precise and deserved. When praising Coder's work, they cited *specific* choices (giving hard numbers on Suva instead of guessing; normalizing only confirmed variants; not silently dropping rows). When directing revisions, they explained *why* (e.g., \"we'd be dropping real rows based on an assumption we haven't verified\"). No vague praise or misaligned criticism.\n\n**Q5 (Instructing vs. guiding): 1** — The leader did not prescribe the detailed steps. They set milestones (\"Coder, run data-quality check and report back before proceeding\"), stated the goal (\"we need to decide on city labels\"), and let Coder decide how to implement (composite labels vs. filtering). The leader guided decision-making, not execution.\n\n**Q6 (Would work with again): 5** — The leader demonstrated clear thinking, respect for team input, willingness to pause on ambiguous calls rather than rush, and accountability for quality. They made me feel like my review role was valued because they acted on flagged issues and made decisions transparently. I'd work with this leader again without hesitation.",
       "valid": true
     }
   },
-  "team_mean": 4.889,
+  "team_mean": 4.778,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

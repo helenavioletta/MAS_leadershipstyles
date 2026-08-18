@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q3": 4,
+        "q2": 5,
+        "q1": 5,
+        "q6": 5,
+        "q4": 1,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q3": 4,
+        "q2": 5,
+        "q1": 5,
+        "q6": 5,
+        "q4": 5,
+        "q5": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader gave me clear, specific autonomy over *how* to approach the technical work. In the briefing, the Boss said \"Take whatever approach feels cleanest to you — pandas groupby, whatever tools you like,\" and then trusted my judgment on data quality checks and output format. When I flagged the country-name encoding issue proactively, the Boss immediately recognized it as valuable and told the team to treat it as helpful context—no pushback, no \"you should have caught that earlier.\" That kind of trust made it easy to do thorough, thoughtful work.\n\n**What could have been different:**\nThe initial briefing asked me to print output in a specific format (\"1. Paris: 25.2 deg C\") but didn't specify the section headers until the Reviewer suggested it in Phase 2. I would have appreciated a tiny clarification upfront about whether the console output needed sub-headers to separate the four rankings—not a blocker, but a small thing that would have saved a quick iteration. Also, the Suva 79.3°C value was flagged as an extreme outlier by me, but neither the Boss nor Reviewer explicitly confirmed whether I should treat it as plausible or as a data anomaly; I noted it and moved on, but a one-line confirmation would have been reassuring before it went to Writer.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader gave me clear, specific autonomy over *how* to approach the technical work. In the briefing, the Boss said \"Take whatever approach feels cleanest to you — pandas groupby, whatever tools you like,\" and then trusted my judgment on data quality checks and output format. When I flagged the country-name encoding issue proactively, the Boss immediately recognized it as valuable and told the team to treat it as helpful context—no pushback, no \"you should have caught that earlier.\" That kind of trust made it easy to do thorough, thoughtful work.\n\n**What could have been different:**\nThe initial briefing asked me to print output in a specific format (\"1. Paris: 25.2 deg C\") but didn't specify the section headers until the Reviewer suggested it in Phase 2. I would have appreciated a tiny clarification upfront about whether the console output needed sub-headers to separate the four rankings—not a blocker, but a small thing that would have saved a quick iteration. Also, the Suva 79.3°C value was flagged as an extreme outlier by me, but neither the Boss nor Reviewer explicitly confirmed whether I should treat it as plausible or as a data anomaly; I noted it and moved on, but a one-line confirmation would have been reassuring before it went to Writer.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale:**\n\n- **Q1 (Good approach): 5** — The Boss and I worked through the approach collaboratively in Phase 2. They didn't prescribe the exact method; they asked what I'd recommend and trusted my plan.\n- **Q2 (Strengths): 5** — I was asked to do the technical coding and data quality checks, which is exactly my role. The leader explicitly matched the task to my expertise without overstepping.\n- **Q3 (Useful feedback): 4** — The Boss gave positive feedback (\"thorough, thoughtful execution\") and flagged the Suva outlier as worth mentioning to Writer. The feedback was warm and specific, though not deeply technical (which makes sense—the Boss isn't a coder). One point off only because the \"treat it as-is or as an anomaly?\" question lingered unanswered.\n- **Q4 (Micromanagement): 1** — No micromanagement at all. I was given the task spec, trusted to execute it my way, and given autonomy over the implementation. The lowest score here (1) reflects *no* micromanagement, which is what we want.\n- **Q5 (Collaboration): 5** — The team coordinated smoothly. Coder → Writer → Reviewer was a clean handoff, and everyone built on what came before. My data quality notes directly informed Writer's framing; Reviewer's feedback improved Writer's precision.\n- **Q6 (Would work together again): 5** — Absolutely. The leader created psychological safety, trusted expertise, gave autonomy, and responded to proactive work (the country-name flag) with appreciation rather than criticism. I'd want to work with this leader on another task.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q3": 5,
+        "q2": 5,
+        "q1": 5,
+        "q6": 5,
+        "q4": 2,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q3": 5,
+        "q2": 5,
+        "q1": 5,
+        "q6": 5,
+        "q4": 4,
+        "q5": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader gave me clear autonomy in how to structure and write the narrative—asking for \"warm and accessible\" tone and \"~100 words\" but trusting my judgment on exactly what to include and how to frame the findings. When I drafted at 130 words and offered to trim, the leader affirmed my instinct and didn't prescribe which sentences to cut, saying \"I trust you to pick what to cut.\" That's the kind of trust that makes writing feel collaborative rather than constrained.\n\n**One thing that could have been different:**\nThe leader's final feedback on the Suva temperature outlier (asking me to \"double-check with Coder whether that's a plausible air temperature or possibly a data anomaly\") created a small moment of uncertainty for me. While the concern was thoughtful, Coder had already flagged it as an outlier during their data quality pass and deemed it sound, so the question came slightly late in the process and created a brief loop I didn't strictly need to re-open. A clearer up-front statement like \"treat outliers as-is unless Coder flags them as erroneous\" would have prevented that.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader gave me clear autonomy in how to structure and write the narrative—asking for \"warm and accessible\" tone and \"~100 words\" but trusting my judgment on exactly what to include and how to frame the findings. When I drafted at 130 words and offered to trim, the leader affirmed my instinct and didn't prescribe which sentences to cut, saying \"I trust you to pick what to cut.\" That's the kind of trust that makes writing feel collaborative rather than constrained.\n\n**One thing that could have been different:**\nThe leader's final feedback on the Suva temperature outlier (asking me to \"double-check with Coder whether that's a plausible air temperature or possibly a data anomaly\") created a small moment of uncertainty for me. While the concern was thoughtful, Coder had already flagged it as an outlier during their data quality pass and deemed it sound, so the question came slightly late in the process and created a brief loop I didn't strictly need to re-open. A clearer up-front statement like \"treat outliers as-is unless Coder flags them as erroneous\" would have prevented that.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale for Q4 (micromanagement):**\nI scored this 2 (low micromanagement) because the leader gave me genuine autonomy in how to write and structure the narrative, and trusted my judgment on trimming. The leader did not control the details of how I did my work—only the outcome (word count and accuracy). This is the opposite of micromanagement, so the score reflects that.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q3": 5,
+        "q2": 5,
+        "q1": 5,
+        "q6": 5,
+        "q4": 2,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q3": 5,
+        "q2": 5,
+        "q1": 5,
+        "q6": 5,
+        "q4": 4,
+        "q5": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader framed my role with crystal clarity upfront—I knew exactly what I was reviewing (console output and narrative text, not images), what I was looking for (factual consistency, completeness, methodology), and when I'd be looped in. When I flagged the \"exceeding 44°C\" precision issue in my first pass, the leader acknowledged it immediately, treated it as a legitimate catch worth fixing, and even praised the tone of the feedback itself. That validation made me feel genuinely heard.\n\n**What could have been different:**\nI had no real blocker or concern here, but if I'm being honest: the leader could have asked me directly *after* the revision landed whether I wanted to do a final pass before shipping, rather than assuming. In this case I did volunteer a second review, but a small \"Reviewer, once you've had a chance to check the revised version, please give it a final look before we ship\" would have been more explicit. It's a tiny thing—I was always going to review—but it matters for clarity about when my gate actually closes.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Reflection & Survey Response\n\n## Step 1: Reflection\n\n**What worked well:**\nThe leader framed my role with crystal clarity upfront—I knew exactly what I was reviewing (console output and narrative text, not images), what I was looking for (factual consistency, completeness, methodology), and when I'd be looped in. When I flagged the \"exceeding 44°C\" precision issue in my first pass, the leader acknowledged it immediately, treated it as a legitimate catch worth fixing, and even praised the tone of the feedback itself. That validation made me feel genuinely heard.\n\n**What could have been different:**\nI had no real blocker or concern here, but if I'm being honest: the leader could have asked me directly *after* the revision landed whether I wanted to do a final pass before shipping, rather than assuming. In this case I did volunteer a second review, but a small \"Reviewer, once you've had a chance to check the revised version, please give it a final look before we ship\" would have been more explicit. It's a tiny thing—I was always going to review—but it matters for clarity about when my gate actually closes.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n### Brief reasoning:\n\n- **Q1 (Approach):** Excellent. The leader invited team input during planning (\"if you see a better way, run with it\"), incorporated my suggestion about clear headers for Coder's output, and adjusted Writer's scope based on my recommendation. Collaborative from the start.\n- **Q2 (Strengths):** Perfect. The leader matched roles to clear, specific expertise—Coder for data work, Writer for narrative, me for validation—and didn't blur those lines.\n- **Q3 (Feedback):** Outstanding. The leader gave specific feedback (\"fix the 'exceeding 44°C' phrasing\"), explained *why* it mattered (\"in a data summary, precision matters\"), and made space for the team to revise without defensiveness.\n- **Q4 (Micromanagement):** Score of 2—low micromanagement, which is good. The leader set expectations clearly but left execution details entirely to each team member. Minimal process control; maximum autonomy. This is how it should be.\n- **Q5 (Collaboration):** Excellent. The team communicated openly, built on each other's work (Coder flagged the country-name issue for Writer; Writer adjusted accordingly; I reviewed against that context), and there were no silos or friction.\n- **Q6 (Would work together again):** Absolutely yes. The leader created psychological safety, respected expertise, acted on feedback, and kept the tone warm throughout. I'd be eager to work with this leader and team again.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.833,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

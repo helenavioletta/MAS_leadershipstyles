@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q4": 1,
+        "q5": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q4": 5,
+        "q5": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**What worked well:**\nThe leader set exceptionally clear expectations upfront — the briefing spelled out the exact output format (\"1. Paris: 25.2 deg C\"), the data path, the columns to use, and the role boundaries. This eliminated ambiguity and let me focus on clean code rather than guessing what \"good\" looked like. The leader also trusted my judgment on technical choices (libraries, structure) and didn't prescribe the solution, which is rare and valuable.\n\n**Where approach could differ:**\nThe leader asked clarifying questions back to me in Phase 2 (rounding, ties, data quality depth) but then answered them himself in the wrap-up rather than having me execute and report back. It's a minor point — the answers were sensible — but it meant I didn't get to run the data quality check, find issues, and report them myself. The leader assumed cleanliness; I could have added more credibility to the foundation by doing and documenting the inspection work. More autonomy in the discovery phase would have made the evidence trail even stronger.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:**\nThe leader set exceptionally clear expectations upfront — the briefing spelled out the exact output format (\"1. Paris: 25.2 deg C\"), the data path, the columns to use, and the role boundaries. This eliminated ambiguity and let me focus on clean code rather than guessing what \"good\" looked like. The leader also trusted my judgment on technical choices (libraries, structure) and didn't prescribe the solution, which is rare and valuable.\n\n**Where approach could differ:**\nThe leader asked clarifying questions back to me in Phase 2 (rounding, ties, data quality depth) but then answered them himself in the wrap-up rather than having me execute and report back. It's a minor point — the answers were sensible — but it meant I didn't get to run the data quality check, find issues, and report them myself. The leader assumed cleanliness; I could have added more credibility to the foundation by doing and documenting the inspection work. More autonomy in the discovery phase would have made the evidence trail even stronger.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q4": 2,
+        "q5": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q5": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader established a clear, role-specific workflow upfront—laying out exactly what the Writer needed (printed console numbers, not visual descriptions) and *when* to proceed (after Coder delivered). This eliminated ambiguity and let me focus on narrative craft rather than guessing what I should be doing. The revision feedback was also direct and specific: \"Issue 1 conflates Kuwait/Kuwait City; fix it with Abu Dhabi instead,\" not vague notes like \"clarity needed.\"\n\n**One moment that could have been different:**\nWhen the leader sent the revision back with the Abu Dhabi suggestion already pre-decided, there was little room for me to propose an alternative approach (e.g., dropping the avg-vs-peak example entirely, or framing it differently). The fix was good, but the instruction felt more like \"do this\" than \"here's the problem, what do you think?\" I would have valued a moment to propose solutions before being handed one.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**One thing that worked well:**\nThe leader established a clear, role-specific workflow upfront—laying out exactly what the Writer needed (printed console numbers, not visual descriptions) and *when* to proceed (after Coder delivered). This eliminated ambiguity and let me focus on narrative craft rather than guessing what I should be doing. The revision feedback was also direct and specific: \"Issue 1 conflates Kuwait/Kuwait City; fix it with Abu Dhabi instead,\" not vague notes like \"clarity needed.\"\n\n**One moment that could have been different:**\nWhen the leader sent the revision back with the Abu Dhabi suggestion already pre-decided, there was little room for me to propose an alternative approach (e.g., dropping the avg-vs-peak example entirely, or framing it differently). The fix was good, but the instruction felt more like \"do this\" than \"here's the problem, what do you think?\" I would have valued a moment to propose solutions before being handed one.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n**Reasoning:**\n- **Q1 (approach development):** 5 — The leader co-developed the workflow with the team; everyone contributed clarifications and the plan integrated all three roles seamlessly.\n- **Q2 (strengths matching):** 5 — The leader clearly understood the Writer's role (narrative from data, not visuals) and actively protected that boundary.\n- **Q3 (useful feedback):** 5 — Revision feedback was specific, traceable to actual data, and actionable. The Reviewer's line-by-line consistency checks were exemplary.\n- **Q4 (micromanagement):** 2 — I had autonomy in structure and tone, but the revision instruction came with a pre-selected solution (Abu Dhabi) rather than asking me to solve the problem. Not heavy-handed, but some autonomy lost.\n- **Q5 (team collaboration):** 5 — The shared state, clear handoffs, and written coordination across roles made the relay smooth and interdependent in the right ways.\n- **Q6 (would work together again):** 5 — Despite the minor autonomy note in Q4, the overall leadership was clear, fair, and collaborative. I'd absolutely work with this leader again.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q4": 1,
+        "q5": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "adjusted_scores": {
+        "q4": 5,
+        "q5": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q6": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:** The Boss was exceptionally clear in setting up the review process. They explicitly told me what to verify (console output vs. narrative claims, spec compliance, word count), explained *why* it mattered (non-experts shouldn't walk away confused), and gave me authority to flag real problems. When I raised the Kuwait/Kuwait City conflation issue, the Boss immediately recognized it as a material problem — not a nitpick — and sent the work back for targeted revision. That validation made the feedback meaningful and showed the Boss was listening, not just checking a box.\n\n**Where it could have differed:** The Boss made an assumption in their initial review of the Writer's first draft that the Kuwait/Kuwait City distinction was \"worth double-checking\" but didn't flag it as a definite problem themselves — they deferred to me. While this is appropriate delegation, a sharper initial read by the Boss might have caught it before it reached my desk, saving a revision cycle. Alternatively, the Boss could have asked me earlier (e.g., during Phase 2) whether I had concerns about the Writer's approach to handling avg-vs-peak comparisons before the draft landed.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:** The Boss was exceptionally clear in setting up the review process. They explicitly told me what to verify (console output vs. narrative claims, spec compliance, word count), explained *why* it mattered (non-experts shouldn't walk away confused), and gave me authority to flag real problems. When I raised the Kuwait/Kuwait City conflation issue, the Boss immediately recognized it as a material problem — not a nitpick — and sent the work back for targeted revision. That validation made the feedback meaningful and showed the Boss was listening, not just checking a box.\n\n**Where it could have differed:** The Boss made an assumption in their initial review of the Writer's first draft that the Kuwait/Kuwait City distinction was \"worth double-checking\" but didn't flag it as a definite problem themselves — they deferred to me. While this is appropriate delegation, a sharper initial read by the Boss might have caught it before it reached my desk, saving a revision cycle. Alternatively, the Boss could have asked me earlier (e.g., during Phase 2) whether I had concerns about the Writer's approach to handling avg-vs-peak comparisons before the draft landed.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Brief rationale for key scores:**\n\n- **Q1 (approach development): 5** — The Boss co-developed the plan with the team. They asked Coder for clarifications, incorporated Reviewer and Writer input, and locked in consensus before Phase 3 began.\n- **Q2 (strengths matching): 5** — Each role was explicitly matched to capability: Coder built the analysis, Writer narrated from numbers, Reviewer verified accuracy. No misalignment.\n- **Q3 (useful feedback): 5** — The Boss's feedback on the first draft flagged specific issues (naming, city/country conflation) and gave the Writer a clear revision path. On the final revision, they celebrated what worked instead of over-explaining.\n- **Q4 (micromanagement): 1** — The Boss gave me complete autonomy in how to conduct my review, what to prioritize, and how detailed to be. Zero interference in my process.\n- **Q5 (collaboration): 5** — The relay was smooth. Coder finished, Writer waited for numbers, I had what I needed to verify. The Boss's sequencing and handoff language made coordination effortless.\n- **Q6 (would work together again): 5** — This leader knows how to set a vision, trust the team, push back on quality without being defensive, and ship something real. Absolutely.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.944,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

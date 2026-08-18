@@ -15,7 +15,7 @@ Usage:
     # Overwrite already-rescored runs as well
     python experiments/run_survey_only.py --all --force
 
-    # Preview what would be run without making API calls
+    # Preview what would be re-surveyed without making API calls
     python experiments/run_survey_only.py --all --dry-run
 """
 
@@ -73,36 +73,65 @@ def iter_target_runs(
     return [(style, task, run_id)]
 
 
-def resurvey_run(style: str, task: str, run_id: int, force: bool = False) -> bool:
-    """Re-run the satisfaction survey for a single existing run."""
+def resurvey_run(
+    style: str,
+    task: str,
+    run_id: int,
+    force: bool = False,
+    dry_run: bool = False,
+) -> bool:
+    """Re-run the satisfaction survey for a single existing run.
+
+    If dry_run is True, only report what would happen; do not make API calls.
+    """
     folder_name = f"{style}_{task}_run{run_id:02d}"
     run_dir = PROJECT_ROOT / "results" / folder_name
 
     if not run_dir.exists():
-        logging.warning(f"Run directory not found, skipping: {run_dir}")
+        if not dry_run:
+            logging.warning(f"Run directory not found, skipping: {run_dir}")
+        else:
+            logging.info(f"  - {folder_name}: not found (skip)")
         return False
 
     metadata_path = run_dir / "metadata.json"
     if not metadata_path.exists():
-        logging.warning(f"No metadata.json found, skipping: {run_dir}")
+        if not dry_run:
+            logging.warning(f"No metadata.json found, skipping: {run_dir}")
+        else:
+            logging.info(f"  - {folder_name}: no metadata.json (skip)")
         return False
 
     with open(metadata_path, "r", encoding="utf-8") as f:
         metadata = json.load(f)
 
-    if not force and (run_dir / "survey_results.json").exists():
-        logging.info(f"Skipping {folder_name}: survey_results.json already exists (use --force to override)")
+    survey_exists = (run_dir / "survey_results.json").exists()
+    if not force and survey_exists:
+        if not dry_run:
+            logging.info(f"Skipping {folder_name}: survey_results.json already exists (use --force to override)")
+        else:
+            logging.info(f"  - {folder_name}: already has survey_results.json (skip)")
         return False
 
     worker_prompts = metadata.get("worker_prompts")
     if not worker_prompts or any(role not in worker_prompts for role in ("Coder", "Writer", "Reviewer")):
-        logging.warning(f"Missing worker_prompts in metadata, skipping: {folder_name}")
+        if not dry_run:
+            logging.warning(f"Missing worker_prompts in metadata, skipping: {folder_name}")
+        else:
+            logging.info(f"  - {folder_name}: missing worker_prompts (skip)")
         return False
 
     worker_model = metadata.get("worker_model")
     if not worker_model:
-        logging.warning(f"Missing worker_model in metadata, skipping: {folder_name}")
+        if not dry_run:
+            logging.warning(f"Missing worker_model in metadata, skipping: {folder_name}")
+        else:
+            logging.info(f"  - {folder_name}: missing worker_model (skip)")
         return False
+
+    if dry_run:
+        logging.info(f"  - {folder_name}: would re-survey")
+        return True
 
     logging.info(f"Re-surveying {folder_name}...")
     message_bus = MessageBus.load_log(run_dir)
@@ -176,10 +205,15 @@ def main() -> None:
     targets = iter_target_runs(args.style, args.task, args.run, args.all)
 
     if args.dry_run:
-        logging.info(f"Dry run: would re-survey {len(targets)} runs")
+        logging.info(f"Dry run: checking {len(targets)} target runs")
+        would_run = 0
+        would_skip = 0
         for style, task, run_id in targets:
-            folder_name = f"{style}_{task}_run{run_id:02d}"
-            logging.info(f"  - {folder_name}")
+            if resurvey_run(style, task, run_id, force=args.force, dry_run=True):
+                would_run += 1
+            else:
+                would_skip += 1
+        logging.info(f"Dry run complete. Would re-survey: {would_run}, would skip: {would_skip}")
         return
 
     success_count = 0

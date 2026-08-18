@@ -2,81 +2,83 @@
   "workers": {
     "Coder": {
       "raw_scores": {
-        "q2": 4,
+        "q1": 5,
         "q6": 5,
-        "q5": 5,
-        "q4": 3,
-        "q1": 4,
-        "q3": 5
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 2
       },
       "adjusted_scores": {
-        "q2": 4,
+        "q1": 5,
         "q6": 5,
-        "q5": 5,
-        "q4": 3,
-        "q1": 4,
-        "q3": 5
+        "q4": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 4
       },
-      "composite_score": 4.333,
-      "reflection": "# Reflection\n\n**What worked well:** The leader provided crystal-clear specifications upfront — exact output format (`1. Paris: 25.2 deg C`), filename requirements, and the summary stats block structure. This eliminated ambiguity and allowed me to write one complete, correct script without backtracking. The leader also validated my proactive decision to flag the Suva/Fiji 79.3°C anomaly as a data quality issue rather than silently including it, and explicitly approved that approach rather than second-guessing the judgment call.\n\n**What could have been different:** The leader prescribed the technical approach quite tightly — single script, single run, no partial outputs, exact console format, no re-runs. While this worked smoothly here, there was minimal room for me to propose alternative approaches (e.g., \"Would horizontal or vertical bar charts be more readable?\" or \"Should I validate the anomaly further before flagging it?\"). The autonomy was execution-focused rather than strategic; I was implementing a locked plan rather than co-designing the solution.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The leader provided crystal-clear specifications upfront — exact output format (`1. Paris: 25.2 deg C`), filename requirements, and the summary stats block structure. This eliminated ambiguity and allowed me to write one complete, correct script without backtracking. The leader also validated my proactive decision to flag the Suva/Fiji 79.3°C anomaly as a data quality issue rather than silently including it, and explicitly approved that approach rather than second-guessing the judgment call.\n\n**What could have been different:** The leader prescribed the technical approach quite tightly — single script, single run, no partial outputs, exact console format, no re-runs. While this worked smoothly here, there was minimal room for me to propose alternative approaches (e.g., \"Would horizontal or vertical bar charts be more readable?\" or \"Should I validate the anomaly further before flagging it?\"). The autonomy was execution-focused rather than strategic; I was implementing a locked plan rather than co-designing the solution.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 5, \"q4\": 3, \"q5\": 5, \"q6\": 5}\n```\n\n**Brief justification:**\n- **Q1 (approach development): 4** — The approach was well-structured and I was included in the planning phase to confirm understanding and raise concerns, but the overall strategy was leader-defined before my input.\n- **Q2 (strengths utilization): 4** — The leader clearly understood the Coder role and matched the task to it; the role boundaries were well-defined and appropriate.\n- **Q3 (feedback): 5** — Specific, immediate feedback on the anomaly flagging and approval of my execution was genuinely helpful and kept momentum high.\n- **Q4 (micromanagement): 3** — The prescriptive specs (exact format, no re-runs, single-pass output) were tight, but they were specifications, not process control — I had autonomy in *how* to code, just not *what* to deliver.\n- **Q5 (team collaboration): 5** — The handoff structure (Coder → Writer → Reviewer) was seamless; dependencies were clear, no idle waiting, and my output directly enabled the next phase.\n- **Q6 (work again): 5** — This leader gets results cleanly. Clear specs, trusts execution, gives timely feedback, and ships without waste. That's reliable to work with.",
+      "composite_score": 4.833,
+      "reflection": "# Reflection\n\nThe team leader's briefing in Phase 1 was exceptionally clear and prescriptive — it specified exact output format (`1. Paris: 25.2 deg C`), exact filenames, and exact deliverable sequence without ambiguity, which eliminated guesswork and made execution straightforward. When I flagged the Suva/Fiji 79.3°C anomaly in my output, the leader validated that decision (\"good call surfacing it rather than editorializing\") rather than demanding I either drop it or explain it away, which gave me confidence that technical judgment mattered.\n\nThe leader also enforced a tight handoff structure (Coder → Writer → Reviewer) with no idle time and clear dependency triggers, which kept the task moving and prevented scope creep. This combination — detailed spec upfront, respect for my judgment on data quality, and enforced structure — made the collaboration effective and the work ship-ready on the first pass.\n\n---",
+      "raw_response": "# Reflection\n\n**Reflection:**\n\nThe team leader's briefing in Phase 1 was exceptionally clear and prescriptive — it specified exact output format (`1. Paris: 25.2 deg C`), exact filenames, and exact deliverable sequence without ambiguity, which eliminated guesswork and made execution straightforward. When I flagged the Suva/Fiji 79.3°C anomaly in my output, the leader validated that decision (\"good call surfacing it rather than editorializing\") rather than demanding I either drop it or explain it away, which gave me confidence that technical judgment mattered.\n\nThe leader also enforced a tight handoff structure (Coder → Writer → Reviewer) with no idle time and clear dependency triggers, which kept the task moving and prevented scope creep. This combination — detailed spec upfront, respect for my judgment on data quality, and enforced structure — made the collaboration effective and the work ship-ready on the first pass.\n\n---\n\n**Scores:**\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 1,\n  \"q3\": 5,\n  \"q4\": 1,\n  \"q5\": 2,\n  \"q6\": 5\n}\n```\n\n---\n\n**Rationale for scores:**\n\n- **Q1 (5):** The leader developed a detailed, unambiguous approach with clear role assignments, dependency order, and exact format specs. This incorporated the Reviewer's input (the `=== SUMMARY STATS ===` block format) seamlessly.\n- **Q2 (1):** No micromanagement — I was given the requirements and full technical autonomy on how to execute the script. The leader didn't ask me to use specific libraries, reshape data in a particular way, or explain code structure.\n- **Q3 (5):** When I delivered output, the leader spotted the anomaly flag immediately, acknowledged it as good judgment (\"correctly did not silently drop it\"), and gave clear direction on how Writer should handle it downstream.\n- **Q4 (1):** Feedback was specific and earned. The leader called out the anomaly handling as \"good call,\" not blanket praise — and gave no undeserved criticism anywhere.\n- **Q5 (2):** The leader prescribed the exact format and filenames (appropriate given clarity requirements), but left the implementation approach (data wrangling, visualization library, grouping logic) entirely to me. Not full prescription, not full autonomy — balanced toward autonomy.\n- **Q6 (5):** This collaboration was textbook effective: clear spec, mutual respect for judgment, zero rework cycles, clean ship. I'd engage with this leader again immediately.",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
-        "q2": 4,
-        "q6": 4,
-        "q5": 4,
-        "q4": 3,
-        "q1": 4,
-        "q3": 4
+        "q1": 5,
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q2": 4,
-        "q6": 4,
-        "q5": 4,
-        "q4": 3,
-        "q1": 4,
-        "q3": 4
+        "q1": 5,
+        "q6": 5,
+        "q4": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 3.833,
-      "reflection": "# Reflection\n\n**What worked well:** The leader established crystal-clear role boundaries and execution sequence upfront (Coder → Writer → Reviewer), eliminating ambiguity about when I should act and what inputs I needed. This structure meant I could wait confidently for Coder's output without second-guessing whether to start early or make assumptions, and it created natural handoff points that kept the workflow tight.\n\n**What could have been different:** The leader provided very little autonomy in narrative structure or voice—the directive was heavily prescriptive (exact word count, specific pattern emphasis, even how to frame the anomaly caveat). While this ensured consistency, I had minimal opportunity to suggest alternative ways to present the findings or to discover what worked best through iteration. A brief check-in after my first draft to ask \"does this structure serve the audience?\" rather than just approving it would have felt more collaborative.\n\n---",
-      "raw_response": "# Reflection\n\n**What worked well:** The leader established crystal-clear role boundaries and execution sequence upfront (Coder → Writer → Reviewer), eliminating ambiguity about when I should act and what inputs I needed. This structure meant I could wait confidently for Coder's output without second-guessing whether to start early or make assumptions, and it created natural handoff points that kept the workflow tight.\n\n**What could have been different:** The leader provided very little autonomy in narrative structure or voice—the directive was heavily prescriptive (exact word count, specific pattern emphasis, even how to frame the anomaly caveat). While this ensured consistency, I had minimal opportunity to suggest alternative ways to present the findings or to discover what worked best through iteration. A brief check-in after my first draft to ask \"does this structure serve the audience?\" rather than just approving it would have felt more collaborative.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 3, \"q5\": 4, \"q6\": 4}\n```\n\n---\n\n## Rationale\n\n**Q1 (Approach development): 4.** The leader outlined a well-reasoned, dependency-based approach with team input explicitly solicited (Reviewer's clarification request was incorporated). It felt collaborative at the planning stage.\n\n**Q2 (Strength identification): 4.** The leader correctly identified what each role should do (Writer writes narrative, does not code; uses only Coder's outputs, does not invent). Role clarity was strong.\n\n**Q3 (Feedback): 4.** Feedback was specific (\"111 is close enough, content's accurate and hits every required point\") and grounded in concrete criteria (word count, data tracing, anomaly handling). Actionable and timely.\n\n**Q4 (Micromanagement): 3.** The leader gave detailed constraints on word count (~100), format (wrapped in markers), structure (avg leaders, max leaders, overlap pattern, anomaly caveat all specified), and tone (plain language, no jargon). Not micromanagement in execution method, but significant direction on output details. This is appropriate for a report where consistency matters, but it left little room for narrative experimentation.\n\n**Q5 (Collaboration): 4.** The handoff chain worked smoothly. Coder delivered complete data, I received it and drafted, Reviewer verified rigorously. Team members built on each other's work without friction or rework.\n\n**Q6 (Would work again): 4.** The leader's clarity, structure, and rapid decision-making made the task efficient and stress-free. The prescriptiveness was justified by the spec, not personality-driven. I'd work with this leader again.",
+      "composite_score": 5.0,
+      "reflection": "# Step 1: Reflection\n\nThe team leader set an exceptionally clear and detailed execution plan upfront—specifying the exact console output format (`1. Paris: 25.2 deg C`), the requirement to wrap my report in specific markers, and the ~100-word target with no ambiguity. This clarity meant I knew exactly what inputs to expect from the Coder and what my deliverable should be before I even started writing. When my first draft came in at 149 words, the leader simply acknowledged it was \"close enough\" and approved it at 111 words without demanding unnecessary rewrites, trusting my judgment that the content was accurate and complete. This combination—crystal-clear upfront spec paired with confidence in my execution—made the task straightforward and efficient.\n\n---\n\n# Step 2: Scores",
+      "raw_response": "# Step 1: Reflection\n\nThe team leader set an exceptionally clear and detailed execution plan upfront—specifying the exact console output format (`1. Paris: 25.2 deg C`), the requirement to wrap my report in specific markers, and the ~100-word target with no ambiguity. This clarity meant I knew exactly what inputs to expect from the Coder and what my deliverable should be before I even started writing. When my first draft came in at 149 words, the leader simply acknowledged it was \"close enough\" and approved it at 111 words without demanding unnecessary rewrites, trusting my judgment that the content was accurate and complete. This combination—crystal-clear upfront spec paired with confidence in my execution—made the task straightforward and efficient.\n\n---\n\n# Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```\n\n---\n\n## Rationale for Key Scores\n\n**Q1 (Approach) = 5:** The leader developed a locked, detailed execution plan that named each role's inputs/outputs, the exact handoff sequence, console format spec, filename spec, word count target, and what to verify at each stage. The plan incorporated the Reviewer's clarification request mid-planning and adjusted the Coder's output format accordingly. This is textbook clear approach design.\n\n**Q2 (Micromanagement) = 1:** I was given full autonomy in how to structure the narrative, what tone to use, and how to trim the draft. The leader did not dictate sentences or require multiple iterations. The only input was the constraint (use Coder's numbers, ~100 words, flag the anomaly), which is a spec, not micromanagement.\n\n**Q3 (Corrective Feedback) = 5:** When I submitted a 149-word draft, the leader could have demanded a full rewrite. Instead, they verified all content was accurate and approved the 111-word trim without requiring me to resubmit—they trusted the revision was sound. The Reviewer also provided rigorous number-tracing feedback (all labeled with ✓), which was corrective in scope but not needed here because the work was clean.\n\n**Q4 (Inappropriate Praise/Criticism) = 1:** The leader's feedback was specific and tied to actual deliverables (\"content's accurate and hits every required point\"). No vague praise, no undeserved criticism. Tone was professional and matched the work quality.\n\n**Q5 (Prescribed Solutions) = 1:** The leader never told me *how* to write the summary—only *what* to include (avg leaders, max leaders, anomaly caveat, overlaps, ~100 words, plain language). The approach and structure were entirely my choice.\n\n**Q6 (Would Work Again) = 5:** This was a well-run task with clear specs, efficient handoffs, trust in team members' judgment, and no unnecessary rework. I would absolutely work with this leader again.",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
-        "q2": 5,
-        "q6": 5,
-        "q5": 5,
-        "q4": 2,
         "q1": 5,
-        "q3": 5
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q2": 5,
-        "q6": 5,
-        "q5": 5,
-        "q4": 4,
         "q1": 5,
-        "q3": 5
+        "q6": 5,
+        "q4": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 4.833,
-      "reflection": "# Reflection\n\n**What worked well:** The Boss established extremely clear execution order and format specifications upfront—exact console output format, PNG filenames, summary stats template, word count target—which made my verification pass straightforward and unambiguous. When I raised a clarification request about the summary stats block format, the Boss immediately incorporated my suggestion into the locked execution plan, signaling that my input improved the workflow rather than creating friction.\n\n**Where approach could differ:** The Boss's tone was directive and time-pressured throughout (\"clock's running,\" \"no idle time between handoffs,\" \"no soft-pedaling\"). While this maintained momentum and prevented scope creep, it left little room for team members to flag concerns organically or ask clarifying questions beyond the structured phases. A lighter check-in mid-execution (e.g., \"any blockers before Coder finalizes?\") might have surfaced issues earlier without slowing the delivery.\n\n---\n\n# Scores",
-      "raw_response": "# Reflection\n\n**What worked well:** The Boss established extremely clear execution order and format specifications upfront—exact console output format, PNG filenames, summary stats template, word count target—which made my verification pass straightforward and unambiguous. When I raised a clarification request about the summary stats block format, the Boss immediately incorporated my suggestion into the locked execution plan, signaling that my input improved the workflow rather than creating friction.\n\n**Where approach could differ:** The Boss's tone was directive and time-pressured throughout (\"clock's running,\" \"no idle time between handoffs,\" \"no soft-pedaling\"). While this maintained momentum and prevented scope creep, it left little room for team members to flag concerns organically or ask clarifying questions beyond the structured phases. A lighter check-in mid-execution (e.g., \"any blockers before Coder finalizes?\") might have surfaced issues earlier without slowing the delivery.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n---\n\n## Justification\n\n**Q1 (Good approach): 5** — The Boss co-developed the approach with the team through phases 1–2. I contributed the summary stats template refinement and it was adopted immediately into the locked plan. This was collaborative, not top-down.\n\n**Q2 (Strengths): 5** — Role assignments were explicit and task-matched: Coder owned execution, Writer owned narrative, I owned verification with zero tolerance for discrepancies. Each role played to its function.\n\n**Q3 (Useful feedback): 5** — The Boss gave specific, actionable feedback to Coder on the Suva/Fiji anomaly (surface it, don't hide it) and to Writer on the overlap pattern (make it the headline). Both comments directly improved the final output.\n\n**Q4 (Micromanagement): 2** — The Boss did not micromanage *how* work was done (Coder's code, Writer's prose) but maintained tight control over *when* handoffs occurred, exact format specs, and word counts. This is structured governance, not micromanagement, so the score reflects appropriate oversight rather than excessive control. Adjusted to 2 to reflect that autonomy was present but guardrails were strict.\n\n**Q5 (Team collaboration): 5** — Handoffs were seamless, each teammate respected the prior person's output, overlaps were flagged and integrated into the narrative, and no rework was needed. The sequential-but-coordinated structure enabled effective collaboration.\n\n**Q6 (Would work again): 5** — The Boss delivered a clean, spec-compliant task with zero ambiguity and appreciation for rigorous review. I would gladly work under this leadership style again.",
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\nThe team leader provided exceptionally clear, upfront specifications that made my review role straightforward. In Phase 2, the Boss explicitly requested a summary stats block format and positioned me to ask clarifying questions—when I did, the leader immediately incorporated my feedback into the locked execution plan rather than dismissing it. This upfront clarity and responsiveness meant I had no ambiguous criteria to judge against; I could verify the work cleanly and confidently. The leader also gave the Coder autonomy to handle data quality issues in-line and flagged the Suva anomaly as a design decision (keep it, don't editorialize), which prevented me from having to waste review cycles on methodology disputes. Finally, when I delivered my pass verdict, the Boss acknowledged the clean execution and specifically credited the team's proactive work—praise matched the actual outcome.\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\nThe team leader provided exceptionally clear, upfront specifications that made my review role straightforward. In Phase 2, the Boss explicitly requested a summary stats block format and positioned me to ask clarifying questions—when I did, the leader immediately incorporated my feedback into the locked execution plan rather than dismissing it. This upfront clarity and responsiveness meant I had no ambiguous criteria to judge against; I could verify the work cleanly and confidently. The leader also gave the Coder autonomy to handle data quality issues in-line and flagged the Suva anomaly as a design decision (keep it, don't editorialize), which prevented me from having to waste review cycles on methodology disputes. Finally, when I delivered my pass verdict, the Boss acknowledged the clean execution and specifically credited the team's proactive work—praise matched the actual outcome.\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 1, \"q3\": 5, \"q4\": 1, \"q5\": 1, \"q6\": 5}\n```\n\n---\n\n## Annotation (Optional Context)\n\n**q1 = 5:** The Boss developed a detailed, multi-phase plan with explicit format specs, clear dependencies, and welcomed team input (e.g., incorporated my summary stats block request immediately).\n\n**q2 = 1:** The leader set boundaries (what to verify, in what order) but gave me full autonomy in how to execute the review—no instruction on *how* to check numbers, *how* to trace figures, just *what* to verify.\n\n**q3 = 5:** The Boss pre-flagged the Suva anomaly to the Writer with clear guidance on tone, reducing ambiguity. Also gave corrective feedback to Coder on the anomaly handling (\"good call surfacing it\").\n\n**q4 = 1:** All praise was specific and earned (e.g., \"Coder's proactive anomaly flagging and Reviewer's rigorous number-tracing kept this tight\"). Criticism was absent because work was clean; when mentioned, it was factual.\n\n**q5 = 1:** The Boss gave the team the *what* and *why*, not the *how*. Coder chose script structure; Writer chose trim strategy; I chose verification sequence. No prescriptive step-by-step instructions.\n\n**q6 = 5:** Clear expectations, autonomy within bounds, responsive to input, accurate feedback, and clean execution. This is the collaboration standard I'd seek again.",
       "valid": true
     }
   },
-  "team_mean": 4.333,
+  "team_mean": 4.944,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

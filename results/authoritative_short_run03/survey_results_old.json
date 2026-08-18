@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q4": 1,
+        "q6": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 4,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q4": 5,
+        "q6": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 4,
+        "q5": 5
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection\n\n**What worked well:** The leader provided clear, role-specific instructions upfront that gave me autonomy over *how* to implement the solution (library choice, script structure, visualization approach) while being explicit about *what* outputs were needed (four rankings, specific console format, file paths). This clarity meant I could code decisively without second-guessing the requirement.\n\n**What could have been different:** When the leader relayed my output to the Writer and then to the Reviewer, there was no direct feedback loop back to me about whether my console output format, file naming, or data-cleaning audit trail actually hit the mark as intended. I had to infer from downstream phases that my deliverable was acceptable. A single line like \"Coder, your audit trail and format are exactly what we needed\" would have closed the loop and increased confidence that my execution was on target before phases 4–6 proceeded.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The leader provided clear, role-specific instructions upfront that gave me autonomy over *how* to implement the solution (library choice, script structure, visualization approach) while being explicit about *what* outputs were needed (four rankings, specific console format, file paths). This clarity meant I could code decisively without second-guessing the requirement.\n\n**What could have been different:** When the leader relayed my output to the Writer and then to the Reviewer, there was no direct feedback loop back to me about whether my console output format, file naming, or data-cleaning audit trail actually hit the mark as intended. I had to infer from downstream phases that my deliverable was acceptable. A single line like \"Coder, your audit trail and format are exactly what we needed\" would have closed the loop and increased confidence that my execution was on target before phases 4–6 proceeded.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Rationale:**\n- **Q1 (approach development):** The leader built the plan collaboratively in Phase 2, incorporating team input (including my proactive flagging of case-sensitivity and null-handling concerns). Score: 5.\n- **Q2 (strengths):** The role definitions were explicit—I was trusted to own code execution, library choice, and script structure. Score: 5.\n- **Q3 (useful feedback):** The leader gave actionable feedback (e.g., \"include a one-line data-cleaning summary\") but I received it via relay rather than direct conversation. Minor friction. Score: 4.\n- **Q4 (micromanagement):** The leader explicitly said \"how you structure the code, what libraries you use... is entirely up to you\" and never prescribed specifics. Zero micromanagement. Score: 1 (low = no micromanagement, which is good).\n- **Q5 (collaboration):** The handoff structure worked smoothly; each phase built on the prior one's output without overlap or rework. Score: 5.\n- **Q6 (work again):** I'd absolutely work with this leader again. Clear brief, trust in execution, well-coordinated team sequencing. Score: 5.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q4": 2,
+        "q6": 5,
+        "q2": 4,
+        "q1": 4,
+        "q3": 4,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q4": 4,
+        "q6": 5,
+        "q2": 4,
+        "q1": 4,
+        "q3": 4,
+        "q5": 5
+      },
+      "composite_score": 4.333,
+      "reflection": "# Reflection\n\n**One thing that worked well:** The Boss clearly articulated the Writer's role and constraints upfront—I knew exactly what I was waiting for (Coder's printed console output), what I could NOT do (see charts, invent data), and how my draft would be validated (against actual numbers). This clarity meant I could write with confidence rather than second-guessing boundaries.\n\n**One thing that could have been different:** The revision feedback came from the Reviewer, not directly from the Boss, which is fine, but when the Boss relayed the Reviewer's flag, the Boss offered me two specific options (\"remove the claim\" or \"anchor to one verifiable example\") rather than letting me diagnose and solve the problem myself. It was efficient, but it slightly reduced my autonomy to find my own correction path. A more open prompt like \"Reviewer flagged this claim as unsupported—how would you verify or revise it?\" might have invited more ownership.\n\n---",
+      "raw_response": "# Reflection\n\n**One thing that worked well:** The Boss clearly articulated the Writer's role and constraints upfront—I knew exactly what I was waiting for (Coder's printed console output), what I could NOT do (see charts, invent data), and how my draft would be validated (against actual numbers). This clarity meant I could write with confidence rather than second-guessing boundaries.\n\n**One thing that could have been different:** The revision feedback came from the Reviewer, not directly from the Boss, which is fine, but when the Boss relayed the Reviewer's flag, the Boss offered me two specific options (\"remove the claim\" or \"anchor to one verifiable example\") rather than letting me diagnose and solve the problem myself. It was efficient, but it slightly reduced my autonomy to find my own correction path. A more open prompt like \"Reviewer flagged this claim as unsupported—how would you verify or revise it?\" might have invited more ownership.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q4": 1,
+        "q6": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q5": 5
+      },
+      "adjusted_scores": {
+        "q4": 5,
+        "q6": 5,
+        "q2": 5,
+        "q1": 5,
+        "q3": 5,
+        "q5": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Reflection\n\n**What worked well:** The Boss clearly framed the Reviewer's role upfront (quality gate, audit trail focus, compare narrative to actual data) and then *acted on the feedback I gave*. When I flagged the \"3–4°C\" claim as unsupported, the Boss didn't dismiss it or defend Writer's draft—instead, Boss acknowledged the catch, offered two concrete revision paths, and let Writer choose the stronger one. This validated that my review had real teeth and wasn't performative.\n\n**What could have been different:** In Phase 2, the Boss asked me to clarify one point for Coder (the data-cleaning summary line) but didn't ask me *before* finalizing the plan—I offered it unprompted in my Phase 2 feedback. A tighter approach would have been for the Boss to explicitly check \"Reviewer, do you see any audit-trail gaps in Coder's plan?\" during planning. This wouldn't change the outcome, but it would have made me feel more of a co-architect of the process rather than a reactive backstop.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:** The Boss clearly framed the Reviewer's role upfront (quality gate, audit trail focus, compare narrative to actual data) and then *acted on the feedback I gave*. When I flagged the \"3–4°C\" claim as unsupported, the Boss didn't dismiss it or defend Writer's draft—instead, Boss acknowledged the catch, offered two concrete revision paths, and let Writer choose the stronger one. This validated that my review had real teeth and wasn't performative.\n\n**What could have been different:** In Phase 2, the Boss asked me to clarify one point for Coder (the data-cleaning summary line) but didn't ask me *before* finalizing the plan—I offered it unprompted in my Phase 2 feedback. A tighter approach would have been for the Boss to explicitly check \"Reviewer, do you see any audit-trail gaps in Coder's plan?\" during planning. This wouldn't change the outcome, but it would have made me feel more of a co-architect of the process rather than a reactive backstop.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    }
+  },
+  "team_mean": 4.722,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

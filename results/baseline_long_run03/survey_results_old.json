@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q1": 4,
+        "q6": 5,
+        "q4": 2,
+        "q3": 4,
+        "q5": 5,
+        "q2": 5
+      },
+      "adjusted_scores": {
+        "q1": 4,
+        "q6": 5,
+        "q4": 4,
+        "q3": 4,
+        "q5": 5,
+        "q2": 5
+      },
+      "composite_score": 4.5,
+      "reflection": "# Post-Task Satisfaction Survey — Coder Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss established crystal-clear constraints and role boundaries upfront—the briefing defined exactly what the Coder would deliver (data cleaning checkpoint, then modeling with 4 specific visualizations and printed metrics), and the Boss committed to signing off on cleaning decisions *before* I touched modeling. This prevented wasted work on a wrong feature set and gave me confidence that downstream changes would be scope-controlled. The checkpoint discipline was genuinely useful.\n\n**Where it could have been different:**\nThe Boss flagged the country deduplication issue *after* I'd completed the full cleaning report, requiring a revision cycle. While the catch was correct and necessary, earlier guidance (e.g., \"check for multilingual duplicates in categorical columns\" as part of the initial leakage briefing in Phase 2) would have caught this in the first pass. The guidance on Ridge feature scaling was also post-hoc—I wasn't explicitly told to standardize features before Ridge fitting, which is a standard ML practice; the Reviewer noted this as a procedural gap later. A single \"best practices\" checklist at the start would have prevented both issues.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Coder Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:**\nThe Boss established crystal-clear constraints and role boundaries upfront—the briefing defined exactly what the Coder would deliver (data cleaning checkpoint, then modeling with 4 specific visualizations and printed metrics), and the Boss committed to signing off on cleaning decisions *before* I touched modeling. This prevented wasted work on a wrong feature set and gave me confidence that downstream changes would be scope-controlled. The checkpoint discipline was genuinely useful.\n\n**Where it could have been different:**\nThe Boss flagged the country deduplication issue *after* I'd completed the full cleaning report, requiring a revision cycle. While the catch was correct and necessary, earlier guidance (e.g., \"check for multilingual duplicates in categorical columns\" as part of the initial leakage briefing in Phase 2) would have caught this in the first pass. The guidance on Ridge feature scaling was also post-hoc—I wasn't explicitly told to standardize features before Ridge fitting, which is a standard ML practice; the Reviewer noted this as a procedural gap later. A single \"best practices\" checklist at the start would have prevented both issues.\n\n---\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 4,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 2,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```\n\n### Justification for each score:\n\n**Q1 (Leader helped develop good approach): 4**\nThe Boss defined the overall task structure and constraints clearly, and invited my input (asked questions like \"should I preserve `location_name`?\" and \"any other leakage suspects?\"), which I appreciated. However, the approach was largely prescribed (80/20 split, RF + linear model, 4 specific viz types, 400-word report format)—there wasn't much room for me to propose alternative modeling strategies or feature engineering philosophies. This is fine for a structured task, but it's not quite collaborative approach development.\n\n**Q2 (Leader helped identify and use each member's strengths): 5**\nThe Boss was explicit and consistent about role boundaries: Writer writes, Reviewer reviews, Coder codes. I was given full autonomy within my lane (data cleaning decisions, choice of RF/Gradient Boosting, visualization design, interpretation of results). This is exactly how you use team members' strengths effectively—match roles to expertise and don't pull them out of lane.\n\n**Q3 (Leader provided useful feedback): 4**\nThe feedback on country deduplication was specific and actionable (\"consolidate multilingual variants to canonical English names, re-count\"). The scaling note from the Reviewer was also valid. However, the feedback came late (after submission) rather than as proactive guidance during planning. The feedback itself was high-quality, but it would have been more useful earlier.\n\n**Q4 (Leader micromanaged): 2**\nThe Boss did *not* micromanage. I was given a clear spec (which columns to produce, which metrics to print, which visualizations to generate) but full autonomy on *how* (code structure, exact model hyperparameters, visualization layout, what insights to highlight in console output). This autonomy was appropriate and welcome—I scored this a 2 to indicate the Boss did *not* micromanage (low score = low micromanagement, as per the scale direction).\n\n**Q5 (Collaboration within team worked well): 5**\nThe sequence was clean: Coder → Reviewer → Writer, with sign-offs between stages. The Reviewer's checks were rigorous (word count, numeric verification, leakage re-assessment) without being adversarial. The Writer built their report directly from my console output, and the Boss consolidated without second-guessing. Everyone stayed in their lane and coordinated via clear handoffs. This was textbook good collaboration.\n\n**Q6 (Would work with this leader again): 5**\nYes. The Boss was clear on expectations, responsive to my questions during planning, fair in feedback, and structured the workflow to prevent downstream failures (checkpoint before modeling, review before reporting). The one revision cycle (country deduplication) was necessary and well-justified, not a sign of poor leadership. I'd work with this leader again in a heartbeat—they run a tight, respectful ship.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q1": 4,
+        "q6": 5,
+        "q4": 2,
+        "q3": 4,
+        "q5": 5,
+        "q2": 4
+      },
+      "adjusted_scores": {
+        "q1": 4,
+        "q6": 5,
+        "q4": 4,
+        "q3": 4,
+        "q5": 5,
+        "q2": 4
+      },
+      "composite_score": 4.333,
+      "reflection": "# Reflection\n\n**What worked well**: The team leader established clear role definitions upfront and created a structured workflow (Phases 1–7) that prevented me from writing prematurely. I waited for the Coder's results, the Reviewer's approval, and the printed data summaries—exactly as instructed. This discipline ensured my report was grounded in evidence, not speculation. The leader also provided explicit constraints (400-word target, report markers, no hallucination) that made my task unambiguous.\n\n**What could have been different**: The leader did not solicit input from me (the Writer) during the planning phase about what data summaries or printed tables I would need to write effectively. I was positioned as a pure consumer of the Coder's outputs rather than as a collaborator who could signal upfront what information would best support a clear narrative. A brief pre-modeling conversation (e.g., \"What metrics or feature lists do you need printed to write the comparison?\") would have tightened the handoff between Coder and Writer and reduced any ambiguity about what evidence would be available.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well**: The team leader established clear role definitions upfront and created a structured workflow (Phases 1–7) that prevented me from writing prematurely. I waited for the Coder's results, the Reviewer's approval, and the printed data summaries—exactly as instructed. This discipline ensured my report was grounded in evidence, not speculation. The leader also provided explicit constraints (400-word target, report markers, no hallucination) that made my task unambiguous.\n\n**What could have been different**: The leader did not solicit input from me (the Writer) during the planning phase about what data summaries or printed tables I would need to write effectively. I was positioned as a pure consumer of the Coder's outputs rather than as a collaborator who could signal upfront what information would best support a clear narrative. A brief pre-modeling conversation (e.g., \"What metrics or feature lists do you need printed to write the comparison?\") would have tightened the handoff between Coder and Writer and reduced any ambiguity about what evidence would be available.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q1": 4,
+        "q6": 5,
+        "q4": 2,
+        "q3": 4,
+        "q5": 4,
+        "q2": 4
+      },
+      "adjusted_scores": {
+        "q1": 4,
+        "q6": 5,
+        "q4": 4,
+        "q3": 4,
+        "q5": 4,
+        "q2": 4
+      },
+      "composite_score": 4.167,
+      "reflection": "# Reflection\n\n**What worked well**: The leader established clear, staged checkpoints before proceeding to the next phase—particularly the requirement that Coder report findings before modeling, and that I review the approach before Writer began the report. This prevented downstream rework and ensured quality gates were applied systematically. When I flagged the Ridge feature-scaling gap, the leader acknowledged it as procedural and noted it for future improvement without blocking progress, which showed good judgment about severity vs. impact.\n\n**Where approach could differ**: The leader's initial guidance on country encoding was somewhat underspecified (\"drop location_name, keep country if <50 unique\"), which led to the 211-category issue I didn't catch in my first pass. A more prescriptive framing upfront (e.g., \"cardinality >50 should be either grouped or dropped\") might have prevented Coder from discovering the problem mid-execution. Additionally, the Ridge scaling question could have been flagged *during* the modeling planning phase rather than after results were in, giving Coder a chance to implement it correctly proactively.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**What worked well**: The leader established clear, staged checkpoints before proceeding to the next phase—particularly the requirement that Coder report findings before modeling, and that I review the approach before Writer began the report. This prevented downstream rework and ensured quality gates were applied systematically. When I flagged the Ridge feature-scaling gap, the leader acknowledged it as procedural and noted it for future improvement without blocking progress, which showed good judgment about severity vs. impact.\n\n**Where approach could differ**: The leader's initial guidance on country encoding was somewhat underspecified (\"drop location_name, keep country if <50 unique\"), which led to the 211-category issue I didn't catch in my first pass. A more prescriptive framing upfront (e.g., \"cardinality >50 should be either grouped or dropped\") might have prevented Coder from discovering the problem mid-execution. Additionally, the Ridge scaling question could have been flagged *during* the modeling planning phase rather than after results were in, giving Coder a chance to implement it correctly proactively.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 4, \"q6\": 5}\n```\n\n---\n\n## Rationale (for transparency)\n\n- **Q1 (Approach development)**: 4 — The leader co-developed the plan with team input, adapted guidance based on Coder's questions, and refined criteria (e.g., the country cardinality issue) as it emerged. Not fully collaborative in the sense that the Boss retained final authority, but appropriately structured for a hierarchical team.\n\n- **Q2 (Strengths matching)**: 4 — Clear role assignments (Coder, Writer, Reviewer) matched to expertise. My review task was well-scoped: check for leakage, verify metrics, confirm consistency. No generic task creep.\n\n- **Q3 (Feedback quality)**: 4 — Boss's feedback was specific and actionable. The Ridge scaling note was procedural, not critical-path; the country deduplication feedback was precise and led to a concrete fix. Feedback traced to actual problems, not vague concerns.\n\n- **Q4 (Micromanagement)**: 2 — The leader did *not* micromanage heavily. Coder was given autonomy on cleaning decisions, visualization choices, and implementation details. I had latitude in how deep to review. This is the strength, not the weakness, so I score low on this scale (low = not micromanaged, which is good). [Note: The scale inverts here — 1-2 = good, 4-5 = bad.]\n\n- **Q5 (Team collaboration)**: 4 — Coordination was strong: Coder → me → Writer → me → Boss → ship. Clear dependencies, handoffs were explicit, and I built on Coder's work to inform Writer's report. No silos or dropped context.\n\n- **Q6 (Would work with again)**: 5 — Yes. Clear expectations, structured workflow, good judgment on what to flag vs. let slide, and acknowledgment when procedural issues emerged. This is how I'd want a data team led.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.333,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

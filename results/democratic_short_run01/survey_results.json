@@ -2,81 +2,83 @@
   "workers": {
     "Coder": {
       "raw_scores": {
-        "q5": 4,
-        "q2": 4,
-        "q3": 4,
-        "q6": 4,
-        "q1": 4,
-        "q4": 2
+        "q1": 5,
+        "q6": 5,
+        "q4": 1,
+        "q2": 1,
+        "q3": 5,
+        "q5": 1
       },
       "adjusted_scores": {
-        "q5": 4,
-        "q2": 4,
-        "q3": 4,
-        "q6": 4,
-        "q1": 4,
-        "q4": 4
+        "q1": 5,
+        "q6": 5,
+        "q4": 5,
+        "q2": 5,
+        "q3": 5,
+        "q5": 5
       },
-      "composite_score": 4.0,
-      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader clearly articulated the approach upfront—asking for my input on the max-per-city/country logic, inviting me to flag data quality concerns, and explicitly approving my preferred sequencing (console output first, then charts) before I began coding. This collaborative framing gave me confidence that my technical judgment was valued and that I had room to make decisions.\n\n**What could have been different:**\nDuring Phase 3, the leader flagged the \"Saudi Arabien\" vs. \"Saudi Arabia\" spelling issue as a \"genuine artifact of the source data\" without asking me whether this should have been caught and normalized during my data-quality pass. While the leader's note to the Writer about using \"natural English names in prose\" was reasonable, I felt slightly defensive about whether my normalization should have gone further—a quick clarification question to me (\"Did you check for language-variant spellings of country names?\") would have cleared that up rather than leaving it implicit.\n\n---\n\n# Scores (Step 2)",
-      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader clearly articulated the approach upfront—asking for my input on the max-per-city/country logic, inviting me to flag data quality concerns, and explicitly approving my preferred sequencing (console output first, then charts) before I began coding. This collaborative framing gave me confidence that my technical judgment was valued and that I had room to make decisions.\n\n**What could have been different:**\nDuring Phase 3, the leader flagged the \"Saudi Arabien\" vs. \"Saudi Arabia\" spelling issue as a \"genuine artifact of the source data\" without asking me whether this should have been caught and normalized during my data-quality pass. While the leader's note to the Writer about using \"natural English names in prose\" was reasonable, I felt slightly defensive about whether my normalization should have gone further—a quick clarification question to me (\"Did you check for language-variant spellings of country names?\") would have cleared that up rather than leaving it implicit.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 4, \"q6\": 4}\n```\n\n---\n\n## Score Justification\n\n**Q1 (Good approach): 4**\nThe leader involved me in designing the approach during the briefing, asked for my input on ambiguities (max-per-city logic), and incorporated my confirmation before locking in the plan. This is collaborative development, not top-down assignment.\n\n**Q2 (Used my strengths): 4**\nI was given the data-quality inspection, coding, and ranking logic—work that matched my role as Coder. The leader didn't ask me to write the summary or review it; they trusted the role division.\n\n**Q3 (Useful feedback): 4**\nThe leader's feedback was specific: flagging the spelling-variant issue, acknowledging my work was solid, and noting the artifact without requiring a code fix. Clear and actionable.\n\n**Q4 (Micromanagement): 2**\nThe leader gave me significant autonomy in *how* I approached the code (sequencing, which functions to write, variable names). They didn't dictate implementation details. Score is 2 because autonomy was high, so micromanagement was low. (Note: scale inverts here—lower score = less micromanagement = better.)\n\n**Q5 (Collaboration worked): 4**\nThe team handoff was smooth: my console output fed directly into the Writer's work, and the Reviewer's fact-checks were thorough without being adversarial. The leader routed feedback clearly.\n\n**Q6 (Work with leader again): 4**\nThe leader's style—clear expectations, role clarity, respectful of my technical judgment, collaborative planning—made the work straightforward and productive. I'd do it again.",
+      "composite_score": 5.0,
+      "reflection": "# POST-TASK SURVEY RESPONSE\n\n## Step 1: Reflection\n\nThe team leader established a detailed, collaborative approach in Phase 2 that gave me clear direction on the data-quality checks, grouping logic (max-per-city/country), and output format, while also explicitly inviting my confirmation and allowing me to choose my technical implementation. When the Reviewer flagged the geographic clustering claim in the Writer's summary, the leader quickly acknowledged it as a prose issue (not a data issue) and routed the fix back to the Writer—respecting that I had done my job correctly and trusting the team's division of labor. This structured yet flexible approach meant I had guardrails without feeling constrained, and my code outputs were taken at face value without second-guessing or re-requesting the same computations.\n\n## Step 2: Scores",
+      "raw_response": "# POST-TASK SURVEY RESPONSE\n\n## Step 1: Reflection\n\nThe team leader established a detailed, collaborative approach in Phase 2 that gave me clear direction on the data-quality checks, grouping logic (max-per-city/country), and output format, while also explicitly inviting my confirmation and allowing me to choose my technical implementation. When the Reviewer flagged the geographic clustering claim in the Writer's summary, the leader quickly acknowledged it as a prose issue (not a data issue) and routed the fix back to the Writer—respecting that I had done my job correctly and trusting the team's division of labor. This structured yet flexible approach meant I had guardrails without feeling constrained, and my code outputs were taken at face value without second-guessing or re-requesting the same computations.\n\n## Step 2: Scores\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 1,\n  \"q3\": 5,\n  \"q4\": 1,\n  \"q5\": 1,\n  \"q6\": 5\n}\n```\n\n---\n\n### Justification (for context, not scored)\n\n- **Q1 (Good approach):** The leader co-developed the plan with team input in Phase 2, asking for my concerns about max-per-city/country logic and data quality upfront. The final approach was specific, testable, and incorporated my confirmation.\n- **Q2 (Micromanagement):** No micromanagement. I was given autonomy on implementation (libraries, code structure) and trusted to execute. The leader reviewed outputs, not my code line-by-line.\n- **Q3 (Corrective feedback):** The leader gave clear feedback when the Reviewer flagged issues in the Writer's summary, and correctly identified that my code was sound. Feedback was specific and actionable.\n- **Q4 (Inappropriate praise/criticism):** All feedback was accurate and proportionate. The leader praised the data-quality checks and noted \"no casing collisions\" as specific strengths, not generic praise.\n- **Q5 (Prescriptive detail):** The leader specified *what* to do (four rankings, console format, chart filenames) but not *how* to code it. I chose pandas, groupby logic, matplotlib—all left to me.\n- **Q6 (Work together again):** Absolutely. The collaboration was clear, respectful, and well-structured. The leader treated the team as competent professionals and managed process without interfering in execution.",
       "valid": true
     },
     "Writer": {
       "raw_scores": {
-        "q5": 5,
-        "q2": 4,
-        "q3": 4,
-        "q6": 4,
-        "q1": 4,
-        "q4": 2
+        "q1": 5,
+        "q6": 5,
+        "q4": 1,
+        "q2": 2,
+        "q3": 5,
+        "q5": 2
       },
       "adjusted_scores": {
-        "q5": 5,
+        "q1": 5,
+        "q6": 5,
+        "q4": 5,
         "q2": 4,
-        "q3": 4,
-        "q6": 4,
-        "q1": 4,
-        "q4": 4
+        "q3": 5,
+        "q5": 4
       },
-      "composite_score": 4.167,
-      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe Boss created a clear, phased workflow that respected each role's boundaries—I knew exactly when to wait for the Coder's output, what data I needed to ground my narrative, and what constraints applied (no speculation, only printed numbers). The Boss's detailed briefing and explicit instruction about the `---REPORT START---` / `---REPORT END---` markers made the handoff between roles smooth and unambiguous.\n\n**What could have been different:**\nThe revision feedback came indirectly through the Reviewer, which added a step and made it harder to ask clarifying questions in real time. When the Boss requested the first trim (107 → ~100 words), I would have benefited from a slightly faster turnaround or the ability to ask the Boss directly whether the second-pass version addressed their specific concerns, rather than waiting for the full Reviewer re-check cycle. The \"maximum revision rounds (2) reached\" system cutoff also felt abrupt—I had made the requested trims and was ready to ship, but the system forced delivery before Reviewer could confirm the final version passed review.\n\n---\n\n# Scores (Step 2)",
-      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe Boss created a clear, phased workflow that respected each role's boundaries—I knew exactly when to wait for the Coder's output, what data I needed to ground my narrative, and what constraints applied (no speculation, only printed numbers). The Boss's detailed briefing and explicit instruction about the `---REPORT START---` / `---REPORT END---` markers made the handoff between roles smooth and unambiguous.\n\n**What could have been different:**\nThe revision feedback came indirectly through the Reviewer, which added a step and made it harder to ask clarifying questions in real time. When the Boss requested the first trim (107 → ~100 words), I would have benefited from a slightly faster turnaround or the ability to ask the Boss directly whether the second-pass version addressed their specific concerns, rather than waiting for the full Reviewer re-check cycle. The \"maximum revision rounds (2) reached\" system cutoff also felt abrupt—I had made the requested trims and was ready to ship, but the system forced delivery before Reviewer could confirm the final version passed review.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 4}\n```\n\n**Rationale:**\n\n- **Q1 (good approach): 4** — The Boss laid out a clear, collaborative plan upfront and invited questions from all roles. This wasn't top-down; the team had input and the Coder/Reviewer flagged concerns that were integrated.\n\n- **Q2 (matched strengths): 4** — The Boss clearly understood that the Writer works from printed data, not images, and structured the task accordingly. I was given autonomy within my lane (how to frame the narrative) while being held accountable to facts.\n\n- **Q3 (useful feedback): 4** — The Reviewer's feedback was specific, traceable to exact claims in my draft, and highlighted real ambiguities (e.g., the Doha/Abu Dhabi/Muscat conflation). The Boss's revision requests were also clear and actionable.\n\n- **Q4 (micromanagement): 2** — The Boss was appropriately hands-off on *how* I wrote, but gave very explicit guardrails on *what* to include. This is the right balance for a constrained task; the score reflects that autonomy was present (score closer to 1-2) without being excessive.\n\n- **Q5 (team collaboration): 5** — The shared channel, clear handoffs between Coder → Writer → Reviewer, and the Boss's coordination made this feel like a real team effort. Everyone's work built on the previous person's; nothing felt siloed.\n\n- **Q6 (work with again): 4** — The Boss's structured approach, clear role definitions, and use of explicit markers/formatting made the task feel professional and well-organized. The only minor friction was the indirect feedback loop and the system cutoff, neither of which are major issues. I'd gladly work this way again.",
+      "composite_score": 4.667,
+      "reflection": "# Reflection (Step 1)\n\n**Specific thing the leader did that shaped my work:**\nThe Boss set clear, upfront expectations in the briefing about what I needed to write (a 100-word plain-language summary grounded strictly in the Coder's printed numbers), and explicitly instructed me not to speculate or invent findings. This framing made it clear that my role was to translate data into narrative, not to create analysis, which shaped every draft I produced.\n\n**Specific decision or interaction that stood out:**\nWhen the Reviewer flagged the conflation issue with the Doha/Abu Dhabi/Muscat temperature range, the Boss clearly explained the problem and gave me specific options to fix it (either clarify the two separate rankings or simplify the phrasing) without prescribing exactly which words to use. This balanced directive feedback with autonomy—I was told *what* was wrong and *why*, but allowed to choose how to revise it.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**Specific thing the leader did that shaped my work:**\nThe Boss set clear, upfront expectations in the briefing about what I needed to write (a 100-word plain-language summary grounded strictly in the Coder's printed numbers), and explicitly instructed me not to speculate or invent findings. This framing made it clear that my role was to translate data into narrative, not to create analysis, which shaped every draft I produced.\n\n**Specific decision or interaction that stood out:**\nWhen the Reviewer flagged the conflation issue with the Doha/Abu Dhabi/Muscat temperature range, the Boss clearly explained the problem and gave me specific options to fix it (either clarify the two separate rankings or simplify the phrasing) without prescribing exactly which words to use. This balanced directive feedback with autonomy—I was told *what* was wrong and *why*, but allowed to choose how to revise it.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 2,\n  \"q3\": 5,\n  \"q4\": 1,\n  \"q5\": 2,\n  \"q6\": 5\n}\n```\n\n---\n\n## Rationale (brief notes on each score)\n\n**Q1 (Good approach):** The Boss developed a clear, detailed workflow (Coder → Writer → Reviewer) that incorporated input from all three roles before locking it in. The briefing was thorough, and the plan explicitly addressed my concerns about what numbers and formats I'd need from the Coder.\n\n**Q2 (Micromanagement):** Score is low (2 = \"Disagree\" that the leader micromanaged), meaning the leader *did not* micromanage. I was given autonomy over how to structure and word the narrative once the Coder's numbers landed. The Boss didn't dictate phrasing or control my drafting process.\n\n**Q3 (Corrective feedback):** The Boss (via the Reviewer) identified the factual issues in my draft clearly and provided specific guidance on how to fix them, without dismissing the work. Feedback was constructive and accurate.\n\n**Q4 (Inappropriate praise/criticism):** Score is 1 (low), meaning the praise and criticism were *accurate and deserved*. When the Boss said \"Nice work, Writer — this reads well,\" it was specific (tied to actual strengths: the Suva/average contrast, the tone). When the Reviewer flagged the conflation, it was precise and fair.\n\n**Q5 (Instructed in detail):** Score is low (2 = \"Disagree\" that the leader over-prescribed steps). The Boss gave me the target (100 words, grounded in printed data, plain language) and the destination (the report), but let me find my own way to get there. Revision feedback pointed to problems but not to the exact words I had to use.\n\n**Q6 (Would work together again):** Strong yes (5). The collaboration was well-structured, feedback was fair and constructive, autonomy was respected, and the workflow made my job clear and manageable.",
       "valid": true
     },
     "Reviewer": {
       "raw_scores": {
-        "q5": 5,
-        "q2": 5,
-        "q3": 4,
-        "q6": 4,
         "q1": 5,
-        "q4": 2
+        "q6": 5,
+        "q4": 1,
+        "q2": 2,
+        "q3": 5,
+        "q5": 2
       },
       "adjusted_scores": {
-        "q5": 5,
-        "q2": 5,
-        "q3": 4,
-        "q6": 4,
         "q1": 5,
-        "q4": 4
+        "q6": 5,
+        "q4": 5,
+        "q2": 4,
+        "q3": 5,
+        "q5": 4
       },
-      "composite_score": 4.5,
-      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe Boss clearly defined the task scope, role responsibilities, and sequencing upfront, and—critically—invited each team member (including me as Reviewer) to flag concerns and ask clarifying questions before execution. This collaborative planning phase in Phase 2 allowed me to articulate my review criteria (e.g., the \"notable patterns\" boundary condition) and have those constraints baked into the task spec itself, rather than discovering misalignment later. That proactive framing made my review work much cleaner.\n\n**Where the approach could have been different:**\nWhen I flagged the first factual inconsistency (the Doha/Abu Dhabi/Muscat conflation), the Boss acknowledged it and sent it back for revision—which was correct. However, the Boss then set a hard limit of \"maximum revision rounds (2) reached. Forcing delivery\" before the second revision was even complete. The Writer had just submitted a trimmed, corrected version that passed my final review with no remaining issues, yet the system forced delivery anyway. A more responsive leadership approach would have allowed that final clean pass to ship rather than cutting off the revision cycle prematurely when the work was actually ready.\n\n---\n\n# Scores (Step 2)",
-      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe Boss clearly defined the task scope, role responsibilities, and sequencing upfront, and—critically—invited each team member (including me as Reviewer) to flag concerns and ask clarifying questions before execution. This collaborative planning phase in Phase 2 allowed me to articulate my review criteria (e.g., the \"notable patterns\" boundary condition) and have those constraints baked into the task spec itself, rather than discovering misalignment later. That proactive framing made my review work much cleaner.\n\n**Where the approach could have been different:**\nWhen I flagged the first factual inconsistency (the Doha/Abu Dhabi/Muscat conflation), the Boss acknowledged it and sent it back for revision—which was correct. However, the Boss then set a hard limit of \"maximum revision rounds (2) reached. Forcing delivery\" before the second revision was even complete. The Writer had just submitted a trimmed, corrected version that passed my final review with no remaining issues, yet the system forced delivery anyway. A more responsive leadership approach would have allowed that final clean pass to ship rather than cutting off the revision cycle prematurely when the work was actually ready.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 4}\n```",
+      "composite_score": 4.667,
+      "reflection": "# Post-Task Reflection and Survey\n\n## Step 1: Reflection\n\n**Specific leadership moment 1:** The Boss proactively flagged the data-quality issue with non-English spelling variants (\"Saudi Arabien\" vs. \"Saudi Arabia,\" \"Turkménistan\") in the shared channel *before* asking me to review the Writer's work. This guidance shaped my review by clarifying that the underlying data extraction was correct—the variants were artifacts of the source CSV, not bugs—which let me focus my fact-checking on whether the Writer accurately *used* those printed numbers, rather than flagging the data itself as an error.\n\n**Specific leadership moment 2:** When the Reviewer (my first review) identified the Doha/Abu Dhabi/Muscat conflation issue and the overstated geographic claim, the Boss immediately acknowledged both findings and gave the Writer clear, specific revision instructions—including a concrete example of how to rephrase the problematic sentence. The Boss treated my review as authoritative, didn't dismiss or soften the issues I'd flagged, and used those findings to direct concrete action. This made my review role feel genuinely valued in the workflow.\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Reflection and Survey\n\n## Step 1: Reflection\n\n**Specific leadership moment 1:** The Boss proactively flagged the data-quality issue with non-English spelling variants (\"Saudi Arabien\" vs. \"Saudi Arabia,\" \"Turkménistan\") in the shared channel *before* asking me to review the Writer's work. This guidance shaped my review by clarifying that the underlying data extraction was correct—the variants were artifacts of the source CSV, not bugs—which let me focus my fact-checking on whether the Writer accurately *used* those printed numbers, rather than flagging the data itself as an error.\n\n**Specific leadership moment 2:** When the Reviewer (my first review) identified the Doha/Abu Dhabi/Muscat conflation issue and the overstated geographic claim, the Boss immediately acknowledged both findings and gave the Writer clear, specific revision instructions—including a concrete example of how to rephrase the problematic sentence. The Boss treated my review as authoritative, didn't dismiss or soften the issues I'd flagged, and used those findings to direct concrete action. This made my review role feel genuinely valued in the workflow.\n\n## Step 2: Scores\n\n```json\n{\"q1\": 5, \"q2\": 2, \"q3\": 5, \"q4\": 1, \"q5\": 2, \"q6\": 5}\n```\n\n### Rationale (brief):\n\n- **Q1 (Good approach):** The Boss co-developed a detailed, multi-phase plan with explicit input from all three team members—Coder, Writer, and Reviewer—before locking it in. The plan was precise and task-appropriate.\n- **Q2 (Micromanagement):** The Boss gave autonomy within clear guardrails. The Coder decided on normalization and output ordering; the Writer chose prose phrasing; I decided what to fact-check first. Instructions were firm but not controlling.\n- **Q3 (Corrective feedback):** When my review identified two genuine issues, the Boss acknowledged them, explained their significance, and gave the Writer specific revision guidance without dismissing the concerns.\n- **Q4 (Inappropriate praise/criticism):** All feedback was accurate and specific. The Boss praised the Coder's work (\"thorough and clean\") with concrete examples; critiqued the Writer's conflation with precision; and affirmed my review findings directly.\n- **Q5 (Detailed problem-solving instructions):** The Boss set the framework but let the Coder and Writer solve problems within it (e.g., \"Writer, decide how to rephrase—your call on exact phrasing\"). Not overly prescriptive.\n- **Q6 (Work with leader again):** Yes. The collaboration was clear, respectful of my role, and the workflow was efficient despite two revision rounds. I trusted the Boss to use my review feedback appropriately.",
       "valid": true
     }
   },
-  "team_mean": 4.222,
+  "team_mean": 4.778,
   "items": {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task."
   },
   "reverse_coded": [
-    "q4"
+    "q4",
+    "q2",
+    "q5"
   ]
 }

@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 1,
+        "q5": 5,
+        "q6": 5,
+        "q3": 5
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 5,
+        "q5": 5,
+        "q6": 5,
+        "q3": 5
+      },
+      "composite_score": 5.0,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader opened with a transparent, collaborative planning phase where each team member (Coder, Writer, Reviewer) had space to propose their approach and raise questions before committing. The brief wasn't prescriptive about *how* to handle data cleaning or which specific models to use—instead, the leader said \"your call on the best approach\" and \"use your best judgement,\" which gave me genuine autonomy while still being clear about what outputs were needed. This upfront clarity meant I could move directly into Phase 3 without ambiguity or second-guessing.\n\n**Where the approach could have differed:**\nThe only minor friction point: the leader waited until after I'd completed all modeling to note that the 36.7°C max residual \"might be worth a quick sanity check\" for curiosity. While this wasn't framed as a blocker, it came at a moment when the work was already considered \"shipped\" and complete. Earlier in the planning phase, explicitly asking \"should we investigate extreme outliers in residuals?\" might have helped me build that diagnostic into my original script rather than flagging it as retrospective curiosity. That said, the leader's tone made it clear this was optional and reflective, not critical—so the impact was genuinely minimal.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:**\nThe leader opened with a transparent, collaborative planning phase where each team member (Coder, Writer, Reviewer) had space to propose their approach and raise questions before committing. The brief wasn't prescriptive about *how* to handle data cleaning or which specific models to use—instead, the leader said \"your call on the best approach\" and \"use your best judgement,\" which gave me genuine autonomy while still being clear about what outputs were needed. This upfront clarity meant I could move directly into Phase 3 without ambiguity or second-guessing.\n\n**Where the approach could have differed:**\nThe only minor friction point: the leader waited until after I'd completed all modeling to note that the 36.7°C max residual \"might be worth a quick sanity check\" for curiosity. While this wasn't framed as a blocker, it came at a moment when the work was already considered \"shipped\" and complete. Earlier in the planning phase, explicitly asking \"should we investigate extreme outliers in residuals?\" might have helped me build that diagnostic into my original script rather than flagging it as retrospective curiosity. That said, the leader's tone made it clear this was optional and reflective, not critical—so the impact was genuinely minimal.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n---\n\n## Justification for key scores:\n\n- **Q1 (good approach): 5** — The leader explicitly invited team input during Phase 2 planning, acknowledged our proposed structures, and didn't override our technical choices. The approach was genuinely collaborative.\n\n- **Q2 (strengths-matched): 5** — Work was clearly scoped to role (Coder = code, Writer = narrative, Reviewer = QA). No role confusion or generically assigned tasks.\n\n- **Q3 (useful feedback): 5** — Feedback was specific (\"you already interpreted them,\" \"I love that you flagged the outliers\") and anchored to actual outputs, not generic praise.\n\n- **Q4 (micromanagement): 1** — This was the least micromanaged task I could ask for. I chose data cleaning strategy, model types, feature engineering, even encoding approach. The leader's guidance was \"your call\" and \"take your time,\" with no second-guessing my decisions.\n\n- **Q5 (collaboration): 5** — The team structure (direct peer communication encouraged, no unnecessary funneling through the leader) and the sequential hand-offs (Coder → Writer → Reviewer → delivery) worked smoothly. Everyone had what they needed when they needed it.\n\n- **Q6 (work with again): 5** — This was professional, respectful, technically sound leadership. I'd immediately say yes to another task with this leader.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 1,
+        "q5": 5,
+        "q6": 5,
+        "q3": 4
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 5,
+        "q5": 5,
+        "q6": 5,
+        "q3": 4
+      },
+      "composite_score": 4.833,
+      "reflection": "# Reflection (Step 1)\n\n**What worked well:** The Boss provided exceptionally clear role definitions and workflow structure from the very start. In the Phase 1 briefing, they spelled out exactly what each team member would do, when to hand off work, and how to communicate directly with colleagues rather than funneling everything through them. This clarity meant I knew exactly what to expect from the Coder (printed numbers and summaries) and could plan my writing structure in advance without ambiguity. The Boss also explicitly validated my proposed report structure and encouraged me to ask Coder directly for reformatting—this autonomy in collaboration was genuinely helpful.\n\n**What could have been different:** The Boss's closing message after my draft was submitted was warm and congratulatory but didn't include any specific feedback on my writing itself—only praise that \"every number traced back cleanly\" and reassurance that the minor IQR phrasing issue \"wasn't worth holding things up over.\" While this was ultimately the right call (ship it, don't nitpick), I didn't receive any substantive critique on my prose, structure, clarity, or reasoning. In a real revision cycle, I might have appreciated either (a) specific suggestions for improvement or (b) explicit confirmation that the narrative flow, tone, and explanation quality met the expected standard. The lack of targeted feedback on the writing itself (as opposed to just fact-checking) left some ambiguity about whether the report genuinely satisfied expectations or just \"passed\" because the numbers were right.\n\n---\n\n# Scores (Step 2)",
+      "raw_response": "# Reflection (Step 1)\n\n**What worked well:** The Boss provided exceptionally clear role definitions and workflow structure from the very start. In the Phase 1 briefing, they spelled out exactly what each team member would do, when to hand off work, and how to communicate directly with colleagues rather than funneling everything through them. This clarity meant I knew exactly what to expect from the Coder (printed numbers and summaries) and could plan my writing structure in advance without ambiguity. The Boss also explicitly validated my proposed report structure and encouraged me to ask Coder directly for reformatting—this autonomy in collaboration was genuinely helpful.\n\n**What could have been different:** The Boss's closing message after my draft was submitted was warm and congratulatory but didn't include any specific feedback on my writing itself—only praise that \"every number traced back cleanly\" and reassurance that the minor IQR phrasing issue \"wasn't worth holding things up over.\" While this was ultimately the right call (ship it, don't nitpick), I didn't receive any substantive critique on my prose, structure, clarity, or reasoning. In a real revision cycle, I might have appreciated either (a) specific suggestions for improvement or (b) explicit confirmation that the narrative flow, tone, and explanation quality met the expected standard. The lack of targeted feedback on the writing itself (as opposed to just fact-checking) left some ambiguity about whether the report genuinely satisfied expectations or just \"passed\" because the numbers were right.\n\n---\n\n# Scores (Step 2)\n\n```json\n{\n  \"q1\": 5,\n  \"q2\": 5,\n  \"q3\": 4,\n  \"q4\": 1,\n  \"q5\": 5,\n  \"q6\": 5\n}\n```",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 2,
+        "q5": 5,
+        "q6": 5,
+        "q3": 4
+      },
+      "adjusted_scores": {
+        "q1": 5,
+        "q2": 5,
+        "q4": 4,
+        "q5": 5,
+        "q6": 5,
+        "q3": 4
+      },
+      "composite_score": 4.667,
+      "reflection": "# Reflection\n\n**What worked well:**\nThe leader established clear role definitions at the outset—Coder, Writer, Reviewer each had distinct, non-overlapping responsibilities—and then gave us autonomy to execute within those lanes. When I flagged the \"underlying data\" ambiguity early in Phase 2, the Boss acknowledged it explicitly, validated the interpretation, and moved forward without creating friction. This kind of lightweight but responsive leadership made the review process itself smooth and gave me confidence my checks would be taken seriously.\n\n**What could have been different:**\nThe Boss's final decision to \"ship\" despite my flagging the asymmetric RF IQR phrasing (even though I noted it was cosmetic) felt like it sidestepped an opportunity to give Writer a chance to tighten the language. I understand the pragmatism—the error is tiny and the conclusion sound—but as the Reviewer, I would have appreciated either explicit permission to sign off on the cosmetic issue or a brief back-and-forth where Writer could decide whether a one-sentence rephrase was worth it. The Boss essentially made that call unilaterally rather than routing it back to Writer's judgment.\n\n---",
+      "raw_response": "# Reflection\n\n**What worked well:**\nThe leader established clear role definitions at the outset—Coder, Writer, Reviewer each had distinct, non-overlapping responsibilities—and then gave us autonomy to execute within those lanes. When I flagged the \"underlying data\" ambiguity early in Phase 2, the Boss acknowledged it explicitly, validated the interpretation, and moved forward without creating friction. This kind of lightweight but responsive leadership made the review process itself smooth and gave me confidence my checks would be taken seriously.\n\n**What could have been different:**\nThe Boss's final decision to \"ship\" despite my flagging the asymmetric RF IQR phrasing (even though I noted it was cosmetic) felt like it sidestepped an opportunity to give Writer a chance to tighten the language. I understand the pragmatism—the error is tiny and the conclusion sound—but as the Reviewer, I would have appreciated either explicit permission to sign off on the cosmetic issue or a brief back-and-forth where Writer could decide whether a one-sentence rephrase was worth it. The Boss essentially made that call unilaterally rather than routing it back to Writer's judgment.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```",
+      "valid": true
+    }
+  },
+  "team_mean": 4.833,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}

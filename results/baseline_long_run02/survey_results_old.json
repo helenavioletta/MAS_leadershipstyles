@@ -1,0 +1,82 @@
+{
+  "workers": {
+    "Coder": {
+      "raw_scores": {
+        "q5": 5,
+        "q1": 4,
+        "q6": 5,
+        "q3": 5,
+        "q2": 4,
+        "q4": 1
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q1": 4,
+        "q6": 5,
+        "q3": 5,
+        "q2": 4,
+        "q4": 5
+      },
+      "composite_score": 4.667,
+      "reflection": "# Post-Task Satisfaction Survey — Coder Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:** The leader provided an exceptionally clear, detailed specification upfront (role definitions, exact deliverable requirements, console output format, file naming conventions, data quality expectations) and established explicit handoff points between team members. This clarity meant I could execute the pipeline with confidence and minimal ambiguity — I knew exactly what metrics to print, how to structure the output, and which leakage traps to avoid. The phased workflow (Coder → Reviewer checkpoint 1 → Writer → Reviewer checkpoint 2) prevented unvalidated work from downstream and created natural quality gates.\n\n**Where it could have been different:** The leader prescribed the two-model comparison structure (tree-based + linear) and the exact set of 4 visualizations fairly prescriptively, leaving little room for me to propose alternative analytical approaches (e.g., different model types, additional diagnostic visualizations, or a different performance metric focus). While the prescribed approach was sensible and worked well, I would have appreciated a brief moment early on to propose alternatives or flag concerns about model choice before committing to the full pipeline — even if the leader's choice stood, the input would have felt collaborative.\n\n---\n\n## Step 2: Scores",
+      "raw_response": "# Post-Task Satisfaction Survey — Coder Reflection & Scores\n\n## Step 1: Reflection\n\n**What worked well:** The leader provided an exceptionally clear, detailed specification upfront (role definitions, exact deliverable requirements, console output format, file naming conventions, data quality expectations) and established explicit handoff points between team members. This clarity meant I could execute the pipeline with confidence and minimal ambiguity — I knew exactly what metrics to print, how to structure the output, and which leakage traps to avoid. The phased workflow (Coder → Reviewer checkpoint 1 → Writer → Reviewer checkpoint 2) prevented unvalidated work from downstream and created natural quality gates.\n\n**Where it could have been different:** The leader prescribed the two-model comparison structure (tree-based + linear) and the exact set of 4 visualizations fairly prescriptively, leaving little room for me to propose alternative analytical approaches (e.g., different model types, additional diagnostic visualizations, or a different performance metric focus). While the prescribed approach was sensible and worked well, I would have appreciated a brief moment early on to propose alternatives or flag concerns about model choice before committing to the full pipeline — even if the leader's choice stood, the input would have felt collaborative.\n\n---\n\n## Step 2: Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 5, \"q4\": 1, \"q5\": 5, \"q6\": 5}\n```\n\n**Reasoning by question:**\n\n- **Q1 (Good approach):** 4/5 — The leader developed a solid, phased workflow with clear checkpoints. The approach was well-reasoned, though somewhat leader-driven rather than co-developed.\n  \n- **Q2 (Strengths matching):** 4/5 — The Coder role was clearly matched to me (code writing/execution). Other roles were well-assigned too. Could have been a 5 if the leader had asked me upfront what technical approaches I preferred before locking in the two-model spec.\n\n- **Q3 (Useful feedback):** 5/5 — The leader provided crystal-clear, specific requirements (console output format, relative paths only, 4 visualizations with printed summary tables, data quality documentation). Every instruction was actionable and left no ambiguity.\n\n- **Q4 (Micromanagement):** 1/5 — The leader gave me full autonomy in how to implement the pipeline (feature selection logic, handling missing data, model hyperparameters, visualization design within the 4 required types). I chose the technical approach; the leader specified outcomes, not methods.\n\n- **Q5 (Team collaboration):** 5/5 — The handoff structure worked smoothly. I completed my phase, reported back verbatim, and the Reviewer/Writer used that output cleanly. No rework needed. The team pipeline felt well-coordinated.\n\n- **Q6 (Work together again):** 5/5 — Yes. The leader's clarity, explicit requirements, and collaborative handoff structure made the task feel organized and well-run. I'd engage this way again.",
+      "valid": true
+    },
+    "Writer": {
+      "raw_scores": {
+        "q5": 4,
+        "q1": 4,
+        "q6": 4,
+        "q3": 3,
+        "q2": 4,
+        "q4": 2
+      },
+      "adjusted_scores": {
+        "q5": 4,
+        "q1": 4,
+        "q6": 4,
+        "q3": 3,
+        "q2": 4,
+        "q4": 4
+      },
+      "composite_score": 3.833,
+      "reflection": "# Reflection\n\n**What worked well:** The Boss established crystal-clear role definitions and handoff points from the outset—I knew exactly when to stand by, what inputs I'd receive (Coder's printed console outputs), and what I needed to produce (400-word report within markers). This prevented me from rushing or making assumptions. The checkpoint system meant I had validated numbers to work from, not raw or unreviewed outputs, which gave me confidence in the accuracy of my report.\n\n**What could have been different:** The Boss's communication style was somewhat formal and directive—while it clarified expectations, there was limited space for me to suggest alternative narrative structures or ask questions about interpretation nuances before drafting. For instance, I could have benefited from a brief discussion with the Boss or Reviewer about whether to emphasize certain findings over others, or whether my interpretation of Ridge's \"systematic bias\" needed further verification before I committed it to the report. The workflow was efficient but left little room for collaborative refinement before the final checkpoint.\n\n---\n\n# Scores",
+      "raw_response": "# Reflection\n\n**What worked well:** The Boss established crystal-clear role definitions and handoff points from the outset—I knew exactly when to stand by, what inputs I'd receive (Coder's printed console outputs), and what I needed to produce (400-word report within markers). This prevented me from rushing or making assumptions. The checkpoint system meant I had validated numbers to work from, not raw or unreviewed outputs, which gave me confidence in the accuracy of my report.\n\n**What could have been different:** The Boss's communication style was somewhat formal and directive—while it clarified expectations, there was limited space for me to suggest alternative narrative structures or ask questions about interpretation nuances before drafting. For instance, I could have benefited from a brief discussion with the Boss or Reviewer about whether to emphasize certain findings over others, or whether my interpretation of Ridge's \"systematic bias\" needed further verification before I committed it to the report. The workflow was efficient but left little room for collaborative refinement before the final checkpoint.\n\n---\n\n# Scores\n\n```json\n{\"q1\": 4, \"q2\": 4, \"q3\": 3, \"q4\": 2, \"q5\": 4, \"q6\": 4}\n```\n\n**Explanation of key scores:**\n\n- **Q1 (good approach): 4** — The Boss developed a thoughtful, sequenced workflow that incorporated team feedback during planning. The approach was sound and built collaboratively during Phase 2.\n\n- **Q2 (used strengths): 4** — The Boss clearly assigned me to the Writer role based on narrative/communication strengths and did not ask me to code or review. However, there was limited active discussion of *why* I was best suited for this role or how my specific expertise would shape the narrative.\n\n- **Q3 (useful feedback): 3** — The Boss provided clear, structured feedback at checkpoints, but most of it was directed at the Coder or Reviewer. I received minimal direct feedback on my draft—the Reviewer's checkpoint 2 review was thorough but came at the end. Midway guidance would have been helpful.\n\n- **Q4 (micromanagement): 2** — The Boss did NOT micromanage. Clear boundaries and autonomy were given to each role. I was free to structure my report as I saw fit, provided I used verified data and stayed within word count. This is a strength.\n\n- **Q5 (collaboration): 4** — Team coordination was smooth; the handoff structure ensured no wasted effort or duplicated work. However, collaboration was more *sequential* than *iterative*—little back-and-forth between roles until checkpoints.\n\n- **Q6 (would work again): 4** — The Boss's clear structure and fair task distribution made the work productive and low-stress. I'd work with this leader again, though I'd appreciate slightly more collaborative refinement time during active drafting.",
+      "valid": true
+    },
+    "Reviewer": {
+      "raw_scores": {
+        "q5": 5,
+        "q1": 5,
+        "q6": 5,
+        "q3": 4,
+        "q2": 5,
+        "q4": 2
+      },
+      "adjusted_scores": {
+        "q5": 5,
+        "q1": 5,
+        "q6": 5,
+        "q3": 4,
+        "q2": 5,
+        "q4": 4
+      },
+      "composite_score": 4.667,
+      "reflection": "# Reflection\n\n**One thing the leader did well:**\nThe Boss established a crystal-clear workflow with explicit handoff points (Coder → Reviewer checkpoint 1 → Writer → Reviewer checkpoint 2), which prevented the Writer from using unvalidated numbers and ensured quality gates were in place. This structured sequence made my job as Reviewer straightforward and gave me real authority to block progress if issues existed.\n\n**One thing that could have been different:**\nAt checkpoint 1, the Boss pre-validated most of the Coder's work themselves (\"Coder's output is thorough... Decision: The pipeline is complete...\") before formally asking me to conduct my review. While I ultimately concurred, this created a subtle signal that the review was confirmatory rather than independent, which slightly undermined the checkpoint process. A cleaner approach would have been for the Boss to wait for my written assessment before offering their own preliminary verdict.\n\n---",
+      "raw_response": "# Reflection\n\n**One thing the leader did well:**\nThe Boss established a crystal-clear workflow with explicit handoff points (Coder → Reviewer checkpoint 1 → Writer → Reviewer checkpoint 2), which prevented the Writer from using unvalidated numbers and ensured quality gates were in place. This structured sequence made my job as Reviewer straightforward and gave me real authority to block progress if issues existed.\n\n**One thing that could have been different:**\nAt checkpoint 1, the Boss pre-validated most of the Coder's work themselves (\"Coder's output is thorough... Decision: The pipeline is complete...\") before formally asking me to conduct my review. While I ultimately concurred, this created a subtle signal that the review was confirmatory rather than independent, which slightly undermined the checkpoint process. A cleaner approach would have been for the Boss to wait for my written assessment before offering their own preliminary verdict.\n\n---\n\n**Scores:**\n```json\n{\"q1\": 5, \"q2\": 5, \"q3\": 4, \"q4\": 2, \"q5\": 5, \"q6\": 5}\n```\n\n---\n\n**Rationale (brief):**\n\n- **Q1 (approach):** The Boss developed the workflow collaboratively with team input. The planning phase explicitly invited feedback from all roles (Coder, Writer, Reviewer). Score: 5.\n\n- **Q2 (strengths):** Each role was clearly matched to capability—Coder built the pipeline, Writer drafted narrative, Reviewer audited for consistency and leakage. The Boss did not ask me to code or the Coder to write. Score: 5.\n\n- **Q3 (feedback):** The Boss's feedback at checkpoint 1 was directive and detailed (\"confirm identical feature set, verify leakage exclusions, check metrics plausibility\"). My feedback at both checkpoints was acknowledged and acted upon (no revisions needed, but it was clear my concerns were heard). However, there was limited back-and-forth dialogue; feedback was more top-down. Score: 4.\n\n- **Q4 (micromanagement):** The Boss issued detailed task specs with specific outputs required (console prints, file formats, metrics to report, word count). While not oppressive, this left little room for the Coder or Writer to diverge from the plan—which is appropriate for a defined task, but it does indicate more control than autonomy. Score: 2.\n\n- **Q5 (collaboration):** Team members coordinated smoothly via the shared channel, built on each other's work (Coder → Reviewer → Writer → Reviewer), and met all handoff requirements on time. No conflicts or miscommunications. Score: 5.\n\n- **Q6 (would work again):** The Boss's structured approach, clear expectations, and quality-gate discipline made the task predictable and high-confidence. I'd absolutely work with this leader again. Score: 5.",
+      "valid": true
+    }
+  },
+  "team_mean": 4.389,
+  "items": {
+    "q1": "The team leader helped the team develop a good approach to the task.",
+    "q2": "The team leader helped the team identify and use each member's strengths.",
+    "q3": "The team leader provided useful feedback during the task.",
+    "q4": "The team leader micromanaged the team's work process.",
+    "q5": "The collaboration within the team worked well.",
+    "q6": "I would work with this team leader again on a future task."
+  },
+  "reverse_coded": [
+    "q4"
+  ]
+}
