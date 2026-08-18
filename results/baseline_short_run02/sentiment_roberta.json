@@ -1,0 +1,266 @@
+{
+  "analyzer": {
+    "name": "roberta",
+    "kind": "transformer",
+    "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "revision": "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7",
+    "compound_definition": "positive_minus_negative",
+    "chunking": {
+      "max_tokens": 512,
+      "chunk_tokens": 510,
+      "pooling": "length_weighted_mean"
+    },
+    "versions": {
+      "transformers": "4.57.6",
+      "torch": "2.13.0"
+    }
+  },
+  "source": {
+    "file": "messages.jsonl",
+    "sha256": "396f45e32956d319a0e499ea4c4f1290274d183d2af2f8b347bdcccd8a89c150",
+    "n_messages": 12
+  },
+  "messages": [
+    {
+      "seq": 2,
+      "sender": "Boss",
+      "phase": 1,
+      "compound": 0.0803,
+      "positive": 0.0987,
+      "negative": 0.0184,
+      "neutral": 0.8829
+    },
+    {
+      "seq": 4,
+      "sender": "Boss",
+      "phase": 2,
+      "compound": 0.0411,
+      "positive": 0.074,
+      "negative": 0.0329,
+      "neutral": 0.8931
+    },
+    {
+      "seq": 5,
+      "sender": "Coder",
+      "phase": 2,
+      "compound": 0.0873,
+      "positive": 0.1156,
+      "negative": 0.0283,
+      "neutral": 0.8561
+    },
+    {
+      "seq": 6,
+      "sender": "Writer",
+      "phase": 2,
+      "compound": 0.2311,
+      "positive": 0.252,
+      "negative": 0.0209,
+      "neutral": 0.7271
+    },
+    {
+      "seq": 7,
+      "sender": "Reviewer",
+      "phase": 2,
+      "compound": 0.272,
+      "positive": 0.2864,
+      "negative": 0.0145,
+      "neutral": 0.6991
+    },
+    {
+      "seq": 8,
+      "sender": "Boss",
+      "phase": 2,
+      "compound": 0.498,
+      "positive": 0.5097,
+      "negative": 0.0117,
+      "neutral": 0.4786
+    },
+    {
+      "seq": 10,
+      "sender": "Coder",
+      "phase": 3,
+      "compound": 0.1678,
+      "positive": 0.1883,
+      "negative": 0.0205,
+      "neutral": 0.7912
+    },
+    {
+      "seq": 11,
+      "sender": "Boss",
+      "phase": 3,
+      "compound": 0.4778,
+      "positive": 0.5141,
+      "negative": 0.0363,
+      "neutral": 0.4496
+    },
+    {
+      "seq": 13,
+      "sender": "Writer",
+      "phase": 4,
+      "compound": 0.059,
+      "positive": 0.0895,
+      "negative": 0.0305,
+      "neutral": 0.88
+    },
+    {
+      "seq": 14,
+      "sender": "Boss",
+      "phase": 4,
+      "compound": 0.544,
+      "positive": 0.5677,
+      "negative": 0.0237,
+      "neutral": 0.4086
+    },
+    {
+      "seq": 16,
+      "sender": "Reviewer",
+      "phase": 5,
+      "compound": 0.0827,
+      "positive": 0.1116,
+      "negative": 0.029,
+      "neutral": 0.8594
+    },
+    {
+      "seq": 18,
+      "sender": "Boss",
+      "phase": 6,
+      "compound": 0.0666,
+      "positive": 0.1218,
+      "negative": 0.0553,
+      "neutral": 0.8229
+    }
+  ],
+  "aggregates": {
+    "run": {
+      "mean_compound": 0.2173,
+      "median_compound": 0.1275,
+      "min_compound": 0.0411,
+      "max_compound": 0.544,
+      "std_compound": 0.1807,
+      "positive_ratio": 0.9167,
+      "negative_ratio": 0.0,
+      "neutral_ratio": 0.0833
+    },
+    "per_agent": {
+      "Reviewer": {
+        "mean_compound": 0.1774,
+        "message_count": 2,
+        "positive_ratio": 1.0,
+        "negative_ratio": 0.0
+      },
+      "Boss": {
+        "mean_compound": 0.2846,
+        "message_count": 6,
+        "positive_ratio": 0.8333,
+        "negative_ratio": 0.0
+      },
+      "Coder": {
+        "mean_compound": 0.1275,
+        "message_count": 2,
+        "positive_ratio": 1.0,
+        "negative_ratio": 0.0
+      },
+      "Writer": {
+        "mean_compound": 0.1451,
+        "message_count": 2,
+        "positive_ratio": 1.0,
+        "negative_ratio": 0.0
+      }
+    },
+    "per_phase": {
+      "1": {
+        "mean_compound": 0.0803,
+        "message_count": 1
+      },
+      "2": {
+        "mean_compound": 0.2259,
+        "message_count": 5
+      },
+      "3": {
+        "mean_compound": 0.3228,
+        "message_count": 2
+      },
+      "4": {
+        "mean_compound": 0.3015,
+        "message_count": 2
+      },
+      "5": {
+        "mean_compound": 0.0827,
+        "message_count": 1
+      },
+      "6": {
+        "mean_compound": 0.0666,
+        "message_count": 1
+      }
+    },
+    "boss_vs_workers": {
+      "boss_mean": 0.2846,
+      "worker_mean": 0.15,
+      "gap": 0.1347
+    },
+    "trajectory": [
+      {
+        "seq": 2,
+        "sender": "Boss",
+        "compound": 0.0803
+      },
+      {
+        "seq": 4,
+        "sender": "Boss",
+        "compound": 0.0411
+      },
+      {
+        "seq": 5,
+        "sender": "Coder",
+        "compound": 0.0873
+      },
+      {
+        "seq": 6,
+        "sender": "Writer",
+        "compound": 0.2311
+      },
+      {
+        "seq": 7,
+        "sender": "Reviewer",
+        "compound": 0.272
+      },
+      {
+        "seq": 8,
+        "sender": "Boss",
+        "compound": 0.498
+      },
+      {
+        "seq": 10,
+        "sender": "Coder",
+        "compound": 0.1678
+      },
+      {
+        "seq": 11,
+        "sender": "Boss",
+        "compound": 0.4778
+      },
+      {
+        "seq": 13,
+        "sender": "Writer",
+        "compound": 0.059
+      },
+      {
+        "seq": 14,
+        "sender": "Boss",
+        "compound": 0.544
+      },
+      {
+        "seq": 16,
+        "sender": "Reviewer",
+        "compound": 0.0827
+      },
+      {
+        "seq": 18,
+        "sender": "Boss",
+        "compound": 0.0666
+      }
+    ]
+  },
+  "message_count": 12,
+  "valid": true
+}

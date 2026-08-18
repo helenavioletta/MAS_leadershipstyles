@@ -56,6 +56,37 @@ class MessageBus:
         self._messages: list[Message] = []
         self._seq_counter: int = 0
 
+    @classmethod
+    def load_log(cls, output_dir: Union[str, Path]) -> "MessageBus":
+        """Create a MessageBus by reading an existing messages.jsonl file.
+
+        This is useful for re-running post-experiment steps (e.g., the
+        satisfaction survey) without re-running the full orchestrator.
+        The loaded messages are not re-persisted.
+
+        Args:
+            output_dir: Path to the run's results folder containing messages.jsonl.
+
+        Returns:
+            A MessageBus instance with the existing messages loaded into memory.
+        """
+        instance = cls(output_dir)
+        if not instance.log_path.exists():
+            raise FileNotFoundError(f"Message log not found: {instance.log_path}")
+
+        messages: list[Message] = []
+        with open(instance.log_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                data = json.loads(line)
+                messages.append(Message(**data))
+
+        instance._messages = messages
+        instance._seq_counter = max((m.seq for m in messages), default=0)
+        return instance
+
     def send(
         self,
         sender: str,

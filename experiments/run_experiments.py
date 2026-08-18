@@ -39,7 +39,7 @@ from src.utils.api_client import APIClient
 from src.utils.logger import ExperimentLogger
 from src.evaluation.control_agent import evaluate_run
 from src.evaluation.satisfaction_survey import administer_survey
-from src.evaluation.sentiment import analyze_sentiment
+from src.evaluation.sentiment import ANALYZERS, analyze_sentiment
 from src.agents.base_agent import load_prompt
 
 
@@ -253,9 +253,12 @@ def run_single(
             model=worker_model,
         )
 
-        # 3. Sentiment Analysis (no LLM calls — just VADER)
-        logging.info("  Running sentiment analysis...")
-        analyze_sentiment(output_dir=run_dir)
+        # 3. Sentiment Analysis (no LLM calls — deterministic, one file per analyzer)
+        #    Can also be recomputed later without re-running the experiment:
+        #        python experiments/score_sentiment.py --analyzer all
+        for analyzer in ANALYZERS:
+            logging.info(f"  Running sentiment analysis ({analyzer})...")
+            analyze_sentiment(output_dir=run_dir, analyzer=analyzer)
     else:
         logging.info("Evaluation skipped (--skip-eval or smoke test default)")
 

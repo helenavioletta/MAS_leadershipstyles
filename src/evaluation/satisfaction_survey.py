@@ -10,15 +10,12 @@ Items adapted from:
 - Team Diagnostic Survey (Wageman, Hackman & Lehman, 2005)
 - Team Viability & Quality of Group Experience (Aubé & Rousseau, 2005)
 
-See: Masterthesis/Literature/HR-Survey/survey_notes.md for full item
-selection rationale, exclusion documentation, and adaptation notes.
-
 Workflow:
     1. For each worker (Coder, Writer, Reviewer):
        a. Build context: worker system prompt + message history + survey prompt
-       b. Call the worker's LLM to generate a response (JSON with scores 1-5)
+       b. Call the worker's LLM to generate a reflection and a JSON score block (1-5)
        c. Parse and validate the numeric responses
-    2. Reverse-code item 4 (micromanagement)
+    2. Reverse-code items 2, 4, and 5
     3. Compute composite satisfaction score per worker
     4. Save survey_results.json to the run's output directory
 """
@@ -39,15 +36,16 @@ log = logging.getLogger(__name__)
 # Survey items — these match prompts/satisfaction_survey.md exactly
 SURVEY_ITEMS = {
     "q1": "The team leader helped the team develop a good approach to the task.",
-    "q2": "The team leader helped the team identify and use each member's strengths.",
-    "q3": "The team leader provided useful feedback during the task.",
-    "q4": "The team leader micromanaged the team's work process.",
-    "q5": "The collaboration within the team worked well.",
+    "q2": "The team leader micromanaged the team's work process.",
+    "q3": "The team leader provided corrective feedback when needed.",
+    "q4": "The team leader gave inappropriate or undeserved praise or criticism.",
+    "q5": "The team leader instructed the team in detail about how to solve its problems.",
     "q6": "I would work with this team leader again on a future task.",
 }
 
-# Item 4 is reverse-coded (higher raw score = more micromanagement = less satisfaction)
-REVERSE_CODED_ITEMS = {"q4"}
+# Reverse-coded items: higher raw score = more negative leader behavior = less satisfaction
+# Scoring: reverse_score = (MAX_SCORE + MIN_SCORE) - raw_score = 6 - raw_score
+REVERSE_CODED_ITEMS = {"q2", "q4", "q5"}
 
 # Valid score range
 MIN_SCORE = 1

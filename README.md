@@ -56,7 +56,9 @@ MAS/
 │   ├── evaluation/
 │   │   ├── control_agent.py         # LLM-as-judge: quality scores + trap detection
 │   │   ├── satisfaction_survey.py    # Post-run satisfaction survey workflow
-│   │   └── sentiment.py             # VADER sentiment: per-message scores + aggregates
+│   │   └── sentiment.py             # Sentiment scoring: VADER + RoBERTa backends, per-message scores + aggregates
+│   ├── analysis/
+│   │   └── sentiment_io.py          # Loads sentiment_<analyzer>.json into DataFrames (shared by both sentiment notebooks)
 │   └── utils/
 │       ├── api_client.py            # Anthropic SDK wrapper, retries, token logging
 │       ├── logger.py                # Run folder setup, metadata.json
@@ -64,13 +66,16 @@ MAS/
 │
 ├── experiments/
 │   ├── run_experiments.py           # Run a single experiment
-│   └── run_all.py                   # Batch all styles × tasks × repetitions
+│   ├── run_all.py                   # Batch all styles × tasks × repetitions
+│   └── score_sentiment.py           # (Re)score sentiment for existing runs — no API calls
 │
 ├── notebooks/
 │   ├── 01_explore_dataset.ipynb     # Dataset exploration
 │   ├── 01_long_task_ground_truth.ipynb  # Ground truth for long task
-│   ├── 02_analyze_results.ipynb     # Cross-run analysis
-│   └── 03_sentiment_analysis.ipynb  # Message log sentiment
+│   ├── 02_validation_check.ipynb    # Data integrity & validity checks
+│   ├── 03_analyze_results.ipynb     # Cross-run analysis
+│   ├── 03_sentiment_analysis_vader.ipynb    # Message log sentiment (VADER)
+│   └── 03_sentiment_analysis_roberta.ipynb  # Message log sentiment (RoBERTa)
 │
 ├── data/                            # global_weather.csv (not tracked in git)
 ├── results/                         # Experiment outputs (not tracked in git)
@@ -111,10 +116,38 @@ results/{style}_{task}_run{N}/
 ├── shared_state_final.json     # Final snapshot of shared state
 ├── evaluation.json             # Control Agent scores + trap detection verdicts
 ├── survey_results.json         # Satisfaction survey scores per worker
-├── sentiment.json              # Per-message sentiment scores + aggregates
+├── sentiment_vader.json        # Per-message sentiment scores + aggregates (VADER lexicon)
+├── sentiment_roberta.json      # Per-message sentiment scores + aggregates (RoBERTa transformer)
 ├── metadata.json               # Run parameters and summary stats
 └── outputs/                    # Charts, data files produced by Coder
 ```
+
+### Sentiment artifacts
+
+`messages.jsonl` is the only raw artifact — it costs API calls and can never be
+regenerated. Sentiment is *derived* from it: deterministic, offline, and one
+file per analyzer, so VADER and RoBERTa results exist side by side and are
+directly comparable (identical message filtering and aggregation, only the
+scorer differs).
+
+Each file carries a provenance block — analyzer, model, pinned model revision,
+library versions, and the SHA-256 of the `messages.jsonl` it was derived from.
+That makes the file its own cache: re-scoring skips runs that are up to date,
+and automatically recomputes any run whose messages or analyzer configuration
+changed.
+
+```bash
+# (Re)score existing runs — no API calls, no experiment re-run needed
+python experiments/score_sentiment.py                     # both analyzers, all runs
+python experiments/score_sentiment.py --analyzer roberta  # one analyzer
+python experiments/score_sentiment.py --run coercive_short_run01
+python experiments/score_sentiment.py --force             # ignore the up-to-date check
+python experiments/score_sentiment.py --dry-run           # report what would be scored
+```
+
+`run_experiments.py` writes both files automatically for new runs, so
+`score_sentiment.py` is only needed when adding an analyzer, changing the
+scoring configuration, or rebuilding artifacts from scratch.
 
 ## Running Experiments
 
