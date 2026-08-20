@@ -74,8 +74,7 @@ MAS/
 │   ├── 01_long_task_ground_truth.ipynb  # Ground truth for long task
 │   ├── 02_validation_check.ipynb    # Data integrity & validity checks
 │   ├── 03_analyze_results.ipynb     # Cross-run analysis
-│   ├── 03_sentiment_analysis_vader.ipynb    # Message log sentiment (VADER)
-│   └── 03_sentiment_analysis_roberta.ipynb  # Message log sentiment (RoBERTa)
+│   ├── 03_sentiment_analysis.ipynb  # Message log sentiment (VADER & RoBERTa comparison)
 │
 ├── data/                            # global_weather.csv (not tracked in git)
 ├── results/                         # Experiment outputs (not tracked in git)
