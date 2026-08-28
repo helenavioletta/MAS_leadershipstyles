@@ -1,0 +1,16 @@
+Relationship,Scope,n,Spearman rho,p-value,Significant
+Overall quality  ~  Satisfaction,pooled (confounded),70,0.001,0.9929,No
+Overall quality  ~  Satisfaction,short task,35,0.034,0.8447,No
+Overall quality  ~  Satisfaction,long task,35,-0.123,0.4819,No
+Overall quality  ~  Total tokens,pooled (confounded),70,0.334,0.0047,Yes
+Overall quality  ~  Total tokens,short task,35,0.309,0.0712,No
+Overall quality  ~  Total tokens,long task,35,-0.15,0.3883,No
+Overall quality  ~  Duration,pooled (confounded),70,0.519,<.001,Yes
+Overall quality  ~  Duration,short task,35,0.332,0.0515,No
+Overall quality  ~  Duration,long task,35,-0.11,0.5294,No
+Trap catch rate  ~  Total tokens,pooled (confounded),70,0.409,0.0004,Yes
+Trap catch rate  ~  Total tokens,short task,35,0.633,<.001,Yes
+Trap catch rate  ~  Total tokens,long task,35,-0.322,0.0589,No
+Satisfaction  ~  Total tokens,pooled (confounded),70,-0.096,0.4309,No
+Satisfaction  ~  Total tokens,short task,35,-0.113,0.5166,No
+Satisfaction  ~  Total tokens,long task,35,-0.096,0.5819,No

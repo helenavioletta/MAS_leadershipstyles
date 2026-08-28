@@ -1,0 +1,8 @@
+style,VADER,RoBERTa,satisfaction_mean
+coercive,0.253,0.0263,4.3724
+authoritative,0.8653,0.2856,4.8833
+affiliative,0.9563,0.522,4.9222
+democratic,0.865,0.2304,4.7835
+pacesetting,0.375,0.0615,4.6445
+coaching,0.8076,0.2666,4.8779
+baseline,0.7977,0.1642,4.7834

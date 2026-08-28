@@ -1,0 +1,3 @@
+Analyzer,Spearman rho,p-value
+VADER,0.96,0.0005
+RoBERTa,1.0,< .0001

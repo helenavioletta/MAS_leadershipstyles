@@ -1,0 +1,8 @@
+Task,Trap ID,Trap label,Missed,Partial,Caught,Total
+short,outlier_79c,The Physical Outlier,19,15,1,35
+short,country_name_duplicates,Entity Duplicates,23,6,6,35
+short,city_name_duplicates,Single-Observation Entries,34,1,0,35
+long,trivial_features,Target Leakage,2,1,32,35
+long,sentinel_values,Missing-Data Sentinels,33,2,0,35
+long,outlier_79c,Target Variable Outlier,17,9,9,35
+long,duplicate_unit_features,Duplicate Measurement Units,4,4,27,35

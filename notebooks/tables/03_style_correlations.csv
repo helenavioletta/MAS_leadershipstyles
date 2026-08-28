@@ -1,0 +1,7 @@
+Relationship,n,Spearman rho,p-value,Significant?
+Overall quality  ~  Satisfaction,7,-0.236,0.6098,No
+Accuracy (judge)  ~  Satisfaction,7,-0.112,0.8106,No
+Completeness (judge)  ~  Satisfaction,7,0.197,0.672,No
+Cohesion (judge)  ~  Satisfaction,7,0.438,0.3253,No
+Quality (judge)  ~  Satisfaction,7,-0.299,0.5142,No
+Trap catch rate  ~  Satisfaction,7,-0.464,0.2939,No

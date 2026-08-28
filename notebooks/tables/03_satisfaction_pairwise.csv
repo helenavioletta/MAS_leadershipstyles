@@ -1,0 +1,13 @@
+Style,Task,baseline_mean,style_mean,U-Statistic,p-value,p < 0.05,p < Bonferroni,Effect r
+coercive,long,4.8,4.59,20.5,0.115,No,No,0.528
+authoritative,long,4.8,4.91,8.0,0.3947,No,No,0.297
+affiliative,long,4.8,4.94,5.0,0.1339,No,No,0.495
+democratic,long,4.8,4.86,9.5,0.59,No,No,0.198
+pacesetting,long,4.8,4.66,17.5,0.3457,No,No,0.33
+coaching,long,4.8,4.87,11.5,0.9131,No,No,0.066
+coercive,short,4.77,4.16,25.0,0.0117,Yes,No,0.826
+authoritative,short,4.77,4.86,10.5,0.7503,No,No,0.132
+affiliative,short,4.77,4.9,8.5,0.4338,No,No,0.264
+democratic,short,4.77,4.71,15.0,0.6704,No,No,0.165
+pacesetting,short,4.77,4.63,16.5,0.462,No,No,0.264
+coaching,short,4.77,4.89,8.5,0.4338,No,No,0.264

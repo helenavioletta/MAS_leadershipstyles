@@ -1,0 +1,19 @@
+Metric,Task,H-Statistic,p-value,ε²
+Overall quality,short,7.436,0.2824,0.05
+Overall quality,long,5.864,0.4385,0.0
+Accuracy (judge),short,9.425,0.1511,0.12
+Accuracy (judge),long,7.376,0.2874,0.05
+Completeness (judge),short,3.781,0.7062,0.0
+Completeness (judge),long,4.775,0.573,0.0
+Cohesion (judge),short,5.883,0.4364,0.0
+Cohesion (judge),long,6.406,0.3793,0.01
+Quality (judge),short,6.517,0.3678,0.02
+Quality (judge),long,5.643,0.4643,0.0
+Trap Catch Rate,short,10.134,0.1191,0.15
+Trap Catch Rate,long,0.717,0.9941,0.0
+Total Tokens,short,17.802,0.0067,0.42
+Total Tokens,long,17.375,0.008,0.41
+Duration (s),short,19.097,0.004,0.47
+Duration (s),long,17.57,0.0074,0.41
+Team Satisfaction,short,16.083,0.0133,0.36
+Team Satisfaction,long,15.814,0.0148,0.35
