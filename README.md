@@ -199,3 +199,15 @@ python experiments/run_all.py
 
 - **Boss:** `claude-sonnet-5` — needs nuanced leadership behavior
 - **Workers:** `claude-haiku-4-5-20251001` — cost-efficient, handles structured tasks
+
+## Dataset
+
+All experiment runs use the **Global Weather Repository** dataset sourced from Kaggle:
+
+- **Title:** World Weather Repository (Daily Updating)
+- **Author:** Nidula Elgiriyewithana
+- **Source:** https://www.kaggle.com/dsv/19105516
+- **Snapshot downloaded:** 1 July 2026, 00:18:02 CEST
+- **Shape:** 150,465 rows × 41 columns
+
+The snapshot is pinned in `data/global_weather.csv` to ensure reproducibility across all 70 runs.
