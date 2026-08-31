@@ -1,0 +1,15 @@
+style,task,n,identical_runs,pct
+coercive,short,5,0,0.0
+coercive,long,5,0,0.0
+authoritative,short,5,1,20.0
+authoritative,long,5,2,40.0
+affiliative,short,5,3,60.0
+affiliative,long,5,2,40.0
+democratic,short,5,0,0.0
+democratic,long,5,0,0.0
+pacesetting,short,5,0,0.0
+pacesetting,long,5,0,0.0
+coaching,short,5,3,60.0
+coaching,long,5,2,40.0
+baseline,short,5,2,40.0
+baseline,long,5,1,20.0

@@ -76,8 +76,8 @@ MAS/
 │   ├── 03_analyze_results.ipynb     # Cross-run analysis
 │   ├── 03_sentiment_analysis.ipynb  # Message log sentiment (VADER & RoBERTa comparison)
 │
-├── data/                            # global_weather.csv (not tracked in git)
-├── results/                         # Experiment outputs (not tracked in git)
+├── data/                            # global_weather.csv (dataset snapshot)
+├── results/                         # Experiment outputs (70 run folders)
 ├── .env                             # API key (not tracked in git)
 └── requirements.txt
 ```

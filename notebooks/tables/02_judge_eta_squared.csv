@@ -1,0 +1,9 @@
+Metric,Source,eta_squared
+Team satisfaction,Survey,0.497
+Total tokens,Logged,0.433
+Duration,Logged,0.403
+Accuracy,LLM judge,0.193
+Quality,LLM judge,0.162
+Trap catch rate,LLM judge,0.11
+Completeness,LLM judge,0.022
+Cohesion,LLM judge,0.013
