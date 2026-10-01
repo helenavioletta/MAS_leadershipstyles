@@ -1,0 +1,262 @@
+\chapter{Discussion}
+\label{chap:discussion}
+
+\section{Interpretation}
+\label{sec:interpretation}
+
+In heterogeneous \acp{MAS}, supervisory leadership style acts as a process-level coordination controller~\cite{kwak2026leadershipcoordinationcontrolbehavioral}, though its operational reach is limited.
+As established in Chapter~\ref{chap:results}, systematically manipulating the Boss agent's prompt-defined leadership framing produces large, statistically significant shifts across three operational dimensions: communication sentiment, post-task worker satisfaction, and computational resource consumption.
+In contrast, leadership style exerts no statistically detectable influence on the objective quality of final deliverables or on the team's ability to identify subtle data anomalies.
+
+\subsection{Expectations Revisited}
+\label{subsec:expectations-revisited}
+
+Section~\ref{subsec:goleman-styles} derived four directional expectations from Goleman's framework~\cite{goleman2000leadership}.
+Assessing each one against the measured outcomes clarifies not only whether it held, but how strongly and subject to which qualification.
+Since the design was powered only for large effects, effect magnitudes are expressed throughout as ratios of the observed between-style range to the \ac{MDE} threshold for that \ac{DV} (Table~\ref{tab:03-mde}).
+This provides a consistent internal benchmark rather than relying on external conventions.
+
+\textbf{Expectation 1 (Warmth $\rightarrow$ Sentiment): supported, and the strongest effect measured in this study.}
+The four warm styles produced significantly higher communication sentiment across the shared channel than the two cold, directive styles (\ac{VADER}~\cite{hutto2014vader} $H = 51.20$; \ac{RoBERTa}~\cite{loureiro2022timelmsdiachroniclanguagemodels} $H = 58.41$; both $p < .001$; Table~\ref{tab:03-sentiment-omnibus}; Section~\ref{subsec:style-effect-tone}).
+The strength of this result rests less on the omnibus statistics than on convergence: two analyzers that share neither lexical resources nor model architecture ranked the seven conditions almost identically ($\rho = .96$; Table~\ref{tab:03-vader-roberta-agreement}), so the ordering is a property of the generated text rather than an artifact of either instrument.
+
+\textbf{Expectation 2 (Warmth $\rightarrow$ Satisfaction): supported, and detectable despite the small sample.}
+Worker agents reported systematically higher satisfaction~\cite{wageman2005teamdiagnosticsurvey} and team viability~\cite{auberousseau2005teamgoalcommitment} under warm, supportive leadership, whereas coercive supervision depressed post-task ratings ($\varepsilon^2 = .36$ short, $.35$ long; Table~\ref{tab:03-kw-omnibus}; Section~\ref{subsec:overall-worker-satisfaction}).
+Satisfaction is one of only three dependent variables whose observed range exceeded its \ac{MDE} threshold, by factors of $1.50$ and $1.24$ respectively (Table~\ref{tab:03-mde}). 
+This places this finding on the same evidential footing as the cost results rather than alongside the underpowered quality comparisons.
+
+\textbf{Expectation 3 (Dialogue $\rightarrow$ Cost): supported, but only for two of the four warm styles.}
+Democratic and Coaching supervision inflated token consumption by $48\%$ and $32\%$ relative to the neutral Baseline (Table~\ref{tab:03-style-pooled-summary}), with proportional increases in wall-clock duration ($\varepsilon^2 = .41$ to $.47$ across tasks; Table~\ref{tab:03-kw-omnibus}; Section~\ref{subsec:token-consumption}).
+The formulation of this expectation in Section~\ref{subsec:goleman-styles} conceals an important asymmetry. 
+However, the remaining two warm styles were not merely cheaper than their consultative counterparts but cheaper than the Baseline itself.
+Affiliative supervision consumed roughly $22\%$ fewer tokens than Baseline, and Authoritative supervision consumed roughly $3\%$ fewer (Table~\ref{tab:03-style-pooled-summary}).
+Warmth therefore does not carry a cost penalty, but deliberation does.
+
+\textbf{Expectation 4 (Climate $\rightarrow$ Quality): not supported.}
+Improved communication sentiment and worker satisfaction did not result in higher analytical accuracy, better trap detection, or superior deliverable cohesion (Section~\ref{subsec:overall-quality}).
+This is the one expectation carried over directly from human organizational research~\cite{goleman2000leadership, barrick1998personalityteamwork, mathieu2017teamwork}, and its failure is the most consequential result of the study.
+
+\subsection{Behavioral Propagation and Its Limits}
+\label{subsec:behavioral-propagation-boundaries}
+
+The sentiment results provide empirical support for the behavioral propagation mechanism.
+Even when the analysis is restricted to messages produced exclusively by worker agents, worker sentiment still varies systematically with the Boss agent's assigned style (\ac{VADER} $H = 36.88$; \ac{RoBERTa} $H = 41.58$; both $p < .001$; Table~\ref{tab:03-sentiment-worker}).
+Since the worker system prompts, model backends, and task specifications were held constant across all conditions, and because the name of the leadership style was never transmitted via the message bus, worker tone cannot have been injected through prompt design.
+Rather, it was induced through in-context exposure to the supervisor's observable actions~\cite{lin2025simulatingsocialinfluencedynamics, almutairi2025taifaautomatedfeedback}.
+Thus, an \ac{LLM} supervisor's enacted persona propagates across a shared communication channel, altering the linguistic behavior and subjective ratings of subordinate agents whose own configuration never changed~\cite{serapiogarcia2025personalitytraitslargelanguage, jiang2024personallminvestigatingabilitylarge, duan2025powerpersonalityhumansimulation}.
+
+Two qualifications constrain how far this conclusion can be pushed, and both are informative rather than purely cautionary.
+
+The first is that propagation is attenuated rather than mimetic.
+If workers simply mirrored the supervisor's tone, the Boss-worker sentiment gap would collapse toward zero under every condition.
+Instead, the gap remains large and signed in both directions (Figure~\ref{fig:03-boss-worker-sentiment-gap}).
+Under Coercive and Pacesetting supervision the Boss is substantially colder than the team (VADER mean gaps $-0.326$ and $-0.272$), whereas under Affiliative and Coaching supervision the Boss is substantially warmer (RoBERTa mean gaps $+0.432$ and $+0.283$; Table~\ref{tab:03-sentiment-pairwise-boss-worker-sentiment-gap}).
+Workers thus shift in the direction of the supervisor's affect while regressing toward their own neutral default, which is the behavior expected of agents conditioned on a fixed, tonally neutral system prompt that is only partially overridden by conversational context~\cite{lacava2025openmodelsclosedminds, shanahan2023roleplaylargelanguagemodels}.
+
+The second qualification is that propagation is unevenly distributed across roles, and the pattern is systematic rather than noisy.
+Ordering the three workers by the strength of the style effect on their own message tone yields Coder $<$ Reviewer $<$ Writer under both analyzers, and under \ac{RoBERTa} the Coder falls below the significance threshold entirely ($H = 9.30$, $p = .16$), while the Reviewer ($H = 24.59$, $p < .001$) and Writer ($H = 39.45$, $p < .001$) remain highly significant (Table~\ref{tab:03-sentiment-worker}; Figure~\ref{fig:03-contagion-delta-by-worker}).
+The satisfaction survey replicates this ordering: under Coercive supervision, ratings were lowest for the Writer ($4.28$) and Reviewer ($4.32$) and highest for the Coder ($4.52$; Table~\ref{tab:03-satisfaction-by-role}; Figure~\ref{fig:03-satisfaction-per-worker-and-style}).
+Two independent measurement channels therefore converge on the same conclusion:
+susceptibility to supervisory tone scales with how much natural language a role is required to produce.
+The Writer, whose entire deliverable is text, is most affected, while the Coder, whose deliverable is executable code constrained by syntax and by the dataset schema, is least affected~\cite{qian2024chatdevcommunicativeagentssoftware}.
+
+\subsection{Why Supervisory Framing Misses Quality}
+\label{subsec:why-quality-unaffected}
+
+The absence of a detectable leadership effect on deliverable quality does not mean that such an effect does not exist.
+Three distinct mechanisms contribute to this effect, and they operate at different levels of the system.
+
+The first is measurement sensitivity.
+With five repetitions per condition, the design could only detect large effects. 
+The observed quality ranges reached only $0.71$ and $0.91$ times the \ac{MDE} threshold (Figure~\ref{fig:03-power-mde}).
+A genuine moderate effect would have been invisible by construction.
+
+The second is the surface visibility of the embedded traps, which affected accuracy regardless of supervision.
+In the short task, entity-level duplicates were only sporadically caught and single-observation entries were almost universally missed, because routine exploratory scripts never surfaced them into any agent's context window (Table~\ref{tab:03-trap-counts}; Figure~\ref{fig:03-trap-catch-short}).
+In the long task, target leakage was caught in 32 out of 35 runs regardless of style because a near-perfect $R^2$ is conspicuous in the printed console output.
+However, negative sentinel values in three air-quality columns were missed in 33 of 35 runs because nothing in a standard summary draws attention to them (Table~\ref{tab:03-trap-counts}; Figure~\ref{fig:03-trap-catch-long}).
+Therefore, trap detection was governed by whether an anomaly became visible in the shared artifacts, which is a property of the task and the tooling rather than of the supervisor's attitude.
+
+The third mechanism follows from the role gradient established in Section~\ref{subsec:behavioral-propagation-boundaries} and offers the most direct explanation of the null.
+Deliverable accuracy is determined almost entirely by the Coder, since the analytical results, the printed tables, and the figures all originate in executed code, and the Writer and Reviewer operate downstream on whatever the Coder produced~\cite{qian2024chatdevcommunicativeagentssoftware, hong2024metagptmetaprogrammingmultiagent}.
+The Coder is precisely the agent whose linguistic behavior was least responsive to supervisory tone, and the only agent for which the style effect was not statistically detectable under one of the two analyzers (Table~\ref{tab:03-sentiment-worker}; Figure~\ref{fig:03-contagion-delta-by-worker}).
+Supervisory framing thus reshapes the conversational surface of the collaboration while barely affecting the agent whose output determines whether the deliverable is correct~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+In this interpretation, decoupling is not due to insufficient power, but a structural consequence of where tone lands in a role-differentiated hierarchy: the affective signal is strongest in the roles that generate text and weakest in the role that generates code.
+
+One observation complicates any simple version of this account.
+Within the short task, the per-run trap catch rate correlates strongly and significantly with total token expenditure (Spearman $\rho = +0.63$, $p < .001$; Table~\ref{tab:03-correlations}), suggesting that additional deliberation did improve data-quality awareness.
+However, this conclusion is not sustainable for two reasons. 
+First, the relationship reverses its sign in the long task ($\rho = -0.32$, $p = .06$), so it is not a stable property of the collaboration, but rather a task-specific pattern.
+Second, the direction of causation is ambiguous and most plausibly runs opposite to the interpretive temptation: a team that notices an anomaly must then discuss it, re-run the analysis, and revise the report, so catching a trap generates additional tokens rather than resulting from them.
+Consistent with this, leadership style itself had no significant effect on trap catch rate in either task (Section~\ref{subsec:results-data-quality-traps}), which is difficult to reconcile with a mechanism in which spending more simply buys more vigilance.
+Nevertheless, the correlation is worth stating explicitly because it is the only place in the data where cost and a quality-adjacent outcome move together.
+Additionally, the claim that additional expenditure yields no measurable benefit (Section~\ref{subsec:no-quality-efficiency-tradeoff}) requires this qualification to be accurate.
+
+\subsection{Warmth and Verbosity}
+\label{subsec:warmth-verbosity}
+
+Section~\ref{subsec:goleman-styles} noted that Goleman's styles vary independently along two dimensions, being warm or cold in affect and dialogue-intensive or terse in communicative volume~\cite{goleman2000leadership}.
+The results show that these dimensions are empirically separable in an \ac{LLM}-based \ac{MAS}, and the separation is the most directly actionable finding of the study.
+Affiliative supervision occupies the warm and terse cell: 
+It produced, on average, both the highest reported satisfaction of any condition ($4.92$) and the lowest token consumption ($150{,}222$ tokens, roughly $22\%$ below Baseline) together with the shortest runs ($196.7$ seconds) (Table~\ref{tab:03-style-pooled-summary}).
+Democratic supervision occupies the warm and verbose cell, achieving comparable satisfaction ($4.78$) at nearly twice the token cost ($284{,}438$ tokens; Table~\ref{tab:03-style-pooled-summary}).
+Affective climate and computational expenditure are therefore controlled by different properties of the supervisory prompt, and a system architect can raise one without paying for the other~\cite{zhang2024cutcrapeconomicalcommunication, kwak2026leadershipcoordinationcontrolbehavioral}.
+
+This separation also explains why the cost hierarchy does not follow the warmth hierarchy and clarifies the mechanism behind the cost differences themselves. 
+The expensive conditions did not issue more instructions but longer ones, since \ac{API} call counts remained within a narrow band of roughly 19 to 23 per run across all seven conditions while per-turn context grew substantially (Table~\ref{tab:03-style-pooled-summary}).
+Cost is driven by how much deliberation a style invites into the shared channel, not by how many coordination events it triggers~\cite{zhang2024cutcrapeconomicalcommunication}.
+
+Nevertheless, the style set leaves one cell of this two-by-two structure unoccupied, which limits what the present design can establish.
+None of Goleman's six styles are simultaneously cold and dialogue-intensive: Coercive and Pacesetting are both terse, and the two verbose styles are both warm~\cite{goleman2000leadership}.
+Warmth and verbosity are consequently separable in the observed data, but they are not fully crossed by design.
+Therefore, the study cannot rule out the possibility that some portion of the token overhead attributed to deliberation is actually attributable to the affective register in which the deliberation occurs.
+Isolating the two would require a supervisory prompt that is demanding in tone yet consultative in volume, a combination that has no natural counterpart in Goleman's taxonomy and would have to be constructed specifically for this purpose.
+
+\subsection{The Three-Way Decoupling}
+\label{subsec:three-way-decoupling}
+
+Assembling the preceding subsections yields the central empirical claim of this thesis: in \ac{LLM}-based multi-agent collaboration, \textbf{deliverable quality, operational cost, and team climate behave as mutually independent outcome dimensions}.
+Cost and climate separate because warmth and verbosity are distinct properties of the supervisory prompt.
+Quality and climate separate because the affective signal reaches the prose-producing roles far more strongly than the code-producing one (Section~\ref{subsec:why-quality-unaffected}).
+Quality and cost separate because within-task correlations between total token expenditure and deliverable quality are non-significant in both tasks and differ even in sign (short: $\rho = +0.309$, $p = .07$; long: $\rho = -0.15$, $p = .39$), while the correlation between satisfaction and quality is indistinguishable from zero at the run level ($\rho = 0.001$, $p = .99$) (Table~\ref{tab:03-correlations}).
+
+One methodological caveat must accompany this claim, since the pooled correlations tell a different and misleading story.
+Pooling all 70 runs produces apparently robust associations between quality and both token expenditure ($\rho = +0.334$, $p = .005$) and duration ($\rho = +0.519$, $p < .001$).
+These are artifacts of task complexity acting as a common cause: the long task simultaneously scored higher on quality and consumed more resources than the short task (Section~\ref{subsec:resource-scaling}), so aggregating across tasks manufactures a correlation between two variables that are unrelated within either one.
+This is why all cost-quality relationships in this thesis are evaluated within task rather than pooled, and it is worth stating explicitly because the pooled figures are the ones a reader would obtain from a naive analysis of the same dataset.
+
+When framed correctly, the decoupling is a constructive result rather than a negative one.
+The absence of a cost-quality trade-off allows supervisory framing to be adjusted according to latency budgets, token budgets, or the communicative requirements of a user-facing deployment without reducing deliverable accuracy~\cite{zhang2024cutcrapeconomicalcommunication, wu2023autogenenablingnextgenllm}.
+This is because a terse directive supervisor and a dialogue-intensive consultative one produce statistically indistinguishable quality deliverables.
+The corresponding limitation is equally clear: the same independence means that no amount of managerial framing will improve deliverable accuracy~\cite{kwak2026leadershipcoordinationcontrolbehavioral}. 
+Therefore, technical correctness must be secured by other means~\cite{wei2023chainofthoughtpromptingelicitsreasoning, wang2023selfconsistencyimproveschainthought, chen2025multiagentasjudgealigningllmagentbasedautomated}.
+
+\subsection{Goleman's Causal Chain}
+\label{subsec:goleman-chain-artificial}
+
+Taken together, these results permit a reasonably precise conclusion about the framework from which the manipulation was derived~\cite{goleman2000leadership}.
+Goleman's model proposes a two-stage causal chain in which leadership style shapes organizational climate, which then drives objective performance~\cite{goleman2000leadership}.
+The first stage transfers to \ac{LLM} multi-agent collaboration with considerable reliability.
+Supervisory framing operates as a reliable dial for interpersonal tone and reported team experience.
+It does so through the same mechanism that Goleman describes: the leader's observable conduct, rather than any formal authority that the architecture grants~\cite{goleman2000leadership}.
+The second stage does not transfer.
+In human organizations, supportive leadership is believed to improve output by raising psychological safety, intrinsic motivation, and sustained cognitive effort~\cite{goleman2000leadership, wageman2005teamdiagnosticsurvey, mathieu2017teamwork}.
+However, these concepts do not apply to an agent that generates code, as it performs the same way whether it is addressed with encouragement or curt instruction~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+The construct that carries Goleman's chain from climate to performance is precisely the construct that artificial agents lack.
+
+The results also speak to the contingency prediction introduced in Section~\ref{subsec:foundations-leadership}, which motivated evaluating leadership across two task complexities in the first place~\cite{ayman1995contingency, kwak2026leadershipcoordinationcontrolbehavioral}.
+This prediction is partially supported, though not in the anticipated way.
+Task complexity did not moderate the effect of leadership on quality, which remained undetectable in both tasks.
+It did moderate the effect on team climate: the between-style spread in satisfaction compressed from $0.744$ in the short task to $0.355$ in the long task, a reduction of more than half (Table~\ref{tab:03-mde}).
+The more structured task, with its explicit organizational milestones, appears to have provided a source of collaborative momentum, which partially isolated workers from directive supervision~\cite{wageman2005teamdiagnosticsurvey, kwak2026leadershipcoordinationcontrolbehavioral}.
+Contingency effects in artificial teams may therefore operate on the affective consequences of leadership rather than on its performance consequences, which inverts the emphasis of the human literature~\cite{ayman1995contingency}.
+
+Finally, positioning these findings against recent work clarifies that leadership in \ac{MAS} is not a single construct~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+Recent work operationalizes leadership as programmatic coordination control, showing that state-machine decision rules and intervention thresholds regulate error recovery and task success~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+The present study holds that the coordination framework remains fixed while the communicative framing varies, and it finds effects on tone, satisfaction, and cost, but not on task success.
+Together, these two studies suggest a two-tier model in which a \emph{structural-algorithmic layer} controls task routing, validation gates, and error recovery and thereby determines technical deliverable quality, while a \emph{communicative-behavioral layer} manages interaction volume, conversational tone, and resource expenditure and thereby determines operational cost and team climate.
+The role gradient documented in Section~\ref{subsec:behavioral-propagation-boundaries} suggests why the two layers separate so cleanly. 
+Communicative framing propagates most strongly to the roles that produce language and most weakly to the role that produces the artifact, so an intervention confined to the communicative layer has limited influence on outcomes determined at the structural layer.
+This model is a hypothesis generated by two studies with different manipulations rather than a tested result, and discriminating between the layers would require varying both within a single design.
+
+\section{Trade-offs}
+\label{sec:trade-offs}
+
+Supervisory framing acts as a decoupled dial for communication climate and resource expenditure without penalizing task accuracy, which means the choice of style is determined by the deployment context, token budget, and user-facing requirements rather than by deliverable outcomes~\cite{kwak2026leadershipcoordinationcontrolbehavioral, zhang2024cutcrapeconomicalcommunication}.
+An engineering evaluation of the styles reveals three distinct operational profiles.
+These profiles are not equally defensible on the measured dimensions.
+As Section~\ref{subsec:warmth-verbosity} establishes, the participatory cluster is dominated by the warm and resource-efficient one in terms of both climate and cost.
+Therefore, its justification necessarily rests on properties that were not measured in this study.
+
+\textbf{Warm and Resource-Efficient (Authoritative and Affiliative).}
+This cluster delivers maximal collaborative satisfaction and positive communication sentiment while preserving low computational overhead.
+By combining supportive framing with swift execution handoffs and high worker autonomy, these styles minimize conversational friction~\cite{goleman2000leadership, wageman2005teamdiagnosticsurvey}.
+They represent the ideal default for human-facing or auditable \acp{MAS}, where interaction logs are inspected by users or external stakeholders who value constructive, professional collaboration~\cite{amershi2019humanaiinteraction, almutairi2025taifaautomatedfeedback}.
+
+\textbf{Directive and Low-Cost (Coercive and Pacesetting).}
+This cluster optimizes for speed and computational economy at the expense of team climate.
+By eliminating conversational pleasantries and enforcing immediate compliance, these styles minimize latency and token expenditure, but produce cold message logs and depressed satisfaction ratings~\cite{goleman2000leadership, zhang2024cutcrapeconomicalcommunication}.
+They are best suited for fully automated, headless batch processing pipelines where conversational transparency is irrelevant and token cost or execution speed dominates the objective function~\cite{hong2024metagptmetaprogrammingmultiagent}.
+
+\textbf{Participatory and Resource-Intensive (Democratic and Coaching).}
+This cluster incurs a substantial computational tax by generating extensive multi-turn deliberation and iterative feedback loops~\cite{zhang2024cutcrapeconomicalcommunication, chen2023agentversefacilitatingmultiagentcollaboration}.
+While these styles maintain high worker satisfaction and warm sentiment, they do not improve the work environment more than cheaper warm styles and do not increase accuracy in well-defined workflows~\cite{kwak2026leadershipcoordinationcontrolbehavioral}. 
+Therefore, on the three dimensions measured here, they are the weakest option.
+Deliberation would have to be valued for its own sake to justify them: they are defensible only in open-ended, exploratory domains where broad consensus-seeking or divergent brainstorming is an explicit design requirement~\cite{goleman2000leadership, chen2023agentversefacilitatingmultiagentcollaboration}, and testing whether extended deliberation pays off under those conditions falls outside the scope of the present tasks.
+
+\textbf{The Neutral Baseline.}
+The Baseline demonstrates that default instruction-tuned models naturally exhibit moderate warmth and standard token expenditure~\cite{serapiogarcia2025personalitytraitslargelanguage, lacava2025openmodelsclosedminds}.
+But relying on an unconditioned supervisor forfeits deliberate control: explicit style framing is required to either drive token costs to the absolute minimum or to establish an intentionally supportive, collaborative environment~\cite{shanahan2023roleplaylargelanguagemodels, white2023promptpatterncatalogenhance}.
+
+Since no cluster dominates the others, the selection among them is a deployment decision rather than an empirical one.
+
+\section{Limitations}
+\label{sec:limitations}
+
+A critical interpretation of the empirical results requires an explicit accounting of the study's methodological, measurement, and architectural limitations.
+These limitations define the scope of the conclusions and the extent to which the findings can be generalized.
+
+\subsection{Statistical Power and Stochasticity}
+
+The primary methodological limitation is the small experimental sample size.
+With five independent repetitions per condition ($n=5$), the between-subjects factorial design was powered to detect only large effect sizes, exceeding the \ac{MDE} threshold of approximately $2.3\times$ the within-condition standard deviation (Table~\ref{tab:03-mde}; Section~\ref{subsec:statistical-power-mde}).
+Although this statistical power was sufficient to detect significant shifts in communication sentiment, token cost, and post-task worker satisfaction, it was insufficient to detect subtle variations in deliverable quality, where observed differences fell below the detection threshold (Figure~\ref{fig:03-power-mde}).
+Consequently, non-significant quality findings must be understood as an absence of detectable large effects within an $n=5$ sample, rather than proof that supervisory framing has zero qualitative impact.
+
+This power constraint is intensified by the inherent stochasticity of \acp{LLM}~\cite{yehudai2026surveyevaluationllmbasedagents}.
+Despite using fixed model checkpoints and standard sampling parameters, non-deterministic token generation introduces baseline run-to-run variance across code generation, tool interactions, and deliverable drafting~\cite{dominguezolmedo2024questioningsurveyresponseslarge, samuel2025personagymevaluatingpersonaagents}.
+With $n=5$, separating subtle managerial framing effects from intrinsic generation stochasticity remains challenging for open-ended data science tasks.
+
+\subsection{Construct Validity}
+
+The evaluation instruments carry three specific construct-validity constraints:
+
+\textbf{Single Evaluator \ac{LLM}-as-a-Judge.}
+The deliverable quality was scored by a single automated judge model applying a structured rubric~\cite{zheng2023judgingllmasajudgemtbenchchatbot}.
+While the rubric enforces strict criteria across technical accuracy, analytical completeness, and report cohesion, single-rater evaluations inherently conflate genuine deliverable variance with the evaluator's own scoring noise~\cite{zheng2023judgingllmasajudgemtbenchchatbot, chen2025multiagentasjudgealigningllmagentbasedautomated}.
+This single-rater noise floor limits the sensitivity of the quality metric to fine-grained differences between conditions.
+
+\textbf{Survey Ceiling Effects and \ac{LLM} Sycophancy.}
+Synthetic survey responses collected from \ac{LLM} worker agents are susceptible to instruction-tuned agreeableness and positivity bias~\cite{dominguezolmedo2024questioningsurveyresponseslarge}.
+Positively worded items (such as perceived support and willingness to collaborate again) exhibited ceiling effects, clustering near the maximum score of 5.0 (Figure~\ref{fig:03-satisfaction-by-style}).
+Although the survey protocol successfully defended against this bias by incorporating three reverse-coded items that captured the majority of discriminative variance across conditions (Section~\ref{sec:eval-satisfaction}), synthetic ratings reflect prompt-conditioned behavioral alignment rather than authentic psychological satisfaction~\cite{dominguezolmedo2024questioningsurveyresponseslarge} (Figure~\ref{fig:03-survey-items}).
+
+\textbf{Off-Domain Sentiment Calibration.}
+The sentiment analysis tools used in this study (\ac{VADER}~\cite{hutto2014vader} and \ac{RoBERTa}~\cite{loureiro2022timelmsdiachroniclanguagemodels}) were originally calibrated on short social-media text.
+In contrast, the analyzed corpus consists of technical, task-oriented data science dialogue containing code snippets, statistical terminology, and error traces.
+While the strong rank correlation between the two analyzers ($\rho \approx .964$; Table~\ref{tab:03-vader-roberta-agreement}) confirms that the relative ranking of leadership styles is robust and convergent, absolute compound scores should be interpreted as relative affective tone rather than absolute emotional magnitudes.
+
+\subsection{Scope and Architectural Boundaries}
+
+Several architectural and experimental choices limit the broader generalizability of the findings.
+
+\textbf{Task Domain and Single Dataset.}
+The experimental evaluation was conducted exclusively within tabular data science and predictive modeling using the Global Weather Repository dataset.
+Whether these leadership dynamics generalize to less structured domains, such as open-ended creative writing, multi-agent negotiation, symbolic reasoning, or embodied robotics, remains to be established~\cite{duan2025powerpersonalityhumansimulation, li2023camelcommunicativeagentsmind, chen2023agentversefacilitatingmultiagentcollaboration, guo2024embodiedllmagentslearn}.
+
+\textbf{Fixed Worker Personalities and Leader-Follower Fit.}
+To isolate supervisory leadership style as the only independent variable, worker agent prompts were held constant and neutral across all conditions.
+While this control was methodologically necessary, it prevented the investigation of leader-follower fit, complementary personality dynamics, or how directive versus supportive leaders interact with specialized workers of varying assertiveness or expertise~\cite{barrick1998personalityteamwork, halfhill2005personalitycomposition, duan2025powerpersonalityhumansimulation, zhang2024exploringcollaborationmechanismsllm}.
+
+\textbf{Hidden-Style Manipulation.}
+To rigorously test spontaneous in-context behavioral propagation, the explicit name of the Boss's leadership style was concealed from the shared communication channel.
+While this design ensured that worker tone was induced purely through observable actions, in real-world human organizations team members are often explicitly aware of their leader's management philosophy and consciously adapt their workflow accordingly.
+
+\textbf{Static Hierarchy and Absence of Dynamic Adaptation.}
+The four-agent hierarchy and supervisory style were held static throughout each run, evaluating steady-state style execution under a fixed organizational structure.
+However, this design cannot capture how leadership effects might shift under dynamic supervisory adaptation, where style transitions across workflow phases could produce interaction effects absent from a static assignment~\cite{world6020063, dang2025multiagentcollaborationevolvingorchestration, wang2025agentdropoutdynamicagentelimination}.
+
+{\tolerance=1000
+\emergencystretch=1em
+\textbf{Homogeneous Model Family.}
+The \ac{MAS} was constructed entirely within the Anthropic Claude model family (\texttt{claude-sonnet-5} for the Boss, \texttt{claude-haiku-4-5-20251001} for workers).
+While this controlled for architectural consistency, it does not address whether heterogeneous, cross-family teams (e.g., combining open-weight models with proprietary frontier models) display different susceptibilities to supervisory authority, tone framing, and emotional contagion~\cite{lacava2025openmodelsclosedminds, ashery2025emergentsocial}.
+\par}
+
+\subsection{Anthropomorphism}
+
+Finally, interpreting multi-agent interactions through organizational psychology carries an inherent risk of anthropomorphism~\cite{shanahan2023roleplaylargelanguagemodels}.
+\acp{LLM} do not have conscious subjective experiences, affective states, intrinsic motivation, or social career stakes~\cite{shanahan2023roleplaylargelanguagemodels}.
+Throughout this thesis, terms such as \emph{leadership style}, \emph{worker satisfaction}, \emph{team climate}, and \emph{emotional contagion} are used as operationalized descriptors for measurable linguistic patterns, context-conditioned prompt compliance, and post-task text generation.
+The findings demonstrate that prompt framing systematically alters the statistical properties of multi-agent communication and resource usage.
+However, these findings must not be interpreted as evidence of genuine affective experience in artificial agents.

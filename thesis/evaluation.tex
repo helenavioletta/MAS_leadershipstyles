@@ -1,0 +1,263 @@
+\chapter{Evaluation}
+\label{chap:evaluation}
+
+This chapter provides an overview of the evaluation methodology and measurement instruments used to assess the \ac{MAS} across five core dimensions: objective deliverable quality, operational efficiency, communication sentiment, worker satisfaction, and experimental validity.
+Since the experimental design evaluates seven distinct leadership conditions with five repetitions per condition ($n=5$), and the resulting scores represent bounded ordinal ratings or skewed count distributions, non-parametric statistical methods are applied throughout all analyses.
+Omnibus comparisons across the seven leadership styles are conducted using the Kruskal-Wallis test and report the test statistic ($H$), $p$-value, and epsilon-squared ($\varepsilon^2$) effect size.
+Pairwise post-hoc comparisons against the neutral Baseline condition are evaluated using two-tailed Mann-Whitney $U$ tests with Bonferroni correction ($\alpha = 0.05 / 6 \approx 0.0083$) to control the family-wise error rate, reporting the rank-biserial effect size ($r = |z| / \sqrt{N}$).
+Furthermore, a statistical power analysis shows that, with $n=5$, the experimental design has the ability to detect large effect sizes ($\ge$ \ac{MDE}). 
+Consequently, non-significant findings are formally interpreted as no detectable effect at the given sample size, rather than as conclusive evidence of a zero managerial effect.
+
+\section{Output Quality}
+\label{sec:eval-output-quality}
+
+The output quality is evaluated using a standardized \ac{LLM}-as-a-judge protocol that combines multidimensional rubric scoring with task-specific data quality trap detection, drawing on established agent-as-a-judge frameworks and structured multi-dimensional performance rubrics~\cite{chen2025multiagentasjudgealigningllmagentbasedautomated, samuel2025personagymevaluatingpersonaagents, zheng2023judgingllmasajudgemtbenchchatbot} (see Section~\ref{subsec:automated-quality-assessment}).
+
+\subsection{Evaluator Architecture}
+\label{subsec:evaluator-architecture}
+
+{\tolerance=1000
+\emergencystretch=1em
+The deliverable evaluation is conducted after the experiment by the independent Control Agent~\cite{zheng2023judgingllmasajudgemtbenchchatbot}, which is powered by \texttt{claude-sonnet-5} and operates under the default sampling parameters with an output ceiling of 8,192 tokens.
+The judge model operates entirely outside the runtime communication bus and uses a standardized rubric to evaluate the final deliverables.
+To perform this assessment, the judge receives the following six structured text sections:
+\par}
+\begin{itemize}
+    \item The original task specification;
+    \item the Python code from the latest successful execution, alongside its printed console output;
+    \item the final report draft, retrieved from the Shared State;
+    \item the list of produced chart filenames and descriptions;
+    \item reference benchmark values from baseline exploratory solutions;
+    \item and descriptions of known task-specific data quality traps.
+\end{itemize}
+Like the collaborative agents, the Control Agent has no access to computer vision to render or inspect image files directly. 
+It verifies graphical deliverables solely through file existence checks in the Shared State and printed console summaries.
+The reference values are explicitly framed as one valid analytical approach rather than the rigid ground truth, instructing the judge to evaluate the methodological soundness and internal consistency while using the reference values primarily to spot red flags, such as $R^2 > 0.99$ indicating target leakage.
+
+\subsection{Quality Rubric}
+\label{subsec:quality-rubric}
+
+The deliverable quality is evaluated on an integer scale from 1 to 5 across four standardized dimensions:
+\begin{itemize}
+    \item \textbf{Accuracy:} Assesses the technical correctness of statistical calculations, data cleaning procedures, and the factual consistency between printed console outputs and textual claims in the report.
+    \item \textbf{Completeness:} Evaluates whether all required deliverables, including all requested chart files, printed console tables, and required summary lengths, are fully present.
+    \item \textbf{Cohesion:} Measures the narrative flow of the report and the degree of explicit cross-referencing between code results and analytical prose.
+    \item \textbf{Quality:} Evaluates the depth of analytical interpretation, methodological soundness, and the clarity and practical relevance of deployment recommendations.
+\end{itemize}
+The arithmetic mean across these four dimensions yields the run-level overall quality metric (\texttt{quality\_mean}), which is bounded between 1.00 and 5.00.
+This multi-dimensional, 5-point ordinal scoring paradigm is aligned with established evaluation protocols in multi-agent and persona-agent benchmarking, which similarly use 1-to-5 Likert-style integer scales to quantify multi-dimensional task performance and communication dynamics~\cite{samuel2025personagymevaluatingpersonaagents, muralidharan2025lessonshumanteamsapplied, jiang2024personallminvestigatingabilitylarge, almutairi2025taifaautomatedfeedback}.
+
+\subsection{Data Quality Trap Scoring}
+\label{subsec:trap-scoring}
+
+In parallel to dimension scoring, the Control Agent evaluates each task-specific data quality trap and assigns a categorical verdict supported by quoted evidence from the run logs:
+\begin{itemize}
+    \item \textbf{Caught (1.0):} The data issue was actively identified and resolved in the code or report (e.g., the Suva outlier was filtered, or duplicate country entries were merged).
+    \item \textbf{Partial (0.5):} The issue was recognized or partially addressed (e.g., only a subset of duplicate country spellings was cleaned, or the outlier was flagged in the 400-word report, but not dropped from the top 10 ranking).
+    \item \textbf{Missed (0.0):} The problem was completely overlooked, contaminating the final deliverable directly.
+\end{itemize}
+The arithmetic mean across all evaluated traps within a task defines the run-level trap catch rate (\texttt{trap\_catch\_rate}), which is bounded between 0.00 and 1.00.
+
+\section{Efficiency}
+\label{sec:eval-efficiency}
+
+Operational efficiency measures the computational and execution costs required by the \ac{MAS} to complete a collaborative task under different leadership conditions.
+Unlike deliverable quality, efficiency metrics are automatically captured in real time by the logging architecture.
+
+\subsection{Efficiency Metrics}
+\label{subsec:efficiency-metrics}
+
+The framework records several complementary efficiency metrics for each experimental run:
+\begin{itemize}
+    \item \textbf{Total Token Consumption:} The combined sum of all prompt input tokens and generated completion tokens across all agent turns in a run, logged via the central \ac{API} client.
+    \item \textbf{Per-Agent Token Allocation:} Cumulative token counts tracked individually for the Boss, Coder, Writer, and Reviewer to evaluate how computational weight is distributed across managerial and functional roles.
+    \item \textbf{Wall-Clock Duration:} The total elapsed execution time from the initialization of the Briefing phase to the conclusion of the Delivery phase.
+    \item \textbf{Message and Turn Counts:} The total number of natural language messages exchanged across the shared channel, alongside phase-level turn distributions.
+    \item \textbf{\ac{API} Call Frequency:} The total number of discrete requests dispatched to the Anthropic Messages \ac{API}.
+    \item \textbf{Code Execution Attempts:} The total number of Python scripts executed within the sandbox, tracking Coder retries and first-attempt execution success.
+    \item \textbf{Revision Rounds Used:} The number of iterative revision cycles triggered during the Revision phase (bounded between 0 and 2).
+\end{itemize}
+
+\subsection{Statistical Framework}
+\label{subsec:efficiency-statistical-framework}
+
+Condition-level means and standard errors are computed across the five repetitions for each style and task combination.
+Differences in token consumption, agent-level token allocations, and execution durations across the seven leadership styles are evaluated using non-parametric Kruskal-Wallis tests, reporting test statistics ($H$), $p$-values, and epsilon-squared ($\varepsilon^2$) effect sizes.
+Post-hoc pairwise contrasts against the neutral Baseline are evaluated using Mann-Whitney $U$ tests with Bonferroni correction ($\alpha = 0.05 / 6 \approx 0.0083$) and rank-biserial effect sizes ($r = |z| / \sqrt{N}$).
+To evaluate whether higher computational expenditure translates into superior deliverables, Spearman rank correlations ($\rho$) between total token consumption and overall quality scores are computed separately within the short task and long task, preventing task-level complexity from acting as a confounding factor.
+
+\section{Sentiment}
+\label{sec:eval-sentiment}
+
+Communication sentiment analysis evaluates whether the supervisor's leadership style alters the emotional tone and interpersonal climate of internal agent-to-agent dialogue across workflow phases.
+Unlike output quality and satisfaction surveys, sentiment analysis is conducted entirely offline on the persisted message logs without requiring additional \ac{API} calls.
+
+\subsection{Message Filtering}
+\label{subsec:message-filtering}
+
+The sentiment pipeline processes all natural language messages exchanged across the shared channel throughout the 70 experimental runs, encompassing 1,033 discrete agent messages.
+To maintain measurement integrity, the analyzer strictly filters for messages generated by the four team members (Boss, Coder, Writer, and Reviewer), systematically excluding automated system phase-transition announcements.
+
+\subsection{VADER and RoBERTa}
+\label{subsec:vader-roberta}
+
+To ensure methodological robustness, the framework implements two complementary sentiment analyzers that process the exact same message dataset:
+a rule-based lexicon (\ac{VADER})~\cite{hutto2014vader} and a fine-tuned Transformer model (\ac{RoBERTa})~\cite{loureiro2022timelmsdiachroniclanguagemodels}.
+
+\subsubsection{Rule-Based Lexicon (\ac{VADER})}
+\label{subsubsec:vader}
+
+The system first utilizes \ac{VADER}, a widely established, rule-based sentiment analysis tool that computes a normalized compound polarity score ranging from $-1.0$ (most negative) to $+1.0$ (most positive)~\cite{hutto2014vader} (introduced in Section~\ref{subsec:sentiment-climate-proxy}).
+Using \ac{VADER} to evaluate multi-agent transcripts builds on established architectures that leverage lexicon-based compound scoring to map natural language interactions and track emotional shifts across collaborative agent phases~\cite{almutairi2025taifaautomatedfeedback}.
+Although \ac{VADER} is computationally efficient, deterministic, and sensitive to grammatical intensifiers and negations, it relies on a social media keyword lexicon.
+For formal, task-oriented technical dialogue, it tends to compress scores toward a high, neutral-to-positive ceiling, with the neutral component dominating the sentiment distribution for every leadership style.
+
+\subsubsection{Contextual Transformer (\ac{RoBERTa})}
+\label{subsubsec:roberta}
+
+{\tolerance=1000
+\emergencystretch=1em
+To overcome limitations in the lexicon-based keyword approach, the pipeline integrates a pre-trained model of a Transformer (\path{cardiffnlp/twitter-roberta-base-sentiment-latest}) pinned to a specific snapshot revision (\texttt{3216a57f}) to guarantee exact numerical reproducibility~\cite{loureiro2022timelmsdiachroniclanguagemodels}.
+This specific contextual model represents a validated instrument within the \ac{LLM} personality and evaluation literature, having been successfully deployed to quantify linguistic sentiment and emotional tone in persona-conditioned language generations~\cite{jiang2024personallminvestigatingabilitylarge}.
+Since \ac{MAS} dialogue turns often exceed the model's 512-token context limit, the pipeline applies a sliding chunking architecture.
+Each message is divided into consecutive 510-token chunks. 
+Every chunk is scored independently across positive, neutral, and negative probability distributions. 
+The resulting probabilities are averaged, weighted by chunk token length.
+The compound metric for \ac{RoBERTa} is calculated as the difference between positive and negative class probabilities ($\text{positive} - \text{negative}$).
+\par}
+
+\subsubsection{Cross-Methodological Synthesis}
+\label{subsubsec:cross-methodological-synthesis}
+
+Neither analyzer was trained directly on technical \ac{MAS} collaboration logs.
+Consequently, rather than treating one analyzer as objectively superior, the dual-backend architecture provides a cross-validation framework.
+Findings that replicate across both distinct architectures represent genuine behavioral phenomena, while divergences highlight analyzer-specific outcomes.
+
+\subsection{Aggregation and Statistics}
+\label{subsec:sentiment-aggregation-statistics}
+
+The sentiment pipeline computes multiple structured aggregation slices for each run:
+\begin{itemize}
+    \item \textbf{Run-Level Compound Score:} The overall mean conversational sentiment across all agent messages within an experiment.
+    \item \textbf{Per-Agent Sentiment:} Mean compound scores computed individually for the Boss, Coder, Writer, and Reviewer.
+    \item \textbf{Boss-Worker Sentiment Gap:} The directional difference between the supervisor's tone and the subordinate workers' mean tone ($\text{Boss}_{\text{mean}} - \text{Worker}_{\text{mean}}$).
+    \item \textbf{Per-Phase Trajectory:} Mean sentiment scores across workflow phases (Phases 1 through 6) to track longitudinal tone shifts during task execution.
+\end{itemize}
+Cross-condition variations in sentiment metrics are evaluated using Kruskal-Wallis omnibus tests and post-hoc Mann-Whitney $U$ tests with Bonferroni correction.
+Additionally, to test for behavioral emotional contagion, Kruskal-Wallis tests are executed specifically on worker-only message subsets, evaluating whether subordinate tone shifts systematically despite workers operating under identical prompts across all conditions.
+
+\section{Satisfaction}
+\label{sec:eval-satisfaction}
+
+Worker satisfaction is evaluated post-experiment to assess how managerial leadership styles shape the subjective collaboration experience and perceived team viability of the team.
+
+\subsection{Survey Administration}
+\label{subsec:survey-administration}
+
+{\tolerance=1000
+\emergencystretch=1em
+The satisfaction survey is administered immediately following the Delivery phase to each subordinate agent (Coder, Writer, and Reviewer) individually.
+The questionnaire is executed using the worker model (\texttt{claude-haiku-4-5-20251001}) with a 1,024-token output budget.
+To ground responses in the actual experimental interaction, each worker is prompted with:
+\begin{itemize}
+    \item its original system prompt to maintain role consistency;
+    \item the complete natural language message history of the run;
+    \item a role-tailored reflection hook;
+    \item and the standardized survey questionnaire.
+\end{itemize}
+\par}
+
+\subsection{Reflection Protocol}
+\label{subsec:reflection-protocol}
+
+To mitigate the default positivity and overconfidence biases of \acp{LLM} in self-reported feedback and induce genuine scoring variance, the survey implements a two-stage reflection-before-scoring protocol~\cite{dominguezolmedo2024questioningsurveyresponseslarge, muralidharan2025lessonshumanteamsapplied} (see Section~\ref{subsec:synthetic-survey-responses}).
+Naive multiple-choice elicitation in social agent simulations frequently fails to capture nuanced group breakdowns due to uncalibrated response distributions and default model overconfidence~\cite{dominguezolmedo2024questioningsurveyresponseslarge, muralidharan2025lessonshumanteamsapplied}. 
+To resolve this, the first stage requires workers to generate an open-ended narrative reflection before selecting a quantitative rating, leveraging "reason-first, answer-later" prompt structures that force the model to anchor its final evaluations in a synthesized chain of thought~\cite{wei2023chainofthoughtpromptingelicitsreasoning}.
+Subordinate workers must answer two specific open-ended prompts:
+\begin{itemize}
+    \item In 1--2 sentences, describe one specific thing the leader did or said during the task that shaped your work as the \{role\}.
+    \item In 1--2 sentences, describe one specific decision, instruction, or interaction from the leader that stood out to you during the task.
+\end{itemize}
+Role-specific reflection hooks are dynamically injected to prime episodic memory. 
+Since autonomous agents struggle to extract deep, generalized insights from raw observational logs without structured, prompt-guided synthesis, these hooks force agents to actively reconstruct high-level behavioral inferences from their recent execution histories~\cite{park2023generativeagentsinteractivesimulacra}.
+Specifically, the Coder reflects on how the leader handled errors and technical autonomy, 
+the Writer reflects on drafting freedom and revision feedback, 
+and the Reviewer reflects on whether quality concerns were acknowledged or dismissed.
+
+\subsection{Survey Instrument}
+\label{subsec:survey-instrument}
+
+In the second stage, workers rate six standardized items on a 1-to-5 Likert scale, where 1 indicates ``Strongly Disagree'' and 5 indicates ``Strongly Agree'':
+\begin{itemize}
+    \item \textbf{Q1 (Task Coaching):} The team leader helped the team develop a good approach to the task~\cite{wageman2005teamdiagnosticsurvey}.
+    \item \textbf{Q2 (Micromanagement, Reverse-Coded):} The team leader micromanaged the team's work process~\cite{wageman2005teamdiagnosticsurvey}.
+    \item \textbf{Q3 (Corrective Feedback):} The team leader provided corrective feedback when needed~\cite{wageman2005teamdiagnosticsurvey}.
+    \item \textbf{Q4 (Inappropriate Feedback, Reverse-Coded):} The team leader gave inappropriate or undeserved praise or criticism~\cite{wageman2005teamdiagnosticsurvey}.
+    \item \textbf{Q5 (Directive Instruction, Reverse-Coded):} The team leader instructed the team in detail about how to solve its problems~\cite{wageman2005teamdiagnosticsurvey}.
+    \item \textbf{Q6 (Team Viability):} I would work with this team leader again on a future task~\cite{auberousseau2005teamgoalcommitment}.
+\end{itemize}
+Items Q2, Q4, and Q5 are reverse-coded ($\text{adjusted} = 6 - \text{raw}$) so that higher scores consistently denote positive managerial experiences.
+The composite score per worker is the arithmetic mean across all six adjusted items, and the run-level team mean is computed as the average of the three worker composites.
+
+\subsection{Satisfaction Statistics}
+\label{subsec:satisfaction-statistics}
+
+Cross-style differences in team satisfaction and role-specific composites are evaluated using Kruskal-Wallis omnibus tests ($H$, $p$, $\varepsilon^2$) and post-hoc Mann-Whitney $U$ tests against the Baseline with Bonferroni correction.
+Additionally, within-task Spearman rank correlations are computed between team satisfaction, overall deliverable quality, and computational token expenditure to evaluate whether perceived satisfaction relates to objective performance.
+Analyzing these correlations provides a formal test of the relationship between emulated subjective states, task outcomes, and operational costs, contributing to ongoing dialogues regarding the alignment or misalignment between subjective team perceptions and objective execution metrics in autonomous collectives~\cite{almutairi2025taifaautomatedfeedback, muralidharan2025lessonshumanteamsapplied}.
+
+\section{Validity}
+\label{sec:eval-validity}
+
+To ensure that the empirical comparisons presented in Chapter~\ref{chap:results} reflect genuine behavioral differences rather than technical artifacts or pipeline failures, all 70 experimental runs must pass through a rigorous automated validation and manipulation check process before entering the statistical analysis stage.
+The following subsections document the validation gate criteria and their observed outcomes, confirming that the experimental infrastructure operated within pre-established tolerances and that the leadership style manipulation successfully altered supervisory behavior as intended.
+
+\subsection{Health Checks}
+\label{subsec:health-checks}
+
+Before the downstream evaluation, an automated validation suite verifies the integrity of all 10 expected artifact files generated per run (Table~\ref{tab:02-health-check-summary}).
+There are four mandatory blocker criteria that must be satisfied with zero fatal violations across the entire experimental dataset, all of which are reflected in Table~\ref{tab:02-health-check-summary}:
+\begin{itemize}
+    \item \textbf{KeyError Count:} Target zero fatal schema errors resulting from column hallucinations (observed: 2 non-fatal, self-healed KeyErrors out of 181 code executions).
+    \item \textbf{Deliverable Truncation:} Target zero deliverable text truncations (observed: 0 report truncations; 4 minor token ceiling cutoffs occurred exclusively during post-task survey reflections).
+    \item \textbf{File Containment:} Target zero files written outside the designated working directory (observed: 0 violations).
+    \item \textbf{Sandbox Security Violations:} Target zero unauthorized system operations or directory creation attempts (observed: 0 violations).
+\end{itemize}
+
+\subsection{Quality Benchmarks}
+\label{subsec:quality-benchmarks}
+
+In addition to the blocker criteria, three benchmarks evaluate the quality of the pipeline and operational stability. 
+First, the overall code execution failure rate remained at 6.08\%, well below the pre-established 20\% maximum threshold (Figure~\ref{fig:02-exec-failure-rate}; Table~\ref{tab:02-health-check-summary}).
+Second, revision saturation, defined as the share of runs that exhaust the maximum limit of two revision rounds, remained at 7.1\% (5 of 70 runs), well below the 30\% benchmark ceiling (Table~\ref{tab:02-health-check-summary}).
+This confirms that the teams converged naturally rather than cycling endlessly.
+Third, the maximum output token counts for the Writer (2,468 tokens) and Reviewer (3,225 tokens) operated safely within the 8,192-token headroom ceiling (Table~\ref{tab:02-health-check-summary}).
+
+\subsection{Manipulation Checks}
+\label{subsec:manipulation-checks}
+
+To confirm that the prompt-based experimental treatment successfully manipulated leadership behavior, multiple independent checks were performed.
+The first check involved prompt verification, which confirmed that all seven conditions loaded distinct Boss system prompts.
+The second check involved measuring the mean Boss token count per run, which ranged from 47,481 tokens (Coercive) to 86,099 tokens (Coaching) for the short task and from 53,829 tokens (Affiliative) to 107,812 tokens (Democratic) for the long task, 
+a difference in token consumption of 38,618 and 53,983 tokens respectively (Table~\ref{tab:03-boss-worker-tokens-per-run}).
+The third check confirmed that the share of the Boss token budget allocated to the Revision phase ranged from 25.8\% in the Baseline condition to 41.4\% under Democratic leadership, indicating that managerial framing redistributed collaborative effort (Table~\ref{tab:03-phase-token-share}; Figure~\ref{fig:03-phase-effort}).
+
+\subsection{Data Integrity}
+\label{subsec:data-integrity}
+
+The integrity of subjective and affective metrics was verified across all runs.
+For the satisfaction survey, reverse-coding transformations on items Q2, Q4, and Q5 were validated numerically.
+While 22.9\% of runs had identical raw scores across all six survey items, this pattern was concentrated in Affiliative, Authoritative, Baseline, and Coaching conditions and remained absent under Coercive or Pacesetting leadership, reflecting expected \ac{LLM} positivity ceilings rather than an instrument failure (Table~\ref{tab:02-identical-raw-scores}; Figure~\ref{fig:03-survey-items}).
+For the sentiment analysis, a data integrity check confirmed that sentiment scores were present for every agent and every phase across all 70 runs, with no missing slices.
+The two scoring methods, \ac{VADER} and \ac{RoBERTa}, showed strong style-level rank agreement (Spearman $\rho = 0.964$, $p < .001$; Table~\ref{tab:03-vader-roberta-agreement}).
+
+\subsection{LLM-as-a-judge Robustness}
+\label{subsec:judge-robustness}
+
+Four diagnostic checks assess the reliability of the \ac{LLM}-as-a-judge scoring, each in a separate panel of Figure~\ref{fig:02-judge-diagnostics}.
+First, every dimension used only four of the five scale points: 
+Accuracy and Quality were never awarded a 5, while Completeness and Cohesion fell below 3 in at most one run each (panel~B; Table~\ref{tab:02-judge-scale-usage}).
+Second, the task-adjusted dimensions are not independent (Accuracy-Quality $\rho = 0.67$; panel~A), so the quality mean averages overlapping judgements rather than four separate ones.
+Third, Accuracy tracks the near-objective trap verdicts in both the short ($\rho = 0.48$, $p = .004$) and long task ($\rho = 0.63$, $p < .001$; panel~D), so scores follow verifiable evidence rather than being assigned arbitrarily.
+Fourth, leadership style explains far less within-task variance in the judge dimensions ($\eta^2 = 0.193$ down to $0.013$) than in survey satisfaction ($0.497$) or the logged cost metrics ($0.433$ and $0.403$; panel~C; Table~\ref{tab:02-judge-eta-squared}).
+This gap is consistent both with a noisier instrument and with a genuinely smaller effect on quality and cannot separate them, so the quality null should be read as the output of a coarse, partially redundant instrument rather than a precise zero.

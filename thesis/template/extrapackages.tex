@@ -1,0 +1,73 @@
+%% Additional packages
+
+%% Optional: multi-row cells in tabulars
+%\usepackage{multirow}
+
+%% Internal hyperlinks (table of contents, cross-references).
+%% Must be loaded before cleveref.
+\usepackage[linkcolor=black,colorlinks=true,citecolor=black,filecolor=black]{hyperref}
+
+%% Intelligent cross-references: \cref recognises what is being
+%% referenced, so "Figure", "Section", etc. do not need to be written
+%% manually. The capitalise option follows CS convention.
+%% Optional alternative: varioref.
+%\usepackage{varioref}
+\usepackage[capitalise]{cleveref}
+
+%% Easily changeable quotes via \enquote{Text}
+\usepackage[german=swiss]{csquotes}
+
+%% Prevents the fmtcount warning "\ordinal already defined; use
+%% \FCordinal instead". See https://tex.stackexchange.com/questions/162353
+\let\ordinal\relax
+%% Format dates and times depending on locale
+\usepackage{datetime}
+
+%% Optional: \cancel{} command to stroke through mathematics
+%\usepackage{cancel}
+
+%% Additional typesetting tools for math mode
+\usepackage{mathtools}
+
+%% Optional: conditional commands
+%\usepackage{ifthen}
+
+%% Optional: manual large braces and other delimiters
+%\usepackage{bigdelim, bigstrut}
+
+%% Scaled vector arrows via \vv{}
+\usepackage[h]{esvect}
+
+%% Extensions to tabular and array environments
+\usepackage{array}
+
+%% Optional: PostScript support via the pstricks graphics package
+%\usepackage{pstricks,pst-all}
+
+%% Optional: additional counters
+%\usepackage{etex}
+
+%% Optional: XY-Pic for matrix-style graphics
+%\usepackage[all]{xy}
+
+%% Optional: generate an index at the end of the document
+%\usepackage{makeidx}
+
+%% Source code listings
+\usepackage{listings}
+\lstset{language=TeX,basicstyle={\normalfont\ttfamily}}
+
+%% Character protrusion. Must be loaded after all fonts.
+%% microtype is used instead of the older pdfcprot, which causes a
+%% compilation error in this setup.
+\usepackage[activate]{microtype}
+%\usepackage[activate]{pdfcprot}
+
+%% Nicer tables
+\usepackage{booktabs}
+
+%% Multi-page tables (used for the sentiment pairwise table)
+\usepackage{longtable}
+
+%% List of abbreviations
+\usepackage[printonlyused]{acronym}

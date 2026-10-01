@@ -1,0 +1,57 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+Organizational psychology has established that leadership style is a primary determinant of team climate and productivity in human groups~\cite{mathieu2017teamwork, goleman2000leadership}.
+However, whether these behavioral patterns also apply to artificial agent teams remains an open question~\cite{muralidharan2025lessonshumanteamsapplied, kwak2026leadershipcoordinationcontrolbehavioral}.
+This thesis investigates this by applying Goleman's six leadership styles as distinct system-prompt conditions for a Boss agent in a heterogeneous \ac{LLM} multi-agent architecture, treating supervisory framing as an experimental variable rather than a fixed architectural choice~\cite{guo2024embodiedllmagentslearn, faulkner2026evaluatingcooperationllmsocial}.
+
+\section{Motivation}
+\label{sec:motivation}
+
+As \ac{LLM} architectures evolve from single-agent setups toward complex \acp{MAS}, understanding effective orchestration has become a critical challenge~\cite{guo2024largelanguagemodelbased, wang2026multiagentsystemsclassicalparadigms}. 
+In heterogeneous \ac{MAS} environments, specialized autonomous agents, such as coders, writers, and reviewers, are assigned highly cooperative roles to execute complex software and data pipelines~\cite{qian2024chatdevcommunicativeagentssoftware, hong2024metagptmetaprogrammingmultiagent}.
+However, organizing these expert agents into productive collectives requires managing conversational friction, coordination bottlenecks, and consensus integration~\cite{wu2023autogenenablingnextgenllm, muralidharan2025lessonshumanteamsapplied}.
+While existing research primarily focuses on algorithmic task-decomposition mechanisms~\cite{liu2025selectthendecomposeempiricalanalysisadaptive} or structural communication topologies~\cite{chen2023agentversefacilitatingmultiagentcollaboration}, 
+human organizational management offers a rich framework of leadership styles that remains largely unexplored in AI orchestration~\cite{mathieu2017teamwork, barrick1998personalityteamwork}. 
+In human teams, a leader's managerial approach directly impacts both objective task performance and subjective team dynamics~\cite{mathieu2017teamwork, ayman1995contingency, goleman2000leadership}. 
+Grounded in Daniel Goleman's classical framework of emotional intelligence in leadership, managers adopt distinct styles (Coercive, Authoritative, Affiliative, Democratic, Pacesetting, and Coaching) to guide group behavior~\cite{goleman2000leadership}.
+
+Translating these human paradigms to artificial agents presents a compelling question for \ac{MAS} design: 
+because \acp{LLM} are trained on vast human interactions, a supervisor's managerial framing may systematically alter how worker agents coordinate and resolve task friction~\cite{park2023generativeagentsinteractivesimulacra, salewski2023incontextimpersonationrevealslarge, shanahan2023roleplaylargelanguagemodels, serapiogarcia2025personalitytraitslargelanguage}. 
+This thesis systematically evaluates Goleman's leadership styles within a multi-agent framework to determine their direct impact on task performance and work satisfaction. 
+Specifically, this study investigates whether established human management strategies translate into higher task accuracy and efficiency in AI-to-AI collaboration, or if the unique characteristics of artificial agents demand an entirely adapted approach to AI leadership.
+
+To investigate this, an empirical \ac{MAS} was developed in which a supervisor agent guides a team of specialized worker agents through collaborative data science tasks of varying complexity~\cite{dang2025multiagentcollaborationevolvingorchestration, muralidharan2025lessonshumanteamsapplied, wang2025talkstructurallyacthierarchically}.
+By holding worker prompts and tasks constant while supervisor prompts are systematically varied across Goleman's six leadership styles and a Baseline, the resulting effects on objective deliverable quality, operational cost, and subjective team dynamics are measured in this study~\cite{goleman2000leadership, kwak2026leadershipcoordinationcontrolbehavioral, muralidharan2025lessonshumanteamsapplied}.
+
+\section{Research Question}
+\label{sec:research-question}
+
+To investigate how managerial framing affects AI-to-AI orchestration, this thesis addresses the following primary research question:
+
+\textit{How do Goleman's six leadership styles affect output quality, operational efficiency, communication sentiment, and worker satisfaction in a heterogeneous multi-agent system?}
+
+To answer this question, this study systematically varies the managerial framing of an \ac{LLM} supervisor agent leading a team of specialized worker agents across data science tasks of varying structural complexity. 
+The impact of these leadership strategies is evaluated across two core dimensions:
+
+\begin{itemize}
+    \item \textbf{Objective Task Performance:} Evaluating how leadership styles influence technical execution, output quality, and computational resource efficiency through an external judge assessment of deliverable quality and automatically logged operational metrics~\cite{qian2024chatdevcommunicativeagentssoftware, wu2023autogenenablingnextgenllm}.
+    \item \textbf{Subjective Team Dynamics:} Evaluating how leadership tone shapes interpersonal agent communication and collaboration climate through sentiment analysis of message logs and post-experiment worker satisfaction surveys~\cite{wageman2005teamdiagnosticsurvey, park2023generativeagentsinteractivesimulacra, li2023camelcommunicativeagentsmind, jiang2024personallminvestigatingabilitylarge, almutairi2025taifaautomatedfeedback}.
+\end{itemize}
+
+By comparing these outcomes against a non-leadership Baseline, this research determines whether established human management strategies enhance artificial collaboration or if multi-agent orchestration demands a distinct, machine-centric leadership approach.
+
+\section{Structure}
+\label{sec:structure}
+
+The remaining chapters are organized as follows.
+Chapter~\ref{chap:background} (Background) establishes the theoretical foundations, synthesizing literature on communicative multi-agent architectures, reviewing the leadership paradigms that lead to Goleman's six-style taxonomy, examining in-context persona enactment in \acp{LLM}, and introducing the measurement instruments.
+Chapter~\ref{chap:system-design} (System Design) presents the architecture developed for this study: the four-agent role definitions (Boss, Coder, Writer, and Reviewer), the infrastructure for state management and sandboxed code execution, and the seven-phase collaborative workflow.
+Chapter~\ref{chap:experiment-design} (Experiment Design) describes the experimental setup, specifying the 70-run between-subjects matrix ($7 \times 2 \times 5$), the prompt manipulations, the short and long data science tasks, and the embedded data-quality traps.
+Chapter~\ref{chap:evaluation} (Evaluation) details the measurement protocols, covering the non-parametric statistical framework, the \ac{LLM}-as-a-judge rubric, operational cost metrics, dual-backend sentiment analysis, the two-stage satisfaction survey, and the validity checks.
+Chapter~\ref{chap:results} (Results) reports the findings across all four outcome dimensions.
+Chapter~\ref{chap:discussion} (Discussion) interprets them, examines the trade-offs among styles and the sensitivity of the automated evaluators, and states the limitations of the study.
+Chapter~\ref{chap:conclusion} (Conclusion) summarizes the contributions, gives architectural recommendations for \ac{MAS} engineering, and outlines directions for future research.
+
+\medskip
+\noindent\textbf{Code Availability.}\enspace The complete source code, all seven Boss prompt files, the three worker prompts, the orchestrator, the 70 run artifact folders, and the four analysis notebooks are available in a public repository at \url{https://github.com/helenavioletta/MAS_leadershipstyles}~\cite{mas-leadershipstyles-repo}.

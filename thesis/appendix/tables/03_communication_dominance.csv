@@ -1,0 +1,5 @@
+role,total_messages,pct_messages,mean_messages_per_run,total_tokens,pct_tokens,mean_tokens_per_run
+Boss,485,47.0,6.93,4779932,51.6,68285
+Reviewer,191,18.5,2.73,1733993,18.7,24771
+Writer,184,17.8,2.63,1446780,15.6,20668
+Coder,173,16.7,2.47,1299795,14.0,18568

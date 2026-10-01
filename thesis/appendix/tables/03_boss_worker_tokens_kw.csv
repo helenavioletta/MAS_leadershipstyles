@@ -1,0 +1,5 @@
+task,scope,H-statistic,p-value
+short,Boss,18.66,0.0048
+short,Workers,17.46,0.0077
+long,Boss,19.98,0.0028
+long,Workers,19.04,0.0041

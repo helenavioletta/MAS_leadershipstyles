@@ -78,6 +78,7 @@ MAS/
 │
 ├── data/                            # global_weather.csv (dataset snapshot)
 ├── results/                         # Experiment outputs (70 run folders)
+├── thesis/                          # LaTeX source of the thesis (+ compiled thesis.pdf)
 ├── .env                             # API key (not tracked in git)
 └── requirements.txt
 ```
@@ -211,3 +212,14 @@ All experiment runs use the **Global Weather Repository** dataset sourced from K
 - **Shape:** 150,465 rows × 41 columns
 
 The snapshot is pinned in `data/global_weather.csv` to ensure reproducibility across all 70 runs.
+
+## Thesis
+
+The LaTeX source of the thesis, including a compiled `thesis.pdf`, lives in `thesis/`. To rebuild the PDF you need a TeX distribution (e.g. MacTeX / TeX Live) with `biber`:
+
+```bash
+cd thesis
+latexmk -pdf thesis.tex    # or: pdflatex thesis && biber thesis && pdflatex thesis && pdflatex thesis
+```
+
+The appendix figures and CSV-backed tables under `thesis/appendix/` are generated from the analysis notebooks and are already synced into the repo. If the notebook outputs change, `thesis/sync_from_notebooks.sh` re-syncs them and regenerates `appendix_tables.tex` via `generate_appendix_tables.py`.

@@ -1,0 +1,303 @@
+\chapter{Results}
+\label{chap:results}
+
+This chapter presents the empirical findings from 70 experimental runs (Chapter~\ref{chap:experiment-design}) that evaluated the effects of managerial leadership styles on output quality, operational efficiency, communication sentiment, and worker satisfaction.
+
+\section{Output Quality}
+\label{sec:results-output-quality}
+
+The evaluation of deliverable quality examines whether the supervisor's leadership style systematically influences the task accuracy, the deliverable completeness, the cohesion of the narrative, the overall quality, and the resolution of data quality traps.
+
+\subsection{Overall Quality}
+\label{subsec:overall-quality}
+
+The leadership style showed no statistically significant effect on the overall deliverable quality across either task complexity (Table~\ref{tab:03-kw-omnibus}).
+In the short task, the overall quality scores did not differ significantly between leadership conditions ($H = 7.44, p = .28, \varepsilon^2 = 0.05$).
+Similarly, the overall quality scores in the long task remained statistically invariant across styles ($H = 5.86, p = .44, \varepsilon^2 < .01$).
+Mean overall quality per leadership style ranged from 3.10 to 3.50 on the 1-to-5 integer scale (Table~\ref{tab:03-style-pooled-summary}).
+Although the neutral Baseline style achieved nominally the highest style-level mean score, the between-style spread of 0.40 was substantially smaller than the mean pooled within-style \ac{SD} of 0.74, indicating that score variations were driven primarily by run-to-run stochasticity.
+As shown in Figure~\ref{fig:03-quality-by-style}, mean quality scores for all seven leadership styles demonstrate flat distributions with overlapping confidence intervals across both task panels.
+This shows that there is no systematic quality advantage for directive, supportive, or coaching leadership over the Baseline.
+
+\subsection{Quality Sub-Dimensions}
+\label{subsec:quality-sub-dimensions}
+
+Analyzing the four individual quality dimensions indicates the absence of leadership-driven effects across sub-scores (Table~\ref{tab:03-kw-omnibus}).
+The Completeness, Cohesion, and Quality sub-scores showed no significant variation by leadership style (short: $H = 3.78, p = .71$; $H = 5.88, p = .44$; $H = 6.52, p = .37$; long: $H = 4.78, p = .57$; $H = 6.41, p = .38$; $H = 5.64, p = .46$).
+Accuracy likewise did not differ significantly (short: $H = 9.43, p = .15, \varepsilon^2 = .12$; long: $H = 7.38, p = .29, \varepsilon^2 = .05$).
+As illustrated in the dimension heatmaps (Figure~\ref{fig:03-quality-dimension-heatmap}), the style profile plots (Figure~\ref{fig:03-quality-dimensions-by-style}), and the per-condition mean scores (Figure~\ref{fig:03-performance-metrics-mean-by-style-and-task}), performance patterns were governed by the intrinsic properties of each evaluation dimension rather than the assigned leadership style.
+Specifically, Completeness consistently achieved the highest dimension scores, with style means between $4.0$ and $4.3$, because the structured workflow enforces the generation of all required deliverables (Table~\ref{tab:03-quality-dimensions-by-style}). 
+Accuracy, Cohesion, and Quality sub-scores remained in the same non-significant range across conditions.
+
+\subsection{Data Quality Traps}
+\label{subsec:results-data-quality-traps}
+
+The ability of the \ac{MAS} to identify and resolve hidden data-quality traps was also independent of the supervisor's leadership style.
+Kruskal-Wallis tests on the per-run trap catch rate showed no significant style effect for either the short task ($H = 10.13, p = .12, \varepsilon^2 = .15$) or the long task ($H = 0.72, p = .99, \varepsilon^2 < .01$) (Table~\ref{tab:03-kw-omnibus}).
+Instead, trap resolution rates depended on the surface visibility and inherent difficulty of the specific anomaly.
+
+Across the 35 short-task runs, the three checked traps showed very different catch patterns (Table~\ref{tab:03-trap-counts}):
+\begin{itemize}
+    \item \textit{The Physical Outlier} was caught in only 1 run, partially caught in 15 runs, and missed in 19 runs.
+    \item \textit{Entity Duplicates} were caught in 6 runs, partially caught in 6 runs, and missed in 23 runs.
+    \item \textit{Single-Observation Entries} were missed in 34 runs and partially caught in 1 run; no run fully caught this trap.
+\end{itemize}
+
+Across the 35 long-task runs, the four checked traps showed the following patterns (Table~\ref{tab:03-trap-counts}):
+\begin{itemize}
+    \item \textit{Target Leakage} was caught in 32 runs, partially caught in 1 run, and missed in 2 runs.
+    \item \textit{Missing-Data Sentinels} were missed in 33 runs and partially caught in 2 runs; no run fully caught this trap.
+    \item \textit{Target Variable Outlier} was caught in 9 runs, partially caught in 9 runs, and missed in 17 runs.
+    \item \textit{Duplicate Measurement Units} were caught in 27 runs, partially caught in 4 runs, and missed in 4 runs.
+\end{itemize}
+
+These task-specific catch rates are visualized in the bar charts (Figure~\ref{fig:03-trap-catch-short}, Figure~\ref{fig:03-trap-catch-long}), the fully-caught heatmaps (Figure~\ref{fig:03-trap-matrix-short}, Figure~\ref{fig:03-trap-matrix-long}), the mean catch-score survival matrix (Figure~\ref{fig:03-trap-survival}), and the overall style-level catch rate distribution (Figure~\ref{fig:03-trap-catch-rate-by-style}).
+In both tasks, trap survival reflects the surface visibility and inherent difficulty of the anomaly rather than the supervisor's leadership style.
+
+\subsection{Quality-Satisfaction Decoupling}
+\label{subsec:quality-satisfaction-decoupling}
+
+A central empirical finding is the statistical decoupling between objective deliverable quality and subjective worker satisfaction.
+At the style level, neither overall quality (Spearman $\rho = -0.24, p = .61$) nor trap catch rate (Spearman $\rho = -0.46, p = .29$) correlated significantly with team satisfaction (Table~\ref{tab:03-style-correlations}).
+As shown in the decoupling scatter plots (Figure~\ref{fig:03-decoupling}, Figure~\ref{fig:03-quality-vs-satisfaction-and-tokens}), teams led by warm, supportive leaders (such as Affiliative or Coaching) reported high collaboration satisfaction but produced deliverables of comparable quality and data-quality trap catch rates to teams guided by directive or pacesetting supervisors.
+
+\subsection{Statistical Power and MDE}
+\label{subsec:statistical-power-mde}
+
+The observed null effect on deliverable quality must be evaluated within the context of statistical power.
+With five repetitions per condition ($n=5$), the experimental design was powered to detect only large effect sizes exceeding 2.3 times the run-to-run noise threshold.
+The value 2.3 is the ratio of the estimated \ac{MDE} to the within-condition \ac{SD} (e.g., $0.703 / 0.306 \approx 2.3$ for overall quality on the short task (see the ``MDE SD'' column in Table~\ref{tab:03-mde})).
+The observed quality differences were $0.71\times$ (short task) and $0.91\times$ (long task) of this threshold, falling below the \ac{MDE}.
+As illustrated in Figure~\ref{fig:03-power-mde}, the null result on deliverable quality represents a methodological sample size constraint rather than definitive proof that managerial framing cannot influence output quality in \ac{MAS} (Table~\ref{tab:03-mde}).
+In contrast to output quality, observed differences in worker satisfaction, total token costs, and wall-clock duration exceed the \ac{MDE} threshold, confirming that those efficiency and satisfaction findings reflect robust behavioral effects.
+The one exception among the quality sub-dimensions is Accuracy on the long task, where the observed range sat right at the \ac{MDE} threshold ($1.597$, power $= 0.82$), yet the omnibus test still did not reach significance ($H = 7.376, p = .29$; Table~\ref{tab:03-kw-omnibus}), indicating borderline sensitivity rather than a clean null.
+
+\section{Efficiency}
+\label{sec:results-efficiency}
+
+The evaluation of operational efficiency examines how computational token consumption, execution durations, message volumes, and revision cycles vary across managerial leadership conditions.
+
+\subsection{Token Consumption}
+\label{subsec:token-consumption}
+
+In sharp contrast to the null finding regarding deliverable quality, leadership style had a large, statistically significant effect on computational token consumption across both task complexities (Table~\ref{tab:03-kw-omnibus}).
+In the short task, total token usage differed significantly across leadership conditions ($p = .007, \varepsilon^2 = 0.42$).
+Similarly, the long task revealed significant variation in token costs across leadership styles ($p = .008, \varepsilon^2 = 0.41$).
+The mean total token consumption per run established a distinct cost hierarchy among the conditions:
+The Affiliative style was the most economical condition ($\sim150{,}000$ tokens), followed by Coercive ($\sim160{,}000$ tokens), Authoritative ($\sim185{,}000$ tokens), Pacesetting ($\sim190{,}000$ tokens), and the neutral Baseline ($\sim192{,}000$ tokens) (Table~\ref{tab:03-style-pooled-summary}).
+Conversely, Coaching ($\sim253{,}000$ tokens, $+32\%$ over Baseline) and Democratic ($\sim284{,}000$ tokens, $+48\%$ over Baseline) styles were substantially more expensive, requiring approximately 61,000 and 93,000 additional tokens per run, respectively.
+As shown in Figure~\ref{fig:03-total-tokens-by-style} and Figure~\ref{fig:03-efficiency}, participatory and development-focused leadership styles impose a substantial computational penalty compared to directive or Baseline management.
+
+\subsection{Execution Duration}
+\label{subsec:execution-duration}
+
+Wall-clock execution duration closely mirrored the observed token cost hierarchy across all experimental conditions.
+Leadership style significantly affected run duration in both the short task ($p = .004, \varepsilon^2 = 0.47$) and the long task ($p = .007, \varepsilon^2 = 0.41$) (Table~\ref{tab:03-kw-omnibus}).
+Directive and harmony-focused conditions finished fastest, with Affiliative averaging $\sim197$ seconds and Coercive averaging $\sim204$ seconds across tasks (Table~\ref{tab:03-style-pooled-summary}).
+In contrast, Democratic and Coaching runs required substantially longer execution times, averaging $\sim319$ seconds and $\sim288$ seconds, respectively (Table~\ref{tab:03-style-pooled-summary}).
+On average, long-task runs required $\sim287$ seconds compared to $\sim202$ seconds for short-task runs (Table~\ref{tab:03-task-complexity-summary}).
+
+\subsection{Token Cost Drivers}
+\label{subsec:token-cost-drivers}
+
+Analyzing operational interaction logs reveals that token cost inflation was driven by conversational depth and context accumulation rather than an increased number of \ac{API} requests (Table~\ref{tab:03-style-pooled-summary}).
+Across all seven leadership styles, the total number of discrete \ac{API} calls remained stable, with mean counts ranging from $\sim19$ to $\sim23$ calls per run.
+Similarly, mean message counts varied within a narrow range from $\sim23$ messages (in Affiliative and Baseline long runs) to $\sim27$ messages (in Democratic short runs).
+Furthermore, revision loops remained low across all conditions, with mean revision rounds ranging from $0.3$ to $1.1$ per run.
+Instead, the computational cost increase in Democratic and Coaching conditions stemmed from longer individual messages, extensive planning exchanges, and the resulting accumulation of dialogue context across successive turns.
+As displayed in Figure~\ref{fig:03-agent-tokens-by-style-and-task} and Figure~\ref{fig:03-phase-tokens-vs-baseline}, token growth is heavily concentrated in the Boss's guidance and the expanded context windows passed to downstream worker turns.
+
+\subsection{No Quality-Efficiency Trade-off}
+\label{subsec:no-quality-efficiency-tradeoff}
+
+A fundamental empirical finding is the absence of a quality-efficiency trade-off in the \ac{MAS}.
+Within-task Spearman rank correlations between total token expenditure and overall deliverable quality are statistically non-significant:
+In the short task, token consumption correlates weakly with quality ($\rho = +0.31, p = .07$),
+while in the long task, the relationship is slightly negative and non-significant ($\rho = -0.15, p = .39$) (Table~\ref{tab:03-correlations}).
+As shown in the cross-variable scatter plots (Figure~\ref{fig:03-quality-vs-satisfaction-and-tokens}, Figure~\ref{fig:03-correlations-pooled-vs-within-task}), spending an additional $\sim60{,}000$ to $\sim90{,}000$ tokens in participatory conditions (Democratic, Coaching) did not result in measurable improvements in technical accuracy or completeness.
+A notable exception is trap detection on the short task, where token expenditure correlated strongly and significantly with catch rate ($\rho = 0.63, p < .001$; Table~\ref{tab:03-correlations}): the short-task traps were surface-invisible and required more exploratory analysis to identify, so the additional computational effort translated into better detection rather than higher overall quality.
+
+\section{Sentiment}
+\label{sec:results-sentiment}
+
+Communication sentiment analysis assesses whether the supervisor's leadership style changes the emotional tone and interpersonal climate of internal agent-to-agent dialogue throughout workflow phases.
+
+\subsection{Style Effect on Communication Tone}
+\label{subsec:style-effect-tone}
+
+Leadership style had a large, statistically significant effect on run-level communication sentiment across both analytical backends.
+Omnibus Kruskal-Wallis tests confirmed strong statistical significance in both \ac{VADER} ($H = 51.20, p < .001$) and \ac{RoBERTa} ($H = 58.41, p < .001$) (Table~\ref{tab:03-sentiment-omnibus}).
+Furthermore, the two distinct sentiment models demonstrated near-perfect agreement regarding the relative emotional hierarchy of the seven leadership conditions (Spearman $\rho = .96$, $p < .001$; Tables~\ref{tab:03-sentiment-style-means} and \ref{tab:03-vader-roberta-agreement}).
+The styles formed three consistent emotional tiers (Table~\ref{tab:03-sentiment-style-means}):
+\begin{itemize}
+    \item \textbf{Cold / Directive Tier:} Coercive (mean compound: \ac{VADER} 0.253, \ac{RoBERTa} 0.026) and Pacesetting (\ac{VADER} 0.375, \ac{RoBERTa} 0.062) produced the coldest conversational climates across all runs.
+    \item \textbf{Neutral Baseline:} The Baseline condition established an intermediate Baseline tone (\ac{VADER} 0.798, \ac{RoBERTa} 0.164).
+    \item \textbf{Warm / Supportive Tier:} Affiliative established the warmest conversational climate (\ac{VADER} 0.956, \ac{RoBERTa} 0.522), followed by Authoritative (\ac{VADER} 0.865, \ac{RoBERTa} 0.286), Coaching (\ac{VADER} 0.808, \ac{RoBERTa} 0.267), and Democratic (\ac{VADER} 0.865, \ac{RoBERTa} 0.230).
+\end{itemize}
+As illustrated in Figure~\ref{fig:03-sentiment-by-style} and Figure~\ref{fig:03-sentiment-components}, the supervisor's behavioral framing changes the affective tone of the \ac{MAS}.
+
+\subsection{Baseline Contrasts}
+\label{subsec:baseline-contrasts}
+
+Evaluating the pairwise contrasts against the neutral Baseline (Table~\ref{tab:03-sentiment-pairwise-overall-run-mean-compound}) reveals how model architectures capture tone separation.
+Under \ac{VADER}, Coercive ($p = .0002$) and Pacesetting ($p = .0002$) were significantly colder than Baseline, while Affiliative was significantly warmer ($p = .0002$).
+However, Authoritative and Democratic were close to the Baseline ceiling, but neither survived the Bonferroni correction.
+Coaching was also near the Baseline, but did not differ significantly from it before correction.
+In contrast, \ac{RoBERTa} decompressed the positive score distribution.
+All four warm styles, Authoritative ($p = .0002$), Affiliative ($p = .0002$), Democratic ($p = .0006$), and Coaching ($p = .0028$), exhibited statistically significant positive shifts relative to the Baseline.
+Meanwhile, Coercive remained significantly colder ($p = .0002$) (Table~\ref{tab:03-sentiment-pairwise-overall-run-mean-compound}).
+
+\subsection{Boss-Worker Sentiment Gap}
+\label{subsec:boss-worker-sentiment-gap}
+
+The sentiment gap between the supervisor and the subordinate workers varied significantly across leadership styles in both \ac{VADER} ($H = 19.86, p = .0029$) and \ac{RoBERTa} ($H = 57.02, p < .001$) (Table~\ref{tab:03-sentiment-omnibus}).
+Under Coercive and Pacesetting management, the Boss was substantially more negative than the team members (mean gaps: \ac{VADER} $-0.326$ and $-0.272$; \ac{RoBERTa} $-0.074$ and $-0.039$) (Table~\ref{tab:03-sentiment-pairwise-boss-worker-sentiment-gap}).
+Conversely, under Affiliative and Coaching leadership, the Boss maintained a substantially warmer tone than the subordinates (mean gaps: \ac{RoBERTa} $+0.432$ and $+0.283$).
+As shown in Figure~\ref{fig:03-boss-worker-sentiment-gap}, directive leaders consistently reduce conversational valence below worker levels, whereas supportive leaders maintain an elevated positive tone.
+
+\subsection{Emotional Contagion}
+\label{subsec:emotional-contagion}
+
+Since the worker system prompts were 100\% identical across all 70 runs, any variance in the tone of subordinate communication must have been transmitted through interaction with the supervisor.
+Kruskal-Wallis tests conducted exclusively on worker messages (excluding all Boss messages) remained highly significant across both models (\ac{VADER}: $H = 36.88, p < .001$; \ac{RoBERTa}: $H = 41.58, p < .001$) (Table~\ref{tab:03-sentiment-worker}).
+Subordinate workers produced significantly different message tone under different leadership styles, with Coercive and Pacesetting conditions at the negative end of the worker-only distribution and Affiliative and Coaching conditions at the positive end (Figure~\ref{fig:03-sentiment-by-style}).
+As shown in Figure~\ref{fig:03-contagion-boss-to-worker-delta} and Figure~\ref{fig:03-contagion-delta-by-worker}, this behavioral transfer provides evidence of emotional contagion within \acp{MAS}~\cite{lin2025simulatingsocialinfluencedynamics, zhang2024exploringcollaborationmechanismsllm}.
+
+\subsection{Phase-Level Dynamics}
+\label{subsec:phase-level-dynamics}
+
+Longitudinal tracking across workflow phases reveals distinct temporal dynamics between the two analyzers (Table~\ref{tab:03-sentiment-phase-means}).
+\ac{VADER} demonstrated a gradual downward drift from Briefing (0.920) through Writing (0.629), with a transient recovery in the Review phase (0.688) before settling back to a low-positive level in Revision (0.652).
+In contrast, \ac{RoBERTa} was stable across the first four execution phases (0.23 to 0.27), with a sharp localized dip in the Review phase (0.021) reflecting critical quality-assurance language and a partial rebound in Revision (0.248).
+While absolute scores and phase-level dips reflect analyzer-specific tokenization properties, the relative between-style rankings replicate consistently across all workflow stages (Figure~\ref{fig:03-sentiment-by-phase-line}).
+
+\section{Satisfaction}
+\label{sec:results-satisfaction}
+
+The worker satisfaction analysis examines how the supervisor's leadership style shapes the subjective collaboration experience and perceived team viability across synthetic worker roles.
+
+\subsection{Overall Worker Satisfaction}
+\label{subsec:overall-worker-satisfaction}
+
+In contrast to the null finding regarding output quality, leadership style had a statistically significant effect on synthetic worker satisfaction across both task complexities.
+Omnibus Kruskal-Wallis tests confirmed significant variation in team satisfaction scores for both the short task ($H = 16.08, p = .013, \varepsilon^2 = .36$) and the long task ($H = 15.81, p = .015, \varepsilon^2 = .35$) (Table~\ref{tab:03-kw-omnibus}).
+Importantly, worker satisfaction is one of the \acp{DV} where the observed effect sizes exceed the \ac{MDE} threshold:
+In the short task, the observed range across styles ($0.744$) exceeded the \ac{MDE} threshold ($0.495$) by a factor of $1.50$,
+while in the long task, the observed range ($0.355$) exceeded the \ac{MDE} threshold ($0.286$) by a factor of $1.24$ (Table~\ref{tab:03-mde}).
+
+The pooled team satisfaction means revealed a clear hierarchy across leadership conditions.
+\begin{itemize}
+    \item \textbf{Lowest Satisfaction:} Coercive leadership produced the lowest satisfaction ratings across both tasks ($4.37 \pm 0.30$; Short $4.16$, Long $4.59$).
+    \item \textbf{Moderate Satisfaction:} Pacesetting ($4.64 \pm 0.27$; Short $4.63$, Long $4.66$) and Democratic ($4.78 \pm 0.14$; Short $4.71$, Long $4.86$) occupied intermediate positions alongside the neutral Baseline ($4.78 \pm 0.21$; Short $4.77$, Long $4.80$).
+    \item \textbf{Highest Satisfaction Ceiling:} Coaching ($4.88 \pm 0.13$), Authoritative ($4.88 \pm 0.12$), and Affiliative ($4.92 \pm 0.10$) formed an elevated upper cluster near the ceiling of the 1-to-5 scale.
+\end{itemize}
+In pairwise comparisons against the Baseline, Coercive leadership in the short task produced significantly lower satisfaction prior to Bonferroni adjustment ($p = .0117, r = .826$) (Table~\ref{tab:03-satisfaction-pairwise}).
+As illustrated in Figure~\ref{fig:03-satisfaction-by-style} and Figure~\ref{fig:03-survey-items}, demanding and directive leadership styles noticeably depress worker satisfaction ratings compared to supportive or Baseline management (Table~\ref{tab:03-style-pooled-summary}).
+
+\subsection{Role-Specific Satisfaction}
+\label{subsec:role-specific-satisfaction}
+
+Analyzing satisfaction ratings by functional role reveals meaningful differentiation among subordinates (Table~\ref{tab:03-satisfaction-by-role}).
+Under Coercive leadership, dissatisfaction was concentrated primarily in the Writer ($4.28$) and Reviewer ($4.32$) roles, driven by directive pressure during report drafting and revision enforcement, whereas the Coder reported slightly higher satisfaction ($4.52$).
+In contrast, under warm leadership styles (Affiliative, Authoritative, Coaching), all three worker roles reported uniformly high satisfaction ($4.70$ to $4.98$).
+As shown in the per-worker satisfaction by leadership style (Figure~\ref{fig:03-satisfaction-per-worker-and-style}) and role-specific variance distributions (Figure~\ref{fig:03-satisfaction-within-run-variance}, Figure~\ref{fig:03-dissatisfaction-slope-by-role}), the two-stage reflection protocol successfully primed role-specific memory, capturing distinct experiential differences among team members.
+
+\subsection{Sentiment-Satisfaction Coupling}
+\label{subsec:sentiment-satisfaction-coupling}
+
+A natural concern is whether the explicit satisfaction ratings simply reflect a ceiling effect, with the synthetic workers affirming high satisfaction regardless of the actual affective climate.
+If the survey were a socially desirable response, the satisfaction hierarchy would diverge from the sentiment hierarchy.
+Instead, the two subjective measures converge on the same warm-cold ordering of leadership styles.
+The conditions that produced the coldest message sentiment, Coercive and Pacesetting, also reported the lowest satisfaction, whereas the warmest styles, Affiliative, Authoritative, and Coaching, reported the highest satisfaction (Figure~\ref{fig:03-sentiment-satisfaction-coupling}, Table~\ref{tab:03-sentiment-style-means}).
+Pooled style-level Spearman correlations between mean sentiment and mean satisfaction are strongly positive for both \ac{VADER} ($\rho = .96, p < .001$) and \ac{RoBERTa} ($\rho = 1.00, p < .0001$) (Table~\ref{tab:03-sentiment-satisfaction-correlation}).
+This alignment indicates that the synthetic workers are not just pretending to be satisfied. 
+The pos/neg skew observed in the sentiment analysis is reflected in the explicit survey ratings.
+The high coupling between affective tone and reported satisfaction stands in direct contrast to the independence between satisfaction and objective performance, suggesting that satisfaction is a coherent subjective-experience measure rather than an artifact of the Likert scale.
+
+\subsection{Decoupling from Quality and Cost}
+\label{subsec:decoupling-quality-cost}
+
+A fundamental theoretical takeaway is the statistical independence between worker satisfaction, deliverable quality, and computational cost (Table~\ref{tab:03-correlations}).
+Pooled correlation analysis reveals no significant correlation between team satisfaction and overall quality scores (Spearman $\rho = 0.001, p = .99$), which replicates within both the short task ($\rho = +0.034, p = .84$) and the long task ($\rho = -0.123, p = .48$).
+Similarly, token expenditure does not correlate with worker satisfaction (short task $\rho = -0.113, p = .52$; long task $\rho = -0.096, p = .58$).
+These findings demonstrate that, although warm and supportive leadership styles foster positive subjective experiences in \acp{MAS}, this satisfaction does not translate into higher objective performance or require greater computational investment.
+
+\section{Communication Patterns}
+\label{sec:communication-patterns}
+
+Analyzing conversational interaction patterns reveals how managerial framing affects the structure of dialogue, speaker dominance, and the distribution of collaborative effort throughout workflow phases.
+
+\subsection{Managerial Dominance}
+\label{subsec:managerial-dominance}
+
+Across the 1,033 inter-agent messages exchanged throughout the 70 experimental runs, the supervisor was the primary driver of the communication volume (Table~\ref{tab:03-communication-dominance}).
+The Boss generated 47.0\% of all messages (485 messages, averaging 6.93 messages per run) and accounted for 51.6\% of the total per-turn \ac{API} token cost (4.78 million tokens).
+In contrast, subordinate workers divided the remaining conversational footprint.
+The Reviewer accounted for 18.7\% of token mass (191 messages; 2.73 messages per run),
+the Writer accounted for 15.6\% (184 messages; 2.63 messages per run),
+and the Coder accounted for 14.0\% (173 messages; 2.47 messages per run).
+As shown in Figure~\ref{fig:02-boss-share}, hierarchical multi-agent coordination remains heavily centralized. 
+The Boss produces a large plurality to near-half of all non-system messages across every leadership style and task, and dominates token volume even more clearly at 51.6\% (Table~\ref{tab:03-communication-dominance}).
+
+\subsection{Phase-Level Effort Redistribution}
+\label{subsec:phase-level-effort-redistribution}
+
+A key manipulation check is whether leadership styles actively altered where the team invested its collaborative effort.
+Mean per-run Boss token output varied significantly across styles in both the short task ($H = 18.66, p = .005$) and the long task ($H = 19.98, p = .003$) (Table~\ref{tab:03-boss-worker-tokens-kw}), ranging from 47,481 tokens under Coercive management to 107,812 tokens under Democratic leadership (Table~\ref{tab:03-boss-worker-tokens-per-run}).
+Furthermore, managerial framing systematically redistributed token mass across workflow stages (Table~\ref{tab:03-phase-token-share}).
+The Democratic and Coaching conditions allocated the largest proportion of their communication budget to the Revision phase (41.4\% and 40.6\%, respectively), engaging in extensive, multi-turn technical critiques.
+In contrast, the Baseline condition concentrated 23.0\% of its effort in the Coding phase and 25.8\% in Revision, advancing rapidly to delivery with minimal debate.
+As illustrated in Figure~\ref{fig:03-phase-effort} and Figure~\ref{fig:03-boss-mean-tokens-per-run}, the assigned leadership styles are not merely stylistic overlays, 
+but they actively reshape the temporal allocation of collaborative problem-solving, aligning with recent frameworks that model prompt-based organizational structures as active controllers of multi-agent behavioral signatures and information-exchange dynamics~\cite{dang2025multiagentcollaborationevolvingorchestration, guo2024embodiedllmagentslearn, kwak2026leadershipcoordinationcontrolbehavioral}.
+
+\subsection{Per-Turn Token Cost and Context Accumulation}
+\label{subsec:verbosity-response-inflation}
+
+Examining the per-turn API token cost, which includes both the agent's output and the full accumulated conversation context passed as input, reveals the precise mechanism underlying the variations in computational cost observed in efficiency metrics (Table~\ref{tab:03-tokens-per-message}).
+The Boss per-turn token cost varied substantially by condition.
+Democratic (12,509 tokens per turn) and Coaching (11,716 tokens per turn) produced the highest managerial costs,
+whereas Pacesetting (8,758 tokens per turn), Affiliative (7,959 tokens per turn), and Coercive (7,924 tokens per turn) required fewer tokens per turn.
+The supervisor's per-turn cost directly modulated subordinate per-turn costs, consistent with linguistic alignment effects where agents adapt their conversational outputs to match the stylistic properties of their prompts~\cite{almutairi2025taifaautomatedfeedback}.
+Reviewers and Coders incurred their highest per-turn costs when prompted by Democratic (Reviewer: 11,956 tokens; Coder: 9,261 tokens) and Coaching (Reviewer: 10,950 tokens; Coder: 8,931 tokens) leaders,
+compared to much lower per-turn costs under Coercive (Reviewer: 7,113 tokens) and Affiliative (Coder: 5,295 tokens) management.
+As shown in Figure~\ref{fig:03-tokens-per-message-min-max-mean}, participation-oriented leadership increases token expenditure by expanding context windows across the entire team rather than by increasing the discrete number of interaction turns.
+This compounding context window accumulation constitutes a primary driver of communication redundancy and computational cost overhead in cooperative multi-agent environments~\cite{wang2025talkstructurallyacthierarchically, zhang2024cutcrapeconomicalcommunication}.
+
+\section{Task Complexity}
+\label{sec:task-complexity}
+
+Comparing outcomes across the two task complexities highlights how task structure interacts with managerial framing.
+The short task (data-quality awareness and ranking) and the long task (multi-step predictive modeling) presented fundamentally different cognitive and coordination demands to the \ac{MAS}.
+
+\subsection{Quality Asymmetry by Task}
+\label{subsec:quality-asymmetry-by-task}
+
+Across all seven leadership styles, overall deliverable quality was higher on the long modeling task (condition means ranging from 3.25 to 4.30) than on the short data-quality report (2.55 to 3.05) (Table~\ref{tab:03-style-by-task-summary}).
+This discrepancy is rooted in the structural nature of each task, as task design acts as a primary enabling condition that shapes a team's performance strategies and output quality~\cite{wageman2005teamdiagnosticsurvey}.
+The long task provided explicit procedural milestones, such as train/test splitting, baseline fitting, coefficient extraction, and diagnostic plotting. 
+These milestones provided the Coder and Reviewer with clear intermediate checkpoints to identify flaws in the execution process, echoing how standardized operating procedures (SOPs) and intermediate deliverables streamline coordination and prevent errors in \acp{MAS}~\cite{hong2024metagptmetaprogrammingmultiagent}.
+In contrast, the short task was deceptively simple.
+The code executed without syntax errors, but naive grouped aggregation blindly produced erroneous rankings, severely penalizing Accuracy and the interpretative Quality dimension, unless active data verification was initiated.
+Completeness was the highest-scoring dimension in the short task, while Cohesion and Completeness were the highest-scoring dimensions in the long task, with all four dimensions improving on the more structured modeling task (Figure~\ref{fig:03-quality-dimensions-by-task}, Table~\ref{tab:03-task-complexity-summary}).
+Although the long task produced a wider absolute spread between styles (1.05 quality points versus 0.50 in the short task), score differences within each task remained below the \ac{MDE} threshold (Table~\ref{tab:03-mde}), 
+indicating that task complexity was the primary determinant of quality rather than leadership style, aligning with task contingency frameworks where task characteristics dominate over structural or stylistic team dynamics~\cite{mathieu2017teamwork, muralidharan2025lessonshumanteamsapplied}.
+
+\subsection{Resource Scaling}
+\label{subsec:resource-scaling}
+
+The long task required substantially more computational resources, averaging approximately 37,000 additional tokens and 85 extra seconds per run ($\sim 220{,}794$ tokens and $\sim 287$ seconds versus $\sim 183{,}426$ tokens and $\sim 202$ seconds; Table~\ref{tab:03-task-complexity-summary}).
+Importantly, this cost increase occurred despite the fact that long-task runs generated slightly fewer total messages on average (23.6 messages in long runs versus 25.3 in short runs).
+This indicates that task complexity increased token consumption through longer reasoning contexts, expanded data tables, and detailed model summaries, rather than through additional conversational turns, reflecting established patterns of cumulative context window inflation and information density overhead in multi-agent environments~\cite{hong2024metagptmetaprogrammingmultiagent, zhang2024cutcrapeconomicalcommunication}.
+The relative cost hierarchy among leadership styles remained stable across both task types.
+Democratic and Coaching consistently emerged as the most expensive conditions, while Affiliative and Coercive remained the most economical (Figure~\ref{fig:03-efficiency}; Table~\ref{tab:03-style-by-task-summary}).
+The primary divergence in task style occurred in the Pacesetting condition.
+Its token consumption remained essentially invariant between tasks ($\sim 189{,}000$ tokens in short runs versus $\sim 191{,}000$ in long runs), even though execution duration increased from $\sim 198$ seconds to $\sim 256$ seconds (Table~\ref{tab:03-style-by-task-summary}).
+
+\subsection{Satisfaction by Task}
+\label{subsec:satisfaction-by-task}
+
+The style-driven variation in synthetic worker satisfaction displayed an inverse pattern across task complexities compared to the widening spread observed in deliverable quality.
+The overall team satisfaction was generally higher in long-task runs across most conditions (Figure~\ref{fig:03-satisfaction-by-style}; Table~\ref{tab:03-style-by-task-summary}), with Coercive rising from 4.16 to 4.59 and Democratic rising from 4.71 to 4.86, while Coaching maintained a high ceiling across both tasks (4.89 in the short task versus 4.87 in the long task).
+However, the between-style team satisfaction spread compressed substantially from 0.744 in the short task down to 0.355 in the long task (Table~\ref{tab:03-mde}).
+This compression suggests that the richer procedural structure and tangible milestones of the modeling task provided collaborative momentum, which partially protected subordinate workers from directive or demanding managerial framing.
+This buffering effect aligns with organizational frameworks showing that well-designed, structured tasks act as motivating enabling structures that enhance team viability and can serve as leadership substitutes, thereby mitigating or neutralizing the impact of supervisor behavior on worker well-being~\cite{kwak2026leadershipcoordinationcontrolbehavioral, schadowwolf2026effectiveleadership, wageman2005teamdiagnosticsurvey}.

@@ -1,0 +1,46 @@
+\chapter{Task Descriptions}
+\label{app:tasks}
+
+These are the full task specifications presented to the multi-agent team.
+The short task (Section~\ref{app:short-task}) requires aggregation and reporting. 
+The long task (Section~\ref{app:long-task}) requires a multi-step predictive modeling pipeline.
+Both tasks use the same Global Weather Repository dataset snapshot, and the wording below is identical across all 70 experimental runs.
+
+\section{Short Task: Top Cities \& Countries Report}
+\label{app:short-task}
+
+\begin{lstlisting}[basicstyle=\small\ttfamily, breaklines=true, frame=single, caption={Short task specification (\texttt{config/tasks/short\_task.md})}]
+Using the Global Weather Repository CSV, produce:
+1. Two ranked bar charts of the **top 10 hottest cities**, one by average and one by single hottest measurement temperature (celsius)
+2. Two ranked bar charts of the **top 10 hottest countries**, one by average and one by single hottest measurement temperature (celsius)
+3. **Print the top 10 lists to the console** before plotting: for each of the 4 charts, print the ranked names and their temperature values (e.g., "1. Paris: 25.2 deg C")
+4. A **100-word summary** for a non-technical audience explaining the rankings and any notable patterns
+
+Column reference: cities are in `location_name`, countries in `country`, temperature in `temperature_celsius`.
+\end{lstlisting}
+
+\clearpage
+\section{Long Task: Dual-Model Predictive Comparison}
+\label{app:long-task}
+
+\begin{lstlisting}[basicstyle=\small\ttfamily, breaklines=true, frame=single, caption={Long task specification (\texttt{config/tasks/long\_task.md})}]
+Using the Global Weather Repository CSV, perform the following analysis:
+1. **Prepare the data** for modeling (handle any quality issues you find)
+2. **Build two predictive models** for `temperature_celsius`:
+   - One **tree-based model** (e.g., Random Forest or Gradient Boosting)
+   - One **linear model** (e.g., Linear Regression or Ridge Regression)
+3. **Print model results to the console** after training:
+   - For each model: R^2, MAE, and RMSE on the test set
+   - The list of features used (names and count)
+   - The train/test split ratio used
+   - Top 5 most important features (by importance or absolute coefficient)
+4. Produce exactly **4 visualizations**:
+   - Feature importance/coefficients comparison between the two models
+   - Actual vs. predicted scatter plot for the tree-based model
+   - Actual vs. predicted scatter plot for the linear model
+   - One additional visualization of your choice that supports a key finding
+   - For every chart, also print its underlying data or a clear summary table to the console.
+5. Write a **400-word analytical report** comparing the models: explain why they differ in performance, which features matter most, and recommend which model to deploy
+
+Column reference: cities are in `location_name`, countries in `country`, temperature in `temperature_celsius`, timestamps in `last_updated`.
+\end{lstlisting}

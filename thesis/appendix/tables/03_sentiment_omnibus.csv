@@ -1,0 +1,5 @@
+Analyzer,Metric,H-Statistic,p-value
+VADER,Overall Run Mean Compound,51.198,2.703e-09
+VADER,Boss-Worker Sentiment Gap,19.859,0.002934
+ROBERTA,Overall Run Mean Compound,58.407,9.476e-11
+ROBERTA,Boss-Worker Sentiment Gap,57.015,1.814e-10

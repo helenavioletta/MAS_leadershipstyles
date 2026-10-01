@@ -1,0 +1,324 @@
+\chapter{Background}
+\label{chap:background}
+
+The research question motivating this thesis sits at the convergence of three historically distinct literatures: \ac{LLM}-based \acp{MAS}, organizational leadership theory, and in-context behavioral simulation~\cite{park2023generativeagentsinteractivesimulacra, muralidharan2025lessonshumanteamsapplied, kwak2026leadershipcoordinationcontrolbehavioral}.
+\ac{MAS} research provides the architectural foundation for distributing complex analytical tasks across specialized roles and shared communication channels~\cite{chen2023agentversefacilitatingmultiagentcollaboration, guo2024largelanguagemodelbased}, but has predominantly treated the central coordinator as an algorithmic router rather than as a behaving social actor~\cite{dang2025multiagentcollaborationevolvingorchestration}.
+In contrast, organizational psychology provides a rich, empirically grounded taxonomy of leadership styles that explains how managerial conduct systematically alters group dynamics, operational efficiency, and collaborative climate in human teams~\cite{goleman2000leadership, mathieu2017teamwork, barrick1998personalityteamwork}.
+Parallel research on role-play and persona conditioning demonstrates that \acp{LLM} can reliably enact fine-grained behavioral styles when instructed via system prompts~\cite{shanahan2023roleplaylargelanguagemodels, salewski2023incontextimpersonationrevealslarge, serapiogarcia2025personalitytraitslargelanguage, jiang2024personallminvestigatingabilitylarge}.
+What remains unaddressed is the synthesis of these domains: systematically manipulating the behavioral style of a designated leader agent within an otherwise fixed multi-agent hierarchy while evaluating its simultaneous consequences across output quality, computational cost, communication sentiment, and worker satisfaction.
+
+\section{Multi-Agent Systems}
+\label{sec:multi-agent-systems}
+
+Rather than relying on a single monolithic \ac{LLM} to handle an entire pipeline, \ac{LLM}-based \acp{MAS} distribute complex workflows across a small team of specialized agents~\cite{guo2024largelanguagemodelbased, dang2025multiagentcollaborationevolvingorchestration, chen2023agentversefacilitatingmultiagentcollaboration}.
+In this paradigm (exemplified by frameworks such as ChatDev and MetaGPT) agents fill distinct operational roles (such as software engineers, technical writers, or quality reviewers) and coordinate their contributions toward a shared deliverable~\cite{hong2024metagptmetaprogrammingmultiagent, qian2024chatdevcommunicativeagentssoftware}.
+This division of labor mirrors human project teams: collective success depends not only on individual agent capability, but also on how effectively the team communicates, coordinates handoffs, and resolves disagreements~\cite{muralidharan2025lessonshumanteamsapplied, mathieu2017teamwork, wageman2005teamdiagnosticsurvey}.
+However, coordination in \acp{MAS} is computationally expensive: every collaborative exchange generates billed \ac{API} tokens and increases pipeline execution time~\cite{zhang2024cutcrapeconomicalcommunication, wang2025agentdropoutdynamicagentelimination}.
+Communication volume and dialogue efficiency are therefore central operational constraints, making coordination overhead a key performance dimension alongside deliverable quality.
+
+\subsection{Communication, Memory, and Shared State}
+\label{subsec:communication-memory-shared-state}
+
+In communicative multi-agent architectures, agents interact by broadcasting or routing natural-language messages over a shared communication channel~\cite{wu2023autogenenablingnextgenllm, hong2024metagptmetaprogrammingmultiagent, guo2024largelanguagemodelbased}.
+Each agent is governed by a system prompt that defines its persona, area of technical specialization, and behavioral interaction guidelines~\cite{dang2025multiagentcollaborationevolvingorchestration, li2023camelcommunicativeagentsmind, qian2024chatdevcommunicativeagentssoftware}.
+This system prompt serves as an in-context instruction set that shapes how the agent processes conversation history and produces subsequent actions~\cite{white2023promptpatterncatalogenhance, shanahan2023roleplaylargelanguagemodels}.
+
+Because individual \ac{LLM} inference calls are stateless, \acp{MAS} must maintain contextual coherence across extended, multi-turn interactions~\cite{white2023promptpatterncatalogenhance, qian2024chatdevcommunicativeagentssoftware, wang2025talkstructurallyacthierarchically}.
+Current architectures address this challenge through two primary paradigms.
+The first paradigm relies on episodic memory streams, where agents continuously log observations, generate reflective syntheses, and formulate plans to maintain long-term behavioral consistency in open-ended simulations~\cite{park2023generativeagentsinteractivesimulacra}.
+The second paradigm uses structured, artifact-based state management, where free-form dialogue is anchored by shared, evolving project documents, such as requirements specifications, code files, and review reports, as well as visible message logs~\cite{hong2024metagptmetaprogrammingmultiagent, qian2024chatdevcommunicativeagentssoftware}.
+The system developed in this thesis adopts the artifact-and-shared-channel pattern (Chapter~\ref{chap:system-design}).
+A crucial property of this architecture is complete channel visibility: 
+Every message generated by the leader is visible in the context window of every worker agent on subsequent turns, providing the direct medium through which supervisory conduct is transmitted across the group.
+
+\subsection{Roles and Group Dynamics}
+\label{subsec:roles-group-dynamics}
+
+Assigning specialized roles to agents not only divides labor, but also creates group dynamics and managerial friction~\cite{chen2023agentversefacilitatingmultiagentcollaboration, wang2026multiagentsystemsclassicalparadigms}.
+In collaborative software and data engineering, critical junctures arise when the outputs of specialists conflict.
+For instance, an internal reviewer may reject a script or report draft~\cite{qian2024chatdevcommunicativeagentssoftware, hong2024metagptmetaprogrammingmultiagent}.
+In human organizations, resolving such friction requires managerial judgment, such as deciding whether to mandate an exhaustive rewrite, accept a pragmatic compromise, or approve the deliverable as is.
+In contrast, most multi-agent frameworks bypass managerial decision-making through hardcoded loop counters, fixed turn budgets, or heuristic consensus voting~\cite{qian2024chatdevcommunicativeagentssoftware, hong2024metagptmetaprogrammingmultiagent}.
+Decision points such as determining how review feedback is framed, when revision rounds are triggered, and when a task is officially accepted represent the moments when leadership behavior becomes operationalized~\cite{guo2024embodiedllmagentslearn, muralidharan2025lessonshumanteamsapplied, kwak2026leadershipcoordinationcontrolbehavioral}.
+
+Organizational topologies in \acp{MAS} range along a spectrum from decentralized peer networks, where agents negotiate as equals~\cite{muralidharan2025lessonshumanteamsapplied, chen2023agentversefacilitatingmultiagentcollaboration}, to hierarchical teams directed by a central coordinator~\cite{guo2024embodiedllmagentslearn, dang2025multiagentcollaborationevolvingorchestration}.
+Flat peer topologies encourage open discussion but often experience coordination failures, such as deadlocks, circular debates, and diffusion of responsibility when conflicts arise~\cite{li2023camelcommunicativeagentsmind, guo2024embodiedllmagentslearn, kwak2026leadershipcoordinationcontrolbehavioral}.
+Hierarchical topologies resolve these issues by designating a coordinator who sequences phases, assigns subtasks, mediates quality reviews, and enforces project termination~\cite{wang2025talkstructurallyacthierarchically, muralidharan2025lessonshumanteamsapplied}.
+To empirically investigate leadership style, this thesis adopts a fixed hierarchical topology.
+A hierarchical structure is necessary for studying leadership because style manipulation presupposes an authoritative coordinator.
+
+In this hierarchical setup, the architectural coordinator and the behavioral leader are embodied in the same agent: the Boss.
+While the system architecture grants the Boss the formal authority to direct the workflow, the system prompt specifies \emph{how} that authority is exercised.
+For example, the Boss can dictate solutions, solicit suggestions, provide harsh critique or encouraging praise, and demand rapid compliance or invest in iterative coaching~\cite{goleman2000leadership, kwak2026leadershipcoordinationcontrolbehavioral}.
+Extensive literature in organizational psychology confirms that a manager's leadership style profoundly influences human team climate, productivity, and job satisfaction~\cite{goleman2000leadership, schadowwolf2026effectiveleadership, lewin1939patterns, wageman2005teamdiagnosticsurvey}.
+Whether these regularities transfer to artificial agent teams is an open empirical question given the known asymmetries in how \acp{LLM} process social norms and directives~\cite{muralidharan2025lessonshumanteamsapplied, kwak2026leadershipcoordinationcontrolbehavioral}.
+
+\section{Leadership Theory}
+\label{sec:leadership-theory}
+
+Organizational psychology provides two essential assets for \acp{MAS} research: 
+an empirically validated vocabulary of distinguishable leadership behaviors, and substantial evidence showing that these behaviors systematically shape group performance and team climate~\cite{mathieu2017teamwork, goleman2000leadership, wageman2005teamdiagnosticsurvey}.
+This section outlines the evolution of leadership research toward distinct behavioral styles, details Goleman's six-style taxonomy, and justifies its selection over competing models.
+
+\subsection{Foundations of Leadership Research}
+\label{subsec:foundations-leadership}
+
+The systematic study of leadership has progressed through four major paradigms, each resolving explanatory failures of its precedent~\cite{mathieu2017teamwork, judge2002personality, judge2004transformationalleadership}.
+Early trait-based theories looked for leadership effectiveness in stable, innate personality attributes and individual characteristics~\cite{judge2002personality}.
+However, this paradigm stagnated when empirical research failed to identify a universal trait profile that reliably predicted leadership success in different situations~\cite{judge2002personality, ayman1995contingency}.
+Furthermore, an individualistic trait model is theoretically mismatched with \acp{LLM} because, unlike humans, their expressed personality is a synthetic, stochastically simulated construct highly sensitive to prompt-based conditioning and role-play boundaries rather than an immutable, biological fixture~\cite{serapiogarcia2025personalitytraitslargelanguage, shanahan2023roleplaylargelanguagemodels, lacava2025openmodelsclosedminds}.
+
+The decisive breakthrough occurred during the behavioral research era when the analytical focus shifted from who leaders \emph{are} to what leaders \emph{do}~\cite{lewin1939patterns, mathieu2017teamwork}.
+In seminal experimental studies, Lewin et al. induced autocratic, democratic, and laissez-faire leadership climates while holding group composition and task demands constant~\cite{lewin1939patterns}.
+This demonstrated that leader behavior directly and causally determines group atmosphere, social friction, and task execution~\cite{lewin1939patterns}.
+This study directly builds on this behavioral paradigm: 
+rather than assuming emergent or innate qualities, leadership is operationalized as an externally induced behavioral style within a controlled, fixed group structure.
+
+Subsequent contingency and situational theories recognized that no single behavioral style is universally optimal in all operational environments~\cite{ayman1995contingency}.
+Situational leadership models proposed that effective managers should adjust their directive and supportive behaviors to match follower competence and commitment~\cite{world6020063}, 
+while transformational leadership frameworks distinguished between transactional reward structures and vision-driven motivation~\cite{judge2004transformationalleadership, khanin2007contrastingburnsandbass}.
+Contingency theory predicts that leadership effects are moderated by task complexity~\cite{ayman1995contingency, kwak2026leadershipcoordinationcontrolbehavioral}, 
+which provides the theoretical justification for evaluating leadership styles across short, focused workflows and long, multi-stage analytical pipelines (Chapter~\ref{chap:experiment-design}).
+
+Finally, emotional intelligence frameworks synthesized behavioral concreteness with context sensitivity, establishing organizational climate as the primary transmission mechanism through which leader behavior influences collective performance~\cite{goleman2000leadership}.
+Importantly, all four historical paradigms were developed under the assumption that human followers have intrinsic motivations, career interests, and affective vulnerability.
+However, since artificial agents generate text rather than experience emotions, transferring leadership constructs to \acp{MAS} cannot be framed as psychological mimicking.
+Rather, it should be considered as an empirical investigation into how prompt-induced supervisory behavior propagates across an automated workflow.
+
+\subsection{Goleman's Six Leadership Styles}
+\label{subsec:goleman-styles}
+
+{\tolerance=1000
+\emergencystretch=1em
+Based on the concept of emotional intelligence (self-awareness, self-regulation, motivation, empathy, and social skills), Goleman identified six leadership styles that have different effects on organizational climate (flexibility, responsibility, standards, rewards, clarity, and commitment)~\cite{goleman2000leadership}.
+Table~\ref{tab:goleman-styles} (Appendix~\ref{app:tables}) describes the six styles along the relevant dimensions.
+\par}
+
+\subsubsection{Authoritative (``Come with me'').} 
+``An authoritative leader states the end but gives people plenty of leeway to devise their own means''~\cite[p.84]{goleman2000leadership}. 
+``By making clear to them how their work fits into a larger vision''~\cite[p.83]{goleman2000leadership}, this style maximizes organizational commitment and clarity. 
+Recognized as the most effective style for ``driving up every aspect of climate''~\cite[p.83]{goleman2000leadership}, it proves highly adaptable across most business situations. 
+However, its efficacy is contingent: when coordinating a ``team of experts or peers who are more experienced''~\cite[p.84]{goleman2000leadership} than the leader, the approach can backfire, making the manager appear ``pompous or out-of-touch''~\cite[p.84]{goleman2000leadership}.
+
+\subsubsection{Affiliative (``People come first'').}
+{\tolerance=1000
+\emergencystretch=1em
+The affiliative leader values ``individuals and their emotions more than tasks and goals''~\cite[p.~84]{goleman2000leadership}, prioritizing harmony and the creation of strong emotional bonds.
+This approach ``drives up flexibility'' because ``friends trust one another, allowing habitual innovation and risk taking''~\cite[p.~84]{goleman2000leadership}.
+However, the style's exclusive focus on praise has notable drawbacks: because ``affiliative leaders rarely offer constructive advice on how to improve''~\cite[p.~85]{goleman2000leadership}, mediocrity can go uncorrected.
+Consequently, ``when people need clear directives to navigate through complex challenges, the affiliative style leaves them rudderless''~\cite[p.~85]{goleman2000leadership}.
+\par}
+
+\subsubsection{Democratic (``What do you think?'').} 
+``By spending time getting people's ideas and buy-in, a [democratic] leader builds trust, respect, and commitment''~\cite[p.~85]{goleman2000leadership}. 
+``By letting workers themselves have a say in decisions that affect their goals and how they do their work,'' this style directly ``drives up flexibility and responsibility''~\cite[p.~85]{goleman2000leadership}. 
+This approach is ``ideal when a leader is himself uncertain about the best direction to take and needs ideas and guidance from able employees''~\cite[p.~85]{goleman2000leadership}. 
+However, the style can yield ``exasperating consequences,'' such as ``endless meetings where ideas are mulled over, consensus remains elusive''~\cite[p.~85]{goleman2000leadership}, ultimately leaving subordinates feeling ``confused and leaderless''~\cite[p.~85]{goleman2000leadership}.
+
+\subsubsection{Coaching (``Try this'').}
+The coaching style ``focuses primarily on personal development, not on immediate work-related tasks,'' by ``help[ing] employees identify their unique strengths and weaknesses and tie them to their personal and career aspirations''~\cite[p.~87]{goleman2000leadership}. 
+The coaching style drives performance because it ``requires constant dialogue, and that dialogue has a way of pushing up every driver of climate''~\cite[p.~87]{goleman2000leadership}.
+However, the style ``makes little sense when employees [...] are resistant to learning or changing their ways''~\cite[p.~87]{goleman2000leadership}, proving most effective when they ``are already aware of their weaknesses and would like to improve their performance''~\cite[p.~87]{goleman2000leadership}.
+
+\subsubsection{Coercive (``Do what I tell you'').}
+The coercive leader ``demands immediate compliance'', relying heavily on ``extreme top-down decision making''~\cite[p.~82]{goleman2000leadership}. 
+Although ``appropriate during a genuine emergency''~\cite[p.~83]{goleman2000leadership} or ``to kick start a turnaround''~\cite[p.~82]{goleman2000leadership}, Goleman warns this style is ``the least effective in most situations''~\cite[p.~82]{goleman2000leadership} because it severely restricts flexibility and motivation. 
+Consequently, ``people's sense of responsibility evaporates'' because ``they lose their sense of ownership''~\cite[p.~82]{goleman2000leadership}, while a leadership ``tendency to blame the bearer of bad news''~\cite[p.~82]{goleman2000leadership} effectively silences open communication.
+
+\subsubsection{Pacesetting (``Do as I do, now'').}
+The pacesetting leader ``sets extremely high performance standards and exemplifies them himself,'' demanding ``the same of everyone around him''~\cite[p.~86]{goleman2000leadership}. 
+Surprisingly, this approach ``destroys climate'' because ``employees feel overwhelmed by the pacesetter's demands for excellence'' and must resort to ``second-guessing what the leader wants''~\cite[p.~86]{goleman2000leadership}. 
+Furthermore, the pacesetter ``either gives no feedback on how people are doing or jumps in to take over when he thinks they're lagging,'' causing ``flexibility and responsibility [to] evaporate''~\cite[p.~86]{goleman2000leadership}. 
+
+Each style is defined by specific behavioral markers, such as communication patterns, decision-making approaches, and feedback mechanisms~\cite{goleman2000leadership}.
+This makes the framework operable as distinct experimental conditions~\cite{goleman2000leadership, kwak2026leadershipcoordinationcontrolbehavioral}.
+
+The styles naturally divide into two clusters along what might be termed a warmth dimension, which has been historically recognized in team science as a key driver of social cohesion and interpersonal dynamics~\cite{barrick1998personalityteamwork, mccrae1987fivefactorpersonalityvalidation, goldberg1990bigfivepersonalities}.
+The four warm styles (Authoritative, Affiliative, Democratic, and Coaching) treat the worker as a partner whose commitment must be earned through vision, support, consultation, or development~\cite{goleman2000leadership}.
+The two cold styles (Coercive and Pacesetting) treat the worker as an instrument whose compliance is demanded or whose performance is simply expected to match that of the leader~\cite{goleman2000leadership}.
+The boundary cases are informative as well: 
+The Authoritative style is directive yet warm because it grants execution autonomy within a clear vision~\cite{goleman2000leadership},
+while Pacesetting is not hostile but simply withholds feedback, making it cold by omission rather than by aggression~\cite{goleman2000leadership}.
+
+Regardless of warmth, the styles differ in how much dialogue they generate.
+The Coaching and Democratic styles are dialogue-intensive by design, whereas Coercive communication is terse and Affiliative interactions tend to be brief and emotionally supportive rather than substantively extended~\cite{goleman2000leadership, kwak2026leadershipcoordinationcontrolbehavioral}.
+
+Goleman's central claim is a causal chain: leadership style shapes organizational climate, which in turn drives objective business performance~\cite{goleman2000leadership}.
+In this study, style is manipulated directly, climate is proxied by communication sentiment~\cite{hutto2014vader} and post-run satisfaction surveys~\cite{wageman2005teamdiagnosticsurvey}, and performance is proxied by the judged quality of the team's deliverable~\cite{zheng2023judgingllmasajudgemtbenchchatbot}.
+
+\subsection{Leadership Taxonomy Selection}
+\label{subsec:leadership-taxonomy-selection}
+
+Selecting a leadership taxonomy for prompt-based experimentation in an \ac{LLM}-based \ac{MAS} imposes four requirements that narrow the candidate set.
+First, the taxonomy must provide discrete, mutually distinguishable categories, since a between-subjects experimental design requires separable conditions.
+Second, and most importantly, the categories must be defined by observable communicative behavior, such as how the leader speaks, makes decisions, and provides feedback.
+This is because a system prompt can only specify simulated communicative conduct, rather than internal biological states such as human values, self-awareness, or moral character~\cite{shanahan2023roleplaylargelanguagemodels}.
+This criterion rules out any taxonomy whose categories are based on the leader's inner motivation or follower perception rather than on describable speech acts.
+Third, the taxonomy must generate predictions on dimensions that are measurable within a single experimental run.
+Frameworks whose primary outcomes are long-term employee retention or organizational profitability are untestable in a one-shot agent pipeline.
+Fourth, the styles should be widely recognized in the management literature and likely well represented in the training corpus of \acp{LLM} because a taxonomy that the model has never encountered could not be reliably enacted from a short prompt~\cite{salewski2023incontextimpersonationrevealslarge, serapiogarcia2025personalitytraitslargelanguage, lacava2025openmodelsclosedminds}.
+
+Goleman's six-style framework satisfies all four criteria. 
+It offers six behaviorally explicit categories, which are defined by decision-making patterns, feedback mechanisms, and communicative tone~\cite{goleman2000leadership}.
+Each category has directional predictions about the team climate that can be proxied by sentiment analysis and satisfaction surveys, and it remains one of the most widely cited leadership models in both practitioner and academic discourse~\cite{goleman2000leadership}.
+The 2000 Harvard Business Review article is practitioner-facing and based on proprietary consultancy data from Hay/McBer, rather than a peer-reviewed experimental study~\cite{goleman2000leadership}.
+Therefore, the present study operationalizes the behavioral surface of each style (the observable communicative acts) rather than Goleman's underlying emotional-intelligence construct.
+
+Alternative frameworks were considered and rejected for specific reasons.
+The transformational/transactional distinction provides only two or three broad categories, and transformational leadership is heavily defined by charisma and follower inspiration, constructs that cannot be reliably specified in a system prompt~\cite{judge2004transformationalleadership, khanin2007contrastingburnsandbass, kwak2026leadershipcoordinationcontrolbehavioral}.
+Situational leadership theory defines the appropriate style according to follower maturity and developmental readiness~\cite{world6020063}. 
+Consequently, holding a single style fixed across a run contradicts the theory's adaptive logic and introduces an uncontrolled assessment variable.
+Servant leadership is defined by ethical orientation and the leader's internal motivation to serve rather than observable communicative acts, failing the behavioral-surface criterion~\cite{eva2019servantleadership}.
+Finally, individual personality trait assignments have already been extensively tested in the \ac{MAS} literature, including both behavioral trait profiles~\cite{zhang2024exploringcollaborationmechanismsllm} and full Big Five personality assignments~\cite{duan2025powerpersonalityhumansimulation}.
+Across these studies, system-level coordination and communication topologies substantially affected task performance more than individual trait assignments did~\cite{muralidharan2025lessonshumanteamsapplied, zhang2024cutcrapeconomicalcommunication}.
+This relative lack of a significant impact from assigned individual peer traits motivates the present approach.
+Rather than assigning traits to individual peers, this study manipulates the process-level behavior of the agent controlling task allocation, review, and termination, precisely the coordination-control mechanism that recent research has identified as decisive in \acp{MAS}~\cite{kwak2026leadershipcoordinationcontrolbehavioral, wang2025talkstructurallyacthierarchically}.
+
+Translating Goleman's framework into this experimental context yields four directional expectations.
+First, Goleman's four styles associated with a positive organizational climate (Authoritative, Affiliative, Democratic, and Coaching) should produce more positive communication sentiment than his two styles associated with a negative climate (Coercive and Pacesetting)~\cite{goleman2000leadership}.
+Second, these warm leadership styles should result in higher reported worker satisfaction, consistent with the finding that supportive leadership behaviors increase team members' satisfaction and willingness to continue collaborating~\cite{wageman2005teamdiagnosticsurvey, world6020063}.
+Third, dialogue-intensive styles should consume more tokens and more wall-clock time than terse styles.
+The Coaching and Democratic styles generate substantially more communicative turns than the Coercive or Affiliative styles~\cite{goleman2000leadership}.
+In an \ac{LLM}-based \ac{MAS}, every additional message is a billed \ac{API} call that introduces measurable coordination overhead~\cite{zhang2024cutcrapeconomicalcommunication, wang2025agentdropoutdynamicagentelimination}.
+Fourth, since Goleman claims that a better organizational climate leads to better business performance, styles that enhance the climate should also improve deliverable quality~\cite{goleman2000leadership}.
+This expectation is central to the hypothesis carried over from human organizational research and is specifically tested in this study.
+
+\section{LLMs as Behavioral Actors}
+\label{sec:llms-behavioral-actors}
+
+An \ac{LLM} does not have a personality in any psychological sense.
+What it can do is simulate behavioral patterns when its system prompt describes a character or role~\cite{shanahan2023roleplaylargelanguagemodels}.
+From this perspective, a model does not \textit{have} a leadership style, but it can consistently \textit{enact} one when instructed to do so~\cite{jiang2024personallminvestigatingabilitylarge, serapiogarcia2025personalitytraitslargelanguage}.
+The evidence that persona prompts change a model's own output is well established.
+When prompted with personality descriptions, models reliably express the corresponding Big Five traits, producing measurable differences in downstream language generation~\cite{serapiogarcia2025personalitytraitslargelanguage}.
+
+This in-context impersonation can systematically shift model performance in predictable directions, such as enabling domain-expert personas to solve specialized tasks more accurately~\cite{salewski2023incontextimpersonationrevealslarge}.
+Furthermore, these persona effects are demonstrably behavioral rather than merely stylistic; for instance, assigning antagonistic or toxic personas can bypass safety guards and push models toward generating verifiably harmful language~\cite{deshpande2023toxicitychatgptanalyzingpersonaassigned}.
+These simulated traits are also legible to human observers, who can accurately perceive and distinguish persona-prompted outputs from baseline text~\cite{jiang2024personallminvestigatingabilitylarge}.
+However, this mimicking capability is not limitless: recent research indicates that some language models display a form of ``closed-mindedness,'' where they resist prompt-based trait specifications and default back to their intrinsic pre-trained personalities under complex task demands~\cite{lacava2025openmodelsclosedminds}.
+
+This thesis questions whether one agent's enacted style changes the behavior of other agents in a shared team environment.
+While empirical evidence for this inter-agent behavior propagation remains sparse, a growing body of multi-agent research has begun to document how autonomous agents mutually coordinate, conform, and align their actions within shared environments~\cite{chen2023agentversefacilitatingmultiagentcollaboration, muralidharan2025lessonshumanteamsapplied, faulkner2026evaluatingcooperationllmsocial}.
+Persona-equipped generative agents form stable social relationships and engage in behaviors consistent with their assigned roles in multi-agent simulations~\cite{park2023generativeagentsinteractivesimulacra}.
+More directly, social influence dynamics and convention formation have been observed in agent populations, where behavioral norms emerge and propagate through interaction rather than explicit instruction~\cite{ashery2025emergentsocial, lin2025simulatingsocialinfluencedynamics}.
+
+This raises a fundamental question: 
+If an \ac{LLM} only enacts a leadership style without possessing it as an internal trait, what qualifies it as a leader?
+The answer draws on two distinct sources of justification.
+The first source is definitional.
+The behavioral tradition in leadership research redefined leadership as visible actions rather than as an immutable, personal trait~\cite{lewin1939patterns, judge2002personality, mathieu2017teamwork}.
+According to this definition, there is no difference between \emph{leading} and \emph{producing leader-like conduct}.
+The behavior \textit{is} the construct, and whether the leader possesses internal cognitive or affective states was never part of the measurement.
+The second source is structural.
+The Boss has formal authority over task assignment, review, and termination.
+The style prompt determines \textit{how} that authority is exercised, and the architecture determines \textit{that} it exists.
+Style without authority would be mere tone, and authority without style is precisely the neutral Baseline condition.
+What the study measures, therefore, are the behavioral and linguistic consequences of a prompt-defined style enacted through a structurally privileged position.
+
+The mechanism by which the Boss's style reaches the workers can be explained in three steps.
+First, the Boss's system prompt fixes its communicative style, including tone, verbosity, feedback patterns, and decision-making logic.
+Second, those messages enter the shared channel and become visible to every worker.
+Third, since worker outputs are conditioned on that accumulated context, the workers' language and behavior shift~\cite{shanahan2023roleplaylargelanguagemodels, lin2025simulatingsocialinfluencedynamics}.
+Any difference in tone, verbosity, or reported satisfaction is therefore attributable to the leader's style rather than to worker configuration.
+
+\section{Measuring Team Outcomes}
+\label{sec:measuring-outcomes}
+
+This study evaluates four outcome domains: output quality, operational efficiency, communication sentiment, and worker satisfaction, mapping directly onto multi-dimensional taxonomies of team effectiveness established in organizational psychology~\cite{mathieu2017teamwork, wageman2005teamdiagnosticsurvey}.
+Each domain requires a measurement instrument whose origin, assumptions, and failure modes must be understood before interpreting the results.
+Efficiency is measured directly from operational logs (e.g., tokens, duration, and messages) and requires no specialized instrument beyond the system's own metrics.
+The remaining three domains are addressed in the subsections that follow: satisfaction through adapted survey instruments, sentiment through dual-backend text analysis, and quality through automated rubric-based evaluation.
+
+\subsection{Satisfaction in Human Teams}
+\label{subsec:satisfaction-human-teams}
+
+In organizational psychology, team satisfaction is usually evaluated alongside objective performance and team viability, which represents the willingness of members to collaborate in the future~\cite{mathieu2017teamwork, auberousseau2005teamgoalcommitment}.
+The standard approach uses self-report questionnaires in which team members rate their experience on Likert-type scales, capturing dimensions such as satisfaction with leadership, interpersonal harmony, and perceived autonomy~\cite{wageman2005teamdiagnosticsurvey, hackmanoldham1975jobdiagnostic, auberousseau2005teamgoalcommitment}.
+Widely used instruments include the \ac{TDS} for leadership quality and multidimensional group experience scales that capture interpersonal harmony and team viability~\cite{wageman2005teamdiagnosticsurvey, auberousseau2005teamgoalcommitment}.
+
+\subsection{Survey Instrument Selection}
+\label{subsec:survey-instrument-selection}
+
+The \ac{TDS} was designed to evaluate specific leader behaviors, such as task-focused coaching, unhelpful directives, and interpersonal support, making it a natural fit for a study that manipulates the leader's behavioral style~\cite{wageman2005teamdiagnosticsurvey}.
+Alternative instruments, such as the Job Diagnostic Survey, measure job characteristics (e.g., autonomy, task significance, and skill variety), which are held constant by design in this experiment and would therefore be uninformative~\cite{hackmanoldham1975jobdiagnostic}.
+A further advantage of the \ac{TDS} is that its items map almost directly onto the behavioral dimensions used to define the leadership styles: direction, feedback quality, and autonomy.
+This alignment allows the survey to function as both a \ac{DV} and a built-in manipulation check.
+The Aubé-Rousseau scale adds what the \ac{TDS} lacks: a prospective judgment about willingness to continue working together~\cite{auberousseau2005teamgoalcommitment}.
+
+Adapting these instruments to the current context required making trade-offs that must be acknowledged.
+Six items were selected, five of which were adapted from the \ac{TDS} and one was adapted from Aubé-Rousseau, to be used in a four-agent workflow.
+Each worker answers the items after a single run, rather than regarding an ongoing employment relationship.
+Since these instruments were validated for repeated human interaction over weeks or months, their psychometric properties do not transfer to this setting, which limits construct validity~\cite{dominguezolmedo2024questioningsurveyresponseslarge, serapiogarcia2025personalitytraitslargelanguage}.
+Three of the six items are reverse-coded and three are positively worded, a deliberate defense against \ac{LLM} positivity bias~\cite{dominguezolmedo2024questioningsurveyresponseslarge, zheng2023judgingllmasajudgemtbenchchatbot}. 
+Positively framed items tend to saturate near the scale ceiling, regardless of the interaction.
+In contrast, reverse-coded items force the model to evaluate specific negative behaviors, which carry most of the discriminative variance.
+The item-level detail (exact wording, scoring, and composite construction) is described in Section~\ref{sec:eval-satisfaction}.
+Thus, the survey and sentiment analysis capture methodologically independent signals:
+affective tone as expressed \textit{during} the interaction and as reported \textit{after}, as well as agreement between them, which provides meaningful convergent evidence.
+
+\subsection{Synthetic Survey Responses}
+\label{subsec:synthetic-survey-responses}
+
+Recent work has explored whether \acp{LLM} can serve as proxies for human survey participants~\cite{argyle2023outofonemanyllmstosimulatehumansamples, dominguezolmedo2024questioningsurveyresponseslarge, hu2024quantifyingpersonaeffectllm}.
+Conditioning \acp{LLM} on demographic backstories can reproduce the response distributions of corresponding human populations.
+This suggests that pre-trained representations internalize systematic associations between context and self-reported experience~\cite{argyle2023outofonemanyllmstosimulatehumansamples}.
+However, synthetic survey responses also reveal systematic alignment artifacts and should not be treated as reliable proxies for human subjective experience~\cite{dominguezolmedo2024questioningsurveyresponseslarge}.
+Consistent with the role-play framework discussed in the previous section, \ac{LLM} responses to satisfaction items are best interpreted as behavioral outputs conditioned on interaction history, rather than as expressions of genuine affect~\cite{shanahan2023roleplaylargelanguagemodels, salewski2023incontextimpersonationrevealslarge}.
+Importantly, this interpretation does not require that \ac{LLM} survey responses accurately proxy human opinions.
+It only requires that responses vary \textit{systematically and differentially} with the experimental condition.
+It is impossible to interpret absolute satisfaction levels for an artificial agent. 
+The object of study is between-condition differences.
+This is a much weaker and more defensible assumption than representational accuracy, and it converts an apparent threat to validity into a scoping decision.
+
+\subsection{Sentiment as a Climate Proxy}
+\label{subsec:sentiment-climate-proxy}
+
+Goleman's organizational climate is measured in human organizations by surveying employees about their experience over time~\cite{goleman2000leadership}.
+In an \ac{LLM}-based \ac{MAS}, a complementary measurement channel is available that has no counterpart in human teams.
+Since the entire team interaction consists of natural-language messages, the affective tone of those messages is directly and exhaustively observable, providing a continuous record of the team's affective climate as it unfolds without requiring retrospective self-reports~\cite{almutairi2025taifaautomatedfeedback}.
+Here, ``sentiment'' refers to the valence of the produced words, a linguistic property, not to emotion as an internal state~\cite{hutto2014vader}.
+Therefore, the construct is better understood as \textit{affective tone} than as felt experience.
+Its use as a climate proxy rests on the assumption that the overall emotional valence of team communication reflects the collaborative atmosphere in which the work takes place~\cite{almutairi2025taifaautomatedfeedback}.
+
+\subsection{Automated Quality Assessment}
+\label{subsec:automated-quality-assessment}
+
+Scoring open-ended outputs against a structured rubric using an \ac{LLM} as an automated evaluator, commonly referred to as ``LLM-as-a-judge'', has become an established evaluation method in both single-model and multi-agent research~\cite{zheng2023judgingllmasajudgemtbenchchatbot, chen2025multiagentasjudgealigningllmagentbasedautomated}.
+Known limitations include position and verbosity biases that can inflate scores for longer or better-formatted outputs regardless of substantive quality~\cite{zheng2023judgingllmasajudgemtbenchchatbot}, self-preference bias when the judge shares a model family with the agents being evaluated, and coarse discrimination on bounded rating scales that limits the ability to detect small quality differences, compounded by single-rater noise that is inseparable from genuine run-to-run variance~\cite{zheng2023judgingllmasajudgemtbenchchatbot, chen2025multiagentasjudgealigningllmagentbasedautomated, samuel2025personagymevaluatingpersonaagents}.
+
+\section{Related Work}
+\label{sec:related-work}
+
+Research connecting organizational psychology to \ac{LLM}-based \acp{MAS} has grown rapidly, falling into two primary lines of inquiry~\cite{muralidharan2025lessonshumanteamsapplied, wang2026multiagentsystemsclassicalparadigms}.
+The first line of research manipulates structural topology and agent composition~\cite{chen2023agentversefacilitatingmultiagentcollaboration, qian2024chatdevcommunicativeagentssoftware, duan2025powerpersonalityhumansimulation, zhang2024exploringcollaborationmechanismsllm}. 
+The second line of research directly examines leadership as an experimental variable~\cite{kwak2026leadershipcoordinationcontrolbehavioral, faulkner2026evaluatingcooperationllmsocial, muralidharan2025lessonshumanteamsapplied}.
+
+The first line of research investigates how structural topology, coordination mechanisms, and agent traits influence collective outcomes~\cite{zhang2024exploringcollaborationmechanismsllm, guo2024embodiedllmagentslearn, muralidharan2025lessonshumanteamsapplied, chen2023agentversefacilitatingmultiagentcollaboration}.
+In a systematic comparison of collaboration architectures (debate, reflection, majority voting) and agent personality profiles, the chosen coordination mechanism substantially impacted task performance more than individual personality traits did~\cite{zhang2024exploringcollaborationmechanismsllm}.
+Similarly, systematic testing of Big Five personality trait assignments in multi-agent collaboration found that individual trait combinations produced only marginal performance differences~\cite{duan2025powerpersonalityhumansimulation}.
+Across these collective studies, system-level coordination and communication topologies have been shown to affect task performance substantially more than individual trait assignments~\cite{muralidharan2025lessonshumanteamsapplied, zhang2024cutcrapeconomicalcommunication}.
+This indicates that process structures dominate individual agent traits.
+However, because agents in such peer settings operate without a designated supervisor directing workflow, the coordinator's behavior itself was not manipulated.
+Similarly, while a hierarchical organization with designated lead agents has been shown to improve coordination in embodied and software-engineering tasks~\cite{guo2024embodiedllmagentslearn, qian2024chatdevcommunicativeagentssoftware, hong2024metagptmetaprogrammingmultiagent}, 
+leadership in these architectures is treated as an immutable structural fixture, such as a routing node or state-machine controller, rather than as a variable behavioral style.
+Investigations into the transferability of human team regularities to \ac{LLM} agent groups confirm that organizational principles partially apply, while also revealing notable asymmetries in how artificial agents handle feedback and role expectations~\cite{muralidharan2025lessonshumanteamsapplied}.
+
+The second line of research directly addresses leadership in \ac{LLM}-based \acp{MAS}, but focuses on programmatic process control or emergent selection rather than natural-language communicative styles.
+Examining ``leadership as coordination control,'' recent work has operationalized classical leadership styles (transactional, transformational, and situational) as programmatic, process-level controllers over a shared interaction vocabulary~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+While this demonstrates that process-level control is highly contingent upon the reliability of the team's early consensus, it deliberately abstracts leadership into state-machine-like decision rules, explicitly avoiding prompt-based behavioral personas and qualitative conversational styles in order to maintain algorithmic reproducibility~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+Other investigations have examined leadership \textit{emergence} in agent populations, by analyzing how groups select coordinators and how emergent hierarchies resolve social dilemmas and public-goods games~\cite{faulkner2026evaluatingcooperationllmsocial}.
+However, their analysis focuses on the conditions under which leaders are chosen by peers and does not address how an assigned leader's behavioral style influences execution once authority is already established.
+
+\section{Chapter Synthesis}
+\label{sec:chapter-synthesis}
+
+The arguments developed in this chapter form a single causal chain.
+In hierarchical multi-agent architectures, authority is concentrated in a designated coordinator whose messages are visible to the entire team~\cite{wang2025talkstructurallyacthierarchically, chen2023agentversefacilitatingmultiagentcollaboration}.
+Leadership theory provides a behaviorally explicit vocabulary for how that authority is exercised communicatively~\cite{goleman2000leadership}.
+Because \acp{LLM} reliably enact prompt-specified personas, the coordinator's assigned style produces visible behavioral differences in the shared channel~\cite{shanahan2023roleplaylargelanguagemodels, serapiogarcia2025personalitytraitslargelanguage, jiang2024personallminvestigatingabilitylarge}.
+Worker agents whose prompts remain identical across conditions process those messages as context.
+Thus, any shift in their output is attributable to the leader's style rather than their configuration~\cite{shanahan2023roleplaylargelanguagemodels, lin2025simulatingsocialinfluencedynamics}.
+The consequences (quality, cost, sentiment, and satisfaction) can each be measured with instruments whose limitations are known.
+
+Applying the classic experimental paradigm of holding group structure constant while systematically manipulating leadership behavior~\cite{lewin1939patterns} to artificial agent teams enables a controlled investigation: systematically manipulating only the Boss agent's leadership style across seven conditions while holding all other parameters constant (Chapter~\ref{chap:experiment-design}).
+This tests whether the central assumption of human leadership theory (that leadership style shapes team climate and performance) carries over to a system where climate is a property of generated text and performance is scored by an independent evaluator~\cite{goleman2000leadership}.

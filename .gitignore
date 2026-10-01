@@ -22,3 +22,31 @@ results_test/
 # IDE
 .vscode/
 .idea/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.run.xml
+*.thm
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
+*.acr
+*.acn
+*.alg
+*.glg
+*.glo
+*.gls

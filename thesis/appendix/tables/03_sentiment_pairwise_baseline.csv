@@ -1,0 +1,25 @@
+Analyzer,Metric,Style,baseline_mean,style_mean,U-Statistic,p-value,p < 0.05,p < Bonferroni,Effect r
+VADER,Overall Run Mean Compound,coercive,0.7977,0.253,100.0,0.0002,Yes,Yes,0.845
+VADER,Overall Run Mean Compound,authoritative,0.7977,0.8653,23.0,0.0452,Yes,No,0.456
+VADER,Overall Run Mean Compound,affiliative,0.7977,0.9563,1.0,0.0002,Yes,Yes,0.828
+VADER,Overall Run Mean Compound,democratic,0.7977,0.865,20.0,0.0257,Yes,No,0.507
+VADER,Overall Run Mean Compound,pacesetting,0.7977,0.375,100.0,0.0002,Yes,Yes,0.845
+VADER,Overall Run Mean Compound,coaching,0.7977,0.8076,45.0,0.7337,No,No,0.085
+VADER,Boss-Worker Sentiment Gap,coercive,0.1135,-0.3255,90.0,0.0028,Yes,Yes,0.676
+VADER,Boss-Worker Sentiment Gap,authoritative,0.1135,0.0974,57.0,0.6232,No,No,0.118
+VADER,Boss-Worker Sentiment Gap,affiliative,0.1135,0.0541,68.0,0.1859,No,No,0.304
+VADER,Boss-Worker Sentiment Gap,democratic,0.1135,0.0901,56.0,0.6776,No,No,0.101
+VADER,Boss-Worker Sentiment Gap,pacesetting,0.1135,-0.2716,76.0,0.0539,No,No,0.439
+VADER,Boss-Worker Sentiment Gap,coaching,0.1135,0.2206,43.0,0.6232,No,No,0.118
+ROBERTA,Overall Run Mean Compound,coercive,0.1642,0.0263,100.0,0.0002,Yes,Yes,0.845
+ROBERTA,Overall Run Mean Compound,authoritative,0.1642,0.2856,0.0,0.0002,Yes,Yes,0.845
+ROBERTA,Overall Run Mean Compound,affiliative,0.1642,0.522,0.0,0.0002,Yes,Yes,0.845
+ROBERTA,Overall Run Mean Compound,democratic,0.1642,0.2304,4.0,0.0006,Yes,Yes,0.778
+ROBERTA,Overall Run Mean Compound,pacesetting,0.1642,0.0615,81.0,0.0211,Yes,No,0.524
+ROBERTA,Overall Run Mean Compound,coaching,0.1642,0.2666,10.0,0.0028,Yes,Yes,0.676
+ROBERTA,Boss-Worker Sentiment Gap,coercive,0.1078,-0.0739,98.0,0.0003,Yes,Yes,0.811
+ROBERTA,Boss-Worker Sentiment Gap,authoritative,0.1078,0.2135,20.0,0.0257,Yes,No,0.507
+ROBERTA,Boss-Worker Sentiment Gap,affiliative,0.1078,0.4317,0.0,0.0002,Yes,Yes,0.845
+ROBERTA,Boss-Worker Sentiment Gap,democratic,0.1078,0.2144,11.0,0.0036,Yes,Yes,0.659
+ROBERTA,Boss-Worker Sentiment Gap,pacesetting,0.1078,-0.0389,87.0,0.0058,Yes,Yes,0.625
+ROBERTA,Boss-Worker Sentiment Gap,coaching,0.1078,0.2832,2.0,0.0003,Yes,Yes,0.811

@@ -1,0 +1,98 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+\section{Summary}
+\label{sec:summary}
+
+This thesis presented an empirical, controlled investigation into the operational effects of leadership style in hierarchical \acp{MAS}, evaluating 70 independent runs across seven leadership conditions and two task specifications.
+
+The empirical findings demonstrate that prompt-defined leadership framing has a strong and reproducible effect on three core operational dimensions:
+\begin{itemize}
+    \item \textbf{Communication Sentiment:} Warm, supportive leadership styles systematically elevate the affective tone across the shared communication bus, whereas directive styles create a colder conversational climate.
+    \item \textbf{Worker Satisfaction:} Subordinate agent ratings systematically shift with a supervisor's attitude. Supportive leadership fosters higher reported satisfaction, while coercive supervision depresses evaluations.
+    \item \textbf{Computational Cost:} Consultative and developmental styles substantially increase dialogue tax in terms of both token consumption and execution latency, whereas directive styles minimize operational overhead~\cite{zhang2024cutcrapeconomicalcommunication}.
+\end{itemize}
+
+In contrast, the leadership style does not significantly affect the final deliverable quality or the data-quality trap detection rates, though this null finding must be interpreted with caution given that the design was powered to detect only large effect sizes.
+
+Synthesizing these outcomes establishes the central insight of this thesis: \textbf{deliverable quality, operational cost, and team climate are statistically decoupled in \ac{LLM}-based multi-agent collaboration}~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+In hierarchical \acp{MAS}, leadership-style prompts modulate the affective and economic character of an agent team without compromising the technical accuracy of the team's deliverables~\cite{white2023promptpatterncatalogenhance, kwak2026leadershipcoordinationcontrolbehavioral}.
+
+\section{Implications}
+\label{sec:implications}
+
+The statistical decoupling of deliverable quality, operational cost, and team climate yields important practical and methodological implications for \ac{MAS} engineering.
+
+\subsection{Architectural Implications}
+
+The primary architectural takeaway is that the three outcome dimensions act as independent design components.
+Unlike architectural interventions that enforce strict cost-quality trade-offs, such as model parameter scaling or multi-turn reflection passes, leadership style acts as a safe, low-risk optimization~\cite{zhang2024cutcrapeconomicalcommunication, chen2023agentversefacilitatingmultiagentcollaboration}.
+Managerial prompts can be tuned to satisfy latency constraints, computational budgets, or user-facing communicative requirements without compromising the accuracy of deliverables~\cite{wu2023autogenenablingnextgenllm, hong2024metagptmetaprogrammingmultiagent}.
+Translating the operational profiles discussed in Section~\ref{sec:trade-offs} into practice yields three concrete design recommendations.
+
+\begin{enumerate}
+    \item \textbf{Default to Authoritative or Affiliative framing for interactive and auditable systems.}
+    For interactive, human-in-the-loop, or auditable agent systems, architects should standardize on Authoritative or Affiliative leadership prompts~\cite{goleman2000leadership, amershi2019humanaiinteraction, almutairi2025taifaautomatedfeedback}.
+    Both maximize collaborative climate and reported satisfaction while avoiding the token overhead of unconstrained participatory discussion~\cite{zhang2024cutcrapeconomicalcommunication, wageman2005teamdiagnosticsurvey}.
+    Affiliative supervision achieved the highest satisfaction of any condition at the lowest computational cost.
+
+    \item \textbf{Enforce quality control structurally rather than through leadership tone.}
+    Developers should not attempt to resolve technical errors or raise deliverable accuracy by instructing the Boss to be more attentive, collaborative, or developmental~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+    Since leadership framing does not propagate to the agent that produces the analytical artifact, technical verification has to be enforced by other means: deterministic schema validation, automated test suites, tool-augmented execution sandboxes, and specialized review agents~\cite{qian2024chatdevcommunicativeagentssoftware, hong2024metagptmetaprogrammingmultiagent, chen2025multiagentasjudgealigningllmagentbasedautomated}.
+
+    \item \textbf{Use directive framing for high-throughput, headless pipelines.}
+    For background batch processing, where conversational transparency is irrelevant, terse and directive prompt framing is safe~\cite{goleman2000leadership, hong2024metagptmetaprogrammingmultiagent}.
+    Since deliverable quality is independent of communicative warmth, prompt compression and directive task assignment reduce operating costs without degrading technical performance~\cite{zhang2024cutcrapeconomicalcommunication, kwak2026leadershipcoordinationcontrolbehavioral}.
+\end{enumerate}
+
+Whether static style assignment is optimal at all remains an open question~\cite{dang2025multiagentcollaborationevolvingorchestration, wang2025agentdropoutdynamicagentelimination}. 
+Dynamic, phase-dependent switching is treated as a research direction in Section~\ref{sec:future-work} rather than as a present recommendation.
+
+However, practitioners must exercise caution when interpreting synthetic agent metrics~\cite{dominguezolmedo2024questioningsurveyresponseslarge, samuel2025personagymevaluatingpersonaagents}.
+Although reported worker satisfaction and conversational sentiment serve as useful indicators of internal communication dynamics and prompt compliance, they should not be confused with genuine machine well-being or human user satisfaction~\cite{shanahan2023roleplaylargelanguagemodels, dominguezolmedo2024questioningsurveyresponseslarge}.
+While deploying supportive managers in human-facing \acp{MAS} establishes a constructive, auditable interaction tone, direct human evaluation remains essential for assessing real-world user experience~\cite{amershi2019humanaiinteraction, lai2021sciencehumanaidecisionmaking, almutairi2025taifaautomatedfeedback}.
+
+\subsection{Methodological and Benchmark Contributions}
+
+Beyond architectural guidance, this research outlines a multi-dimensional evaluation approach that could help guide future multi-agent behavioral studies~\cite{yehudai2026surveyevaluationllmbasedagents, muralidharan2025lessonshumanteamsapplied}.
+The evaluation pipeline, which combines dual-analyzer sentiment tracking (\ac{VADER}~\cite{hutto2014vader} and \ac{RoBERTa}~\cite{loureiro2022timelmsdiachroniclanguagemodels}), synthetic reflection surveys with reverse-coded controls~\cite{dominguezolmedo2024questioningsurveyresponseslarge}, per-run token consumption and execution duration logging, and rubric-based deliverable assessments~\cite{chen2025multiagentasjudgealigningllmagentbasedautomated}, 
+illustrates one possible way to assess organizational structures, leadership prompts, and coordination protocols in collaborative artificial intelligence~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+However, further validation is required before it can serve as a general-purpose benchmark~\cite{yehudai2026surveyevaluationllmbasedagents, samuel2025personagymevaluatingpersonaagents}.
+
+\section{Future Work}
+\label{sec:future-work}
+
+The limitations and empirical patterns identified in this thesis provide a clear roadmap for future research in multi-agent orchestration and artificial leadership.
+
+\begin{itemize}
+    \item \textbf{Multi-Judge Panels and Statistical Power Scaling.}
+    To isolate subtle leadership effects on task accuracy from evaluator noise, future studies should deploy a panel of three independent automated judges using majority voting and formal inter-rater reliability metrics~\cite{chen2025multiagentasjudgealigningllmagentbasedautomated, zheng2023judgingllmasajudgemtbenchchatbot}.
+    Combining multi-judge scoring with increased sample sizes will substantially lower the \ac{MDE} threshold, separating single-rater noise from true deliverable variance~\cite{yehudai2026surveyevaluationllmbasedagents}.
+    For example, using approximately 20 repetitions per condition would reduce the \ac{MDE} by half.
+
+    \item \textbf{Dynamic Situational Switching and Runtime Optimization.}
+    While this study evaluated static leadership assignments, an important open research question is whether dynamic leadership style transitions across project phases outperform static assignments in terms of coordination efficiency and team viability~\cite{world6020063, dang2025multiagentcollaborationevolvingorchestration}.
+    From an engineering perspective, integrating leadership styles into adaptive runtime control loops would enable orchestrators to dynamically adjust prompt verbosity and directive intensity to maintain strict token budgets or latency limits while preserving collaborative satisfaction~\cite{zhang2024cutcrapeconomicalcommunication, wang2025agentdropoutdynamicagentelimination}.
+
+    \item \textbf{Heterogeneous Follower Personas and Leader-Follower Fit.}
+    Holding worker prompts constant isolated the leadership style, but precluded studying the interaction effects between leaders and followers.
+    Systematically varying subordinate traits (such as assertiveness, verbosity, and domain expertise) will enable empirical investigation into leader-follower fit and personality complementarity in multi-agent collaboration~\cite{barrick1998personalityteamwork, duan2025powerpersonalityhumansimulation, zhang2024exploringcollaborationmechanismsllm}.
+
+    \item \textbf{Cross-Domain and Model Family Generalization.}
+    Replicating the experimental framework across diverse task domains, such as collaborative software engineering, multi-turn negotiation, factual research retrieval, and creative writing, will clarify whether the decoupling of climate, cost, and quality is universal~\cite{qian2024chatdevcommunicativeagentssoftware, li2023camelcommunicativeagentsmind, chen2023agentversefacilitatingmultiagentcollaboration}.
+    Additionally, testing whether these dynamics transfer across heterogeneous model architectures (e.g., combining open-weight worker backends with proprietary frontier supervisors) will determine whether vulnerability to supervisory authority and emotional contagion is architecture-dependent~\cite{lacava2025openmodelsclosedminds, ashery2025emergentsocial}.
+
+    \item \textbf{Scaling Team Topologies and Project Lifecycles.}
+    Expanding beyond four-agent hierarchies to larger teams ($N > 4$) and multi-stage projects will test leadership dynamics under coordination overload and evaluate how managerial framing influences complex inter-agent handoffs~\cite{wang2026multiagentsystemsclassicalparadigms, hong2024metagptmetaprogrammingmultiagent, mathieu2017teamwork}.
+
+    \item \textbf{Multimodal Vision and Verification.}
+    Integrating multimodal vision capabilities will enable agents to inspect generated visual figures and plots directly, testing whether visual verification changes the role of supervisory oversight in error detection~\cite{guo2024largelanguagemodelbased}.
+
+    \item \textbf{Direct Human Evaluation.}
+    Since deliverable quality was assessed by a single automated judge, human evaluation of the same outputs would help validate the quality metric and contextualize the LLM-as-a-judge approach, providing additional confidence that the null finding reflects a genuine absence of large effects rather than a scoring artifact~\cite{zheng2023judgingllmasajudgemtbenchchatbot, chen2025multiagentasjudgealigningllmagentbasedautomated}.
+\end{itemize}
+
+This thesis presents a systematic, multi-dimensional empirical investigation of Goleman's leadership taxonomy within hierarchical \ac{LLM}-based \acp{MAS}~\cite{goleman2000leadership}.
+It uniquely couples the simultaneous evaluation of communication sentiment, post-task satisfaction, computational resource consumption, and objective deliverable quality.
+While the null result regarding quality is limited by statistical sensitivity constraints, the observed shifts in communication tone, worker satisfaction, and computational expenditure are significant, consistent across multiple analyzers, and reproducible.
+Ultimately, these findings indicate that prompt-defined leadership framing provides an effective, low-cost mechanism for modulating the affective tone and operational resource footprint of multi-agent collaboration, while maintaining technical deliverable accuracy within underlying structural constraints~\cite{white2023promptpatterncatalogenhance, kwak2026leadershipcoordinationcontrolbehavioral}.

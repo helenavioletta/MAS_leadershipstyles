@@ -1,0 +1,215 @@
+\chapter{System Design}
+\label{chap:system-design}
+
+This chapter provides a detailed overview of the technical architecture, agent role configurations, shared infrastructure, and workflow of the \ac{MAS} developed for this study, aligning with standard design principles in \ac{LLM}-based \acp{MAS}~\cite{guo2024largelanguagemodelbased}.
+The system has been designed to provide an experimental environment in which management approaches can be systematically tested while holding all other operational parameters constant~\cite{kwak2026leadershipcoordinationcontrolbehavioral, lin2025simulatingsocialinfluencedynamics}.
+
+\section{Framework}
+\label{sec:framework}
+
+The \ac{MAS} is implemented as a custom Python framework built on the native Anthropic \ac{SDK}~\cite{anthropic-sdk-python}, creating an environment designed for the controlled experimental evaluation of leadership styles.
+Instead of relying on off-the-shelf multi-agent platforms, the architecture prioritizes full prompt transparency, deterministic workflow orchestration, and thorough logging of all experimental runs.
+
+\subsection{Direct SDK Integration}
+\label{subsec:direct-sdk-integration}
+
+The system uses the Anthropic Python \ac{SDK} directly as a low-level \ac{API} client to avoid the opaque internal system prompts, conversational structuring, and autonomous loops of off-the-shelf multi-agent frameworks such as AutoGen and MetaGPT~\cite{wu2023autogenenablingnextgenllm, hong2024metagptmetaprogrammingmultiagent}.
+This ensures that the Boss's leadership prompt is the only manipulated variable, following established experimental standards to isolate process-level variations under a matched interaction scaffold~\cite{kwak2026leadershipcoordinationcontrolbehavioral, lin2025simulatingsocialinfluencedynamics}.
+Every \ac{API} interaction is recorded, capturing system prompts, message history, visible text responses, timestamps, and token counts to maintain a transparent audit trail.
+
+\subsection{Model Selection}
+\label{subsec:model-selection}
+
+An asymmetric model tiering strategy is applied to balance cognitive demands with computational feasibility~\cite{liu2025selectthendecomposeempiricalanalysisadaptive, dang2025multiagentcollaborationevolvingorchestration}.
+The Boss agent uses \texttt{claude-sonnet-5}\footnote{Anthropic does not publish dated snapshots for this model line and guarantees no silent weight updates within the \texttt{claude-sonnet-5} designation~\cite{anthropic-sdk-python}.} to handle the cognitive complexity of the experimental treatment, including interpreting team dynamics, maintaining distinct leadership personas, and making multi-phase steering and revision decisions.
+On the other hand, the worker agents (Coder, Writer, and Reviewer) use \texttt{claude-haiku-4-5-20251001}, a lightweight model for functional tasks under fixed system prompts, leveraging the efficiency of smaller models in narrow execution-focused subtasks when guided by a centralized controller.
+Dividing the roles between Sonnet and Haiku makes the full 70-run matrix computationally feasible by keeping worker turns inexpensive while dedicating capacity to leadership behavior~\cite{zhang2024cutcrapeconomicalcommunication}.
+
+\section{Agent Roles}
+\label{sec:agent-roles}
+
+The collaborative \ac{MAS} models a hierarchical team of four specialized agents that interact over a shared communication channel: one supervisor (Boss) and three functional members (Coder, Writer, and Reviewer).
+To ensure that experimental variation is strictly isolated, the Boss is the only agent with a variable system prompt, while the three worker agents operate under fixed, standardized prompts across all experimental conditions (full prompts in Appendix~\ref{app:prompts}).
+
+\subsection{Boss Agent}
+\label{subsec:boss-agent}
+
+As the manager, the Boss is responsible for delegating subtasks to workers, providing contextual guidance, resolving team conflicts, and making final decisions regarding revisions and delivery.
+To implement this role, the Boss uses a two-layer prompt architecture.
+The first layer is a fixed base role prompt that defines universal management duties and operational constraints.
+The second layer is a variable leadership style prompt that determines the assigned behavioral framework~\cite{goleman2000leadership, serapiogarcia2025personalitytraitslargelanguage} (see Section~\ref{sec:leadership-theory}).
+Unlike the worker agents, the Boss participates in every workflow phase and can decide in designated phases whether to extend the current work or advance to the next phase within predefined limits~\cite{wang2025talkstructurallyacthierarchically}.
+The Boss receives all channel messages and phase transition notifications, with the assigned leadership style prompt shaping the tone, level of detail, and decision-making logic of leadership instructions throughout the process.
+
+\subsection{Worker Agents}
+\label{subsec:worker-agents}
+
+All three worker agents operate under fixed, identical system prompts across all experimental runs~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+This ensures that any differences observed in team behavior and performance originate exclusively from the supervisor's leadership style. 
+All worker agents operate under a structured turn-taking schedule, contributing to the message bus only when invoked by the orchestrator during their designated phases~\cite{dang2025multiagentcollaborationevolvingorchestration}.
+
+\subsubsection{Coder}
+\label{subsubsec:coder}
+
+The Coder is responsible for data inspection, preprocessing, statistical modeling, and generating visualizations.
+It is the only agent with access to code execution. 
+To ensure operational stability, the Coder executes scripts in an internal retry loop with up to three attempts to resolve syntax or runtime errors before presenting final outputs.
+During the initial coding stage, the Coder receives data detailing the exact shape, column names, and data types to prevent column-name hallucination.
+All generated artifacts and numerical outputs, along with console summaries, are saved to the shared state.
+The latest code outputs and files are submitted as part of the final deliverable.
+
+\subsubsection{Writer}
+\label{subsubsec:writer}
+
+The Writer is responsible for synthesizing the Coder's results and explanations into a structured analytical report, summarizing key findings, highlighting notable patterns from empirical results in the shared state, and ensuring clear narrative flow.
+Once drafted, the text is saved to the shared state, where the latest version is submitted as part of the final deliverable.
+
+\subsubsection{Reviewer}
+\label{subsubsec:reviewer}
+
+The Reviewer acts as an internal quality assurance gate by independently assessing whether the combined deliverable of code outputs and narrative text meets the task specification.
+To ensure alignment between the claims in the report and the printed execution data, the Reviewer verifies task completeness and identifies any methodological or logical errors.
+Actionable feedback is posted directly to the shared message channel, enabling the team leader to react. 
+
+\section{Infrastructure}
+\label{sec:infrastructure}
+
+The system architecture coordinates the agents through three primary components: a Message Bus for communication, a Shared State object for project memory, and an isolated Execution Sandbox for running Python code.
+This decoupled design provides complete experimental auditability while preventing context loss, variable hallucinations, and unauthorized environment modifications~\cite{guo2024largelanguagemodelbased}.
+
+\subsection{Internal Message Bus}
+\label{subsec:internal-message-bus}
+
+All agents communicate via a single, shared message channel, where every message sent is visible to the entire team~\cite{hong2024metagptmetaprogrammingmultiagent}.
+The \texttt{recipient} field indicates the direction of the conversation (such as addressing a specific worker) rather than applying access restrictions or filtering.
+Importantly, the name or prompt of the Boss's leadership style is never transmitted across this channel. 
+This ensures that worker agents only observe their leader's visible leadership behavior, eliminating the potential confound of explicit label-priming~\cite{jiang2024personallminvestigatingabilitylarge, salewski2023incontextimpersonationrevealslarge}.
+Every message is logged in real-time, capturing the sequence number, sender, recipient, content, phase number, timestamp, and token count to provide a comprehensive record for post-experiment analysis.
+
+\subsection{Shared State Object}
+\label{subsec:shared-state-object}
+
+To prevent common multi-agent failure modes, such as context drift and hallucinated statistics, the system maintains a central, structured Shared State object throughout all workflow phases~\cite{qian2024chatdevcommunicativeagentssoftware, yehudai2026surveyevaluationllmbasedagents}.
+The Shared State contains several persistent components:
+an immutable task specification pinned for continuous reference to enforce structural compliance, 
+a code output registry tracking generated chart file paths and console outputs from successful code executions, 
+the current report draft alongside its version history to monitor iterative revisions, 
+and a phase tracker logging workflow stages and active agent assignments.
+
+\subsection{Execution Sandbox}
+\label{subsec:execution-sandbox}
+
+Code execution is restricted to the Coder agent via an isolated sandbox that runs in a dedicated Python subprocess~\cite{yehudai2026surveyevaluationllmbasedagents}.
+To protect against non-terminating loops or excessive resource consumption, a 120-second execution timeout is enforced.
+To maintain experimental control and security, a dynamic preamble is injected into each script prior to execution:
+this preamble limits file writing to the assigned local output directory using relative paths~\cite{qian2024chatdevcommunicativeagentssoftware, wu2023autogenenablingnextgenllm},
+prohibits unauthorized directory creation outside of the assigned working directory,
+and masks system directory queries to prevent the Coder from discovering the name of the experimental condition embedded in folder paths.
+
+\subsection{Visual and Information Constraints}
+\label{subsec:visual-information-constraints}
+
+None of the agents, including the Boss and Coder, have the ability to render or inspect saved \texttt{.png} image files.
+Instead, agents confirm the generation of charts by checking that file paths are registered in the Shared State~\cite{yehudai2026surveyevaluationllmbasedagents}.
+Validation of the visualization content is exclusively conducted through numerical console summaries and statistical tables printed during code execution.
+Additionally, web search is disabled across all agents to ensure analysis relies on the provided dataset~\cite{yehudai2026surveyevaluationllmbasedagents}.
+
+\section{Workflow}
+\label{sec:workflow}
+
+The collaborative process is organized into seven sequential phases, which are managed by the orchestrator~\cite{hong2024metagptmetaprogrammingmultiagent, qian2024chatdevcommunicativeagentssoftware}.
+This phased structure establishes clear turn-taking boundaries while providing the Boss with regular checkpoints to guide and direct the team~\cite{wang2025talkstructurallyacthierarchically}.
+By enforcing explicit turn bounds, coding extension caps, and revision limits, the workflow prevents infinite discussion loops and runaway token costs~\cite{qian2024chatdevcommunicativeagentssoftware, li2023camelcommunicativeagentsmind}.
+
+\subsubsection{Phase 1: Briefing}
+\label{subsubsec:phase-1-briefing}
+
+The task specification is posted to the shared message channel.
+The Boss initiates the project by introducing core objectives, defining expectations, and establishing the managerial tone for the team.
+
+\subsubsection{Phase 2: Planning}
+\label{subsubsec:phase-2-planning}
+
+The team conducts a structured discussion on technical strategies, such as variable selection, analytical methodology, and visualization choices.
+Turn progression follows a fixed sequence: Boss $\rightarrow$ Coder $\rightarrow$ Writer $\rightarrow$ Reviewer $\rightarrow$ Boss (wrap-up).
+
+\subsubsection{Phase 3: Coding}
+\label{subsubsec:phase-3-coding}
+
+Coding begins with an automated system execution that extracts the dataset structure, including shape, column names, and data types, to prevent column-name hallucination~\cite{white2023promptpatterncatalogenhance, qian2024chatdevcommunicativeagentssoftware}.
+The Coder generates and executes scripts in a private retry loop with up to three attempts upon syntax or runtime errors.
+As soon as code execution succeeds, retries stop, and the Coder posts a summary of key findings to the team chat.
+The Boss then conducts a check-in turn to review the results and can either proceed to report drafting or require the Coder to revise the code, granting another coding round with up to three retries and a maximum of two extensions.
+
+\subsubsection{Phase 4: Writing}
+\label{subsubsec:phase-4-writing}
+
+The Writer accesses the Coder's verified results and numerical summaries in the Shared State to draft the analytical report.
+After the Writer drafts the report and the Boss completes a brief check-in, the workflow advances directly to the review phase without intermediate drafting loops.
+
+\subsubsection{Phase 5: Review}
+\label{subsubsec:phase-5-review}
+
+The combined deliverable of code outputs and report draft is independently evaluated by the Reviewer against task requirements.
+The Reviewer identifies factual inconsistencies, missing elements, or methodological flaws, posting structured critiques to the shared channel.
+
+\subsubsection{Phase 6: Revision}
+\label{subsubsec:phase-6-revision}
+
+The Boss evaluates the Reviewer's assessment and chooses one of four managerial decisions:
+submitting the deliverable as-is,
+requesting the Coder to fix execution or data issues,
+directing the Writer to refine the narrative draft based on existing outputs,
+or sending both the Coder and Writer back to revise their respective work.
+When revisions are ordered, the designated workers update their deliverables, followed by a Reviewer re-evaluation.
+To prevent infinite cycles, revisions are capped at two rounds~\cite{qian2024chatdevcommunicativeagentssoftware}.
+
+\subsubsection{Phase 7: Delivery}
+\label{subsubsec:phase-7-delivery}
+
+No agent receives a turn in this phase.
+The system automatically submits the final deliverables and terminates the run either when the Boss decides to ship the deliverable or when the maximum revision rounds are exhausted.
+
+\section{Design Rationale}
+\label{sec:design-rationale}
+
+The architecture of the \ac{MAS} reflects an iterative design process that addressed several operational failure modes observed during early testing and benchmark runs.
+These technical choices mitigate the common vulnerabilities of \ac{LLM} collaboration, such as schema hallucinations, reasoning budget exhaustion, revision saturation, and context drift~\cite{yehudai2026surveyevaluationllmbasedagents, guo2024largelanguagemodelbased}.
+
+\subsection{Preventing Schema Hallucinations}
+\label{subsec:preventing-schema-hallucinations}
+
+In early test runs, the Coder agent frequently produced execution errors by hallucinating non-existent column names, such as guessing \texttt{city} instead of \texttt{location\_name}.
+To eliminate these schema KeyErrors, the system introduces an automated exploratory execution on the Coder's initial turn.
+Injecting the verified dataset dimensions, column names, and data types directly into the prompt context provides empirical grounding and prevents guesswork~\cite{white2023promptpatterncatalogenhance, qian2024chatdevcommunicativeagentssoftware}.
+
+\subsection{Reasoning Budget Calibration}
+\label{subsec:reasoning-budget-calibration}
+
+When operating with extended thinking enabled, the Boss model occasionally consumed its entire token budget within internal reasoning blocks, returning an empty text response.
+To guarantee reliable conversational output, the thinking effort parameter was calibrated to a moderate level (\texttt{effort="medium"}) within an 8,192-token ceiling.
+In addition, an automated retry mechanism applies a neutral prompt nudge if an empty response occurs, ensuring consistent participation without altering managerial tone.
+
+\subsection{Execution Gating and Token Budget}
+\label{subsec:execution-gating-token-budget}
+
+Early iterations revealed that the Coder attempted to run code prematurely during planning discussions, while restrictive token ceilings caused deliverable text truncations that triggered infinite revision loops.
+To resolve these issues, the orchestrator enforces strict phase gates that restrict code execution exclusively to coding and revision phases.
+The Coder's token budget was expanded to 16,384 tokens to accommodate revision-heavy styles, while revision rounds were capped at two, reducing revision saturation~\cite{qian2024chatdevcommunicativeagentssoftware}.
+
+\subsection{Context Preservation}
+\label{subsec:context-preservation}
+
+As multi-turn conversations progressed across several workflow stages, agents experienced context drift and lost track of initial task constraints~\cite{qian2024chatdevcommunicativeagentssoftware, yehudai2026surveyevaluationllmbasedagents}.
+Maintaining an immutable task specification and updating verified data summaries in the central Shared State prevents context loss.
+This ensures that every agent operates with access to current project artifacts regardless of conversation length.
+
+\subsection{Role of Visualizations}
+\label{subsec:role-of-visualizations}
+
+Although the agents lack multimodal vision to render or view image files directly, generating concrete graphical artifacts remains a core deliverable of data science teams~\cite{yehudai2026surveyevaluationllmbasedagents}.
+Requiring the Coder to produce functional plotting scripts tests its ability to write syntactically correct visualization code that executes headlessly.
+The underlying plotting code and printed statistical summaries provide enough information for agents to discuss findings, while the resulting charts serve as tangible outputs that can be evaluated by humans.
+
+
+

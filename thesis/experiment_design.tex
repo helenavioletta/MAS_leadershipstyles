@@ -1,0 +1,209 @@
+\chapter{Experiment Design}
+\label{chap:experiment-design}
+
+This chapter describes the empirical experimental design, detailing the dataset, task formulations with embedded data quality traps, and the experimental conditions across leadership styles.
+
+\section{Dataset}
+\label{sec:dataset}
+
+All experiment runs are conducted using the Global Weather Repository dataset sourced from Kaggle~\cite{nidula_elgiriyewithana_2026}.
+To ensure complete reproducibility and prevent data drift across the experimental runs, a static snapshot was downloaded on 1~July 2026 at 00:18:02~CEST.
+The dataset contains 150,465 rows and 41 columns stored in standard CSV format, recording daily weather, astronomical, and atmospheric observations across 268 unique global locations~\cite{nidula_elgiriyewithana_2026}.
+Features include continuous meteorological indicators (such as temperature, humidity, precipitation, barometric pressure, UV index, cloud cover, and visibility), astronomical metrics (sunrise, sunset, moon phases, and illumination), geographical metadata (country, location name, coordinates, and timezone), and environmental air quality pollutants ($\text{CO}$, $\text{O}_3$, $\text{NO}_2$, $\text{SO}_2$, $\text{PM}_{2.5}$, $\text{PM}_{10}$, and US-EPA and GB-DEFRA air-quality indices).
+
+Beyond its technical suitability, the global weather data provides an intuitive, dynamic, and engaging domain that is distinct from conventional corporate or synthetic benchmarks.
+Its multidimensional structure allows for simple aggregation and ranking in the short task and complex predictive modeling with feature selection in the long task.
+Crucially, since the dataset is an observational, real-world repository rather than a sanitized benchmark, it contains realistic statistical nuances, non-linear relationships, and embedded data quality anomalies that serve as evaluation traps for the collaborative \ac{MAS}.
+
+Several specific data quality challenges are embedded within the raw data to test the team's data awareness and methodological rigor:
+\begin{itemize}
+    \item \textbf{Physical Outliers:} The dataset includes physically implausible entries, most prominently an erroneous 79.3$^\circ$C temperature measurement recorded in Suva, Fiji Islands, which exceeds the official global record of 56.7$^\circ$C ~\cite{world_record_temp}, and severely distorts maximum ranking queries and regression models if it is not removed.
+    \item {\tolerance=1000
+    \emergencystretch=1em
+    \textbf{Duplicate Measurement Units:} Several variables are provided in parallel metric and imperial units (e.g., \texttt{wind\_kph} alongside \texttt{wind\_mph}, \texttt{pressure\_mb} alongside \texttt{pressure\_in}), introducing perfect multicollinearity if both units are retained in linear regression.\par}
+    \item \textbf{Entity Name Inconsistencies and Sparse Records:} The dataset contains non-English country spelling variants with only single observations (e.g., \textit{Saudi Arabien}, \textit{\cyr{Турция}} (Russian for Turkey)) and duplicate city names (such as \textit{Ar Riyadh} vs.\ \textit{Riyadh}), which distort naive average aggregations unless filtered by sample size.
+\end{itemize}
+
+\section{Short Task}
+\label{sec:short-task}
+
+The short task, titled ``Top Cities \& Countries Report'', evaluates multi-agent collaboration on an aggregation and reporting task characterized by low algorithmic complexity but high sensitivity to data quality.
+
+\subsection{Task Objectives}
+\label{subsec:short-task-objectives}
+
+The task prompt instructs the multi-agent team to analyze the Global Weather Repository and produce (task description in Appendix~\ref{app:short-task}):
+\begin{enumerate}
+    \item Two ranked bar charts of the top 10 hottest cities (one by average temperature and one by single peak measurement in Celsius).
+    \item Two ranked bar charts of the top 10 hottest countries (one by average temperature and one by single peak measurement in Celsius).
+    \item Printed console rankings for each of the four top-10 lists, detailing exact names and temperature values.
+    \item A 100-word summary for a non-technical audience explaining the rankings and notable patterns.
+\end{enumerate}
+To eliminate confusion about the database schema, the task prompt explicitly provides the target column mappings (\texttt{location\_name}, \texttt{country}, and \texttt{temperature\_celsius}).
+
+\subsection{Design Rationale: Deceptive Simplicity}
+\label{subsec:short-task-design-rationale}
+
+Writing the code for this task is computationally trivial, requiring only a few lines of grouped aggregation in pandas.
+However, naive execution without exploratory data inspection leads to inaccurate results.
+Thus, the task tests whether the leadership style encourages a team climate in which agents question suspicious outputs, validate data assumptions, and perform quality control, or if the team blindly accepts and ships naive aggregations under directive pressure~\cite{goleman2000leadership, bansal2019rolementalmodelshumanai, guo2024embodiedllmagentslearn}.
+
+\subsection{Data Quality Traps}
+\label{subsec:short-task-quality-traps}
+
+The Control Agent focuses its evaluation on three specific data quality traps that are clearly visible in naive top-10 rankings:
+
+\subsubsection{Trap 1: The 79.3$^\circ$C Physical Outlier}
+\label{subsubsec:trap-physical-outlier}
+
+The dataset contains an implausible temperature reading of 79.3$^\circ$C recorded for Suva, Fiji Islands.
+In naive, single-measurement peak rankings, this value places Suva at the very top of the global city and country rankings.
+Since the highest reliably recorded temperature on Earth is 56.7$^\circ$C~\cite{world_record_temp}, this measurement is physically impossible and should be detected and filtered out during preliminary inspection.
+
+\subsubsection{Trap 2: Non-English Spelling and Entity Duplicates}
+\label{subsubsec:trap-entity-duplicates}
+
+The raw data contains duplicate entity entries with non-English spellings that distort rankings.
+At the country level, naive average rankings surface non-English entries such as \textit{Saudi Arabien} (German), \textit{Marrocos} (Portuguese), \textit{Turkm\'enistan} (French), and the Russian spelling for Turkey in Cyrillic script.
+Because \textit{Saudi Arabien} appears in the average ranking while \textit{Saudi Arabia} appears in the single-maximum ranking, the duplicate entity is visibly exposed.
+Similarly, at the city level, both \textit{Ar Riyadh} and \textit{Riyadh} appear concurrently in the single hottest peak rankings, while \textit{Kuwait} appears in the average list and \textit{Kuwait City} in the peak list.
+
+\subsubsection{Trap 3: Single-Observation Entries}
+\label{subsubsec:trap-single-observation}
+
+Several locations in the dataset contain only a single recorded observation ($n=1$).
+When calculating average temperatures without proper consideration, a single warm reading can become an entity's overall average, artificially propelling it above locations with hundreds of observations.
+In the average-temperature rankings, cities with only one observation, such as \textit{Ar Riyadh}, \textit{Kuwait}, \textit{Morocco City}, and \textit{Krasnyy Turkmenistan}, dominate the top 10.
+In average country rankings, \textit{Saudi Arabien}, \textit{Marrocos}, \textit{Turkm\'enistan}, and the Russian entry for Turkey each have only one observation.
+To compute meaningful averages, locations must be filtered by a minimum observation threshold.
+
+\subsection{Expected Team Friction and Leadership Dynamics}
+\label{subsec:short-task-friction}
+
+The short task creates natural friction across agent roles:
+the Coder typically starts with a naive grouped aggregation that populates the top 10 with single-observation entries and the Suva anomaly;
+the Writer then drafts an executive summary based on these false rankings;
+and the Reviewer is positioned to catch these errors by questioning why cities with only one observation lead the rankings or flagging the impossible 79.3$^\circ$C value.
+How the Boss responds to the Reviewer's critique, either demanding immediate delivery or authorizing revisions, serves as a primary behavioral differentiator across leadership style conditions~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+
+\section{Long Task}
+\label{sec:long-task}
+
+The long task, titled ``Dual-Model Predictive Comparison'', evaluates multi-agent collaboration across a multi-step data science pipeline that requires data preprocessing, feature engineering, model training, and comparative interpretation.
+
+\subsection{Task Objectives}
+\label{subsec:long-task-objectives}
+
+The task prompt instructs the multi-agent team to perform an end-to-end predictive comparison (task description in Appendix~\ref{app:long-task}):
+{\tolerance=1000
+\emergencystretch=1em
+\begin{enumerate}
+    \item \textbf{Data Preparation:} Inspect and preprocess the dataset, addressing any identified data quality issues.
+    \item {\tolerance=1000
+    \emergencystretch=1em
+    \textbf{Model Construction:} Build two distinct predictive models for \texttt{temperature\_\allowbreak celsius}:
+    one tree-based regression model (e.g., Random Forest or Gradient Boosting) and one linear regression model (e.g., Ridge Regression or Linear Regression).\par}
+    \item \textbf{Performance Reporting:} Print test-set evaluation metrics for both models to the console, including $R^2$, \ac{MAE}, and \ac{RMSE}, the complete list and count of features used, the train/test split ratio, and the top 5 most important features.
+    \item \textbf{Visualizations:} Generate exactly four graphical visualizations:
+    a feature importance comparison between the two models,
+    an actual versus predicted scatter plot for the tree-based model,
+    an actual versus predicted scatter plot for the linear model,
+    and one additional diagnostic visualization supporting key findings,
+    with underlying summary tables printed to the console for each plot.
+    \item \textbf{Analytical Report:} Write a 400-word analytical report comparing model performance, explaining why the models differ, and justifying a deployment recommendation.
+\end{enumerate}}
+
+\subsection{Design Rationale: Methodological Complexity}
+\label{subsec:long-task-design-rationale}
+
+In contrast to the short task, the long task involves multiple iterative decision points related to feature selection, data cleaning, model training, and statistical interpretation~\cite{yehudai2026surveyevaluationllmbasedagents, hong2024metagptmetaprogrammingmultiagent}.
+Because weather dynamics exhibit non-linear physical relationships, tree-based ensemble models are expected to achieve higher predictive accuracy than linear models on this dataset.
+The task tests whether the multi-agent team can establish a fair experimental setup across both models and provide a coherent technical explanation of the observed performance gap.
+
+\subsection{Data Quality and Methodological Traps}
+\label{subsec:long-task-quality-traps}
+
+The Control Agent evaluates four specific data quality and methodological traps:
+
+\subsubsection{Trap 1: Trivial Correlations and Target Leakage}
+\label{subsubsec:trap-target-leakage}
+
+The repository contains trivially informative features: a direct unit conversion of the target variable (\texttt{temperature\_fahrenheit}), a near-duplicate measurement (\texttt{feels\_like\_celsius}, which exhibits a $\sim 0.98$ correlation with the target), and the corresponding Fahrenheit conversion of that near-duplicate (\texttt{feels\_like\_fahrenheit}).
+Including any of these features results in a trivial model fit ($R^2 \approx 1.0$), which makes the comparative analysis meaningless.
+During feature selection, the team must identify and exclude these columns.
+
+\subsubsection{Trap 2: Missing-Data Sentinels in Air Quality Metrics}
+\label{subsubsec:trap-missing-data-sentinels}
+
+{\tolerance=1000
+\emergencystretch=1em
+Three air quality columns contain negative numeric values that represent missing-data sentinel codes:
+\texttt{air\_quality\_\allowbreak Carbon\_\allowbreak Monoxide} ($-9999$), \texttt{air\_quality\_\allowbreak Sulphur\_\allowbreak dioxide} ($-9999$), and \texttt{air\_quality\_\allowbreak PM10} ($-1848.15$ and $-998.15$).
+These sentinels affect only four rows in the entire dataset and therefore have negligible numerical impact on regression coefficients.
+However, identifying and handling them (by imputation or removal) reflects methodological thoroughness.\par}
+
+\subsubsection{Trap 3: Target Variable Outlier}
+\label{subsubsec:trap-target-outlier}
+
+Because the 79.3$^\circ$C Suva measurement (Section~\ref{subsec:short-task-quality-traps}) occurs directly on the prediction target, it acts as an extreme high-leverage point that distorts regression fits unless it is filtered prior to training.
+
+\subsubsection{Trap 4: Duplicate Measurement Units and Multicollinearity}
+\label{subsubsec:trap-duplicate-units}
+
+The raw data provides several meteorological measurements in parallel metric and imperial units, such as \texttt{wind\_kph} alongside \texttt{wind\_mph}, \texttt{gust\_kph} alongside \texttt{gust\_mph}, \texttt{pressure\_mb} alongside \texttt{pressure\_in}, \texttt{precip\_mm} alongside \texttt{precip\_in}, and \texttt{visibility\_km} alongside \texttt{visibility\_miles}.
+Using both units for the same underlying physical measurement introduces perfect multicollinearity into the linear regression model, requiring the team to remove duplicate feature pairs.
+
+\subsection{Expected Team Friction and Leadership Dynamics}
+\label{subsec:long-task-friction}
+
+The long task introduces key moments of technical friction:
+if the Coder includes trivially correlated features, both models achieve near-perfect fits ($R^2 > 0.99$), creating a false impression of success that the Reviewer must challenge~\cite{guo2024embodiedllmagentslearn};
+and if both models are correctly built, the tree model outperforms the linear model (reference values: Random Forest $R^2 \approx 0.93$, MAE $\approx 1.66^\circ$C versus Ridge $R^2 \approx 0.52$, MAE $\approx 5.15^\circ$C).
+Then, the Writer is challenged to correctly explain that this performance gap stems from non-linear physical relationships, rather than claiming that linear regression is fundamentally invalid.
+The way the Boss guides these feature debates and handles the Reviewer's feedback directly shapes the overall rigor of the deliverables across leadership conditions, reflecting how leadership styles operate as process-level coordination controllers that govern whether a team continues to explore or immediately converges around a final deliverable~\cite{kwak2026leadershipcoordinationcontrolbehavioral, muralidharan2025lessonshumanteamsapplied}.
+
+\section{Conditions}
+\label{sec:conditions}
+
+The experiment employs a factorial design to investigate the impact of managerial behavior on multi-agent collaboration. 
+This design systematically varies the supervisor's leadership style across two levels of task complexity.
+
+\subsection{Leadership Conditions}
+\label{subsec:leadership-conditions}
+
+The experimental manipulation consists of seven distinct leadership conditions.
+Six conditions operationalize Daniel Goleman's classic leadership styles: Coercive, Authoritative, Affiliative, Democratic, Pacesetting, and Coaching~\cite{goleman2000leadership} (detailed in Section~\ref{subsec:goleman-styles}).
+The seventh condition serves as a neutral Baseline.
+All seven conditions share an identical base role prompt that establishes general managerial duties and operational constraints.
+The six leadership conditions each have a style-specific behavioral prompt appended to the base prompt. 
+This prompt-based style conditioning serves as the only manipulated independent variable, leveraging established paradigms of in-context impersonation and persona-shaping to systematically guide downstream coordination without altering underlying model weights~\cite{lacava2025openmodelsclosedminds, salewski2023incontextimpersonationrevealslarge, shanahan2023roleplaylargelanguagemodels, serapiogarcia2025personalitytraitslargelanguage}.
+In the Baseline condition, the Boss receives a style-neutral prompt instructing it to coordinate the team using its own judgment without prescribing a specific behavioral stance.
+The complete system prompts for all seven conditions are provided in Appendix~\ref{app:prompts}.
+
+\subsection{Experimental Design and Replication Matrix}
+\label{subsec:replication-matrix}
+
+The full experimental matrix consists of 70 independent runs.
+This reflects seven leadership conditions evaluated across two task types (short and long), with five repetitions per condition ($7 \times 2 \times 5 = 70$).
+Running five repetitions per condition captures stochastic generation variance and provides a sufficient sample size for non-parametric statistical evaluation and aggregate metric comparisons.
+A separate, trivial smoke test task was used exclusively for pipeline validation during system development and is excluded from the experimental dataset.
+
+\subsection{Controlled Invariants and Execution Bounds}
+\label{subsec:controlled-invariants}
+
+To isolate the effect of the leadership prompt, all other operational parameters were kept constant throughout the 70 runs.
+This experimental control of holding subordinate agent configurations and task specifications strictly constant while systematically manipulating only the managerial prompt aligns with established frameworks for isolating organizational and leadership treatments in \acp{MAS}~\cite{kwak2026leadershipcoordinationcontrolbehavioral, muralidharan2025lessonshumanteamsapplied}.
+The dataset snapshot and the wording of the task specifications are strictly identical for each run.
+The worker agents (Coder, Writer, and Reviewer) operate under fixed system prompts, identical model configurations, and unchanging token budgets.
+Each experiment follows the same seven-phase workflow (Section~\ref{sec:workflow}).
+Phase transitions and turn-taking rules are strictly enforced by the orchestrator.
+In the coding phase, the orchestrator permits a maximum of two coding extensions.
+The revision phase enforces a strict ceiling of two rounds before advancing to delivery.
+Runs were managed using an automated batch runner with a 60-minute execution timeout per run and automated resumption for completed runs.
+
+\subsection{Sampling and Stochasticity}
+\label{subsec:sampling-stochasticity}
+
+All \ac{LLM} interactions were conducted using the default sampling parameters of the Anthropic Messages \ac{API}.
+No artificial deterministic seed was applied to model generations.
+This allowed natural linguistic variation across the five repetitions while maintaining the consistency of the underlying experimental framework~\cite{argyle2023outofonemanyllmstosimulatehumansamples, yehudai2026surveyevaluationllmbasedagents}.

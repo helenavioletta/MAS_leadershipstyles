@@ -1,0 +1,16 @@
+\begin{abstract}
+
+As \ac{LLM} \acp{MAS} transition from rigid execution pipelines to dynamic, collaborative hierarchies~\cite{wu2023autogenenablingnextgenllm, qian2024chatdevcommunicativeagentssoftware, dang2025multiagentcollaborationevolvingorchestration}, orchestrating specialized autonomous agents requires managerial principles that go beyond algorithmic routing.
+While organizational psychology establishes leadership style as a primary determinant of team climate and productivity in human groups~\cite{goleman2000leadership}, the behavioral effectiveness of leadership taxonomies in artificial agent teams remains largely unexplored~\cite{kwak2026leadershipcoordinationcontrolbehavioral}.
+This thesis evaluates how supervisory framing affects multi-agent collaboration by operationalizing Goleman's six leadership styles (Coercive, Authoritative, Affiliative, Democratic, Pacesetting, and Coaching) alongside a neutral Baseline in a heterogeneous four-agent team (Boss, Coder, Writer, and Reviewer).
+Across 70 controlled runs spanning two task complexities (a data ranking task and a predictive modeling workflow), worker prompts, worker model backends (\texttt{claude-haiku-4-5-20251001}), and task specifications were held constant, isolating the Boss agent's prompt-defined leadership style as the only manipulated variable while the Boss itself ran on \texttt{claude-sonnet-5}.
+Outcomes were tracked across four dimensions: rubric-based deliverable quality from an external \ac{LLM}-as-a-judge rater~\cite{zheng2023judgingllmasajudgemtbenchchatbot}, cost and latency metrics, communication sentiment (VADER~\cite{hutto2014vader} and RoBERTa~\cite{loureiro2022timelmsdiachroniclanguagemodels}), and post-task satisfaction surveys adapted from the \ac{TDS}~\cite{wageman2005teamdiagnosticsurvey} and Aubé-Rousseau viability scales~\cite{auberousseau2005teamgoalcommitment}.
+
+The results reveal a three-way statistical decoupling among deliverable quality, operational cost, and team climate.
+Leadership styles have strong, statistically significant effects on communication sentiment ($p < .001$) and worker satisfaction ($p < .05$), indicating that emotional tone propagates from the supervisor across the shared message bus.
+Leadership behavior also changes resource consumption ($p < .01$), with Democratic and Coaching styles incurring token overheads ($+48\%$ and $+32\%$ over Baseline) through dialogue-intensive coordination.
+However, it has no significant effect on deliverable quality or trap detection, which are bounded by task-level surface visibility rather than managerial guidance.
+Deliverable quality and team satisfaction are uncorrelated ($\rho = 0.001$, $p = .993$).
+Leadership framing therefore offers an effective, low-overhead mechanism for shaping team climate and dialogue cost, but does not substitute for structural task engineering to improve deliverable accuracy.
+For \ac{MAS} engineering, the Authoritative and Affiliative styles are the best operational defaults, combining high collaborative satisfaction with low computational overhead.
+\end{abstract}

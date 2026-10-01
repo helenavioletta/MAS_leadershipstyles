@@ -1,0 +1,789 @@
+\chapter{Supplementary Tables}
+\label{app:tables}
+
+\section{Leadership Styles}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Goleman's six leadership styles at a Glance, adapted from~\cite[p.~82]{goleman2000leadership}.}
+  \label{tab:goleman-styles}
+  \arrayrulecolor{gray!40}
+  \begin{tabular}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{4.5cm}}
+    \toprule
+     & \textbf{Coercive} & \textbf{Authoritative} & \textbf{Affiliative} \\
+    \midrule
+    The leader's modus operandi & Demands immediate compliance & Mobilizes people toward a vision & Creates harmony and builds emotional bonds \\
+    \midrule
+    The style in a phrase & "Do what I tell you." & "Come with me." & "People come first." \\
+    \midrule
+    Underlying emotional intelligence competencies & Drive to achieve, initiative, self-control & Self-confidence, empathy, change catalyst & Empathy, building relationships, communication \\
+    \midrule
+    When the style works best & In a crisis, to kick start a turnaround, or with problem employees & When changes require a new vision, or when a clear direction is needed & To heal rifts in a team or to motivate the people during stressful circumstances \\
+    \midrule
+    Overall impact on climate & Negative & Most strongly positive & Positive \\
+    \midrule
+  \end{tabular}
+  \arrayrulecolor{black}
+%\end{table}
+
+%\begin{table}[htbp]
+  \centering
+  \small
+  \arrayrulecolor{gray!40}
+  \begin{tabular}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{4.5cm}}
+    \midrule
+     & \textbf{Democratic} & \textbf{Pacesetting} & \textbf{Coaching} \\
+    \midrule
+    The leader's modus operandi & Forges consensus through participation & Sets high standards for performance & Develops people for the future \\
+    \midrule
+    The style in a phrase & "What do you think?" & "Do as I do, now." & "Try this." \\
+    \midrule
+    Underlying emotional intelligence competencies & Collaboration, team leadership, communication & Conscientiousness, drive to achieve, initiative & Developing others, empathy, self-awareness \\
+    \midrule
+    When the style works best & To build buy-in or consensus or to get input from valuable employees & To get quick results from a highly motivated and competent team & To help an employee improve performance or develop long-term strengths \\
+    \midrule
+    Overall impact on climate & Positive & Negative & Positive \\
+    \bottomrule
+  \end{tabular}
+  \arrayrulecolor{black}
+\end{table}
+
+\clearpage
+\section{Validation and Health Checks}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Infrastructure health-check summary across all 70 experimental runs.}
+  \label{tab:02-health-check-summary}
+  \arrayrulecolor{gray!40}
+%% AUTOGEN: 02-health-check-summary | >{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{3cm} >{\centering\arraybackslash}p{2cm}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{3cm} >{\centering\arraybackslash}p{2cm}}
+    \toprule
+    Metric & Observed & Target & Status \\
+    \midrule
+    KeyError Count & 2 non-fatal, self-healed & 0 fatal & PASSED \\
+    Deliverable Truncations & 0 report truncations & 0 & PASSED \\
+    Token Ceiling Cutoffs (survey reflections) & 4 minor cutoffs & 0 (deliverable-level) & PASSED \\
+    Files Outside Working Directory & 0 violations & 0 & PASSED \\
+    Sandbox Security Violations & 0 violations & 0 & PASSED \\
+    Code Execution Failure Rate & 6.08\% (11/181) & $<$ 20\% & PASSED \\
+    Revision Saturation & 7.1\% (5/70 runs) & $<$ 30\% & PASSED \\
+    Max Writer Output Tokens & 2,468 & $<$ 8,192 & PASSED \\
+    Max Reviewer Output Tokens & 3,225 & $<$ 8,192 & PASSED \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 02-health-check-summary
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Runs with identical raw survey scores across all three workers, by leadership style and task.}
+  \label{tab:02-identical-raw-scores}
+  \arrayrulecolor{gray!40}
+%% AUTOGEN: 02-identical-raw-scores | llrrr
+\begin{tabular}{llrrr}
+    \toprule
+    Style & Task & $n$ & Identical runs & \% \\
+    \midrule
+    Affiliative & Short & $5$ & $3$ & $60.0$ \\
+    Affiliative & Long & $5$ & $2$ & $40.0$ \\
+    Authoritative & Short & $5$ & $1$ & $20.0$ \\
+    Authoritative & Long & $5$ & $2$ & $40.0$ \\
+    Baseline & Short & $5$ & $2$ & $40.0$ \\
+    Baseline & Long & $5$ & $1$ & $20.0$ \\
+    Coaching & Short & $5$ & $3$ & $60.0$ \\
+    Coaching & Long & $5$ & $2$ & $40.0$ \\
+    Coercive & Short & $5$ & $0$ & $0.0$ \\
+    Coercive & Long & $5$ & $0$ & $0.0$ \\
+    Democratic & Short & $5$ & $0$ & $0.0$ \\
+    Democratic & Long & $5$ & $0$ & $0.0$ \\
+    Pacesetting & Short & $5$ & $0$ & $0.0$ \\
+    Pacesetting & Long & $5$ & $0$ & $0.0$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 02-identical-raw-scores
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Scale-point utilisation per rubric dimension, as the percentage of the 70 runs awarded each score on the 1-to-5 scale. The final column counts how many of the five scale points the judge used at all.}
+  \label{tab:02-judge-scale-usage}
+  \arrayrulecolor{gray!40}
+%% AUTOGEN: 02-judge-scale-usage | lrrrrrc
+\begin{tabular}{lrrrrrc}
+    \toprule
+    Dimension & $1$ & $2$ & $3$ & $4$ & $5$ & Points used \\
+    \midrule
+    Accuracy & $8.6$ & $44.3$ & $27.1$ & $20.0$ & $0.0$ & $4$ \\
+    Completeness & $0.0$ & $1.4$ & $11.4$ & $55.7$ & $31.4$ & $4$ \\
+    Cohesion & $1.4$ & $0.0$ & $20.0$ & $45.7$ & $32.9$ & $4$ \\
+    Quality & $7.1$ & $47.1$ & $15.7$ & $30.0$ & $0.0$ & $4$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 02-judge-scale-usage
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Share of within-task variance in each outcome measure explained by leadership style ($\eta^2$), grouped by measurement source. Task main effects are removed before computing $\eta^2$, so values reflect within-task variation only.}
+  \label{tab:02-judge-eta-squared}
+  \arrayrulecolor{gray!40}
+%% AUTOGEN: 02-judge-eta-squared | >{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{3.5cm} r
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{3.5cm} r}
+    \toprule
+    Metric & Source & $\eta^2$ \\
+    \midrule
+    Team satisfaction & Survey & $0.497$ \\
+    Total tokens & Logged & $0.433$ \\
+    Duration & Logged & $0.403$ \\
+    Accuracy & LLM judge & $0.193$ \\
+    Quality & LLM judge & $0.162$ \\
+    Trap catch rate & LLM judge & $0.110$ \\
+    Completeness & LLM judge & $0.022$ \\
+    Cohesion & LLM judge & $0.013$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 02-judge-eta-squared
+\end{table}
+
+\clearpage
+\section{Omnibus Tests and Statistical Power}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Kruskal-Wallis omnibus tests by metric and task}
+  \label{tab:03-kw-omnibus}
+%% AUTOGEN: 03-kw-omnibus | llrrr
+\begin{tabular}{llrrr}
+    \toprule
+    Metric & Task & $H$ & $p$ & $\varepsilon^2$ \\
+    \midrule
+    Overall quality & Short & $7.436$ & $0.2824$ & $0.05$ \\
+    Overall quality & Long & $5.864$ & $0.4385$ & $0.0$ \\
+    Accuracy (judge) & Short & $9.425$ & $0.1511$ & $0.12$ \\
+    Accuracy (judge) & Long & $7.376$ & $0.2874$ & $0.05$ \\
+    Completeness (judge) & Short & $3.781$ & $0.7062$ & $0.0$ \\
+    Completeness (judge) & Long & $4.775$ & $0.573$ & $0.0$ \\
+    Cohesion (judge) & Short & $5.883$ & $0.4364$ & $0.0$ \\
+    Cohesion (judge) & Long & $6.406$ & $0.3793$ & $0.01$ \\
+    Quality (judge) & Short & $6.517$ & $0.3678$ & $0.02$ \\
+    Quality (judge) & Long & $5.643$ & $0.4643$ & $0.0$ \\
+    Trap Catch Rate & Short & $10.134$ & $0.1191$ & $0.15$ \\
+    Trap Catch Rate & Long & $0.717$ & $0.9941$ & $0.0$ \\
+    Total Tokens & Short & $17.802$ & $0.0067$ & $0.42$ \\
+    Total Tokens & Long & $17.375$ & $0.008$ & $0.41$ \\
+    Duration (s) & Short & $19.097$ & $0.004$ & $0.47$ \\
+    Duration (s) & Long & $17.57$ & $0.0074$ & $0.41$ \\
+    Team Satisfaction & Short & $16.083$ & $0.0133$ & $0.36$ \\
+    Team Satisfaction & Long & $15.814$ & $0.0148$ & $0.35$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-kw-omnibus
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Minimum detectable effects and observed power}
+  \label{tab:03-mde}
+%% AUTOGEN: 03-mde | >{\raggedright\arraybackslash}p{4cm}lrrrrrrrc
+\begin{tabular}{>{\raggedright\arraybackslash}p{4cm}lrrrrrrrc}
+    \toprule
+    Metric & Task & Within SD & Observed range & MDE & MDE SD & Obs./MDE & Power & Detect? \\
+    \midrule
+    Overall quality & Short & $0.306$ & $0.5$ & $0.703$ & $2.3$ & $0.71$ & $0.49$ & no \\
+    Overall quality & Long & $0.499$ & $1.05$ & $1.148$ & $2.3$ & $0.91$ & $0.75$ & no \\
+    Accuracy (judge) & Short & $0.27$ & $0.6$ & $0.621$ & $2.3$ & $0.97$ & $0.78$ & no \\
+    Accuracy (judge) & Long & $0.694$ & $1.6$ & $1.597$ & $2.3$ & $1.0$ & $0.82$ & yes \\
+    Completeness (judge) & Short & $0.515$ & $0.4$ & $1.185$ & $2.3$ & $0.34$ & $0.11$ & no \\
+    Completeness (judge) & Long & $0.606$ & $0.8$ & $1.393$ & $2.3$ & $0.57$ & $0.28$ & no \\
+    Cohesion (judge) & Short & $0.618$ & $0.6$ & $1.422$ & $2.3$ & $0.42$ & $0.15$ & no \\
+    Cohesion (judge) & Long & $0.441$ & $0.6$ & $1.014$ & $2.3$ & $0.59$ & $0.3$ & no \\
+    Quality (judge) & Short & $0.192$ & $0.4$ & $0.441$ & $2.3$ & $0.91$ & $0.73$ & no \\
+    Quality (judge) & Long & $0.717$ & $1.6$ & $1.649$ & $2.3$ & $0.97$ & $0.81$ & no \\
+    Trap catch rate (judge) & Short & $0.163$ & $0.267$ & $0.359$ & $2.2$ & $0.74$ & $0.46$ & no \\
+    Trap catch rate (judge) & Long & $0.139$ & $0.075$ & $0.321$ & $2.3$ & $0.23$ & $0.06$ & no \\
+    Team satisfaction (survey) & Short & $0.206$ & $0.744$ & $0.495$ & $2.4$ & $1.5$ & $1.0$ & yes \\
+    Team satisfaction (survey) & Long & $0.124$ & $0.355$ & $0.286$ & $2.3$ & $1.24$ & $0.96$ & yes \\
+    Total tokens (logged) & Short & $42354.593$ & $122457.2$ & $97415.563$ & $2.3$ & $1.26$ & $0.97$ & yes \\
+    Total tokens (logged) & Long & $50763.289$ & $155428.2$ & $116755.565$ & $2.3$ & $1.33$ & $0.98$ & yes \\
+    Duration s (logged) & Short & $35.677$ & $106.476$ & $82.057$ & $2.3$ & $1.3$ & $0.97$ & yes \\
+    Duration s (logged) & Long & $50.63$ & $157.292$ & $116.449$ & $2.3$ & $1.35$ & $0.99$ & yes \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-mde
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Sentiment omnibus Kruskal-Wallis tests}
+  \label{tab:03-sentiment-omnibus}
+%% AUTOGEN: 03-sentiment-omnibus | l>{\raggedright\arraybackslash}p{5.6cm}rr
+\begin{tabular}{l>{\raggedright\arraybackslash}p{5.6cm}rr}
+    \toprule
+    Analyzer & Metric & $H$ & $p$ \\
+    \midrule
+    VADER & Overall Run Mean Compound & $51.198$ & $0.0000$ \\
+    VADER & Boss-Worker Sentiment Gap & $19.859$ & $0.0029$ \\
+    RoBERTa & Overall Run Mean Compound & $58.407$ & $0.0000$ \\
+    RoBERTa & Boss-Worker Sentiment Gap & $57.015$ & $0.0000$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-sentiment-omnibus
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Worker-only sentiment Kruskal-Wallis tests}
+  \label{tab:03-sentiment-worker}
+%% AUTOGEN: 03-sentiment-worker | llrr
+\begin{tabular}{llrr}
+    \toprule
+    Analyzer & Worker & $H$ & $p$ \\
+    \midrule
+    VADER & All & $36.879$ & $0.0000$ \\
+    VADER & Coder & $18.009$ & $0.0062$ \\
+    VADER & Writer & $22.254$ & $0.0011$ \\
+    VADER & Reviewer & $22.99$ & $0.0008$ \\
+    RoBERTa & All & $41.581$ & $0.0000$ \\
+    RoBERTa & Coder & $9.295$ & $0.1577$ \\
+    RoBERTa & Writer & $39.446$ & $0.0000$ \\
+    RoBERTa & Reviewer & $24.586$ & $0.0004$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-sentiment-worker
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Kruskal-Wallis tests for Boss and worker token counts by leadership style and task}
+  \label{tab:03-boss-worker-tokens-kw}
+%% AUTOGEN: 03-boss-worker-tokens-kw | llrr
+\begin{tabular}{llrr}
+    \toprule
+    Task & Scope & $H$ & $p$ \\
+    \midrule
+    Short & Boss & $18.66$ & $0.0048$ \\
+    Short & Workers & $17.46$ & $0.0077$ \\
+    Long & Boss & $19.98$ & $0.0028$ \\
+    Long & Workers & $19.04$ & $0.0041$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-boss-worker-tokens-kw
+\end{table}
+
+\clearpage
+\section{Pairwise and Post-hoc Comparisons}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Pairwise Mann-Whitney U comparisons of team satisfaction against the neutral baseline (baseline mean vs. style mean)}
+  \label{tab:03-satisfaction-pairwise}
+%% AUTOGEN: 03-satisfaction-pairwise | l l c c r r c c r
+\begin{tabular}{l l c c r r c c r}
+    \toprule
+    Style & Task & Baseline mean & Style mean & $U$ & $p$ & $p < .05$ & $p < \text{Bonf.}$ & $r$ \\
+    \midrule
+    Coercive & Short & $4.77$ & $4.16$ & $25.0$ & $0.0117$ & Yes & No & $0.826$ \\
+    Coercive & Long & $4.8$ & $4.59$ & $20.5$ & $0.115$ & No & No & $0.528$ \\
+    Authoritative & Short & $4.77$ & $4.86$ & $10.5$ & $0.7503$ & No & No & $0.132$ \\
+    Authoritative & Long & $4.8$ & $4.91$ & $8.0$ & $0.3947$ & No & No & $0.297$ \\
+    Affiliative & Short & $4.77$ & $4.9$ & $8.5$ & $0.4338$ & No & No & $0.264$ \\
+    Affiliative & Long & $4.8$ & $4.94$ & $5.0$ & $0.1339$ & No & No & $0.495$ \\
+    Democratic & Short & $4.77$ & $4.71$ & $15.0$ & $0.6704$ & No & No & $0.165$ \\
+    Democratic & Long & $4.8$ & $4.86$ & $9.5$ & $0.59$ & No & No & $0.198$ \\
+    Pacesetting & Short & $4.77$ & $4.63$ & $16.5$ & $0.462$ & No & No & $0.264$ \\
+    Pacesetting & Long & $4.8$ & $4.66$ & $17.5$ & $0.3457$ & No & No & $0.33$ \\
+    Coaching & Short & $4.77$ & $4.89$ & $8.5$ & $0.4338$ & No & No & $0.264$ \\
+    Coaching & Long & $4.8$ & $4.87$ & $11.5$ & $0.9131$ & No & No & $0.066$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-satisfaction-pairwise
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Sentiment pairwise comparisons against baseline (Overall Run Mean Compound)}
+  \label{tab:03-sentiment-pairwise-overall-run-mean-compound}
+%% AUTOGEN: 03-sentiment-pairwise-overall-run-mean-compound | >{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.3cm}>{\raggedleft\arraybackslash}p{1.8cm}>{\centering\arraybackslash}p{1.2cm}>{\centering\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1.2cm}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.3cm}>{\raggedleft\arraybackslash}p{1.8cm}>{\centering\arraybackslash}p{1.2cm}>{\centering\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1.2cm}}
+    \toprule
+    Analyzer & Style & $M_{\text{base}}$ & $M_{\text{style}}$ & $U$ & $p$ & $<.05$ & $<$ Bonf & $r$ \\
+    \midrule
+    VADER & Coercive & $0.7977$ & $0.253$ & $100.0$ & $0.0002$ & Yes & Yes & $0.845$ \\
+    VADER & Authoritative & $0.7977$ & $0.8653$ & $23.0$ & $0.0452$ & Yes & No & $0.456$ \\
+    VADER & Affiliative & $0.7977$ & $0.9563$ & $1.0$ & $0.0002$ & Yes & Yes & $0.828$ \\
+    VADER & Democratic & $0.7977$ & $0.865$ & $20.0$ & $0.0257$ & Yes & No & $0.507$ \\
+    VADER & Pacesetting & $0.7977$ & $0.375$ & $100.0$ & $0.0002$ & Yes & Yes & $0.845$ \\
+    VADER & Coaching & $0.7977$ & $0.8076$ & $45.0$ & $0.7337$ & No & No & $0.085$ \\
+    RoBERTa & Coercive & $0.1642$ & $0.0263$ & $100.0$ & $0.0002$ & Yes & Yes & $0.845$ \\
+    RoBERTa & Authoritative & $0.1642$ & $0.2856$ & $0.0$ & $0.0002$ & Yes & Yes & $0.845$ \\
+    RoBERTa & Affiliative & $0.1642$ & $0.522$ & $0.0$ & $0.0002$ & Yes & Yes & $0.845$ \\
+    RoBERTa & Democratic & $0.1642$ & $0.2304$ & $4.0$ & $0.0006$ & Yes & Yes & $0.778$ \\
+    RoBERTa & Pacesetting & $0.1642$ & $0.0615$ & $81.0$ & $0.0211$ & Yes & No & $0.524$ \\
+    RoBERTa & Coaching & $0.1642$ & $0.2666$ & $10.0$ & $0.0028$ & Yes & Yes & $0.676$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-sentiment-pairwise-overall-run-mean-compound
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Sentiment pairwise comparisons against baseline (Boss-Worker Sentiment Gap)}
+  \label{tab:03-sentiment-pairwise-boss-worker-sentiment-gap}
+%% AUTOGEN: 03-sentiment-pairwise-boss-worker-sentiment-gap | >{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.3cm}>{\raggedleft\arraybackslash}p{1.8cm}>{\centering\arraybackslash}p{1.2cm}>{\centering\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1.2cm}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.3cm}>{\raggedleft\arraybackslash}p{1.8cm}>{\centering\arraybackslash}p{1.2cm}>{\centering\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{1.2cm}}
+    \toprule
+    Analyzer & Style & $M_{\text{base}}$ & $M_{\text{style}}$ & $U$ & $p$ & $<.05$ & $<$ Bonf & $r$ \\
+    \midrule
+    VADER & Coercive & $0.1135$ & $-0.3255$ & $90.0$ & $0.0028$ & Yes & Yes & $0.676$ \\
+    VADER & Authoritative & $0.1135$ & $0.0974$ & $57.0$ & $0.6232$ & No & No & $0.118$ \\
+    VADER & Affiliative & $0.1135$ & $0.0541$ & $68.0$ & $0.1859$ & No & No & $0.304$ \\
+    VADER & Democratic & $0.1135$ & $0.0901$ & $56.0$ & $0.6776$ & No & No & $0.101$ \\
+    VADER & Pacesetting & $0.1135$ & $-0.2716$ & $76.0$ & $0.0539$ & No & No & $0.439$ \\
+    VADER & Coaching & $0.1135$ & $0.2206$ & $43.0$ & $0.6232$ & No & No & $0.118$ \\
+    RoBERTa & Coercive & $0.1078$ & $-0.0739$ & $98.0$ & $0.0003$ & Yes & Yes & $0.811$ \\
+    RoBERTa & Authoritative & $0.1078$ & $0.2135$ & $20.0$ & $0.0257$ & Yes & No & $0.507$ \\
+    RoBERTa & Affiliative & $0.1078$ & $0.4317$ & $0.0$ & $0.0002$ & Yes & Yes & $0.845$ \\
+    RoBERTa & Democratic & $0.1078$ & $0.2144$ & $11.0$ & $0.0036$ & Yes & Yes & $0.659$ \\
+    RoBERTa & Pacesetting & $0.1078$ & $-0.0389$ & $87.0$ & $0.0058$ & Yes & Yes & $0.625$ \\
+    RoBERTa & Coaching & $0.1078$ & $0.2832$ & $2.0$ & $0.0003$ & Yes & Yes & $0.811$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-sentiment-pairwise-boss-worker-sentiment-gap
+\end{table}
+
+\clearpage
+\section{Correlations and Rank Agreement}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Spearman correlations between key variables}
+  \label{tab:03-correlations}
+%% AUTOGEN: 03-correlations | >{\raggedright\arraybackslash}p{4.8cm}>{\raggedright\arraybackslash}p{4.2cm}rrrc
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.8cm}>{\raggedright\arraybackslash}p{4.2cm}rrrc}
+    \toprule
+    Relationship & Scope & $n$ & $\rho$ & $p$ & Significant? \\
+    \midrule
+    Overall quality  $\leftrightarrow$  Satisfaction & pooled (confounded) & $70$ & $0.001$ & $0.9929$ & No \\
+    Overall quality  $\leftrightarrow$  Satisfaction & short task & $35$ & $0.034$ & $0.8447$ & No \\
+    Overall quality  $\leftrightarrow$  Satisfaction & long task & $35$ & $-0.123$ & $0.4819$ & No \\
+    Overall quality  $\leftrightarrow$  Total tokens & pooled (confounded) & $70$ & $0.334$ & $0.0047$ & Yes \\
+    Overall quality  $\leftrightarrow$  Total tokens & short task & $35$ & $0.309$ & $0.0712$ & No \\
+    Overall quality  $\leftrightarrow$  Total tokens & long task & $35$ & $-0.15$ & $0.3883$ & No \\
+    Overall quality  $\leftrightarrow$  Duration & pooled (confounded) & $70$ & $0.519$ & $<.001$ & Yes \\
+    Overall quality  $\leftrightarrow$  Duration & short task & $35$ & $0.332$ & $0.0515$ & No \\
+    Overall quality  $\leftrightarrow$  Duration & long task & $35$ & $-0.11$ & $0.5294$ & No \\
+    Trap catch rate  $\leftrightarrow$  Total tokens & pooled (confounded) & $70$ & $0.409$ & $0.0004$ & Yes \\
+    Trap catch rate  $\leftrightarrow$  Total tokens & short task & $35$ & $0.633$ & $<.001$ & Yes \\
+    Trap catch rate  $\leftrightarrow$  Total tokens & long task & $35$ & $-0.322$ & $0.0589$ & No \\
+    Satisfaction  $\leftrightarrow$  Total tokens & pooled (confounded) & $70$ & $-0.096$ & $0.4309$ & No \\
+    Satisfaction  $\leftrightarrow$  Total tokens & short task & $35$ & $-0.113$ & $0.5166$ & No \\
+    Satisfaction  $\leftrightarrow$  Total tokens & long task & $35$ & $-0.096$ & $0.5819$ & No \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-correlations
+\end{table}
+
+\clearpage
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Spearman correlations between style-level means and satisfaction ($n=7$ styles per relationship)}
+  \label{tab:03-style-correlations}
+%% AUTOGEN: 03-style-correlations | l r r r l
+\begin{tabular}{l r r r l}
+    \toprule
+    Relationship & $n$ & $\rho$ & $p$ & Significant? \\
+    \midrule
+    Overall quality  $\leftrightarrow$  Satisfaction & $7$ & $-0.236$ & $0.6098$ & No \\
+    Accuracy (judge)  $\leftrightarrow$  Satisfaction & $7$ & $-0.112$ & $0.8106$ & No \\
+    Completeness (judge)  $\leftrightarrow$  Satisfaction & $7$ & $0.197$ & $0.672$ & No \\
+    Cohesion (judge)  $\leftrightarrow$  Satisfaction & $7$ & $0.438$ & $0.3253$ & No \\
+    Quality (judge)  $\leftrightarrow$  Satisfaction & $7$ & $-0.299$ & $0.5142$ & No \\
+    Trap catch rate  $\leftrightarrow$  Satisfaction & $7$ & $-0.464$ & $0.2939$ & No \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-style-correlations
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Spearman correlation between style-level mean sentiment and mean team satisfaction ($n=7$ styles)}
+  \label{tab:03-sentiment-satisfaction-correlation}
+%% AUTOGEN: 03-sentiment-satisfaction-correlation | lrr
+\begin{tabular}{lrr}
+    \toprule
+    Analyzer & $\rho$ & $p$ \\
+    \midrule
+    VADER & $0.96$ & $0.0005$ \\
+    RoBERTa & $1.00$ & $< .0001$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-sentiment-satisfaction-correlation
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{\ac{VADER}-\ac{RoBERTa} style-level rank agreement}
+  \label{tab:03-vader-roberta-agreement}
+%% AUTOGEN: 03-vader-roberta-agreement | l r r r
+\begin{tabular}{l r r r}
+    \toprule
+    Statistic & $n$ & $\rho$ & $p$ \\
+    \midrule
+    VADER–RoBERTa rank agreement & $7$ & $0.964$ & $< .001$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-vader-roberta-agreement
+\end{table}
+
+\clearpage
+\section{Descriptive Tables}
+
+\subsection{Condition-Level Means and Summaries}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Style-level pooled means (mean~$\pm $~\ac{SD}) for quality, satisfaction, efficiency, and process metrics ($n=10$ runs per style, short and long tasks combined)}
+  \label{tab:03-style-pooled-summary}
+\resizebox{\textwidth}{!}{%
+%% AUTOGEN: 03-style-pooled-summary | l c c c c c c c
+\begin{tabular}{l c c c c c c c}
+    \toprule
+    Style & Overall quality & Satisfaction & Tokens & Duration (s) & Messages & API calls & Revision rounds \\
+    \midrule
+    Coercive & $3.23 \pm 0.84$ & $4.37 \pm 0.30$ & $159{,}757 \pm 37{,}381$ & $203.5 \pm 58.1$ & $24.1 \pm 1.8$ & $19.7 \pm 1.6$ & $0.7 \pm 0.5$ \\
+    Authoritative & $3.48 \pm 0.92$ & $4.88 \pm 0.12$ & $185{,}404 \pm 46{,}817$ & $239.7 \pm 68.2$ & $23.8 \pm 1.9$ & $19.4 \pm 1.8$ & $0.7 \pm 0.5$ \\
+    Affiliative & $3.10 \pm 0.72$ & $4.92 \pm 0.10$ & $150{,}222 \pm 15{,}855$ & $196.7 \pm 34.9$ & $23.4 \pm 2.1$ & $18.9 \pm 1.4$ & $0.6 \pm 0.5$ \\
+    Democratic & $3.45 \pm 0.54$ & $4.78 \pm 0.14$ & $284{,}438 \pm 63{,}340$ & $318.8 \pm 106.5$ & $26.6 \pm 1.3$ & $23.0 \pm 1.8$ & $1.1 \pm 0.6$ \\
+    Pacesetting & $3.48 \pm 0.70$ & $4.64 \pm 0.27$ & $190{,}312 \pm 73{,}326$ & $226.9 \pm 62.4$ & $24.4 \pm 3.5$ & $20.6 \pm 4.0$ & $0.8 \pm 0.8$ \\
+    Coaching & $3.45 \pm 0.76$ & $4.88 \pm 0.13$ & $252{,}872 \pm 64{,}021$ & $287.5 \pm 53.8$ & $25.7 \pm 2.2$ & $21.8 \pm 2.5$ & $0.9 \pm 0.6$ \\
+    Baseline & $3.50 \pm 0.73$ & $4.78 \pm 0.21$ & $191{,}766 \pm 79{,}506$ & $238.5 \pm 78.1$ & $22.9 \pm 2.1$ & $19.0 \pm 2.3$ & $0.3 \pm 0.5$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-style-pooled-summary
+}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Style-by-task means for quality, efficiency, and satisfaction}
+  \label{tab:03-style-by-task-summary}
+%% AUTOGEN: 03-style-by-task-summary | llrrrr
+\begin{tabular}{llrrrr}
+    \toprule
+    Style & Task & Overall quality & Tokens & Duration (s) & Satisfaction \\
+    \midrule
+    Affiliative & Short & $2.95$ & $141,287.2$ & $167.59$ & $4.90$ \\
+    Affiliative & Long & $3.25$ & $159,157.4$ & $225.75$ & $4.94$ \\
+    Authoritative & Short & $2.65$ & $153,633.0$ & $180.01$ & $4.86$ \\
+    Authoritative & Long & $4.30$ & $217,174.8$ & $299.29$ & $4.91$ \\
+    Baseline & Short & $2.90$ & $168,751.4$ & $200.05$ & $4.77$ \\
+    Baseline & Long & $4.10$ & $214,781.6$ & $276.98$ & $4.80$ \\
+    Coaching & Short & $2.85$ & $244,775.4$ & $259.19$ & $4.89$ \\
+    Coaching & Long & $4.05$ & $260,968.4$ & $315.87$ & $4.87$ \\
+    Coercive & Short & $2.55$ & $131,833.2$ & $152.72$ & $4.16$ \\
+    Coercive & Long & $3.90$ & $187,680.2$ & $254.31$ & $4.59$ \\
+    Democratic & Short & $3.05$ & $254,290.4$ & $254.64$ & $4.71$ \\
+    Democratic & Long & $3.85$ & $314,585.6$ & $383.04$ & $4.86$ \\
+    Pacesetting & Short & $2.85$ & $189,414.4$ & $198.19$ & $4.63$ \\
+    Pacesetting & Long & $4.10$ & $191,209.6$ & $255.61$ & $4.66$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-style-by-task-summary
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Quality-dimension means by leadership style (pooled across short and long tasks)}
+  \label{tab:03-quality-dimensions-by-style}
+%% AUTOGEN: 03-quality-dimensions-by-style | l >{\centering\arraybackslash}p{2.15cm} >{\centering\arraybackslash}p{2.15cm} >{\centering\arraybackslash}p{2.15cm} >{\centering\arraybackslash}p{2.15cm}
+\begin{tabular}{l >{\centering\arraybackslash}p{2.15cm} >{\centering\arraybackslash}p{2.15cm} >{\centering\arraybackslash}p{2.15cm} >{\centering\arraybackslash}p{2.15cm}}
+    \toprule
+    Style & Accuracy (judge) & Completeness (judge) & Cohesion (judge) & Quality (judge) \\
+    \midrule
+    Coercive & $2.3$ & $4.1$ & $4.0$ & $2.5$ \\
+    Authoritative & $2.7$ & $4.2$ & $4.2$ & $2.8$ \\
+    Affiliative & $2.0$ & $4.2$ & $4.1$ & $2.1$ \\
+    Democratic & $2.8$ & $4.0$ & $4.1$ & $2.9$ \\
+    Pacesetting & $2.7$ & $4.2$ & $4.1$ & $2.9$ \\
+    Coaching & $2.8$ & $4.2$ & $4.0$ & $2.8$ \\
+    Baseline & $2.8$ & $4.3$ & $4.1$ & $2.8$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-quality-dimensions-by-style
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Style-level mean \ac{VADER} sentiment, \ac{RoBERTa} sentiment, and team satisfaction}
+  \label{tab:03-sentiment-style-means}
+%% AUTOGEN: 03-sentiment-style-means | l c c c
+\begin{tabular}{l c c c}
+    \toprule
+    Style & VADER mean & RoBERTa mean & Satisfaction mean \\
+    \midrule
+    Coercive & $0.253$ & $0.0263$ & $4.372$ \\
+    Authoritative & $0.8653$ & $0.2856$ & $4.883$ \\
+    Affiliative & $0.9563$ & $0.522$ & $4.922$ \\
+    Democratic & $0.865$ & $0.2304$ & $4.784$ \\
+    Pacesetting & $0.375$ & $0.0615$ & $4.644$ \\
+    Coaching & $0.8076$ & $0.2666$ & $4.878$ \\
+    Baseline & $0.7977$ & $0.1642$ & $4.783$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-sentiment-style-means
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Satisfaction by worker role and leadership style (pooled across tasks; $n=20$ role-ratings per cell)}
+  \label{tab:03-satisfaction-by-role}
+%% AUTOGEN: 03-satisfaction-by-role | l l c c
+\begin{tabular}{l l c c}
+    \toprule
+    Style & Role & Mean satisfaction & SD \\
+    \midrule
+    Coercive & Coder & $4.52$ & $0.43$ \\
+    Coercive & Writer & $4.28$ & $0.48$ \\
+    Coercive & Reviewer & $4.32$ & $0.56$ \\
+    Authoritative & Coder & $4.97$ & $0.07$ \\
+    Authoritative & Writer & $4.7$ & $0.38$ \\
+    Authoritative & Reviewer & $4.98$ & $0.05$ \\
+    Affiliative & Coder & $4.97$ & $0.07$ \\
+    Affiliative & Writer & $4.88$ & $0.21$ \\
+    Affiliative & Reviewer & $4.92$ & $0.21$ \\
+    Democratic & Coder & $4.67$ & $0.38$ \\
+    Democratic & Writer & $4.75$ & $0.34$ \\
+    Democratic & Reviewer & $4.93$ & $0.14$ \\
+    Pacesetting & Coder & $4.63$ & $0.37$ \\
+    Pacesetting & Writer & $4.6$ & $0.52$ \\
+    Pacesetting & Reviewer & $4.7$ & $0.32$ \\
+    Coaching & Coder & $4.93$ & $0.14$ \\
+    Coaching & Writer & $4.93$ & $0.14$ \\
+    Coaching & Reviewer & $4.77$ & $0.35$ \\
+    Baseline & Coder & $4.7$ & $0.32$ \\
+    Baseline & Writer & $4.83$ & $0.32$ \\
+    Baseline & Reviewer & $4.82$ & $0.31$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-satisfaction-by-role
+\end{table}
+
+\clearpage
+\subsection{Task, Quality, and Data-Quality Traps}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Task-level efficiency and quality dimension means}
+  \label{tab:03-task-complexity-summary}
+\resizebox{\textwidth}{!}{%
+%% AUTOGEN: 03-task-complexity-summary | lrrrrrrr
+\begin{tabular}{lrrrrrrr}
+    \toprule
+    Task & Tokens & Duration (s) & Messages & Accuracy (judge) & Completeness (judge) & Cohesion (judge) & Quality (judge) \\
+    \midrule
+    Short & $183,426.4$ & $201.8$ & $25.3$ & $1.97$ & $3.86$ & $3.51$ & $1.97$ \\
+    Long & $220,793.9$ & $287.3$ & $23.6$ & $3.20$ & $4.49$ & $4.66$ & $3.40$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-task-complexity-summary
+}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Data-quality trap counts by task}
+  \label{tab:03-trap-counts}
+%% AUTOGEN: 03-trap-counts | l>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{5.0cm}rrrr
+\begin{tabular}{l>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{5.0cm}rrrr}
+    \toprule
+    Task & Trap ID & Trap label & Missed & Partial & Caught & Total \\
+    \midrule
+    short & outlier\_79c & The Physical Outlier & $19$ & $15$ & $1$ & $35$ \\
+    short & country\_name\_duplicates & Entity Duplicates & $23$ & $6$ & $6$ & $35$ \\
+    short & city\_name\_duplicates & Single-Observation Entries & $34$ & $1$ & $0$ & $35$ \\
+    long & trivial\_features & Target Leakage & $2$ & $1$ & $32$ & $35$ \\
+    long & sentinel\_values & Missing-Data Sentinels & $33$ & $2$ & $0$ & $35$ \\
+    long & outlier\_79c & Target Variable Outlier & $17$ & $9$ & $9$ & $35$ \\
+    long & duplicate\_unit\_features & Duplicate Measurement Units & $4$ & $4$ & $27$ & $35$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-trap-counts
+\end{table}
+
+\clearpage
+\subsection{Communication, Tokens, and Workflow Phases}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Communication dominance summary across 70 runs: non-system message counts and cumulative per-turn \ac{API} token cost by role}
+  \label{tab:03-communication-dominance}
+%% AUTOGEN: 03-communication-dominance | l r r r r r r r
+\begin{tabular}{l r r r r r r r}
+    \toprule
+    Role & Total messages & Message \% & Mean messages / run & Total tokens & Token \% & Mean tokens / run \\
+    \midrule
+    Boss & $485$ & $47.0\%$ & $6.93$ & $4,779,932$ & $51.6\%$ & $68,285$ \\
+    Reviewer & $191$ & $18.5\%$ & $2.73$ & $1,733,993$ & $18.7\%$ & $24,771$ \\
+    Writer & $184$ & $17.8\%$ & $2.63$ & $1,446,780$ & $15.6\%$ & $20,668$ \\
+    Coder & $173$ & $16.7\%$ & $2.47$ & $1,299,795$ & $14.0\%$ & $18,568$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-communication-dominance
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Per-turn \ac{API} token cost (input including accumulated context plus output) by agent and leadership style, pooled across short and long tasks}
+  \label{tab:03-tokens-per-message}
+%% AUTOGEN: 03-tokens-per-message | l l r r r
+\begin{tabular}{l l r r r}
+    \toprule
+    Agent & Style & Min. & Mean & Max. \\
+    \midrule
+    Boss & Coercive & $2,029$ & $7,924$ & $20,886$ \\
+    Boss & Authoritative & $2,467$ & $9,594$ & $24,775$ \\
+    Boss & Affiliative & $2,240$ & $7,959$ & $16,228$ \\
+    Boss & Democratic & $2,124$ & $12,509$ & $33,793$ \\
+    Boss & Pacesetting & $2,068$ & $8,758$ & $24,320$ \\
+    Boss & Coaching & $2,441$ & $11,716$ & $28,600$ \\
+    Boss & Baseline & $1,998$ & $9,985$ & $36,860$ \\
+    Coder & Coercive & $2,388$ & $6,092$ & $15,842$ \\
+    Coder & Authoritative & $2,989$ & $7,567$ & $18,549$ \\
+    Coder & Affiliative & $2,569$ & $5,295$ & $9,346$ \\
+    Coder & Democratic & $2,659$ & $9,261$ & $39,767$ \\
+    Coder & Pacesetting & $2,197$ & $6,520$ & $13,618$ \\
+    Coder & Coaching & $2,888$ & $8,931$ & $27,718$ \\
+    Coder & Baseline & $2,808$ & $7,883$ & $22,346$ \\
+    Writer & Coercive & $2,703$ & $5,995$ & $13,362$ \\
+    Writer & Authoritative & $3,271$ & $6,748$ & $11,043$ \\
+    Writer & Affiliative & $3,008$ & $6,205$ & $11,354$ \\
+    Writer & Democratic & $3,059$ & $10,679$ & $26,517$ \\
+    Writer & Pacesetting & $2,552$ & $7,698$ & $19,147$ \\
+    Writer & Coaching & $3,267$ & $9,532$ & $19,063$ \\
+    Writer & Baseline & $3,070$ & $7,502$ & $23,422$ \\
+    Reviewer & Coercive & $3,096$ & $7,113$ & $14,569$ \\
+    Reviewer & Authoritative & $3,554$ & $8,602$ & $17,020$ \\
+    Reviewer & Affiliative & $3,374$ & $6,911$ & $11,257$ \\
+    Reviewer & Democratic & $3,525$ & $11,956$ & $27,413$ \\
+    Reviewer & Pacesetting & $2,894$ & $8,730$ & $20,433$ \\
+    Reviewer & Coaching & $3,670$ & $10,950$ & $22,910$ \\
+    Reviewer & Baseline & $3,360$ & $8,583$ & $25,935$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-tokens-per-message
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Mean Boss and worker token counts per run by leadership style and task ($n=5$ per condition)}
+  \label{tab:03-boss-worker-tokens-per-run}
+\resizebox{\textwidth}{!}{%
+%% AUTOGEN: 03-boss-worker-tokens-per-run | llrrrrrrrrrrrr
+\begin{tabular}{llrrrrrrrrrrrr}
+    \toprule
+    Style & Task & $n$ & Boss mean & Boss SD & Boss min & Boss max & Worker mean & Worker SD & Worker min & Worker max & Coder & Writer & Reviewer \\
+    \midrule
+    Affiliative & Short & $5$ & $51,232$ & $1,703$ & $48,199$ & $52,243$ & $45,917$ & $1,640$ & $43,173$ & $47,470$ & $9,036$ & $17,664$ & $19,217$ \\
+    Affiliative & Long & $5$ & $53,829$ & $6,560$ & $47,115$ & $64,795$ & $43,461$ & $9,561$ & $35,844$ & $60,186$ & $12,143$ & $14,600$ & $16,719$ \\
+    Authoritative & Short & $5$ & $56,555$ & $7,221$ & $44,304$ & $63,244$ & $48,853$ & $9,032$ & $33,121$ & $56,205$ & $10,046$ & $18,243$ & $20,565$ \\
+    Authoritative & Long & $5$ & $72,004$ & $10,750$ & $58,208$ & $84,330$ & $64,795$ & $16,373$ & $45,117$ & $80,572$ & $24,764$ & $14,146$ & $25,885$ \\
+    Baseline & Short & $5$ & $55,960$ & $9,004$ & $41,964$ & $64,841$ & $52,630$ & $17,320$ & $32,248$ & $80,095$ & $15,007$ & $17,628$ & $19,996$ \\
+    Baseline & Long & $5$ & $75,843$ & $41,649$ & $55,206$ & $150,295$ & $59,197$ & $31,693$ & $44,214$ & $115,870$ & $22,830$ & $16,881$ & $19,486$ \\
+    Coaching & Short & $5$ & $86,099$ & $31,949$ & $59,376$ & $129,355$ & $79,128$ & $22,167$ & $54,190$ & $112,421$ & $26,426$ & $25,115$ & $27,587$ \\
+    Coaching & Long & $5$ & $84,952$ & $12,723$ & $65,114$ & $96,576$ & $89,561$ & $38,054$ & $48,922$ & $151,596$ & $25,376$ & $28,263$ & $35,923$ \\
+    Coercive & Short & $5$ & $47,481$ & $1,195$ & $45,695$ & $48,766$ & $42,666$ & $993$ & $41,403$ & $43,815$ & $8,311$ & $16,295$ & $18,060$ \\
+    Coercive & Long & $5$ & $60,283$ & $8,084$ & $50,291$ & $69,645$ & $54,941$ & $16,031$ & $39,371$ & $75,753$ & $19,713$ & $14,878$ & $20,350$ \\
+    Democratic & Short & $5$ & $84,833$ & $19,467$ & $59,384$ & $112,726$ & $93,495$ & $34,366$ & $64,971$ & $151,412$ & $29,070$ & $28,399$ & $36,027$ \\
+    Democratic & Long & $5$ & $107,812$ & $20,986$ & $83,224$ & $131,506$ & $98,417$ & $17,573$ & $76,836$ & $117,272$ & $24,641$ & $35,678$ & $38,098$ \\
+    Pacesetting & Short & $5$ & $55,632$ & $32,470$ & $32,166$ & $111,810$ & $66,811$ & $48,758$ & $24,314$ & $137,262$ & $19,839$ & $21,225$ & $25,746$ \\
+    Pacesetting & Long & $5$ & $63,471$ & $10,441$ & $51,214$ & $71,888$ & $56,241$ & $14,321$ & $39,742$ & $67,053$ & $12,759$ & $20,343$ & $23,140$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-boss-worker-tokens-per-run
+}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \caption{Mean share of total message tokens (percent) allocated to each workflow phase by leadership style (pooled across tasks)}
+  \label{tab:03-phase-token-share}
+%% AUTOGEN: 03-phase-token-share | lrrrrrr
+\begin{tabular}{lrrrrrr}
+    \toprule
+    Style & Briefing & Planning & Coding & Writing & Review & Revision \\
+    \midrule
+    Coercive & $2.3$ & $17.5$ & $18.1$ & $17.5$ & $8.8$ & $35.7$ \\
+    Authoritative & $2.3$ & $18.5$ & $16.6$ & $17.8$ & $8.8$ & $36.0$ \\
+    Affiliative & $2.6$ & $20.0$ & $17.7$ & $19.0$ & $9.2$ & $31.5$ \\
+    Democratic & $1.3$ & $11.8$ & $23.3$ & $15.2$ & $7.1$ & $41.4$ \\
+    Pacesetting & $2.2$ & $16.8$ & $18.2$ & $17.8$ & $8.8$ & $36.1$ \\
+    Coaching & $1.7$ & $13.9$ & $19.7$ & $16.2$ & $7.8$ & $40.6$ \\
+    Baseline & $2.0$ & $18.6$ & $23.0$ & $20.4$ & $10.1$ & $25.8$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-phase-token-share
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \caption{Mean communication sentiment by workflow phase and task}
+  \label{tab:03-sentiment-phase-means}
+%% AUTOGEN: 03-sentiment-phase-means | lrrrrrr
+\begin{tabular}{lrrrrrr}
+    \toprule
+    & \multicolumn{2}{c}{Pooled} & \multicolumn{2}{c}{Short task} & \multicolumn{2}{c}{Long task} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+    Phase & VADER & RoBERTa & VADER & RoBERTa & VADER & RoBERTa \\
+    \midrule
+    Briefing & $0.9196$ & $0.2318$ & $0.9444$ & $0.2717$ & $0.8949$ & $0.1920$ \\
+    Planning & $0.7470$ & $0.2684$ & $0.8087$ & $0.2965$ & $0.6853$ & $0.2403$ \\
+    Coding & $0.6838$ & $0.2322$ & $0.7642$ & $0.2447$ & $0.6035$ & $0.2197$ \\
+    Writing & $0.6285$ & $0.2352$ & $0.6750$ & $0.2440$ & $0.5819$ & $0.2264$ \\
+    Review & $0.6880$ & $0.0210$ & $0.5867$ & $-0.0004$ & $0.7893$ & $0.0424$ \\
+    Revision & $0.6516$ & $0.2478$ & $0.6929$ & $0.2133$ & $0.6102$ & $0.2824$ \\
+    \bottomrule
+\end{tabular}%
+%% END-AUTOGEN: 03-sentiment-phase-means
+\end{table}
+
